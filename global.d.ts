@@ -167,15 +167,15 @@ interface CScriptBindingPR_Players{
     /**
      * Get the maximum number of players in the game.
      */
-    GetMaxPlayers()
+    GetMaxPlayers() : number
     /**
      * Get the maximum number of players on teams.
      */
-    GetMaxTeamPlayers()
+    GetMaxTeamPlayers() : number
     /**
      *  Get the local player ID.
      */
-    GetLocalPlayer()
+    GetLocalPlayer() : integer
     /**
      *   Is the nth player a valid player?
      */
@@ -183,83 +183,83 @@ interface CScriptBindingPR_Players{
     /**
      *   Return the name of a player.
      */
-    GetPlayerName( iPlayerID : integer )
+    GetPlayerName( iPlayerID : integer ) : string
     /**
      *  Get the entity index of the hero controlled by this player.
      */
-    GetPlayerHeroEntityIndex( iPlayerID : integer )
+    GetPlayerHeroEntityIndex( iPlayerID : integer ) : integer
     /**
      *   Get the entities this player has selected.
      */
-    GetSelectedEntities( iPlayerID : integer )
+    GetSelectedEntities( iPlayerID : integer ) : Array<integer>
     /**
      *  Get the entities this player is querying.
      */
-    GetQueryUnit( iPlayerID : integer )
+    GetQueryUnit( iPlayerID : integer ) : integer
     /**
      *  Get local player current portrait unit. (ie. Player's hero or primary selected unit.)
      */
-    GetLocalPlayerPortraitUnit()
+    GetLocalPlayerPortraitUnit() : integer
     /**
      *  Can the player buy back?
      */
-    CanPlayerBuyback( iPlayerID : integer )
+    CanPlayerBuyback( iPlayerID : integer ) : boolean
     /**
      *  Does this player have a custom game ticket?
      */
-    HasCustomGameTicketForPlayerID( iPlayerID : integer )
+    HasCustomGameTicketForPlayerID( iPlayerID : integer ) : boolean
     /**
      *  The number of assists credited to a player.
      */
-    GetAssists( iPlayerID : integer )
+    GetAssists( iPlayerID : integer ) : integer
     /**
      *  
      */
-    GetClaimedDenies( iPlayerID : integer )
+    GetClaimedDenies( iPlayerID : integer ) : integer
     /**
      *  
      */
-    GetClaimedMisses( iPlayerID : integer )
+    GetClaimedMisses( iPlayerID : integer ) : integer
     /**
      *   The number of deaths a player has suffered.
      */
-    GetDeaths( iPlayerID : integer )
+    GetDeaths( iPlayerID : integer ) : integer
     /**
      *   The number of denies credited to a player.
      */
-    GetDenies( iPlayerID : integer )
+    GetDenies( iPlayerID : integer ) : integer
     /**
      *   The amount of gold a player has.
      */
-    GetGold( iPlayerID : integer )
+    GetGold( iPlayerID : integer ) : integer
     /**
      *  The number of kills credited to a player.
      */
-    GetKills( iPlayerID : integer )
+    GetKills( iPlayerID : integer ) : integer
     /**
      *  
      */
-    GetLastBuybackTime( iPlayerID : integer )
+    GetLastBuybackTime( iPlayerID : integer ) : float
     /**
      *   
      */
-    GetLastHitMultikill( iPlayerID : integer )
+    GetLastHitMultikill( iPlayerID : integer ) : integer
     /**
      *   The number of last hits credited to a player.
      */
-    GetLastHits( iPlayerID : integer )
+    GetLastHits( iPlayerID : integer ) : integer
     /**
      *  
      */
-    GetLastHitStreak( iPlayerID : integer )
+    GetLastHitStreak( iPlayerID : integer ) : integer
     /**
      *  The current level of a player.
      */
-    GetLevel( iPlayerID : integer )
+    GetLevel( iPlayerID : integer ) : integer
     /**
      *   
      */
-    GetMisses( iPlayerID : integer )
+    GetMisses( iPlayerID : integer ) : integer
     /**
      *  
      */
@@ -267,47 +267,47 @@ interface CScriptBindingPR_Players{
     /**
      *   Total reliable gold for this player.
      */
-    GetReliableGold( iPlayerID : integer )
+    GetReliableGold( iPlayerID : integer ) : float
     /**
      *   
      */
-    GetRespawnSeconds( iPlayerID : integer )
+    GetRespawnSeconds( iPlayerID : integer ) : float
     /**
      *   
      */
-    GetStreak( iPlayerID : integer )
+    GetStreak( iPlayerID : integer ) : integer
     /**
      *  Total gold earned in this game by this player.
      */
-    GetTotalEarnedGold( iPlayerID : integer )
+    GetTotalEarnedGold( iPlayerID : integer ) : integer
     /**
      *  Total xp earned in this game by this player.
      */
-    GetTotalEarnedXP( iPlayerID : integer )
+    GetTotalEarnedXP( iPlayerID : integer ) : integer
     /**
      *   Total unreliable gold for this player.
      */
-    GetUnreliableGold( iPlayerID : integer )
+    GetUnreliableGold( iPlayerID : integer ) : integer
     /**
      *   Get the team this player is on.
      */
-    GetTeam( iPlayerID : integer )
+    GetTeam( iPlayerID : integer ) : integer
     /**
      *   Average gold earned per minute for this player.
      */
-    GetGoldPerMin( iPlayerID : integer )
+    GetGoldPerMin( iPlayerID : integer ) : float
     /**
      *   Average xp earned per minute for this player.
      */
-    GetXPPerMin( iPlayerID : integer )
+    GetXPPerMin( iPlayerID : integer ) : float
     /**
      *   Return the name of the hero a player is controlling.
      */
-    GetPlayerSelectedHero( iPlayerID : integer )
+    GetPlayerSelectedHero( iPlayerID : integer ) : integer
     /**
      *  Get the player color.
      */
-    GetPlayerColor( iPlayerID : integer )
+    GetPlayerColor( iPlayerID : integer ) : any
     /**
      *   Is this player a spectator.
      */
