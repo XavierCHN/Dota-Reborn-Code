@@ -1620,39 +1620,39 @@ interface ${
     /**
     Log a message
     */
-    Msg( js_raw_args_1 : js_raw_args ) : void
+    Msg(args:any) : void
     /**
     Dispatch an event
     */
-    DispatchEvent( js_raw_args_1 : js_raw_args ) : void
+    DispatchEvent( eventName : string, eventArgs: any ) : void
     /**
     Dispatch an event to occur later
     */
-    DispatchEventAsync( js_raw_args_1 : js_raw_args ) : void
+    DispatchEventAsync( delay:float, eventName: string, eventArgs: any) : void
     /**
     Register an event handler
     */
-    RegisterEventHandler( js_raw_args_1 : js_raw_args )
+    RegisterEventHandler( eventName: string, context: Panel, callback: Function ) : void
     /**
     Register a handler for an event that is not otherwise handled
     */
-    RegisterForUnhandledEvent( js_raw_args_1 : js_raw_args )
+    RegisterForUnhandledEvent( eventName: string, callback: Function )
     /**
     Remove an unhandled event handler
     */
-    UnregisterForUnhandledEvent( js_raw_args_1 : js_raw_args )
+    UnregisterForUnhandledEvent( eventNameUnconfirmYet: string )
     /**
     Find an element
     */
-    FindChildInContext( js_raw_args_1 : js_raw_args )
+    FindChildInContext( idSelector: string ) : Panel
     /**
     Make a web request
     */
-    AsyncWebRequest( js_raw_args_1 : js_raw_args )
+    AsyncWebRequest( url: string, args:Object )
     /**
     Create a new panel
     */
-    CreatePanel( js_raw_args_1 : js_raw_args )
+    CreatePanel( panelType:string, parent:Panel, id:string ) : Panel
     /**
     Localize a string
     */
@@ -1660,15 +1660,15 @@ interface ${
     /**
     Get the current language
     */
-    Language( js_raw_args_1 : js_raw_args )
+    Language() : string
     /**
     Schedule a function to be called later
     */
-    Schedule( js_raw_args_1 : js_raw_args )
+    Schedule( delay:float, callback:Function ) : Function
     /**
     Cancelse a scheduled function
     */
-    CancelScheduled( js_raw_args_1 : js_raw_args )
+    CancelScheduled( previousSchedule: Function )
     /**
     Get the current panel context
     */
@@ -1676,11 +1676,11 @@ interface ${
     /**
     Register a key binding
     */
-    RegisterKeyBind( js_raw_args_1 : js_raw_args )
+    RegisterKeyBind( context:Panel, keyName:string, callback:Function )
     /**
     Call a function on each given item
     */
-    Each( js_raw_args_1 : js_raw_args )
+    Each( table:Object, callback:Function )
 
 }
 
