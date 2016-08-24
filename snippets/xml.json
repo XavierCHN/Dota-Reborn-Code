@@ -137,9 +137,9 @@
 			"\t<scripts>",
 			"\t\t<include src=\"file://{resources}/scripts/${file_name}.js\" />", 
 			"\t</scripts>",
-			"\t<snippets>",
-			"\t</snippets>",
-			"\t<Panel class=\"${file_name}_Root$0\">",
+			"\t<!--<snippets>-->",
+			"\t<!--</snippets>-->",
+			"\t<Panel class=\"${file_name}_Root\">",
 			"\t\t$1",
 			"\t</Panel>",
 			"</root>"
