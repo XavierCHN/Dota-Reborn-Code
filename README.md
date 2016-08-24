@@ -6,11 +6,11 @@
 
 - [ ] JavaScript: Function and enum snippets;
 
-- [ ] XML: Snippets;
+- [x] XML: Snippets;
 
 - [ ] css: Snippets;
 
-- [ ] KV: Syntax, highlighting and snippets;
+- [x] KV: Syntax, highlighting and ~~snippets~~;
 
 ## Installation
 
