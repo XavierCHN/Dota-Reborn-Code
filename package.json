@@ -11,14 +11,21 @@
         "Snippets"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onCommand:extension.sayHello",
+        "onCommand:luaCommands.popup"
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": [{
-            "command": "extension.sayHello",
-            "title": "Hello World"
-        }],
+        "commands": [
+            {
+                "command": "extension.sayHello",
+                "title": "Hello World"
+            },
+            {
+                "command": "luaCommands.popup",
+                "title": "Lua: Show all commands"
+            }
+        ],
         "snippets": [
             {
                 "language": "lua",
@@ -27,6 +34,14 @@
             {
                 "language": "moonscript",
                 "path": "./snippets/lua.json"
+            },
+            {
+                "language": "lua",
+                "path": "./snippets/lua_complex.json"
+            },
+            {
+                "language": "moonscript",
+                "path": "./snippets/lua_complex.json"
             },
             {
                 "language": "javascript",

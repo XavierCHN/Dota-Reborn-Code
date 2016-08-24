@@ -1,0 +1,24 @@
+{
+    "LuaAbilityTemplate":{
+        "prefix":"LuaAbilityTemplate",
+        "body":[
+            "${lua_ability_name} = class({})",
+            "",
+            "function ${lua_ability_name}:CastFilterResultTarget( hTarget )",
+            "\treturn UF_SUCCESS",
+            "end",
+            "",
+            "function ${lua_ability_name}:GetCustomCastErrorTarget( hTarget )",
+            "\treturn \"\"",
+            "end",
+            "",
+            "function ${lua_ability_name}:GetCooldown( nLevel )",
+            "\treturn 1",
+            "end",
+            "",
+            "function ${lua_ability_name}:OnSpellStart()",
+            "end"
+        ],
+        "description":"generate lua ability template"
+    }
+}

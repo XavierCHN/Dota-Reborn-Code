@@ -1,16 +1,129 @@
 {
-/*
-	 // Place your snippets for XML here. Each snippet is defined under a snippet name and has a prefix, body and 
-	 // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-	 // $1, $2 for tab stops, ${id} and ${id:label} and ${1:label} for variables. Variables with the same id are connected.
-	 // Example:
-	 "Print to console": {
-		"prefix": "log",
-		"body": [
-			"console.log('$1');",
-			"$2"
+	"Panel":
+	{
+		"prefix":"Panel",
+		"body":[
+			"<Panel id=\"${panel_id}\" class=\"${PanelClass}\">",
+			"\t$0",
+			"</Panel>"
 		],
-		"description": "Log output to console"
+		"description":"Panel, Similar to an HTML 'div'."
+	},
+	"Button":
+	{
+		"prefix":"Button",
+		"body":[
+			"<Button id=\"${button_id}\" class=\"${ButtonClass}\" onactivate=\"${OnButtonPressed}()\">",
+			"\t<Label text=\"#${custom_game_team_select_shuffle}\" />",
+			"\t<Image src=\"file://{images}/${custom_game/shuffle.psd}\" />",
+			"</Button>"
+		],
+		"description":"Image text button"
+	},
+	"Image":
+	{
+		"prefix":"Image",
+		"body": "<Image src=\"file://{images}/${custom_game/shuffle.psd}\" />",
+		"description":"Image"
+	},
+	"Label":
+	{
+		"prefix":"Label",
+		"body":"<Label text=\"${Hello world!}\" />",
+		"description":"Text label"
+	},
+	"TextEntry":
+	{
+		"prefix":"TextEntry",
+		"body":"<TextEntry id=\"{MyEntry}\" maxchars=\"${100}\" placeholder=\"${Type here...}\" oninputsubmit=\"${OnSubmitted}()\" />",
+		"description":"Create a text box"
+	},
+	"DropDown":
+	{
+		"prefix":"DropDown",
+		"body":[
+			"<DropDown oninputsubmit=\"${OnDropDownChanged}()\">",
+			"\t<Label text=\"${Entry 1}\" id=\"${entry1}\"/>",
+			"\t<Label text=\"${Entry 2}\" id=\"${entry2}\"/>",
+			"\t<Label text=\"${Entry 3}\" id=\"${entry3}\"/>",
+			"\t<Label text=\"${Entry 4}\" id=\"${entry4}\"/>",
+			"</DropDown>"
+		],
+		"description":"Create a drop down menu"
+	},
+	"ToggleButton":
+	{
+		"prefix":"ToggleButton",
+		"body":[
+			"<ToggleButton checked=\"true\" text=\"Checkbox 1\" />",
+			"<ToggleButton text=\"Checkbox 2\" />"
+		],
+		"description":"ToggleButton"
+	},
+	"RadioButton":
+	{
+		"prefix":"RadioButton",
+		"body":[
+			"<RadioButton checked=\"checked\" group=\"${Demo}\" id=\"${Demo1}\" text=\"${Radio button 1}\"/>",
+			"<RadioButton group=\"${Demo}\" id=\"${Demo2}\" text=\"${Radio button 2}\"/>",
+			"<RadioButton group=\"${Demo}\" id=\"${Demo3}\" text=\"{Radio button 3}\"/>"
+		],
+		"description":"RadioButton"
+	},
+	"DOTAHeroImage":
+	{
+		"prefix":"DOTAHeroImage",
+		"body": "<DOTAHeroImage heroname=\"${npc_dota_hero_pudge}\" heroimagestyle=\"${portrait}\" />",
+		"description":"DOTAHeroImage"
+	},
+	"DOTAAvatarImage":
+	{
+		"prefix":"DOTAAvatarImage",
+		"body":"<DOTAAvatarImage steamid=\"${local}\" />",
+		"description":"DOTAAvatarImage"
+	},
+	"DOTAItemImage":
+	{
+		"prefix":"DOTAItemImage",
+		"body":"<DOTAItemImage itemname=\"${xxxxitemNamexxx}\" />",
+		"description":"DOTAItemImage"
+	},
+	"DOTAAbilityImage":
+	{
+		"prefix":"DOTAAbilityImage",
+		"body":"<DOTAAbilityImage abilityname=\"${xxxxabilityNamexxx}\" />",
+		"description":"DOTAAbilityImage"
+	},
+	"DOTAUserName":
+	{
+		"prefix":"DOTAUserName",
+		"body":"<DOTAUserName steamid=\"${local}\" />",
+		"description":"DOTAUserName"
+	},
+	"snippets":
+	{
+		"prefix":"snippets",
+		"body":[
+			"<snippets>",
+			"\t<snippet name=\"${SnippetName}\">",
+			"\t\t<Panel class=\"${SnippetPanelClass}\">",
+			"\t\t\t$0",
+			"\t\t</Panel>",
+			"\t</snippet>",
+			"</snippets>"
+		],
+		"description":"Create snippets block"
+	},
+	"snippet":
+	{
+		"prefix":"snippet",
+		"body":[
+			"<snippet name=\"${SnippetName}\">",
+			"\t<Panel class=\"${SnippetPanelClass}\">",
+			"\t\t$0",
+			"\t</Panel>",
+			"</snippet>"
+		],
+		"description":"Create a snippet block"
 	}
-*/
 }

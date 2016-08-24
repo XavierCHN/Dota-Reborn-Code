@@ -22,6 +22,20 @@ export function activate(context: vscode.ExtensionContext) {
     });
 
     context.subscriptions.push(disposable);
+
+    context.subscriptions.push(vscode.commands.registerCommand('luaCommands.popup',()=>{
+        vscode.window.showQuickPick([
+            {
+                "label":"Create lua ability",
+                "description":"fill this file with lua ability template"
+            }
+        ]).then(function(result){
+            console.log(result.label);
+            if(result && result.label == "Create lua ability"){
+                vscode.window.showInformationMessage("Not Implement Error!");
+            }
+        })
+    }))
 }
 
 // this method is called when your extension is deactivated
