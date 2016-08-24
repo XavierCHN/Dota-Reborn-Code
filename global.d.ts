@@ -14,30 +14,25 @@ type js_raw_args = any;
 type unknown_variant_type = any;
 type js_value = any;
 type js_object = Object;
-type cstring = string;
-type float = number;
-type integer = number;
-type unsigned = number;
 
 
 interface CDOTA_PanoramaScript_GameEvents{
     /**
      * Subscribe to a game event
      */
-    Subscribe( pEventName : cstring , funcVal : Function ) : integer
+    Subscribe( pEventName : string , funcVal : Function ) : number
     /**
      * Unsubscribe from a game event
      */
-    Unsubscribe( nCallbackHandle : integer ) 
+    Unsubscribe( nCallbackHandle : number ) 
     /**
      * Send a custom game event
      */
-    SendCustomGameEventToServer( pEventName : cstring , eventArgs : Object )
+    SendCustomGameEventToServer( pEventName : string , eventArgs : Object )
     /**
      * Send a client-side event using gameeventmanager (only useful for a few specific events)
      */
-    SendEventClientSide( pEventName : cstring , eventArgs : Object )
-
+    SendEventClientSide( pEventName : string , eventArgs : Object )
 }
 
 interface CDOTA_PanoramaScript_GameUI{
@@ -45,7 +40,7 @@ interface CDOTA_PanoramaScript_GameUI{
     /**
      *    Control whether the default UI is enabled
      */
-    SetDefaultUIEnabled( nElementType : integer , bVisible : boolean ) : void
+    SetDefaultUIEnabled( nElementType : number , bVisible : boolean ) : void
     /**
      *   Get the current UI configuration
      */
@@ -53,7 +48,7 @@ interface CDOTA_PanoramaScript_GameUI{
     /**
      *   Create a minimap ping at the given location
      */
-    PingMinimapAtLocation( vec3 : Array<float> ) : void
+    PingMinimapAtLocation( vec3 : Array<number> ) : void
     /**
      *    Install a mouse input filter
      */
@@ -61,31 +56,31 @@ interface CDOTA_PanoramaScript_GameUI{
     /**
      *    
      */
-    EnableAliMode( bEnable : boolean , nPort : integer ,  offsetVal : float , nScale : integer )
+    EnableAliMode( bEnable : boolean , nPort : number ,  offsetVal : number , nScale : number )
     /**
      *    Get the current mouse position.
      */
-    GetCursorPosition() : Array<float>
+    GetCursorPosition() : Array<number>
     /**
      *   Return the entity index of the entity under the given screen position.
      */
-    FindScreenEntities( screenLocVec2: Array<float> ) : Array<any>
+    FindScreenEntities( screenLocVec2: Array<number> ) : Array<any>
     /**
      *   Get the world position of the screen position, or null if the cursor is out of the world.
      */
-    GetScreenWorldPosition( screenLocVec2: Array<float> ) : Array<float>
+    GetScreenWorldPosition( screenLocVec2: Array<number> ) : Array<number>
     /**
      *    Install a mouse input filter
      */
-    WasMousePressed( nButtonNum : integer ) : boolean
+    WasMousePressed( nButtonNum : number ) : boolean
     /**
      *    Install a mouse input filter
      */
-    WasMouseDoublePressed( nButtonNum : integer ) : boolean
+    WasMouseDoublePressed( nButtonNum : number ) : boolean
     /**
      *    Install a mouse input filter
      */
-    IsMouseDown( nButtonNum : integer ) : boolean
+    IsMouseDown( nButtonNum : number ) : boolean
     /**
      *   Is the shift button pressed?
      */
@@ -105,39 +100,39 @@ interface CDOTA_PanoramaScript_GameUI{
     /**
      *    Select a unit, adding it to the group or replacing the current selection.
      */
-    SelectUnit( nEntityIndex : integer , bAddToGroup : boolean )
+    SelectUnit( nEntityIndex : number , bAddToGroup : boolean )
     /**
      *    Set the minimum camera pitch angle.
      */
-    SetCameraPitchMin( flPitchMin : float ) : void
+    SetCameraPitchMin( flPitchMin : number ) : void
     /**
      *    Set the maximum camera pitch angle.
      */
-    SetCameraPitchMax( flPitchMax : float ) : void
+    SetCameraPitchMax( flPitchMax : number ) : void
     /**
      *    Set the camera's yaw.
      */
-    SetCameraYaw( flCameraYaw : float ) : void
+    SetCameraYaw( flCameraYaw : number ) : void
     /**
      *    Offset the camera's look at point.
      */
-    SetCameraLookAtPositionHeightOffset( flCameraLookAtHeightOffset : float ) : void
+    SetCameraLookAtPositionHeightOffset( flCameraLookAtHeightOffset : number ) : void
     /**
      *    Set the camera distance from the look at point.
      */
-    SetCameraDistance( flDistance : float ) : void
+    SetCameraDistance( flDistance : number ) : void
     /**
      *   Set the gap between the bottom of the screen and the game rendering viewport. (Value expressed as pixels in a normalized 1024x768 viewport.)
      */
-    SetRenderBottomInsetOverride( nInset : integer ) : void
+    SetRenderBottomInsetOverride( nInset : number ) : void
     /**
      *    Set the gap between the top of the screen and the game rendering viewport. (Value expressed as pixels in a normalized 1024x768 viewport.)
      */
-    SetRenderTopInsetOverride( nInset : integer ) : void
+    SetRenderTopInsetOverride( nInset : number ) : void
     /**
      *   Set the camera target for the local player, or -1 to clear.
      */
-    SetCameraTarget( nTargetEntIndex : integer ) : void
+    SetCameraTarget( nTargetEntIndex : number ) : void
 
 }
 
@@ -146,11 +141,11 @@ interface CDOTA_PanoramaScript_CustomNetTables{
     /**
      *  Get a key from a custom net table
      */
-    GetTableValue( pTableName : cstring , pKeyName : cstring ) 
+    GetTableValue( pTableName : string , pKeyName : string ) 
     /**
      *  Get all values from a custom net table
      */
-    GetAllTableValues( pTableName : cstring ) 
+    GetAllTableValues( pTableName : string ) 
     /**
      *  Register a callback when a particular custom net table changes
      */
@@ -158,7 +153,7 @@ interface CDOTA_PanoramaScript_CustomNetTables{
     /**
      *   Unsubscribe from a game event
      */
-    UnsubscribeNetTableListener( nCallbackHandle : integer ) : any
+    UnsubscribeNetTableListener( nCallbackHandle : number ) : any
 
 }
 
@@ -175,151 +170,151 @@ interface CScriptBindingPR_Players{
     /**
      *  Get the local player ID.
      */
-    GetLocalPlayer() : integer
+    GetLocalPlayer() : number
     /**
      *   Is the nth player a valid player?
      */
-    IsValidPlayerID( iPlayerID : integer ) : boolean
+    IsValidPlayerID( iPlayerID : number ) : boolean
     /**
      *   Return the name of a player.
      */
-    GetPlayerName( iPlayerID : integer ) : string
+    GetPlayerName( iPlayerID : number ) : string
     /**
      *  Get the entity index of the hero controlled by this player.
      */
-    GetPlayerHeroEntityIndex( iPlayerID : integer ) : integer
+    GetPlayerHeroEntityIndex( iPlayerID : number ) : number
     /**
      *   Get the entities this player has selected.
      */
-    GetSelectedEntities( iPlayerID : integer ) : Array<integer>
+    GetSelectedEntities( iPlayerID : number ) : Array<number>
     /**
      *  Get the entities this player is querying.
      */
-    GetQueryUnit( iPlayerID : integer ) : integer
+    GetQueryUnit( iPlayerID : number ) : number
     /**
      *  Get local player current portrait unit. (ie. Player's hero or primary selected unit.)
      */
-    GetLocalPlayerPortraitUnit() : integer
+    GetLocalPlayerPortraitUnit() : number
     /**
      *  Can the player buy back?
      */
-    CanPlayerBuyback( iPlayerID : integer ) : boolean
+    CanPlayerBuyback( iPlayerID : number ) : boolean
     /**
      *  Does this player have a custom game ticket?
      */
-    HasCustomGameTicketForPlayerID( iPlayerID : integer ) : boolean
+    HasCustomGameTicketForPlayerID( iPlayerID : number ) : boolean
     /**
      *  The number of assists credited to a player.
      */
-    GetAssists( iPlayerID : integer ) : integer
+    GetAssists( iPlayerID : number ) : number
     /**
      *  
      */
-    GetClaimedDenies( iPlayerID : integer ) : integer
+    GetClaimedDenies( iPlayerID : number ) : number
     /**
      *  
      */
-    GetClaimedMisses( iPlayerID : integer ) : integer
+    GetClaimedMisses( iPlayerID : number ) : number
     /**
      *   The number of deaths a player has suffered.
      */
-    GetDeaths( iPlayerID : integer ) : integer
+    GetDeaths( iPlayerID : number ) : number
     /**
      *   The number of denies credited to a player.
      */
-    GetDenies( iPlayerID : integer ) : integer
+    GetDenies( iPlayerID : number ) : number
     /**
      *   The amount of gold a player has.
      */
-    GetGold( iPlayerID : integer ) : integer
+    GetGold( iPlayerID : number ) : number
     /**
      *  The number of kills credited to a player.
      */
-    GetKills( iPlayerID : integer ) : integer
+    GetKills( iPlayerID : number ) : number
     /**
      *  
      */
-    GetLastBuybackTime( iPlayerID : integer ) : float
+    GetLastBuybackTime( iPlayerID : number ) : number
     /**
      *   
      */
-    GetLastHitMultikill( iPlayerID : integer ) : integer
+    GetLastHitMultikill( iPlayerID : number ) : number
     /**
      *   The number of last hits credited to a player.
      */
-    GetLastHits( iPlayerID : integer ) : integer
+    GetLastHits( iPlayerID : number ) : number
     /**
      *  
      */
-    GetLastHitStreak( iPlayerID : integer ) : integer
+    GetLastHitStreak( iPlayerID : number ) : number
     /**
      *  The current level of a player.
      */
-    GetLevel( iPlayerID : integer ) : integer
+    GetLevel( iPlayerID : number ) : number
     /**
      *   
      */
-    GetMisses( iPlayerID : integer ) : integer
+    GetMisses( iPlayerID : number ) : number
     /**
      *  
      */
-    GetNearbyCreepDeaths( iPlayerID : integer )
+    GetNearbyCreepDeaths( iPlayerID : number )
     /**
      *   Total reliable gold for this player.
      */
-    GetReliableGold( iPlayerID : integer ) : float
+    GetReliableGold( iPlayerID : number ) : number
     /**
      *   
      */
-    GetRespawnSeconds( iPlayerID : integer ) : float
+    GetRespawnSeconds( iPlayerID : number ) : number
     /**
      *   
      */
-    GetStreak( iPlayerID : integer ) : integer
+    GetStreak( iPlayerID : number ) : number
     /**
      *  Total gold earned in this game by this player.
      */
-    GetTotalEarnedGold( iPlayerID : integer ) : integer
+    GetTotalEarnedGold( iPlayerID : number ) : number
     /**
      *  Total xp earned in this game by this player.
      */
-    GetTotalEarnedXP( iPlayerID : integer ) : integer
+    GetTotalEarnedXP( iPlayerID : number ) : number
     /**
      *   Total unreliable gold for this player.
      */
-    GetUnreliableGold( iPlayerID : integer ) : integer
+    GetUnreliableGold( iPlayerID : number ) : number
     /**
      *   Get the team this player is on.
      */
-    GetTeam( iPlayerID : integer ) : integer
+    GetTeam( iPlayerID : number ) : number
     /**
      *   Average gold earned per minute for this player.
      */
-    GetGoldPerMin( iPlayerID : integer ) : float
+    GetGoldPerMin( iPlayerID : number ) : number
     /**
      *   Average xp earned per minute for this player.
      */
-    GetXPPerMin( iPlayerID : integer ) : float
+    GetXPPerMin( iPlayerID : number ) : number
     /**
      *   Return the name of the hero a player is controlling.
      */
-    GetPlayerSelectedHero( iPlayerID : integer ) : integer
+    GetPlayerSelectedHero( iPlayerID : number ) : number
     /**
      *  Get the player color.
      */
-    GetPlayerColor( iPlayerID : integer ) : any
+    GetPlayerColor( iPlayerID : number ) : any
     /**
      *   Is this player a spectator.
      */
-    IsSpectator( iPlayerID : integer ) : boolean
+    IsSpectator( iPlayerID : number ) : boolean
     /**
      *   .
      */
-    PlayerPortraitClicked( nClickedPlayerID : integer , bHoldingCtrl : boolean ,  bHoldingAlt : boolean )
+    PlayerPortraitClicked( nClickedPlayerID : number , bHoldingCtrl : boolean ,  bHoldingAlt : boolean )
     /**
      *  .
      */
-    BuffClicked( nEntity : integer , nBuffSerial : integer ,  bAlert : boolean )
+    BuffClicked( nEntity : number , nBuffSerial : number ,  bAlert : boolean )
 
 }
 
@@ -327,631 +322,631 @@ interface CScriptBindingPR_Entities{
     /**
      *  Get the world origin of the entity.
      */
-    GetAbsOrigin( nEntityIndex : integer )
+    GetAbsOrigin( nEntityIndex : number ) : Array<number>
     /**
      *  Get the forward vector of the entity.
      */
-    GetForward( nEntityIndex : integer )
+    GetForward( nEntityIndex : number ) : Array<number>
     /**
      *  Get the right vector of the entity.
      */
-    GetRight( nEntityIndex : integer )
+    GetRight( nEntityIndex : number ) : Array<number>
     /**
      *   Get the up vector of the entity.
      */
-    GetUp( nEntityIndex : integer )
+    GetUp( nEntityIndex : number ) : Array<number>
     /**
      * Get all the building 
      */
-    GetAllBuildingEntities()
+    GetAllBuildingEntities() : Array<number>
     /**
      * Get all the hero 
      */
-    GetAllHeroEntities()
+    GetAllHeroEntities() : Array<number>
     /**
      *   Get all the entities with a given name.
      */
-    GetAllEntitiesByName( pszName : cstring )
+    GetAllEntitiesByName( pszName : string ) : Array<number>
     /**
      *  Get all the entities with a given classname.
      */
-    GetAllEntitiesByClassname( pszName : cstring )
+    GetAllEntitiesByClassname( pszName : string ) : Array<number>
     /**
      * Get all the creature 
      */
-    GetAllCreatureEntities()
+    GetAllCreatureEntities() : Array<number>
     /**
      * Get all the 
      */
-    GetAllEntities()
+    GetAllEntities() : Array<number>
     /**
      *  
      */
-    CanBeDominated( nEntityIndex : integer )
+    CanBeDominated( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    HasAttackCapability( nEntityIndex : integer )
+    HasAttackCapability( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    HasCastableAbilities( nEntityIndex : integer )
+    HasCastableAbilities( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    HasFlyingVision( nEntityIndex : integer )
+    HasFlyingVision( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    HasFlyMovementCapability( nEntityIndex : integer )
+    HasFlyMovementCapability( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    HasGroundMovementCapability( nEntityIndex : integer )
+    HasGroundMovementCapability( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    HasMovementCapability( nEntityIndex : integer )
+    HasMovementCapability( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    HasScepter( nEntityIndex : integer )
+    HasScepter( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    HasUpgradeableAbilities( nEntityIndex : integer )
+    HasUpgradeableAbilities( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    HasUpgradeableAbilitiesThatArentMaxed( nEntityIndex : integer )
+    HasUpgradeableAbilitiesThatArentMaxed( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsAlive( nEntityIndex : integer ) : boolean
+    IsAlive( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsAncient( nEntityIndex : integer ) : boolean
+    IsAncient( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsAttackImmune( nEntityIndex : integer ) : boolean
+    IsAttackImmune( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsBarracks( nEntityIndex : integer ) : boolean
+    IsBarracks( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsBlind( nEntityIndex : integer ) : boolean
+    IsBlind( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsBoss( nEntityIndex : integer ) : boolean
+    IsBoss( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsRoshan( nEntityIndex : integer ) : boolean
+    IsRoshan( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsBuilding( nEntityIndex : integer ) : boolean
+    IsBuilding( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsCommandRestricted( nEntityIndex : integer ) : boolean
+    IsCommandRestricted( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsConsideredHero( nEntityIndex : integer ) : boolean
+    IsConsideredHero( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsControllableByAnyPlayer( nEntityIndex : integer ) : boolean
+    IsControllableByAnyPlayer( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsCourier( nEntityIndex : integer ) : boolean
+    IsCourier( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsCreature( nEntityIndex : integer ) : boolean
+    IsCreature( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsCreep( nEntityIndex : integer ) : boolean
+    IsCreep( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsCreepHero( nEntityIndex : integer ) : boolean
+    IsCreepHero( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsDeniable( nEntityIndex : integer ) : boolean
+    IsDeniable( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsDominated( nEntityIndex : integer ) : boolean
+    IsDominated( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsEnemy( nEntityIndex : integer ) : boolean
+    IsEnemy( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsEvadeDisabled( nEntityIndex : integer ) : boolean
+    IsEvadeDisabled( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsFort( nEntityIndex : integer ) : boolean
+    IsFort( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsFrozen( nEntityIndex : integer ) : boolean
+    IsFrozen( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsGeneratedByEconItem( nEntityIndex : integer ) : boolean
+    IsGeneratedByEconItem( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsHallofFame( nEntityIndex : integer ) : boolean
+    IsHallofFame( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsDisarmed( nEntityIndex : integer ) : boolean
+    IsDisarmed( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsHero( nEntityIndex : integer ) : boolean
+    IsHero( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsHexed( nEntityIndex : integer ) : boolean
+    IsHexed( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsIllusion( nEntityIndex : integer ) : boolean
+    IsIllusion( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsInRangeOfFountain( nEntityIndex : integer ) : boolean
+    IsInRangeOfFountain( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsInventoryEnabled( nEntityIndex : integer ) : boolean
+    IsInventoryEnabled( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsInvisible( nEntityIndex : integer ) : boolean
+    IsInvisible( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsInvulnerable( nEntityIndex : integer ) : boolean
+    IsInvulnerable( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsLaneCreep( nEntityIndex : integer ) : boolean
+    IsLaneCreep( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsLowAttackPriority( nEntityIndex : integer ) : boolean
+    IsLowAttackPriority( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsMagicImmune( nEntityIndex : integer ) : boolean
+    IsMagicImmune( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsMechanical( nEntityIndex : integer ) : boolean
+    IsMechanical( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsMuted( nEntityIndex : integer ) : boolean
+    IsMuted( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsNeutralUnitType( nEntityIndex : integer ) : boolean
+    IsNeutralUnitType( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsNightmared( nEntityIndex : integer ) : boolean
+    IsNightmared( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsOther( nEntityIndex : integer ) : boolean
+    IsOther( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsOutOfGame( nEntityIndex : integer ) : boolean
+    IsOutOfGame( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsOwnedByAnyPlayer( nEntityIndex : integer ) : boolean
+    IsOwnedByAnyPlayer( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsPhantom( nEntityIndex : integer ) : boolean
+    IsPhantom( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsRangedAttacker( nEntityIndex : integer ) : boolean
+    IsRangedAttacker( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsRealHero( nEntityIndex : integer ) : boolean
+    IsRealHero( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsRooted( nEntityIndex : integer ) : boolean
+    IsRooted( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsSelectable( nEntityIndex : integer ) : boolean
+    IsSelectable( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsShop( nEntityIndex : integer ) : boolean
+    IsShop( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsSilenced( nEntityIndex : integer ) : boolean
+    IsSilenced( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsSpeciallyDeniable( nEntityIndex : integer ) : boolean
+    IsSpeciallyDeniable( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsStunned( nEntityIndex : integer ) : boolean
+    IsStunned( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsSummoned( nEntityIndex : integer ) : boolean
+    IsSummoned( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsTower( nEntityIndex : integer ) : boolean
+    IsTower( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsUnselectable( nEntityIndex : integer ) : boolean
+    IsUnselectable( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsWard( nEntityIndex : integer ) : boolean
+    IsWard( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsZombie( nEntityIndex : integer ) : boolean
+    IsZombie( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    NoHealthBar( nEntityIndex : integer )
+    NoHealthBar( nEntityIndex : number )  : boolean
     /**
      *  
      */
-    NoTeamMoveTo( nEntityIndex : integer )
+    NoTeamMoveTo( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    NoTeamSelect( nEntityIndex : integer )
+    NoTeamSelect( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    NotOnMinimap( nEntityIndex : integer )
+    NotOnMinimap( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    NotOnMinimapForEnemies( nEntityIndex : integer )
+    NotOnMinimapForEnemies( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    NoUnitCollision( nEntityIndex : integer )
+    NoUnitCollision( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    PassivesDisabled( nEntityIndex : integer )
+    PassivesDisabled( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    ProvidesVision( nEntityIndex : integer )
+    ProvidesVision( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    UsesHeroAbilityNumbers( nEntityIndex : integer )
+    UsesHeroAbilityNumbers( nEntityIndex : number )
     /**
      *   
      */
-    GetAbilityCount( nEntityIndex : integer )
+    GetAbilityCount( nEntityIndex : number ) :number
     /**
      *  
      */
-    GetCombatClassAttack( nEntityIndex : integer )
+    GetCombatClassAttack( nEntityIndex : number ) : any
     /**
      *  
      */
-    GetCombatClassDefend( nEntityIndex : integer )
+    GetCombatClassDefend( nEntityIndex : number ) :any
     /**
      *   
      */
-    GetCurrentVisionRange( nEntityIndex : integer )
+    GetCurrentVisionRange( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetDamageBonus( nEntityIndex : integer )
+    GetDamageBonus( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetDamageMax( nEntityIndex : integer )
+    GetDamageMax( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetDamageMin( nEntityIndex : integer )
+    GetDamageMin( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetDayTimeVisionRange( nEntityIndex : integer )
+    GetDayTimeVisionRange( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetHealth( nEntityIndex : integer )
+    GetHealth( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetHealthPercent( nEntityIndex : integer )
+    GetHealthPercent( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetHealthThinkRegen( nEntityIndex : integer )
+    GetHealthThinkRegen( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetLevel( nEntityIndex : integer )
+    GetLevel( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetMaxHealth( nEntityIndex : integer )
+    GetMaxHealth( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetNightTimeVisionRange( nEntityIndex : integer )
+    GetNightTimeVisionRange( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetStates( nEntityIndex : integer )
+    GetStates( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetTotalPurchasedUpgradeGoldCost( nEntityIndex : integer )
+    GetTotalPurchasedUpgradeGoldCost( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetTeamNumber( nEntityIndex : integer )
+    GetTeamNumber( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetAttackRange( nEntityIndex : integer )
+    GetAttackRange( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetAttackSpeed( nEntityIndex : integer )
+    GetAttackSpeed( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetAttacksPerSecond( nEntityIndex : integer )
+    GetAttacksPerSecond( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetBaseAttackTime( nEntityIndex : integer )
+    GetBaseAttackTime( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetBaseMagicalResistanceValue( nEntityIndex : integer )
+    GetBaseMagicalResistanceValue( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetBaseMoveSpeed( nEntityIndex : integer )
+    GetBaseMoveSpeed( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetBonusPhysicalArmor( nEntityIndex : integer )
+    GetBonusPhysicalArmor( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetCollisionPadding( nEntityIndex : integer )
+    GetCollisionPadding( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetEffectiveInvisibilityLevel( nEntityIndex : integer )
+    GetEffectiveInvisibilityLevel( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetHasteFactor( nEntityIndex : integer )
+    GetHasteFactor( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetHullRadius( nEntityIndex : integer )
+    GetHullRadius( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetIdealSpeed( nEntityIndex : integer )
+    GetIdealSpeed( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetIncreasedAttackSpeed( nEntityIndex : integer )
+    GetIncreasedAttackSpeed( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetMana( nEntityIndex : integer )
+    GetMana( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetManaThinkRegen( nEntityIndex : integer )
+    GetManaThinkRegen( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetMaxMana( nEntityIndex : integer )
+    GetMaxMana( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetMagicalArmorValue( nEntityIndex : integer )
+    GetMagicalArmorValue( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetPaddedCollisionRadius( nEntityIndex : integer )
+    GetPaddedCollisionRadius( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetPercentInvisible( nEntityIndex : integer )
+    GetPercentInvisible( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetPhysicalArmorValue( nEntityIndex : integer )
+    GetPhysicalArmorValue( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetProjectileCollisionSize( nEntityIndex : integer )
+    GetProjectileCollisionSize( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetRingRadius( nEntityIndex : integer )
+    GetRingRadius( nEntityIndex : number ) : number
     /**
      *   
      */
-    GetSecondsPerAttack( nEntityIndex : integer )
+    GetSecondsPerAttack( nEntityIndex : number ) : number
     /**
      *  
      */
-    ManaFraction( nEntityIndex : integer )
+    ManaFraction( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetClassname( nEntityIndex : integer )
+    GetClassname( nEntityIndex : number ) : string
     /**
      *  
      */
-    GetDisplayedUnitName( nEntityIndex : integer )
+    GetDisplayedUnitName( nEntityIndex : number ) : string
     /**
      *   
      */
-    GetSelectionGroup( nEntityIndex : integer )
+    GetSelectionGroup( nEntityIndex : number ) : string
     /**
      *   
      */
-    GetSoundSet( nEntityIndex : integer )
+    GetSoundSet( nEntityIndex : number ) : string
     /**
      *  
      */
-    GetUnitLabel( nEntityIndex : integer )
+    GetUnitLabel( nEntityIndex : number ) : string
     /**
      *   
      */
-    GetUnitName( nEntityIndex : integer )
+    GetUnitName( nEntityIndex : number ) : string
     /**
      *   
      */
-    GetTotalDamageTaken( nEntityIndex : integer )
+    GetTotalDamageTaken( nEntityIndex : number ) : number
     /**
      *  
      */
-    IsControllableByPlayer( nEntityIndex : integer , nPlayerIndex : integer ) : boolean
+    IsControllableByPlayer( nEntityIndex : number , nPlayerIndex : number ) : boolean
     /**
      *   
      */
-    GetChosenTarget( nEntityIndex : integer )
+    GetChosenTarget( nEntityIndex : number ) : number
     /**
      *   
      */
-    HasItemInInventory( nEntityIndex : integer , pItemName : cstring )
+    HasItemInInventory( nEntityIndex : number , pItemName : string ) : boolean
     /**
      *   
      */
-    GetRangeToUnit( nEntityIndex : integer , nEntityIndex2 : integer )
+    GetRangeToUnit( nEntityIndex : number , nEntityIndex2 : number ) : number
     /**
      *   
      */
-    IsEntityInRange( nEntityIndex : integer , nEntityIndex2 : integer ,  flRange : float ) : boolean
+    IsEntityInRange( nEntityIndex : number , nEntityIndex2 : number ,  flRange : number ) : boolean
     /**
      *   
      */
-    GetMoveSpeedModifier( nEntityIndex : integer , flBaseSpeed : float )
+    GetMoveSpeedModifier( nEntityIndex : number , flBaseSpeed : number ) : any
     /**
      *  
      */
-    CanAcceptTargetToAttack( nEntityIndex : integer , nEntityIndex2 : integer )
+    CanAcceptTargetToAttack( nEntityIndex : number , nEntityIndex2 : number ) : boolean
     /**
      *   
      */
-    InState( nEntityIndex : integer , nState : integer )
+    InState( nEntityIndex : number , nState : number )
     /**
      *  
      */
-    GetArmorForDamageType( nEntityIndex : integer , iDamageType : integer )
+    GetArmorForDamageType( nEntityIndex : number , iDamageType : number )
     /**
      *   
      */
-    GetArmorReductionForDamageType( nEntityIndex : integer , iDamageType : integer )
+    GetArmorReductionForDamageType( nEntityIndex : number , iDamageType : number )
     /**
      *   
      */
-    IsInRangeOfShop( nEntityIndex : integer , iShopType : integer ,  bSpecific : boolean ) : boolean
+    IsInRangeOfShop( nEntityIndex : number , iShopType : number ,  bSpecific : boolean ) : boolean
     /**
      *  
      */
-    GetNumItemsInStash( nEntityIndex : integer )
+    GetNumItemsInStash( nEntityIndex : number )
     /**
      *  
      */
-    GetNumItemsInInventory( nEntityIndex : integer )
+    GetNumItemsInInventory( nEntityIndex : number )
     /**
      *   
      */
-    GetItemInSlot( nEntityIndex : integer , nSlotIndex : integer )
+    GetItemInSlot( nEntityIndex : number , nSlotIndex : number )
     /**
      *  
      */
-    GetAbility( nEntityIndex : integer , nSlotIndex : integer )
+    GetAbility( nEntityIndex : number , nSlotIndex : number )
     /**
      *  
      */
-    GetAbilityByName( nEntityIndex : integer , pszAbilityName : cstring )
+    GetAbilityByName( nEntityIndex : number , pszAbilityName : string )
     /**
      *   
      */
-    GetNumBuffs( nEntityIndex : integer )
+    GetNumBuffs( nEntityIndex : number )
     /**
      *  
      */
-    GetBuff( nEntityIndex : integer , nBufIndex : integer )
+    GetBuff( nEntityIndex : number , nBufIndex : number )
     /**
      *  
      */
-    GetAbilityPoints( nEntityIndex : integer )
+    GetAbilityPoints( nEntityIndex : number )
     /**
      *  
      */
-    GetCurrentXP( nEntityIndex : integer )
+    GetCurrentXP( nEntityIndex : number )
     /**
      *  
      */
-    GetNeededXPToLevel( nEntityIndex : integer )
+    GetNeededXPToLevel( nEntityIndex : number )
     /**
      *  Get the currently selected entities
      */
-    GetSelectionEntities( nEntityIndex : integer )
+    GetSelectionEntities( nEntityIndex : number )
     /**
      *   Is this a valid entity index?
      */
-    IsValidEntity( nEntityIndex : integer ) : boolean
+    IsValidEntity( nEntityIndex : number ) : boolean
     /**
      *  Is this entity an item container in the world?
      */
-    IsItemPhysical( nEntityIndex : integer ) : boolean
+    IsItemPhysical( nEntityIndex : number ) : boolean
     /**
      *  Get the item contained in this physical item container.
      */
-    GetContainedItem( nEntityIndex : integer )
+    GetContainedItem( nEntityIndex : number )
 
 }
 
@@ -959,259 +954,259 @@ interface CScriptBindingPR_Abilities{
     /**
      *  
      */
-    GetAbilityName( nEntityIndex : integer ) 
+    GetAbilityName( nEntityIndex : number ) 
     /**
      * 
      */
-    GetAbilityTextureName( nEntityIndex : integer ) 
+    GetAbilityTextureName( nEntityIndex : number ) 
     /**
      * 
      */
-    GetAssociatedPrimaryAbilities( nEntityIndex : integer ) 
+    GetAssociatedPrimaryAbilities( nEntityIndex : number ) 
     /**
      * 
      */
-    GetAssociatedSecondaryAbilities( nEntityIndex : integer ) 
+    GetAssociatedSecondaryAbilities( nEntityIndex : number ) 
     /**
      * 
      */
-    GetHotkeyOverride( nEntityIndex : integer ) 
+    GetHotkeyOverride( nEntityIndex : number ) 
     /**
      *  
      */
-    GetIntrinsicModifierName( nEntityIndex : integer ) 
+    GetIntrinsicModifierName( nEntityIndex : number ) 
     /**
      * 
      */
-    GetSharedCooldownName( nEntityIndex : integer ) 
+    GetSharedCooldownName( nEntityIndex : number ) 
     /**
      *  
      */
-    AbilityReady( nEntityIndex : integer ) 
+    AbilityReady( nEntityIndex : number ) 
     /**
      *  Returns an AbilityLearnResult_t
      */
-    CanAbilityBeUpgraded( nEntityIndex : integer ) : integer
+    CanAbilityBeUpgraded( nEntityIndex : number ) : number
     /**
      * 
      */
-    CanBeExecuted( nEntityIndex : integer ) : boolean
+    CanBeExecuted( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    GetAbilityDamage( nEntityIndex : integer ) 
+    GetAbilityDamage( nEntityIndex : number ) 
     /**
      *  
      */
-    GetAbilityDamageType( nEntityIndex : integer ) 
+    GetAbilityDamageType( nEntityIndex : number ) 
     /**
      * 
      */
-    GetAbilityTargetFlags( nEntityIndex : integer ) 
+    GetAbilityTargetFlags( nEntityIndex : number ) 
     /**
      *  
      */
-    GetAbilityTargetTeam( nEntityIndex : integer ) 
+    GetAbilityTargetTeam( nEntityIndex : number ) 
     /**
      *  
      */
-    GetAbilityTargetType( nEntityIndex : integer ) 
+    GetAbilityTargetType( nEntityIndex : number ) 
     /**
      *  
      */
-    GetAbilityType( nEntityIndex : integer ) 
+    GetAbilityType( nEntityIndex : number ) 
     /**
      * 
      */
-    GetBehavior( nEntityIndex : integer ) 
+    GetBehavior( nEntityIndex : number ) 
     /**
      *  
      */
-    GetCastRange( nEntityIndex : integer ) 
+    GetCastRange( nEntityIndex : number ) 
     /**
      *  
      */
-    GetChannelledManaCostPerSecond( nEntityIndex : integer ) 
+    GetChannelledManaCostPerSecond( nEntityIndex : number ) 
     /**
      * 
      */
-    GetCurrentCharges( nEntityIndex : integer ) 
+    GetCurrentCharges( nEntityIndex : number ) 
     /**
      * 
      */
-    GetEffectiveLevel( nEntityIndex : integer ) 
+    GetEffectiveLevel( nEntityIndex : number ) 
     /**
      * 
      */
-    GetHeroLevelRequiredToUpgrade( nEntityIndex : integer ) 
+    GetHeroLevelRequiredToUpgrade( nEntityIndex : number ) 
     /**
      *  
      */
-    GetLevel( nEntityIndex : integer ) 
+    GetLevel( nEntityIndex : number ) 
     /**
      * 
      */
-    GetManaCost( nEntityIndex : integer ) 
+    GetManaCost( nEntityIndex : number ) 
     /**
      * 
      */
-    GetMaxLevel( nEntityIndex : integer ) 
+    GetMaxLevel( nEntityIndex : number ) 
     /**
      *  
      */
-    AttemptToUpgrade( nEntityIndex : integer ) 
+    AttemptToUpgrade( nEntityIndex : number ) 
     /**
      *  
      */
-    CanLearn( nEntityIndex : integer ) 
+    CanLearn( nEntityIndex : number ) 
     /**
      *  
      */
-    GetAutoCastState( nEntityIndex : integer ) 
+    GetAutoCastState( nEntityIndex : number ) 
     /**
      *  
      */
-    GetToggleState( nEntityIndex : integer ) 
+    GetToggleState( nEntityIndex : number ) 
     /**
      *  
      */
-    HasScepterUpgradeTooltip( nEntityIndex : integer ) 
+    HasScepterUpgradeTooltip( nEntityIndex : number ) 
     /**
      * 
      */
-    IsActivated( nEntityIndex : integer )  : boolean
+    IsActivated( nEntityIndex : number )  : boolean
     /**
      * 
      */
-    IsActivatedChanging( nEntityIndex : integer )  : boolean
+    IsActivatedChanging( nEntityIndex : number )  : boolean
     /**
      *  
      */
-    IsAttributeBonus( nEntityIndex : integer )  : boolean
+    IsAttributeBonus( nEntityIndex : number )  : boolean
     /**
      *  
      */
-    IsAutocast( nEntityIndex : integer )  : boolean
+    IsAutocast( nEntityIndex : number )  : boolean
     /**
      * 
      */
-    IsCooldownReady( nEntityIndex : integer )  : boolean
+    IsCooldownReady( nEntityIndex : number )  : boolean
     /**
      *  
      */
-    IsDisplayedAbility( nEntityIndex : integer )  : boolean
+    IsDisplayedAbility( nEntityIndex : number )  : boolean
     /**
      *  
      */
-    IsHidden( nEntityIndex : integer )  : boolean
+    IsHidden( nEntityIndex : number )  : boolean
     /**
      *  
      */
-    IsHiddenWhenStolen( nEntityIndex : integer )  : boolean
+    IsHiddenWhenStolen( nEntityIndex : number )  : boolean
     /**
      *  
      */
-    IsInAbilityPhase( nEntityIndex : integer )  : boolean
+    IsInAbilityPhase( nEntityIndex : number )  : boolean
     /**
      *  
      */
-    IsItem( nEntityIndex : integer )  : boolean
+    IsItem( nEntityIndex : number )  : boolean
     /**
      * 
      */
-    IsMarkedAsDirty( nEntityIndex : integer )  : boolean
+    IsMarkedAsDirty( nEntityIndex : number )  : boolean
     /**
      * 
      */
-    IsMuted( nEntityIndex : integer )  : boolean
+    IsMuted( nEntityIndex : number )  : boolean
     /**
      * 
      */
-    IsOnCastbar( nEntityIndex : integer )  : boolean
+    IsOnCastbar( nEntityIndex : number )  : boolean
     /**
      *  
      */
-    IsOnLearnbar( nEntityIndex : integer )  : boolean
+    IsOnLearnbar( nEntityIndex : number )  : boolean
     /**
      *  
      */
-    IsOwnersGoldEnough( nEntityIndex : integer )  : boolean
+    IsOwnersGoldEnough( nEntityIndex : number )  : boolean
     /**
      *  
      */
-    IsOwnersGoldEnoughForUpgrade( nEntityIndex : integer )  : boolean
+    IsOwnersGoldEnoughForUpgrade( nEntityIndex : number )  : boolean
     /**
      *  
      */
-    IsOwnersManaEnough( nEntityIndex : integer )  : boolean
+    IsOwnersManaEnough( nEntityIndex : number )  : boolean
     /**
      * 
      */
-    IsPassive( nEntityIndex : integer )  : boolean
+    IsPassive( nEntityIndex : number )  : boolean
     /**
      *  
      */
-    IsRecipe( nEntityIndex : integer )  : boolean
+    IsRecipe( nEntityIndex : number )  : boolean
     /**
      * 
      */
-    IsSharedWithTeammates( nEntityIndex : integer )  : boolean
+    IsSharedWithTeammates( nEntityIndex : number )  : boolean
     /**
      * 
      */
-    IsStealable( nEntityIndex : integer )  : boolean
+    IsStealable( nEntityIndex : number )  : boolean
     /**
      *  
      */
-    IsStolen( nEntityIndex : integer )  : boolean
+    IsStolen( nEntityIndex : number )  : boolean
     /**
      *  
      */
-    IsToggle( nEntityIndex : integer )  : boolean
+    IsToggle( nEntityIndex : number )  : boolean
     /**
      *  
      */
-    GetAOERadius( nEntityIndex : integer ) 
+    GetAOERadius( nEntityIndex : number ) 
     /**
      *  
      */
-    GetBackswingTime( nEntityIndex : integer ) 
+    GetBackswingTime( nEntityIndex : number ) 
     /**
      *  
      */
-    GetCastPoint( nEntityIndex : integer ) 
+    GetCastPoint( nEntityIndex : number ) 
     /**
      * 
      */
-    GetChannelStartTime( nEntityIndex : integer ) 
+    GetChannelStartTime( nEntityIndex : number ) 
     /**
      *  
      */
-    GetChannelTime( nEntityIndex : integer ) 
+    GetChannelTime( nEntityIndex : number ) 
     /**
      * 
      */
-    GetCooldown( nEntityIndex : integer ) 
+    GetCooldown( nEntityIndex : number ) 
     /**
      * 
      */
-    GetCooldownLength( nEntityIndex : integer ) 
+    GetCooldownLength( nEntityIndex : number ) 
     /**
      * 
      */
-    GetCooldownTime( nEntityIndex : integer ) 
+    GetCooldownTime( nEntityIndex : number ) 
     /**
      *  
      */
-    GetCooldownTimeRemaining( nEntityIndex : integer ) 
+    GetCooldownTimeRemaining( nEntityIndex : number ) 
     /**
      * 
      */
-    GetDuration( nEntityIndex : integer ) 
+    GetDuration( nEntityIndex : number ) 
     /**
      * 
      */
-    GetUpgradeBlend( nEntityIndex : integer ) 
+    GetUpgradeBlend( nEntityIndex : number ) 
     /**
      * Get the local player's current active ability. (Pre-cast targetting state.)
      */
@@ -1219,39 +1214,39 @@ interface CScriptBindingPR_Abilities{
     /**
      *  
      */
-    GetCaster( nAbilityIndex : integer ) 
+    GetCaster( nAbilityIndex : number ) 
     /**
      * 
      */
-    GetCustomValueFor( nAbilityIndex : integer , pszAbilityVarName : cstring ) 
+    GetCustomValueFor( nAbilityIndex : number , pszAbilityVarName : string ) 
     /**
      *  
      */
-    GetLevelSpecialValueFor( nAbilityIndex : integer , szName : cstring ,  nLevel : integer ) 
+    GetLevelSpecialValueFor( nAbilityIndex : number , szName : string ,  nLevel : number ) 
     /**
      * 
      */
-    GetSpecialValueFor( nAbilityIndex : integer , szName : cstring ) 
+    GetSpecialValueFor( nAbilityIndex : number , szName : string ) 
     /**
      * 
      */
-    IsCosmetic( nAbilityIndex : integer , nTargetEntityIndex : integer )  : boolean
+    IsCosmetic( nAbilityIndex : number , nTargetEntityIndex : number )  : boolean
     /**
      * Attempt to execute the specified ability (Equivalent to clicking the ability in the HUD action bar)
      */
-    ExecuteAbility( nAbilityEntIndex : integer , nCasterEntIndex : integer ,  bIsQuickCast : boolean ) 
+    ExecuteAbility( nAbilityEntIndex : number , nCasterEntIndex : number ,  bIsQuickCast : boolean ) 
     /**
      * Attempt to double-tap (self-cast) the specified ability (Equivalent to double-clicking the ability in the HUD action bar)
      */
-    CreateDoubleTapCastOrder( nAbilityEntIndex : integer , nCasterEntIndex : integer ) 
+    CreateDoubleTapCastOrder( nAbilityEntIndex : number , nCasterEntIndex : number ) 
     /**
      *  Ping the specified ability (Equivalent to alt-clicking the ability in the HUD action bar)
      */
-    PingAbility( nAbilityIndex : integer ) 
+    PingAbility( nAbilityIndex : number ) 
     /**
      *  Returns the keybind (as a string) for the specified ability.
      */
-    GetKeybind( nAbilityEntIndex : integer ) 
+    GetKeybind( nAbilityEntIndex : number ) 
 
 }
 
@@ -1259,155 +1254,155 @@ interface CScriptBindingPR_Items extends CScriptBindingPR_Abilities{
     /**
      *   
      */
-    ShouldDisplayCharges( nEntityIndex : integer )
+    ShouldDisplayCharges( nEntityIndex : number )
     /**
      *   
      */
-    AlwaysDisplayCharges( nEntityIndex : integer )
+    AlwaysDisplayCharges( nEntityIndex : number )
     /**
      *   
      */
-    ShowSecondaryCharges( nEntityIndex : integer )
+    ShowSecondaryCharges( nEntityIndex : number )
     /**
      *   
      */
-    CanBeSoldByLocalPlayer( nEntityIndex : integer )
+    CanBeSoldByLocalPlayer( nEntityIndex : number )
     /**
      *   
      */
-    CanDoubleTapCast( nEntityIndex : integer )
+    CanDoubleTapCast( nEntityIndex : number )
     /**
      *   
      */
-    ForceHideCharges( nEntityIndex : integer )
+    ForceHideCharges( nEntityIndex : number )
     /**
      *  
      */
-    IsAlertableItem( nEntityIndex : integer ) : boolean
+    IsAlertableItem( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsCastOnPickup( nEntityIndex : integer ) : boolean
+    IsCastOnPickup( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsDisassemblable( nEntityIndex : integer ) : boolean
+    IsDisassemblable( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsDroppable( nEntityIndex : integer ) : boolean
+    IsDroppable( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsInnatelyDisassemblable( nEntityIndex : integer ) : boolean
+    IsInnatelyDisassemblable( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsKillable( nEntityIndex : integer ) : boolean
+    IsKillable( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsMuted( nEntityIndex : integer ) : boolean
+    IsMuted( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsPermanent( nEntityIndex : integer ) : boolean
+    IsPermanent( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsPurchasable( nEntityIndex : integer ) : boolean
+    IsPurchasable( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsRecipe( nEntityIndex : integer ) : boolean
+    IsRecipe( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsRecipeGenerated( nEntityIndex : integer ) : boolean
+    IsRecipeGenerated( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    IsSellable( nEntityIndex : integer ) : boolean
+    IsSellable( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    IsStackable( nEntityIndex : integer ) : boolean
+    IsStackable( nEntityIndex : number ) : boolean
     /**
      *   
      */
-    ProRatesChargesWhenSelling( nEntityIndex : integer )
+    ProRatesChargesWhenSelling( nEntityIndex : number )
     /**
      *  
      */
-    RequiresCharges( nEntityIndex : integer )
+    RequiresCharges( nEntityIndex : number )
     /**
      *  
      */
-    CanBeExecuted( nEntityIndex : integer )
+    CanBeExecuted( nEntityIndex : number )
     /**
      *  
      */
-    GetCost( nEntityIndex : integer )
+    GetCost( nEntityIndex : number )
     /**
      *  
      */
-    GetCurrentCharges( nEntityIndex : integer )
+    GetCurrentCharges( nEntityIndex : number )
     /**
      *  
      */
-    GetSecondaryCharges( nEntityIndex : integer )
+    GetSecondaryCharges( nEntityIndex : number )
     /**
      *  
      */
-    GetDisplayedCharges( nEntityIndex : integer )
+    GetDisplayedCharges( nEntityIndex : number )
     /**
      *  
      */
-    GetInitialCharges( nEntityIndex : integer )
+    GetInitialCharges( nEntityIndex : number )
     /**
      *   
      */
-    GetItemColor( nEntityIndex : integer )
+    GetItemColor( nEntityIndex : number )
     /**
      *  
      */
-    GetShareability( nEntityIndex : integer )
+    GetShareability( nEntityIndex : number )
     /**
      *  
      */
-    GetAbilityTextureSF( nEntityIndex : integer )
+    GetAbilityTextureSF( nEntityIndex : number )
     /**
      *   
      */
-    GetAssembledTime( nEntityIndex : integer )
+    GetAssembledTime( nEntityIndex : number )
     /**
      *  
      */
-    GetPurchaseTime( nEntityIndex : integer )
+    GetPurchaseTime( nEntityIndex : number )
     /**
      *  
      */
-    GetPurchaser( nItemID : integer )
+    GetPurchaser( nItemID : number )
     /**
      *  Attempt to have the local player disassemble the specified item. Returns false if the order wasn't issued.
      */
-    LocalPlayerDisassembleItem( nItem : integer )
+    LocalPlayerDisassembleItem( nItem : number )
     /**
      *  Attempt to have the local player drop the specified item from its stash. Returns false if the order wasn't issued.
      */
-    LocalPlayerDropItemFromStash( nItem : integer )
+    LocalPlayerDropItemFromStash( nItem : number )
     /**
      *  Attempt to have the local player alert allies about the specified item. Returns false if the order wasn't issued.
      */
-    LocalPlayerItemAlertAllies( nItem : integer )
+    LocalPlayerItemAlertAllies( nItem : number )
     /**
      *  Attempt to have the local player move the specified item to its stash. Returns false if the order wasn't issued.
      */
-    LocalPlayerMoveItemToStash( nItem : integer )
+    LocalPlayerMoveItemToStash( nItem : number )
     /**
      *   Attempt to have the local player sell the specified item. Returns false if the order wasn't issued.
      */
-    LocalPlayerSellItem( nItem : integer )
+    LocalPlayerSellItem( nItem : number )
 
 }
 
@@ -1451,19 +1446,19 @@ interface CScriptBindingPR_Game{
     /**
      *  Converts the specified x,y,z world co-ordinate into an x screen coordinate. Returns -1 if behind the camera
      */
-    WorldToScreenX( x : float , y : float ,  z : float ) 
+    WorldToScreenX( x : number , y : number ,  z : number ) 
     /**
      *  Converts the specified x,y,z world co-ordinate into a y screen coordinate. Returns -1 if behind the camera
      */
-    WorldToScreenY( x : float , y : float ,  z : float ) 
+    WorldToScreenY( x : number , y : number ,  z : number ) 
     /**
      *  Converts the specified x, y screen coordinates into a x, y, z world coordinates.
      */
-    ScreenXYToWorld( nX : integer , nY : integer ) 
+    ScreenXYToWorld( nX : number , nY : number ) 
     /**
      *  Returns the keybind (as a string) for the requested ability slot.
      */
-    GetKeybindForAbility( iSlot : integer ) 
+    GetKeybindForAbility( iSlot : number ) 
     /**
      * 
      */
@@ -1471,23 +1466,23 @@ interface CScriptBindingPR_Game{
     /**
      * 
      */
-    GetState()
+    GetState() : DOTA_GameState
     /**
      *  
      */
-    GameStateIs( nState : integer )  : boolean
+    GameStateIs( nState : number )  : boolean
     /**
      *  
      */
-    GameStateIsBefore( nState : integer )  : boolean
+    GameStateIsBefore( nState : number )  : boolean
     /**
      * 
      */
-    GameStateIsAfter( nState : integer )  : boolean
+    GameStateIsAfter( nState : number )  : boolean
     /**
      *  
      */
-    AddCommand( pszCommandName : cstring , callback : js_value ,  pszDescription : cstring , nFlags : integer ) 
+    AddCommand( pszCommandName : string , callback : js_value ,  pszDescription : string , nFlags : number ) 
     /**
      * 
      */
@@ -1495,7 +1490,7 @@ interface CScriptBindingPR_Game{
     /**
      *  Assign the local player to the specified team
      */
-    PlayerJoinTeam( nTeamID : integer ) 
+    PlayerJoinTeam( nTeamID : number ) 
     /**
      * Assign the currently unassigned players to teams
      */
@@ -1507,11 +1502,11 @@ interface CScriptBindingPR_Game{
     /**
      * Set the remaining seconds in team setup before the game starts. -1 to stop the countdown timer
      */
-    SetRemainingSetupTime( flSeconds : float )  : void
+    SetRemainingSetupTime( flSeconds : number )  : void
     /**
      *  Set the amount of time in seconds that will be set as the remaining time when all players are assigned to a team.
      */
-    SetAutoLaunchDelay( flSeconds : float )  : void
+    SetAutoLaunchDelay( flSeconds : number )  : void
     /**
      *  Enable or disable automatically starting the game once all players are assigned to a team
      */
@@ -1543,19 +1538,19 @@ interface CScriptBindingPR_Game{
     /**
      *  Get info about the player hero ultimate ability
      */
-    GetPlayerUltimateStateOrTime( nPlayerID : integer ) 
+    GetPlayerUltimateStateOrTime( nPlayerID : number ) 
     /**
      * Whether the local player has muted text and voice chat for the specified player id
      */
-    IsPlayerMuted( nPlayerID : integer )  : boolean
+    IsPlayerMuted( nPlayerID : number )  : boolean
     /**
      *  Set whether the local player has muted text and voice chat for the specified player id
      */
-    SetPlayerMuted( nPlayerID : integer , bMuted : boolean )  : void
+    SetPlayerMuted( nPlayerID : number , bMuted : boolean )  : void
     /**
      *  Get detailed information for the given team
      */
-    GetTeamDetails( nTeam : integer ) 
+    GetTeamDetails( nTeam : number ) 
     /**
      * Get details for the local player
      */
@@ -1563,31 +1558,31 @@ interface CScriptBindingPR_Game{
     /**
      *  Get info about the player items.
      */
-    GetPlayerItems( nPlayerID : integer ) 
+    GetPlayerItems( nPlayerID : number ) 
     /**
      * Get info about the given player
      */
-    GetPlayerInfo( nPlayerID : integer ) 
+    GetPlayerInfo( nPlayerID : number ) 
     /**
      *  Get player IDs for the given team
      */
-    GetPlayerIDsOnTeam( nTeam : integer ) 
+    GetPlayerIDsOnTeam( nTeam : number ) 
     /**
      *  
      */
-    ServerCmd( pMsg : cstring ) 
+    ServerCmd( pMsg : string ) 
     /**
      * 
      */
     FinishGame()
     /**
-     * Emit a sound for the local player. Returns an integer handle that can be passed to StopSound. (Returns 0 on failure.)
+     * Emit a sound for the local player. Returns an number handle that can be passed to StopSound. (Returns 0 on failure.)
      */
-    EmitSound( pSoundEventName : cstring ) 
+    EmitSound( pSoundEventName : string ) 
     /**
      * Stop a current playing sound on the local player. Takes handle from a call to EmitSound.
      */
-    StopSound( nHandle : integer ) 
+    StopSound( nHandle : number ) 
     /**
      * Return information about the current map.
      */
@@ -1599,7 +1594,7 @@ interface CScriptBindingPR_Game{
     /**
      * Order a unit to drop the specified item at the current cursor location.
      */
-    DropItemAtCursor( nControlledUnitEnt : integer , nItemEnt : integer ) 
+    DropItemAtCursor( nControlledUnitEnt : number , nItemEnt : number ) 
     /**
      *  
      */
@@ -1628,7 +1623,7 @@ interface ${
     /**
     Dispatch an event to occur later
     */
-    DispatchEventAsync( delay:float, eventName: string, eventArgs: any) : void
+    DispatchEventAsync( delay:number, eventName: string, eventArgs: any) : void
     /**
     Register an event handler
     */
@@ -1664,7 +1659,7 @@ interface ${
     /**
     Schedule a function to be called later
     */
-    Schedule( delay:float, callback:Function ) : Function
+    Schedule( delay:number, callback:Function ) : Function
     /**
     Cancelse a scheduled function
     */
@@ -1685,54 +1680,54 @@ interface ${
 }
 
 interface Panel{
-    visible( boolean_1 : boolean )
-    enabled( boolean_1 : boolean )
-    checked( boolean_1 : boolean )
-    defaultfocus( cstring_1 : cstring )
-    inputnamespace( cstring_1 : cstring )
-    hittest( boolean_1 : boolean ) : boolean
-    hittestchildren( boolean_1 : boolean )
-    tabindex( float_1 : float )
-    selectionpos_x( float_1 : float )
-    selectionpos_y( float_1 : float )
-    id()
-    layoutfile()
-    contentwidth()
-    contentheight()
-    desiredlayoutwidth()
-    desiredlayoutheight()
-    actuallayoutwidth()
-    actuallayoutheight()
-    actualxoffset()
-    actualyoffset()
-    scrolloffset_y()
-    scrolloffset_x()
-    style()
-    AddClass( cstring_1 : cstring )
-    RemoveClass( cstring_1 :  cstring )
-    BHasClass( cstring_1 :  cstring )
-    SetHasClass( cstring_1 : cstring , boolean_2 : boolean ) : void
-    ToggleClass( cstring_1 : cstring )
-    ClearPanelEvent( cstring_1 : cstring )
-    SetDraggable( boolean_1 : boolean ) : void
+    visible : boolean
+    enabled : boolean
+    checked : boolean
+    defaultfocus : boolean
+    inputnamespace : boolean
+    hittest : boolean
+    hittestchildren : boolean
+    tabindex : number
+    selectionpos_x : number
+    selectionpos_y :number
+    id : string
+    layoutfile : string
+    contentwidth : number
+    contentheight : number
+    desiredlayoutwidth : number
+    desiredlayoutheight : number
+    actuallayoutwidth : number
+    actuallayoutheight : number
+    actualxoffset : number
+    actualyoffset : number
+    scrolloffset_y : number
+    scrolloffset_x : number
+    style : any
+    AddClass( className : string ) : void
+    RemoveClass( className :  string ) : void
+    BHasClass( className :  string ) : boolean
+    SetHasClass( className : string , onoff : boolean ) : void
+    ToggleClass( className : string )
+    ClearPanelEvent( eventName : string )
+    SetDraggable( draggable : boolean ) : void
     IsDraggable() : boolean
-    GetChildCount()
-    GetChild( integer_1 : integer ) : Panel
+    GetChildCount() : number
+    GetChild( childIndex : number ) : Panel
     GetChildIndex( unknown_variant_type_1 : unknown_variant_type )
     Children() : Array<Panel>
-    FindChildrenWithClassTraverse( cstring_1 : cstring )
+    FindChildrenWithClassTraverse( className : string ) : Array<Panel>
     GetParent() : Panel
-    SetParent( unknown_variant_type_1 : unknown_variant_type ) : void
-    FindChild( cstring_1 : cstring )
-    FindChildTraverse( cstring_1 : cstring )
-    FindChildInLayoutFile( cstring_1 : cstring )
-    RemoveAndDeleteChildren()
-    MoveChildBefore( unknown_variant_type_1 : unknown_variant_type , unknown_variant_type_2 : unknown_variant_type )
-    MoveChildAfter( unknown_variant_type_1 : unknown_variant_type , unknown_variant_type_2 : unknown_variant_type )
+    SetParent( parent : Panel ) : void
+    FindChild( id : string ) : Panel
+    FindChildTraverse( id : string ) : Panel
+    FindChildInLayoutFile( id : string ) : Panel
+    RemoveAndDeleteChildren() : void
+    MoveChildBefore( panel1 : Panel , panel2 : Panel )
+    MoveChildAfter( panel1 : Panel , panel2 : Panel )
     GetPositionWithinWindow()
     ApplyStyles( boolean_1 : boolean )
     ClearPropertyFromCode( unknown_variant_type_1 : unknown_variant_type )
-    DeleteAsync( float_1 : float )
+    DeleteAsync( delay : number )
     BIsTransparent() : boolean
     BAcceptsInput() : boolean
     BAcceptsFocus() : boolean
@@ -1746,52 +1741,47 @@ interface Panel{
     BScrollParentToFitWhenFocused() : boolean
     IsSelected() : boolean
     BHasDescendantKeyFocus()
-    BLoadLayout( cstring_1 : cstring , boolean_2 : boolean ,  boolean_3 : boolean ) : boolean
+    BLoadLayout( layoutFilePath : string , boolean_2 : boolean ,  boolean_3 : boolean ) : boolean
     BLoadLayoutSnippet(SnippetName: string) : boolean
     BLoadLayoutFromString( js_raw_args_1 : js_raw_args ) : boolean
-    LoadLayoutFromStringAsync( cstring_1 : cstring , boolean_2 : boolean ,  boolean_3 : boolean )
-    LoadLayoutAsync( cstring_1 : cstring , boolean_2 : boolean ,  boolean_3 : boolean )
-    BCreateChildren( cstring_1 : cstring ) : boolean
+    LoadLayoutFromStringAsync( string_1 : string , boolean_2 : boolean ,  boolean_3 : boolean )
+    LoadLayoutAsync( string_1 : string , boolean_2 : boolean ,  boolean_3 : boolean )
+    BCreateChildren( string_1 : string ) : boolean
     SetTopOfInputContext( boolean_1 : boolean ) : void
-    SetDialogVariable( cstring_1 : cstring , cstring_2 : cstring ) : void
-    SetDialogVariableInt( cstring_1 : cstring , integer_2 : integer ) : void
+    SetDialogVariable( string_1 : string , string_2 : string ) : void
+    SetDialogVariableInt( string_1 : string , number_2 : number ) : void
     ScrollToTop()
     ScrollToBottom()
     ScrollToLeftEdge()
     ScrollToRightEdge()
     ScrollParentToMakePanelFit( unknown_variant_type_1 : unknown_variant_type , boolean_2 : boolean )
     BCanSeeInParentScroll() : boolean
-    GetAttributeInt( cstring_1 : cstring , integer_2 : integer )
-    GetAttributeString( cstring_1 : cstring , cstring_2 : cstring )
-    GetAttributeUInt32( cstring_1 : cstring , unsigned_2 : unsigned )
-    SetAttributeInt( cstring_1 : cstring , integer_2 : integer ) : void
-    SetAttributeString( cstring_1 : cstring , cstring_2 : cstring ) : void
-    SetAttributeUInt32( cstring_1 : cstring , unsigned_2 : unsigned ) : void
-    SetInputNamespace( cstring_1 : cstring ) : void
+    GetAttributeInt( string_1 : string , number_2 : number )
+    GetAttributeString( string_1 : string , string_2 : string )
+    GetAttributeUInt32( string_1 : string , number_2 : number )
+    SetAttributeInt( string_1 : string , number_2 : number ) : void
+    SetAttributeString( string_1 : string , string_2 : string ) : void
+    SetAttributeUInt32( string_1 : string , number_2 : number ) : void
+    SetInputNamespace( string_1 : string ) : void
     RegisterForReadyEvents( boolean_1 : boolean )
     BReadyForDisplay() : boolean
     SetReadyForDisplay( boolean_1 : boolean ) : void
     SetPanelEvent( eventName: string, callback:Function ) : void
-    rememberchildfocus( boolean_1 : boolean )
-    paneltype()
-
+    rememberchildfocus : boolean
+    paneltype : string
 }
 
 interface Button extends Panel{
 }
 
-interface Image extends Panel{
-    SetImage(url:string) : void
-}
-
 interface Label extends Panel{
-    text( cstring_1 : cstring )
+    text( string_1 : string )
     html( boolean_1 : boolean )
 }
 
 interface DOTAAvatarImage extends Panel{
-    steamid( cstring_1 : cstring )
-    accountid( cstring_1 : cstring )
+    steamid : number
+    accountid : number
 }
 
 interface CustomUIElement extends Panel{
@@ -1799,10 +1789,10 @@ interface CustomUIElement extends Panel{
 }
 
 interface DOTAAbilityImage extends Panel{
-    SetImage( cstring_1 : cstring ) : void
-    SetScaling( cstring_1 : cstring ) : void
-    abilityname( cstring_1 : cstring )
-    contextEntityIndex( integer_1 : integer )
+    SetImage( string_1 : string ) : void
+    SetScaling( string_1 : string ) : void
+    abilityname : string
+    contextEntityIndex : number
 }
 
 declare var DOTA_GameState : DOTA_GameState;
