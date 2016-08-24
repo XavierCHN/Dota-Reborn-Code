@@ -154,11 +154,11 @@ interface CDOTA_PanoramaScript_CustomNetTables{
     /**
      *  Register a callback when a particular custom net table changes
      */
-    SubscribeNetTableListener( args : js_raw_args ) 
+    SubscribeNetTableListener( tableName: string, callback:Function ) : any 
     /**
      *   Unsubscribe from a game event
      */
-    UnsubscribeNetTableListener( nCallbackHandle : integer ) 
+    UnsubscribeNetTableListener( nCallbackHandle : integer ) : any
 
 }
 
