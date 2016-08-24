@@ -49,39 +49,39 @@ interface CDOTA_PanoramaScript_GameUI{
     /**
      *   Get the current UI configuration
      */
-    CustomUIConfig( args : js_raw_args )
+    CustomUIConfig() : Object
     /**
      *   Create a minimap ping at the given location
      */
-    PingMinimapAtLocation( vec3 : js_value )
+    PingMinimapAtLocation( vec3 : Array<float> ) : void
     /**
      *    Install a mouse input filter
      */
-    SetMouseCallback( callbackFn : js_value ) : void
+    SetMouseCallback( callbackFn : Function ) : void
     /**
      *    
      */
-    EnableAliMode( bEnable : boolean , nPort : integer ,  offsetVal : js_value , nScale : integer )
+    EnableAliMode( bEnable : boolean , nPort : integer ,  offsetVal : float , nScale : integer )
     /**
      *    Get the current mouse position.
      */
-    GetCursorPosition( args : js_raw_args )
+    GetCursorPosition() : Array<float>
     /**
      *   Return the entity index of the entity under the given screen position.
      */
-    FindScreenEntities( args : js_raw_args )
+    FindScreenEntities( screenLocVec2: Array<float> ) : Array<any>
     /**
      *   Get the world position of the screen position, or null if the cursor is out of the world.
      */
-    GetScreenWorldPosition( args : js_raw_args )
+    GetScreenWorldPosition( screenLocVec2: Array<float> ) : Array<float>
     /**
      *    Install a mouse input filter
      */
-    WasMousePressed( nButtonNum : integer )
+    WasMousePressed( nButtonNum : integer ) : boolean
     /**
      *    Install a mouse input filter
      */
-    WasMouseDoublePressed( nButtonNum : integer )
+    WasMouseDoublePressed( nButtonNum : integer ) : boolean
     /**
      *    Install a mouse input filter
      */
@@ -101,7 +101,7 @@ interface CDOTA_PanoramaScript_GameUI{
     /**
      *   Get the current UI click interaction mode.
      */
-    GetClickBehaviors()
+    GetClickBehaviors() : CLICK_BEHAVIORS
     /**
      *    Select a unit, adding it to the group or replacing the current selection.
      */
@@ -121,7 +121,7 @@ interface CDOTA_PanoramaScript_GameUI{
     /**
      *    Offset the camera's look at point.
      */
-    SetCameraLookAtPositionHeightOffset( flCameraLookAtHeightOffset : float )
+    SetCameraLookAtPositionHeightOffset( flCameraLookAtHeightOffset : float ) : void
     /**
      *    Set the camera distance from the look at point.
      */
@@ -1747,6 +1747,7 @@ interface Panel{
     IsSelected() : boolean
     BHasDescendantKeyFocus()
     BLoadLayout( cstring_1 : cstring , boolean_2 : boolean ,  boolean_3 : boolean ) : boolean
+    BLoadLayoutSnippet(SnippetName: string) : boolean
     BLoadLayoutFromString( js_raw_args_1 : js_raw_args ) : boolean
     LoadLayoutFromStringAsync( cstring_1 : cstring , boolean_2 : boolean ,  boolean_3 : boolean )
     LoadLayoutAsync( cstring_1 : cstring , boolean_2 : boolean ,  boolean_3 : boolean )
@@ -1770,14 +1771,17 @@ interface Panel{
     RegisterForReadyEvents( boolean_1 : boolean )
     BReadyForDisplay() : boolean
     SetReadyForDisplay( boolean_1 : boolean ) : void
-    SetPanelEvent( js_raw_args_1 : js_raw_args ) : void
+    SetPanelEvent( eventName: string, callback:Function ) : void
     rememberchildfocus( boolean_1 : boolean )
     paneltype()
 
 }
 
 interface Button extends Panel{
-    //没有多内容
+}
+
+interface Image extends Panel{
+    SetImage(url:string) : void
 }
 
 interface Label extends Panel{
