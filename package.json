@@ -2,9 +2,9 @@
     "name": "dota-reborn-code",
     "displayName": "dota-reborn-code",
     "description": "dota2 custom game kv/js/lua/xml/css syntax and snippets",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "XavierCHN",
-    "icon":"./images/xavier.png",
+    "icon": "images/xavier.png",
     "engines": {
         "vscode": "^1.0.0"
     },
@@ -13,27 +13,34 @@
         "Languages",
         "Other"
     ],
-    "activationEvents": [
-    ],
+    "activationEvents": [],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": [
-        ],
-        "languages": [{
-            "id": "plaintext",
-            "aliases": ["Dota KV"],
-            "extensions": [".kv",".txt"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "plaintext",
-            "scopeName": "source.txt",
-            "path": "./syntaxes/dotaKV.tmLanguage"
-        }],
-        "typings":[
+        "commands": [],
+        "languages": [
             {
-                "language":"javascript",
-                "path":"./global.d.ts"
+                "id": "plaintext",
+                "aliases": [
+                    "Dota KV"
+                ],
+                "extensions": [
+                    ".kv",
+                    ".txt"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "plaintext",
+                "scopeName": "source.txt",
+                "path": "./syntaxes/dotaKV.tmLanguage"
+            }
+        ],
+        "typings": [
+            {
+                "language": "javascript",
+                "path": "./global.d.ts"
             }
         ],
         "snippets": [
