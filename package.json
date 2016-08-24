@@ -4,6 +4,7 @@
     "description": "dota2 custom game kv/js/lua/xml/css syntax and snippets",
     "version": "0.0.1",
     "publisher": "XavierCHN",
+    "icon":"./images/xavier.png",
     "engines": {
         "vscode": "^1.0.0"
     },
@@ -13,20 +14,10 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello",
-        "onCommand:luaCommands.popup"
     ],
     "main": "./out/src/extension",
     "contributes": {
         "commands": [
-            {
-                "command": "extension.sayHello",
-                "title": "Hello World"
-            },
-            {
-                "command": "luaCommands.popup",
-                "title": "Lua: Show all commands"
-            }
         ],
         "languages": [{
             "id": "plaintext",
