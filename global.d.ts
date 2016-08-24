@@ -24,7 +24,7 @@ interface CDOTA_PanoramaScript_GameEvents{
     /**
      * Subscribe to a game event
      */
-    Subscribe( pEventName : cstring , funcVal : js_value ) 
+    Subscribe( pEventName : cstring , funcVal : Function ) : integer
     /**
      * Unsubscribe from a game event
      */
@@ -32,11 +32,11 @@ interface CDOTA_PanoramaScript_GameEvents{
     /**
      * Send a custom game event
      */
-    SendCustomGameEventToServer( pEventName : cstring , jsObject : js_object )
+    SendCustomGameEventToServer( pEventName : cstring , eventArgs : Object )
     /**
      * Send a client-side event using gameeventmanager (only useful for a few specific events)
      */
-    SendEventClientSide( pEventName : cstring , jsObject : js_object )
+    SendEventClientSide( pEventName : cstring , eventArgs : Object )
 
 }
 
