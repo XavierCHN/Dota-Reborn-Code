@@ -1,5 +1,6 @@
 {
-    "LuaAbilityTemplate":{
+    "LuaAbilityTemplate":
+    {
         "prefix":"LuaAbilityTemplate",
         "body":[
             "${lua_ability_name} = class({})",
@@ -20,5 +21,905 @@
             "end"
         ],
         "description":"generate lua ability template"
+    },
+    "team_info":
+    {
+        "prefix":"team_info",
+        "body":"team_info",
+        "description":"info about team teamid:byte: unique team id teamname:string: team name (e.g. Team Blue)"
+    },
+    "team_score":
+    {
+        "prefix":"team_score",
+        "body":"team_score",
+        "description":"team score changed teamid:byte: team id score:short: total team score"
+    },
+    "teamplay_broadcast_audio":
+    {
+        "prefix":"teamplay_broadcast_audio",
+        "body":"teamplay_broadcast_audio",
+        "description":"emits a sound to everyone on a team team:byte: unique team id sound:string: name of the sound to "
+    },
+    "player_team":
+    {
+        "prefix":"player_team",
+        "body":"player_team",
+        "description":""
+    },
+    "player_class":
+    {
+        "prefix":"player_class",
+        "body":"player_class",
+        "description":"a player changed his class userid:short: user ID on server class:string: new player class"
+    },
+    "player_death":
+    {
+        "prefix":"player_death",
+        "body":"player_death",
+        "description":" [broken]a game event, name may be 32 characters long userid:short: user ID who died"
+    },
+    "player_hurt":
+    {
+        "prefix":"player_hurt",
+        "body":"player_hurt",
+        "description":" [broken]userid:short: player index who was hurt attacker:short: player index "
+    },
+    "player_chat":
+    {
+        "prefix":"player_chat",
+        "body":"player_chat",
+        "description":"a public player chat teamonly:bool: true if team only chat userid:short: chatting player  "
+    },
+    "player_score":
+    {
+        "prefix":"player_score",
+        "body":"player_score",
+        "description":"players scores changed userid:short: user ID on server kills:short: # of kills deaths:short: # of "
+    },
+    "player_spawn":
+    {
+        "prefix":"player_spawn",
+        "body":"player_spawn",
+        "description":"player spawned in game userid:short: user ID on server"
+    },
+    "player_shoot":
+    {
+        "prefix":"player_shoot",
+        "body":"player_shoot",
+        "description":"player shoot his weapon userid:short: user ID on server weapon:byte: weapon ID mode:byte: weapon "
+    },
+    "player_use":
+    {
+        "prefix":"player_use",
+        "body":"player_use",
+        "description":"userid:short: user ID on server entity:short: entity used by player"
+    },
+    "player_changename":
+    {
+        "prefix":"player_changename",
+        "body":"player_changename",
+        "description":"userid:short: user ID on server oldname:string: players old (current) name newname:string: players new "
+    },
+    "player_hintmessage":
+    {
+        "prefix":"player_hintmessage",
+        "body":"player_hintmessage",
+        "description":"hintmessage:string: localizable string of a hint"
+    },
+    // "player_reconnected":
+    // {
+    //     "prefix":"player_reconnected",
+    //     "body":"player_reconnected",
+    //     "description":" the player reconnet to the game event(local):the data include the realitive infomation"
+    // },
+    "game_init":
+    {
+        "prefix":"game_init",
+        "body":"game_init",
+        "description":"sent when a new game is started mapname:string: map name"
+    },
+    "game_start":
+    {
+        "prefix":"game_start",
+        "body":"game_start",
+        "description":"a new game starts roundslimit:long: max round timelimit:long: time limit fraglimit:long: frag "
+    },
+    "game_end":
+    {
+        "prefix":"game_end",
+        "body":"game_end",
+        "description":"a game ended winner:byte: winner team/user id"
+    },
+    "round_start":
+    {
+        "prefix":"round_start",
+        "body":"round_start",
+        "description":"timelimit:long: round time limit in seconds fraglimit:long: frag limit in seconds objective:string: "
+    },
+    "round_end":
+    {
+        "prefix":"round_end",
+        "body":"round_end",
+        "description":"winner:byte: winner team/user i reason:byte: reason team won message:string: end round message "
+    },
+    "round_start_pre_entity":
+    {
+        "prefix":"round_start_pre_entity",
+        "body":"round_start_pre_entity",
+        "description":"full_reset:bool: is this a full reset of the map"
+    },
+    "hostname_changed":
+    {
+        "prefix":"hostname_changed",
+        "body":"hostname_changed",
+        "description":"hostname:string"
+    },
+    "difficulty_changed":
+    {
+        "prefix":"difficulty_changed",
+        "body":"difficulty_changed",
+        "description":"newDifficulty:short oldDifficulty:short strDifficulty:string: new difficulty as string"
+    },
+    "finale_start":
+    {
+        "prefix":"finale_start",
+        "body":"finale_start",
+        "description":"rushes:short"
+    },
+    "game_message":
+    {
+        "prefix":"game_message",
+        "body":"game_message",
+        "description":"a message send by game logic to everyone target:byte: 0 = console, 1 = HUD text:string: the "
+    },
+    "break_breakable":
+    {
+        "prefix":"break_breakable",
+        "body":"break_breakable",
+        "description":"entindex:long userid:short material:byte: BREAK_GLASS, BREAK_WOOD, etc"
+    },
+    "break_prop":
+    {
+        "prefix":"break_prop",
+        "body":"break_prop",
+        "description":"entindex:long userid:short"
+    },
+    "npc_spawned":
+    {
+        "prefix":"npc_spawned",
+        "body":"npc_spawned",
+        "description":"entindex:long"
+    },
+    "npc_replaced":
+    {
+        "prefix":"npc_replaced",
+        "body":"npc_replaced",
+        "description":"old_entindex:long new_entindex:long"
+    },
+    "entity_killed":
+    {
+        "prefix":"entity_killed",
+        "body":"entity_killed",
+        "description":"entindex_killed:long entindex_attacker:long entindex_inflictor:long damagebits:long"
+    },
+    "entity_hurt":
+    {
+        "prefix":"entity_hurt",
+        "body":"entity_hurt",
+        "description":"entindex_killed:long entindex_attacker:long entindex_inflictor:long damagebits:long"
+    },
+    "bonus_updated":
+    {
+        "prefix":"bonus_updated",
+        "body":"bonus_updated",
+        "description":"numadvanced:short numbronze:short numsilver:short numgold:short"
+    },
+    "player_stats_updated":
+    {
+        "prefix":"player_stats_updated",
+        "body":"player_stats_updated",
+        "description":"forceupload:bool"
+    },
+    "achievement_event":
+    {
+        "prefix":"achievement_event",
+        "body":"achievement_event",
+        "description":"achievement_name:string: non-localized name of achievement cur_val:short: # of steps toward achievement "
+    },
+    "achievement_earned":
+    {
+        "prefix":"achievement_earned",
+        "body":"achievement_earned",
+        "description":"player:byte: entindex of the player achievement:short: achievement ID"
+    },
+    "achievement_write_failed":
+    {
+        "prefix":"achievement_write_failed",
+        "body":"achievement_write_failed",
+        "description":"entindex:long: entity picked up"
+    },
+    "flare_ignite_npc":
+    {
+        "prefix":"flare_ignite_npc",
+        "body":"flare_ignite_npc",
+        "description":"entindex:long: entity ignited"
+    },
+    "helicopter_grenade_punt_miss":
+    {
+        "prefix":"helicopter_grenade_punt_miss",
+        "body":"helicopter_grenade_punt_miss",
+        "description":"entindex:long"
+    },
+    "gameinstructor_draw":
+    {
+        "prefix":"gameinstructor_draw",
+        "body":"gameinstructor_draw",
+        "description":""
+    },
+    "instructor_server_hint_stop":
+    {
+        "prefix":"instructor_server_hint_stop",
+        "body":"instructor_server_hint_stop",
+        "description":""
+    },
+    "chat_new_message":
+    {
+        "prefix":"chat_new_message",
+        "body":"chat_new_message",
+        "description":"the specified channel contains new messages channel:byte"
+    },
+    "chat_members_changed":
+    {
+        "prefix":"chat_members_changed",
+        "body":"chat_members_changed",
+        "description":"the specified channel has had players leave or join channel:byte"
+    },
+    "game_rules_state_change":
+    {
+        "prefix":"game_rules_state_change",
+        "body":"game_rules_state_change",
+        "description":"the state of game changes"
+    },
+    "inventory_updated":
+    {
+        "prefix":"inventory_updated",
+        "body":"inventory_updated",
+        "description":"itemdef:short"
+    },
+    "cart_updated":
+    {
+        "prefix":"cart_updated",
+        "body":"cart_updated",
+        "description":""
+    },
+    "modifier_event":
+    {
+        "prefix":"modifier_event",
+        "body":"modifier_event",
+        "description":"eventname:string caster:short ability:short"
+    },
+    "dota_player_kill":
+    {
+        "prefix":"dota_player_kill",
+        "body":"dota_player_kill",
+        "description":"victim_userid:short killer1_userid:short killer2_userid:short killer3_userid:short killer4_userid:short "
+    },
+    "dota_player_deny":
+    {
+        "prefix":"dota_player_deny",
+        "body":"dota_player_deny",
+        "description":"killer_userid:short victim_userid:short"
+    },
+    "dota_barracks_kill":
+    {
+        "prefix":"dota_barracks_kill",
+        "body":"dota_barracks_kill",
+        "description":"barracks_id:short"
+    },
+    "dota_tower_kill":
+    {
+        "prefix":"dota_tower_kill",
+        "body":"dota_tower_kill",
+        "description":"killer_userid:short teamnumber:short gold:short"
+    },
+    "dota_roshan_kill":
+    {
+        "prefix":"dota_roshan_kill",
+        "body":"dota_roshan_kill",
+        "description":"teamnumber:short gold:short"
+    },
+    "dota_courier_lost":
+    {
+        "prefix":"dota_courier_lost",
+        "body":"dota_courier_lost",
+        "description":"teamnumber:short"
+    },
+    "dota_courier_respawned":
+    {
+        "prefix":"dota_courier_respawned",
+        "body":"dota_courier_respawned",
+        "description":"teamnumber:short"
+    },
+    "dota_glyph_used":
+    {
+        "prefix":"dota_glyph_used",
+        "body":"dota_glyph_used",
+        "description":"teamnumber:short"
+    },
+    "dota_super_creeps":
+    {
+        "prefix":"dota_super_creeps",
+        "body":"dota_super_creeps",
+        "description":"teamnumber:short"
+    },
+    "dota_item_purchased":
+    {
+        "prefix":"dota_item_purchased",
+        "body":"dota_item_purchased",
+        "description":"( edit: not dota_item_purchase ) userid:short itemid:short"
+    },
+    "dota_item_gifted":
+    {
+        "prefix":"dota_item_gifted",
+        "body":"dota_item_gifted",
+        "description":"userid:short itemid:short sourceid:short"
+    },
+    "dota_rune_pickup":
+    {
+        "prefix":"dota_rune_pickup",
+        "body":"dota_rune_pickup",
+        "description":"userid:short type:short rune:short"
+    },
+    "dota_rune_spotted":
+    {
+        "prefix":"dota_rune_spotted",
+        "body":"dota_rune_spotted",
+        "description":"userid:short rune:short"
+    },
+    "dota_item_spotted":
+    {
+        "prefix":"dota_item_spotted",
+        "body":"dota_item_spotted",
+        "description":"userid:short itemid:short"
+    },
+    "dota_no_battle_points":
+    {
+        "prefix":"dota_no_battle_points",
+        "body":"dota_no_battle_points",
+        "description":"userid:short reason:short"
+    },
+    "dota_chat_informational":
+    {
+        "prefix":"dota_chat_informational",
+        "body":"dota_chat_informational",
+        "description":"userid:short type:short"
+    },
+    "dota_action_item":
+    {
+        "prefix":"dota_action_item",
+        "body":"dota_action_item",
+        "description":"reason:short itemdef:short message:short"
+    },
+    "dota_chat_ban_notification":
+    {
+        "prefix":"dota_chat_ban_notification",
+        "body":"dota_chat_ban_notification",
+        "description":"userid:short"
+    },
+    "dota_chat_event":
+    {
+        "prefix":"dota_chat_event",
+        "body":"dota_chat_event",
+        "description":"userid:short gold:short message:short"
+    },
+    "dota_chat_timed_reward":
+    {
+        "prefix":"dota_chat_timed_reward",
+        "body":"dota_chat_timed_reward",
+        "description":"userid:short itmedef:short message:short"
+    },
+    "dota_pause_event":
+    {
+        "prefix":"dota_pause_event",
+        "body":"dota_pause_event",
+        "description":"userid:short value:short message:short"
+    },
+    "dota_chat_kill_streak":
+    {
+        "prefix":"dota_chat_kill_streak",
+        "body":"dota_chat_kill_streak",
+        "description":"gold:short killer_id:short killer_streak:short killer_multikill:short victim_id:short victim_streak:short"
+    },
+    "dota_chat_first_blood":
+    {
+        "prefix":"dota_chat_first_blood",
+        "body":"dota_chat_first_blood",
+        "description":"gold:short killer_id:short victim_id:short"
+    },
+    "dota_player_update_hero_selection":
+    {
+        "prefix":"dota_player_update_hero_selection",
+        "body":"dota_player_update_hero_selection",
+        "description":"tabcycle:bool"
+    },
+    "dota_player_update_selected_unit":
+    {
+        "prefix":"dota_player_update_selected_unit",
+        "body":"dota_player_update_selected_unit",
+        "description":"PlayerID:short damage:short"
+    },
+    "dota_hud_error_message":
+    {
+        "prefix":"dota_hud_error_message",
+        "body":"dota_hud_error_message",
+        "description":"reason:byte message:string"
+    },
+    "dota_action_success":
+    {
+        "prefix":"dota_action_success",
+        "body":"dota_action_success",
+        "description":"itemname:string PlayerID:short ItemEntityIndex(  <i>short HeroEntityIndex:short"
+    },
+    "dota_inventory_item_changed":
+    {
+        "prefix":"dota_inventory_item_changed",
+        "body":"dota_inventory_item_changed",
+        "description":"entityIndex:short"
+    },
+    "dota_ability_changed":
+    {
+        "prefix":"dota_ability_changed",
+        "body":"dota_ability_changed",
+        "description":"itemname:string"
+    },
+    "dota_inventory_changed_query_unit":
+    {
+        "prefix":"dota_inventory_changed_query_unit",
+        "body":"dota_inventory_changed_query_unit",
+        "description":"link:string nav:bool: internal to item panel - preserve the nav stack nav_back:bool: internal to item "
+    },
+    "dota_set_quick_buy":
+    {
+        "prefix":"dota_set_quick_buy",
+        "body":"dota_set_quick_buy",
+        "description":"item:string recipe:byte toggle:bool"
+    },
+    "dota_quick_buy_changed":
+    {
+        "prefix":"dota_quick_buy_changed",
+        "body":"dota_quick_buy_changed",
+        "description":"item:string recipe:byte"
+    },
+    "dota_player_shop_changed":
+    {
+        "prefix":"dota_player_shop_changed",
+        "body":"dota_player_shop_changed",
+        "description":"prevshopmask:byte shopmask:byte"
+    },
+    "dota_player_show_killcam":
+    {
+        "prefix":"dota_player_show_killcam",
+        "body":"dota_player_show_killcam",
+        "description":"nodes:byte player:short"
+    },
+    "dota_player_show_minikillcam":
+    {
+        "prefix":"dota_player_show_minikillcam",
+        "body":"dota_player_show_minikillcam",
+        "description":"nodes:byte player:short"
+    },
+    "gc_user_session_created":
+    {
+        "prefix":"gc_user_session_created",
+        "body":"gc_user_session_created",
+        "description":"SteamID:uint64"
+    },
+    "match_details_updated":
+    {
+        "prefix":"match_details_updated",
+        "body":"match_details_updated",
+        "description":"matchID:uint64 result:byte"
+    },
+    "live_games_updated":
+    {
+        "prefix":"live_games_updated",
+        "body":"live_games_updated",
+        "description":"Page:short"
+    },
+    "news_updated":
+    {
+        "prefix":"news_updated",
+        "body":"news_updated",
+        "description":"SteamID:uint64"
+    },
+    "tournament_state_updated":
+    {
+        "prefix":"tournament_state_updated",
+        "body":"tournament_state_updated",
+        "description":"PlayerID:short EntKilled:short FirstBlood:bool HeroKill:bool TowerKill:bool"
+    },
+    "player_completed_game":
+    {
+        "prefix":"player_completed_game",
+        "body":"player_completed_game",
+        "description":"PlayerID:short Winner:byte"
+    },
+    "player_reconnected":
+    {
+        "prefix":"player_reconnected",
+        "body":"player_reconnected",
+        "description":"PlayerID:short"
+    },
+    "nommed_tree":
+    {
+        "prefix":"nommed_tree",
+        "body":"nommed_tree",
+        "description":"PlayerID:short"
+    },
+    "dota_rune_activated_server":
+    {
+        "prefix":"dota_rune_activated_server",
+        "body":"dota_rune_activated_server",
+        "description":"PlayerID:short rune:short"
+    },
+    "dota_player_gained_level":
+    {
+        "prefix":"dota_player_gained_level",
+        "body":"dota_player_gained_level",
+        "description":"player:short level:short"
+    },
+    "dota_player_pick_hero":
+    {
+        "prefix":"dota_player_pick_hero",
+        "body":"dota_player_pick_hero",
+        "description":"player:short heroindex:short hero:string"
+    },
+    "dota_player_learned_ability":
+    {
+        "prefix":"dota_player_learned_ability",
+        "body":"dota_player_learned_ability",
+        "description":"player:short abilityname:string"
+    },
+    "dota_player_used_ability":
+    {
+        "prefix":"dota_player_used_ability",
+        "body":"dota_player_used_ability",
+        "description":"PlayerID:short abilityname:string"
+    },
+    "dota_non_player_used_ability":
+    {
+        "prefix":"dota_non_player_used_ability",
+        "body":"dota_non_player_used_ability",
+        "description":"abilityname:string"
+    },
+    "dota_ability_channel_finished":
+    {
+        "prefix":"dota_ability_channel_finished",
+        "body":"dota_ability_channel_finished",
+        "description":"abilityname:string interrupted:bool"
+    },
+    "dota_holdout_revive_complete":
+    {
+        "prefix":"dota_holdout_revive_complete",
+        "body":"dota_holdout_revive_complete",
+        "description":"caster:short target:short"
+    },
+    "dota_player_killed":
+    {
+        "prefix":"dota_player_killed",
+        "body":"dota_player_killed",
+        "description":"PlayerID:short HeroKill:bool TowerKill:bool"
+    },
+    "bindpanel_open":
+    {
+        "prefix":"bindpanel_open",
+        "body":"bindpanel_open",
+        "description":"PlayerID:short itemname:string itemcost:short"
+    },
+    "dota_item_used":
+    {
+        "prefix":"dota_item_used",
+        "body":"dota_item_used",
+        "description":"PlayerID:short itemname:string"
+    },
+    "dota_item_auto_purchase":
+    {
+        "prefix":"dota_item_auto_purchase",
+        "body":"dota_item_auto_purchase",
+        "description":"item_id:short"
+    },
+    "dota_unit_event":
+    {
+        "prefix":"dota_unit_event",
+        "body":"dota_unit_event",
+        "description":"victim:short attacker:short basepriority:short priority:short eventtype:short: EDOTAHeroChaseEventType"
+    },
+    "dota_quest_started":
+    {
+        "prefix":"dota_quest_started",
+        "body":"dota_quest_started",
+        "description":"questIndex:long: entity index"
+    },
+    "dota_quest_completed":
+    {
+        "prefix":"dota_quest_completed",
+        "body":"dota_quest_completed",
+        "description":"questIndex:long: entity index"
+    },
+    "gameui_activated":
+    {
+        "prefix":"gameui_activated",
+        "body":"gameui_activated",
+        "description":"userid:short: user ID on server name:string: player name"
+    },
+    "dota_spectate_hero":
+    {
+        "prefix":"dota_spectate_hero",
+        "body":"dota_spectate_hero",
+        "description":"entindex:byte"
+    },
+    "dota_match_done":
+    {
+        "prefix":"dota_match_done",
+        "body":"dota_match_done",
+        "description":"winningteam:byte: The ID of the winning team"
+    },
+    "dota_match_done_client":
+    {
+        "prefix":"dota_match_done_client",
+        "body":"dota_match_done_client",
+        "description":"group:string enabled:short"
+    },
+    "joined_chat_channel":
+    {
+        "prefix":"joined_chat_channel",
+        "body":"joined_chat_channel",
+        "description":"channelName:string"
+    },
+    "left_chat_channel":
+    {
+        "prefix":"left_chat_channel",
+        "body":"left_chat_channel",
+        "description":"channelName:string"
+    },
+    "gc_chat_channel_list_updated":
+    {
+        "prefix":"gc_chat_channel_list_updated",
+        "body":"gc_chat_channel_list_updated",
+        "description":"num_messages:short"
+    },
+    "file_downloaded":
+    {
+        "prefix":"file_downloaded",
+        "body":"file_downloaded",
+        "description":"success:bool local_filename:string remote_url:string"
+    },
+    "player_report_counts_updated":
+    {
+        "prefix":"player_report_counts_updated",
+        "body":"player_report_counts_updated",
+        "description":"positive_remaining:byte negative_remaining:byte positive_total:short negative_total:short"
+    },
+    "scaleform_file_download_complete":
+    {
+        "prefix":"scaleform_file_download_complete",
+        "body":"scaleform_file_download_complete",
+        "description":"success:bool local_filename:string remote_url:string"
+    },
+    "item_purchased":
+    {
+        "prefix":"item_purchased",
+        "body":"item_purchased",
+        "description":"itemid:short"
+    },
+    "gc_mismatched_version":
+    {
+        "prefix":"gc_mismatched_version",
+        "body":"gc_mismatched_version",
+        "description":"local (1) playback_tick:long: current playback tick skipto_tick:long: tick we're going to "
+    },
+    "demo_start":
+    {
+        "prefix":"demo_start",
+        "body":"demo_start",
+        "description":"local (1) dota_combatlog_list:local: CSVCMsgList_GameEvents that are combat log events "
+    },
+    "demo_stop":
+    {
+        "prefix":"demo_stop",
+        "body":"demo_stop",
+        "description":""
+    },
+    "map_shutdown":
+    {
+        "prefix":"map_shutdown",
+        "body":"map_shutdown",
+        "description":"filename:string"
+    },
+    "dota_workshop_filecanceled":
+    {
+        "prefix":"dota_workshop_filecanceled",
+        "body":"dota_workshop_filecanceled",
+        "description":"userid:short heroid:short"
+    },
+    "dota_rd_chat_turn":
+    {
+        "prefix":"dota_rd_chat_turn",
+        "body":"dota_rd_chat_turn",
+        "description":"userid:short"
+    },
+    "dota_favorite_heroes_updated":
+    {
+        "prefix":"dota_favorite_heroes_updated",
+        "body":"dota_favorite_heroes_updated",
+        "description":"section:short"
+    },
+    "dota_tournament_item_event":
+    {
+        "prefix":"dota_tournament_item_event",
+        "body":"dota_tournament_item_event",
+        "description":"winner_count:short event_type:short"
+    },
+    "dota_hero_swap":
+    {
+        "prefix":"dota_hero_swap",
+        "body":"dota_hero_swap",
+        "description":"playerid1:byte playerid2:byte"
+    },
+    "dota_reset_suggested_items":
+    {
+        "prefix":"dota_reset_suggested_items",
+        "body":"dota_reset_suggested_items",
+        "description":"&#160;: reset the purchased / checked off state of suggested items in the store round:short"
+    },
+    "halloween_phase_end":
+    {
+        "prefix":"halloween_phase_end",
+        "body":"halloween_phase_end",
+        "description":"phase:byte team:byte"
+    },
+    "halloween_high_score_request_failed":
+    {
+        "prefix":"halloween_high_score_request_failed",
+        "body":"halloween_high_score_request_failed",
+        "description":"round:short"
+    },
+    "dota_hud_skin_changed":
+    {
+        "prefix":"dota_hud_skin_changed",
+        "body":"dota_hud_skin_changed",
+        "description":"skin:string style:byte"
+    },
+    "dota_inventory_player_got_item":
+    {
+        "prefix":"dota_inventory_player_got_item",
+        "body":"dota_inventory_player_got_item",
+        "description":"itemname:string"
+    },
+    "player_is_experienced":
+    {
+        "prefix":"player_is_experienced",
+        "body":"player_is_experienced",
+        "description":"elementname:string duration:float"
+    },
+    "hide_highlight_hud_element":
+    {
+        "prefix":"hide_highlight_hud_element",
+        "body":"hide_highlight_hud_element",
+        "description":"local (1 buffer( (local buffersize:long address:string"
+    },
+    "hero_selector_preview_set":
+    {
+        "prefix":"hero_selector_preview_set",
+        "body":"hero_selector_preview_set",
+        "description":"setindex:short"
+    },
+    "antiaddiction_toast":
+    {
+        "prefix":"antiaddiction_toast",
+        "body":"antiaddiction_toast",
+        "description":"message:string duration:float"
+    },
+    "hero_picker_shown":
+    {
+        "prefix":"hero_picker_shown",
+        "body":"hero_picker_shown",
+        "description":"message:string duration:float clear_message_queue:bool"
+    },
+    "hud_flip_changed":
+    {
+        "prefix":"hud_flip_changed",
+        "body":"hud_flip_changed",
+        "description":"flipped:bool"
+    },
+    "frosty_points_updated":
+    {
+        "prefix":"frosty_points_updated",
+        "body":"frosty_points_updated",
+        "description":"entindex:short"
+    },
+    "reset_defeated":
+    {
+        "prefix":"reset_defeated",
+        "body":"reset_defeated",
+        "description":"event_id:short points:short premium_points:short"
+    },
+    "local_player_event_points":
+    {
+        "prefix":"local_player_event_points",
+        "body":"local_player_event_points",
+        "description":"points:short conversion_rate:short"
+    },
+    "custom_game_difficulty":
+    {
+        "prefix":"custom_game_difficulty",
+        "body":"custom_game_difficulty",
+        "description":"difficulty:byte"
+    },
+    "tree_cut":
+    {
+        "prefix":"tree_cut",
+        "body":"tree_cut",
+        "description":"tree_x:float tree_y:float"
+    },
+    "ugc_details_arrived":
+    {
+        "prefix":"ugc_details_arrived",
+        "body":"ugc_details_arrived",
+        "description":"published_file_id:uint64"
+    },
+    "ugc_subscribed":
+    {
+        "prefix":"ugc_subscribed",
+        "body":"ugc_subscribed",
+        "description":"published_file_id:uint64"
+    },
+    "ugc_unsubscribed":
+    {
+        "prefix":"ugc_unsubscribed",
+        "body":"ugc_unsubscribed",
+        "description":"published_file_id:uint64"
+    },
+    "prizepool_received":
+    {
+        "prefix":"prizepool_received",
+        "body":"prizepool_received",
+        "description":"success:bool prizepool:uint64 leagueid:uint64"
+    },
+    "microtransaction_success":
+    {
+        "prefix":"microtransaction_success",
+        "body":"microtransaction_success",
+        "description":"txnid:uint64"
+    },
+    "dota_rubick_ability_steal":
+    {
+        "prefix":"dota_rubick_ability_steal",
+        "body":"dota_rubick_ability_steal",
+        "description":"abilityIndex:short abilityLevel:byte"
+    },
+    "compendium_event_actions_loaded":
+    {
+        "prefix":"compendium_event_actions_loaded",
+        "body":"compendium_event_actions_loaded",
+        "description":"account_id:uint64 league_id:uint64 local_test:bool original_points:uint64"
+    },
+    "compendium_selections_loaded":
+    {
+        "prefix":"compendium_selections_loaded",
+        "body":"compendium_selections_loaded",
+        "description":"account_id:uint64 league_id:uint64 local_test(  <i>bool"
+    },
+    "compendium_set_selection_failed":
+    {
+        "prefix":"compendium_set_selection_failed",
+        "body":"compendium_set_selection_failed",
+        "description":"account_id:uint64 league_id:uint64 local_test(  <i>bool"
+    },
+    "community_cached_names_updated":
+    {
+        "prefix":"community_cached_names_updated",
+        "body":"community_cached_names_updated",
+        "description":""
     }
 }
