@@ -1,11 +1,24 @@
 {
-    "name": "dota2 reborn code",
-    "publisher": "XavierCHN",
-    "description": "Snippets to assist you making dota2 custom games, including lua/moonscript, javascript/typescript, plaintext(kv), xml(panorama xml) and css",
+    "name": "dota-reborn-code",
+    "displayName": "dota-reborn-code",
+    "description": "dota2 custom game kv/js/lua/xml/css syntax and snippets",
     "version": "0.0.1",
-    "engines": { "vscode": "^0.10.1" },
-    "categories": ["Snippets"], 
+    "publisher": "XavierCHN",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "activationEvents": [
+        "onCommand:extension.sayHello"
+    ],
+    "main": "./out/src/extension",
     "contributes": {
+        "commands": [{
+            "command": "extension.sayHello",
+            "title": "Hello World"
+        }],
         "snippets": [
             {
                 "language": "lua",
@@ -36,5 +49,14 @@
                 "path": "./snippets/css.json"
             }
         ]
+    },
+    "scripts": {
+        "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+        "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "typescript": "^1.8.5",
+        "vscode": "^0.11.0"
     }
 }
