@@ -4,11 +4,9 @@
 
 - [x] Lua: Function and enum snippets;
 
-- [ ] JavaScript: Function and enum snippets;
+- [x] JavaScript: Function and enum snippets;
 
 - [x] XML: Snippets;
-
-- [ ] css: Snippets;
 
 - [x] KV: Syntax, highlighting and ~~snippets~~;
 
