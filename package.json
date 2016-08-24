@@ -2,7 +2,7 @@
     "name": "dota-reborn-code",
     "displayName": "dota-reborn-code",
     "description": "dota2 custom game kv/js/lua/xml/css syntax and snippets",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "XavierCHN",
     "icon": "images/xavier.png",
     "engines": {
@@ -16,7 +16,6 @@
     "activationEvents": [],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": [],
         "languages": [
             {
                 "id": "plaintext",
@@ -35,12 +34,6 @@
                 "language": "plaintext",
                 "scopeName": "source.txt",
                 "path": "./syntaxes/dotaKV.tmLanguage"
-            }
-        ],
-        "typings": [
-            {
-                "language": "javascript",
-                "path": "./global.d.ts"
             }
         ],
         "snippets": [
