@@ -1,8 +1,20 @@
 # Dota-Reborn-Code
-dota2 lua/kv/xml/js/css coding assist for visual studio code
 
-[x] Lua: Function and enum snippets;
-[ ] JavaScript: Function and enum snippets;
-[ ] XML: Snippets;
-[ ] css: Snippets;
-[ ] KV: Syntax, highlighting and snippets;  
+## Working in progress
+
+- [x] Lua: Function and enum snippets;
+
+- [ ] JavaScript: Function and enum snippets;
+
+- [ ] XML: Snippets;
+
+- [ ] css: Snippets;
+
+- [ ] KV: Syntax, highlighting and snippets;
+
+## Installation
+
+1. ~~Install [Visual studio code]();~~
+2. ~~Open it;~~
+3. ~~Click Extension tab and search for `dota2 reborn code`;~~
+4. ~~Install and enjoy!~~  
