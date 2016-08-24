@@ -139,7 +139,8 @@
 			"\t</scripts>",
 			"\t<snippets>",
 			"\t</snippets>",
-			"\t<Panel class=\"${file_name}_Root\">",
+			"\t<Panel class=\"${file_name}_Root$0\">",
+			"\t\t$1",
 			"\t</Panel>",
 			"</root>"
 		],
