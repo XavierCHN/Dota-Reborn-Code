@@ -125,5 +125,24 @@
 			"</snippet>"
 		],
 		"description":"Create a snippet block"
+	},
+	"root":
+	{
+		"prefix":"root",
+		"body":[
+			"<root>", 
+			"\t<styles>",
+			"\t\t<include src=\"file://{resources}/styles/${file_name}.css\" />",
+			"\t</styles>",
+			"\t<scripts>",
+			"\t\t<include src=\"file://{resources}/scripts/${file_name}.js\" />", 
+			"\t</scripts>",
+			"\t<snippets>",
+			"\t</snippets>",
+			"\t<Panel class=\"${file_name}_Root\">",
+			"\t</Panel>",
+			"</root>"
+		],
+		"description":"Create a dota xml file with everything you need!"
 	}
 }
