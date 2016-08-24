@@ -1,0 +1,2617 @@
+{
+	"IsMoving":{
+	"prefix":"IsMoving",
+	"body":"IsMoving(${1:integer nEntityIndex})",
+	"description":"IsMoving"
+	},
+	"IsGamePaused":{
+		"prefix":"IsGamePaused",
+		"body":"IsGamePaused()",
+		"description":"IsGamePaused"
+	},
+	"IsInToolsMode":{
+		"prefix":"IsInToolsMode",
+		"body":"IsInToolsMode()",
+		"description":"IsInToolsMode"
+	},
+	"BLoadLayoutSnippet":{
+		"prefix":"BLoadLayoutSnippet",
+		"body":"BLoadLayoutSnippet(${1:string SnippetName})",
+		"description":"BLoadLayoutSnippet"
+	},
+	"SetCameraTargetPosition":{
+		"prefix":"SetCameraTargetPosition",
+		"body":"SetCameraTargetPosition( ${1:js_value vec3}, ${2:float flLerp} )",
+		"description":"SetCameraTargetPosition"
+	},
+	"RunScriptInPanelContext":{
+		"prefix":"RunScriptInPanelContext",
+		"body":"RunScriptInPanelContext(${1:js_args_unknown})",
+		"description":"RunScriptInPanelContext"
+	},
+	"DOTAHideProfileCardBattleCupTooltip":{
+		"prefix":"DOTAHideProfileCardBattleCupTooltip",
+		"body":"DOTAHideProfileCardBattleCupTooltip()",
+		"description":"DOTAHideProfileCardBattleCupTooltip"
+	},
+	"DOTAShowProfileCardBattleCupTooltip":{
+		"prefix":"DOTAShowProfileCardBattleCupTooltip",
+		"body":"DOTAShowProfileCardBattleCupTooltip(${1:uint64 SteamID64})",
+		"description":"DOTAShowProfileCardBattleCupTooltip"
+	},
+	"GetCustomGameDifficulty":{
+		"prefix":"GetCustomGameDifficulty",
+		"body":"GetCustomGameDifficulty()",
+		"description":"GetCustomGameDifficulty"
+	},
+	"GetScreenWidth":{
+		"prefix":"GetScreenWidth",
+		"body":"GetScreenWidth()",
+		"description":"GetScreenWidth"
+	},
+	"GetScreenHeight":{
+		"prefix":"GetScreenHeight",
+		"body":"GetScreenHeight()",
+		"description":"GetScreenHeight"
+	},
+	"EnableAliMode":{
+		"prefix":"EnableAliMode",
+		"body":"EnableAliMode( ${1:boolean bEnable}, ${2:integer nPort}, ${3:js_value offsetVal}, ${4:integer nScale} )",
+		"description":"EnableAliMode"
+	},
+	"GetForward":{
+		"prefix":"GetForward",
+		"body":"GetForward(${1:integer nEntityIndex})",
+		"description":"GetForward"
+	},
+	"GetRight":{
+		"prefix":"GetRight",
+		"body":"GetRight(${1:integer nEntityIndex})",
+		"description":"GetRight"
+	},
+	"GetUp":{
+		"prefix":"GetUp",
+		"body":"GetUp(${1:integer nEntityIndex})",
+		"description":"GetUp"
+	},
+	"GetTeam":{
+		"prefix":"GetTeam",
+		"body":"GetTeam(${1:integer iPlayerID})",
+		"description":"GetTeam"
+	},
+	"UpdateFocusInContext":{
+		"prefix":"UpdateFocusInContext",
+		"body":"UpdateFocusInContext()",
+		"description":"UpdateFocusInContext"
+	},
+	"RegisterForReadyEvents":{
+		"prefix":"RegisterForReadyEvents",
+		"body":"RegisterForReadyEvents(${1:boolean boolean_1})",
+		"description":"RegisterForReadyEvents"
+	},
+	"SetReadyForDisplay":{
+		"prefix":"SetReadyForDisplay",
+		"body":"SetReadyForDisplay(${1:boolean boolean_1})",
+		"description":"SetReadyForDisplay"
+	},
+	"GetPhysicalArmorValue":{
+		"prefix":"GetPhysicalArmorValue",
+		"body":"GetPhysicalArmorValue(${1:nEntityIndex})",
+		"description":"GetPhysicalArmorValue"
+	},
+	"GetMagicalArmorValue":{
+		"prefix":"GetMagicalArmorValue",
+		"body":"GetMagicalArmorValue(${1:nEntityIndex})",
+		"description":"GetMagicalArmorValue"
+	},
+	"GetBonusPhysicalArmor":{
+		"prefix":"GetBonusPhysicalArmor",
+		"body":"GetBonusPhysicalArmor(${1:nEntityIndex})",
+		"description":"GetBonusPhysicalArmor"
+	},
+	"GetCurrentXP":{
+		"prefix":"GetCurrentXP",
+		"body":"GetCurrentXP(${1:nEntityIndex})",
+		"description":"GetCurrentXP"
+	},
+	"GetNeededXPToLevel":{
+		"prefix":"GetNeededXPToLevel",
+		"body":"GetNeededXPToLevel(${1:nEntityIndex})",
+		"description":"GetNeededXPToLevel"
+	},
+	"SendEventClientSide":{
+		"prefix":"SendEventClientSide",
+		"body":"SendEventClientSide(${1:cstring pEventName}, ${2:js_object objectEventArgs})",
+		"description":"SendEventClientSide"
+	},
+	"GetStackCount":{
+		"prefix":"GetStackCount",
+		"body":"GetStackCount( ${1:nQueryUnitEntityIndex}, ${2:nBuffSerial});",
+		"description":"GetStackCount"
+	},
+	"IsDebuff":{
+		"prefix":"IsDebuff",
+		"body":"IsDebuff( ${1:nQueryUnitEntityIndex}, ${2:nBuffSerial})",
+		"description":"IsDebuff"
+	},
+	"GetTexture":{
+		"prefix":"GetTexture",
+		"body":"GetTexture( ${1:nQueryUnitEntityIndex}, ${2:nBuffSerial});",
+		"description":"GetTexture"
+	},
+	"GetNumBuffs":{
+		"prefix":"GetNumBuffs",
+		"body":"GetNumBuffs( ${1:nQueryUnitEntityIndex});",
+		"description":"GetNumBuffs"
+	},
+	"GetBuff":{
+		"prefix":"GetBuff",
+		"body":"GetBuff( ${1:nQueryUnitEntityIndex}, ${2:nBuffSerial});",
+		"description":"GetBuff"
+	},
+	"BuffClicked":{
+		"prefix":"BuffClicked",
+		"body":"BuffClicked( ${1:nQueryUnitEntityIndex}, ${2:nBuffSerial}, ${3:bAlertBuff});",
+		"description":"BuffClicked"
+	},
+	"DOTAShowBuffTooltip":{
+		"prefix":"DOTAShowBuffTooltip",
+		"body":"DOTAShowBuffTooltip(${1:int32 entityIndex}, ${2:int buffSerial}, ${3:bool isEnemy})",
+		"description":"DOTAShowBuffTooltip"
+	},
+	"DOTAHideBuffTooltip":{
+		"prefix":"DOTAHideBuffTooltip",
+		"body":"DOTAHideBuffTooltip(${1:})",
+		"description":"DOTAHideBuffTooltip"
+	},
+	"AddStyle":{
+		"prefix":"AddStyle",
+		"body":"AddStyle(${1:string class})",
+		"description":"AddStyle"
+	},
+	"AddStyleToEachChild":{
+		"prefix":"AddStyleToEachChild",
+		"body":"AddStyleToEachChild(${1:string class})",
+		"description":"AddStyleToEachChild"
+	},
+	"AsyncEvent":{
+		"prefix":"AsyncEvent",
+		"body":"AsyncEvent(${1:float delay}, ${2:event eventToFire})",
+		"description":"AsyncEvent"
+	},
+	"DOTAHideAbilityTooltip":{
+		"prefix":"DOTAHideAbilityTooltip",
+		"body":"DOTAHideAbilityTooltip(${1:})",
+		"description":"DOTAHideAbilityTooltip"
+	},
+	"DOTAHideEconItemTooltip":{
+		"prefix":"DOTAHideEconItemTooltip",
+		"body":"DOTAHideEconItemTooltip(${1:})",
+		"description":"DOTAHideEconItemTooltip"
+	},
+	"DOTAHideProfileCardTooltip":{
+		"prefix":"DOTAHideProfileCardTooltip",
+		"body":"DOTAHideProfileCardTooltip(${1:})",
+		"description":"DOTAHideProfileCardTooltip"
+	},
+	"DOTAHideTextTooltip":{
+		"prefix":"DOTAHideTextTooltip",
+		"body":"DOTAHideTextTooltip(${1:})",
+		"description":"DOTAHideTextTooltip"
+	},
+	"DOTAHideTitleImageTextTooltip":{
+		"prefix":"DOTAHideTitleImageTextTooltip",
+		"body":"DOTAHideTitleImageTextTooltip(${1:})",
+		"description":"DOTAHideTitleImageTextTooltip"
+	},
+	"DOTAHideTitleTextTooltip":{
+		"prefix":"DOTAHideTitleTextTooltip",
+		"body":"DOTAHideTitleTextTooltip(${1:})",
+		"description":"DOTAHideTitleTextTooltip"
+	},
+	"DOTAShowAbilityTooltip":{
+		"prefix":"DOTAShowAbilityTooltip",
+		"body":"DOTAShowAbilityTooltip(${1:string abilityName})",
+		"description":"DOTAShowAbilityTooltip"
+	},
+	"DOTAShowAbilityTooltipForEntityIndex":{
+		"prefix":"DOTAShowAbilityTooltipForEntityIndex",
+		"body":"DOTAShowAbilityTooltipForEntityIndex(${1:string abilityName}, ${2:int32 entityIndex})",
+		"description":"DOTAShowAbilityTooltipForEntityIndex"
+	},
+	"DOTAShowEconItemTooltip":{
+		"prefix":"DOTAShowEconItemTooltip",
+		"body":"DOTAShowEconItemTooltip(${1:uint16 itemDef}, ${2:uint8 styleIndex}, ${3:int32 heroID})",
+		"description":"DOTAShowEconItemTooltip"
+	},
+	"DOTAShowProfileCardTooltip":{
+		"prefix":"DOTAShowProfileCardTooltip",
+		"body":"DOTAShowProfileCardTooltip(${1:uint64 steamID}, ${2:bool useProName})",
+		"description":"DOTAShowProfileCardTooltip"
+	},
+	"DOTAShowTextTooltip":{
+		"prefix":"DOTAShowTextTooltip",
+		"body":"DOTAShowTextTooltip(${1:string text})",
+		"description":"DOTAShowTextTooltip"
+	},
+	"DOTAShowTextTooltipStyled":{
+		"prefix":"DOTAShowTextTooltipStyled",
+		"body":"DOTAShowTextTooltipStyled(${1:string text}, ${2:string style})",
+		"description":"DOTAShowTextTooltipStyled"
+	},
+	"DOTAShowTitleImageTextTooltip":{
+		"prefix":"DOTAShowTitleImageTextTooltip",
+		"body":"DOTAShowTitleImageTextTooltip(${1:string title}, ${2:string imagePath}, ${3:string text})",
+		"description":"DOTAShowTitleImageTextTooltip"
+	},
+	"DOTAShowTitleImageTextTooltipStyled":{
+		"prefix":"DOTAShowTitleImageTextTooltipStyled",
+		"body":"DOTAShowTitleImageTextTooltipStyled(${1:string title}, ${2:string imagePath}, ${3:string text}, ${4:string style})",
+		"description":"DOTAShowTitleImageTextTooltipStyled"
+	},
+	"DOTAShowTitleTextTooltip":{
+		"prefix":"DOTAShowTitleTextTooltip",
+		"body":"DOTAShowTitleTextTooltip(${1:string title}, ${2:string text})",
+		"description":"DOTAShowTitleTextTooltip"
+	},
+	"DOTAShowTitleTextTooltipStyled":{
+		"prefix":"DOTAShowTitleTextTooltipStyled",
+		"body":"DOTAShowTitleTextTooltipStyled(${1:string title}, ${2:string text}, ${3:string style})",
+		"description":"DOTAShowTitleTextTooltipStyled"
+	},
+	"IfHasClassEvent":{
+		"prefix":"IfHasClassEvent",
+		"body":"IfHasClassEvent(${1:string class}, ${2:event eventToFire})",
+		"description":"IfHasClassEvent"
+	},
+	"IfHoverOtherEvent":{
+		"prefix":"IfHoverOtherEvent",
+		"body":"IfHoverOtherEvent(${1:string otherPanelID}, ${2:event eventToFire})",
+		"description":"IfHoverOtherEvent"
+	},
+	"IfNotHasClassEvent":{
+		"prefix":"IfNotHasClassEvent",
+		"body":"IfNotHasClassEvent(${1:string class}, ${2:event eventToFire})",
+		"description":"IfNotHasClassEvent"
+	},
+	"IfNotHoverOtherEvent":{
+		"prefix":"IfNotHoverOtherEvent",
+		"body":"IfNotHoverOtherEvent(${1:string otherPanelID}, ${2:event eventToFire})",
+		"description":"IfNotHoverOtherEvent"
+	},
+	"PageDown":{
+		"prefix":"PageDown",
+		"body":"PageDown(${1:})",
+		"description":"PageDown"
+	},
+	"PageLeft":{
+		"prefix":"PageLeft",
+		"body":"PageLeft(${1:})",
+		"description":"PageLeft"
+	},
+	"PagePanelDown":{
+		"prefix":"PagePanelDown",
+		"body":"PagePanelDown(${1:})",
+		"description":"PagePanelDown"
+	},
+	"PagePanelLeft":{
+		"prefix":"PagePanelLeft",
+		"body":"PagePanelLeft(${1:})",
+		"description":"PagePanelLeft"
+	},
+	"PagePanelRight":{
+		"prefix":"PagePanelRight",
+		"body":"PagePanelRight(${1:})",
+		"description":"PagePanelRight"
+	},
+	"PagePanelUp":{
+		"prefix":"PagePanelUp",
+		"body":"PagePanelUp(${1:})",
+		"description":"PagePanelUp"
+	},
+	"PageRight":{
+		"prefix":"PageRight",
+		"body":"PageRight(${1:})",
+		"description":"PageRight"
+	},
+	"PageUp":{
+		"prefix":"PageUp",
+		"body":"PageUp(${1:})",
+		"description":"PageUp"
+	},
+	"RemoveStyle":{
+		"prefix":"RemoveStyle",
+		"body":"RemoveStyle(${1:string class})",
+		"description":"RemoveStyle"
+	},
+	"RemoveStyleFromEachChild":{
+		"prefix":"RemoveStyleFromEachChild",
+		"body":"RemoveStyleFromEachChild(${1:string class})",
+		"description":"RemoveStyleFromEachChild"
+	},
+	"ScrollDown":{
+		"prefix":"ScrollDown",
+		"body":"ScrollDown(${1:})",
+		"description":"ScrollDown"
+	},
+	"ScrollLeft":{
+		"prefix":"ScrollLeft",
+		"body":"ScrollLeft(${1:})",
+		"description":"ScrollLeft"
+	},
+	"ScrollPanelDown":{
+		"prefix":"ScrollPanelDown",
+		"body":"ScrollPanelDown(${1:})",
+		"description":"ScrollPanelDown"
+	},
+	"ScrollPanelLeft":{
+		"prefix":"ScrollPanelLeft",
+		"body":"ScrollPanelLeft(${1:})",
+		"description":"ScrollPanelLeft"
+	},
+	"ScrollPanelRight":{
+		"prefix":"ScrollPanelRight",
+		"body":"ScrollPanelRight(${1:})",
+		"description":"ScrollPanelRight"
+	},
+	"ScrollPanelUp":{
+		"prefix":"ScrollPanelUp",
+		"body":"ScrollPanelUp(${1:})",
+		"description":"ScrollPanelUp"
+	},
+	"ScrollRight":{
+		"prefix":"ScrollRight",
+		"body":"ScrollRight(${1:})",
+		"description":"ScrollRight"
+	},
+	"ScrollToBottom":{
+		"prefix":"ScrollToBottom",
+		"body":"ScrollToBottom(${1:})",
+		"description":"ScrollToBottom"
+	},
+	"ScrollToTop":{
+		"prefix":"ScrollToTop",
+		"body":"ScrollToTop(${1:})",
+		"description":"ScrollToTop"
+	},
+	"ScrollUp":{
+		"prefix":"ScrollUp",
+		"body":"ScrollUp(${1:})",
+		"description":"ScrollUp"
+	},
+	"SetChildPanelsSelected":{
+		"prefix":"SetChildPanelsSelected",
+		"body":"SetChildPanelsSelected(${1:bool selected})",
+		"description":"SetChildPanelsSelected"
+	},
+	"SetInputFocus":{
+		"prefix":"SetInputFocus",
+		"body":"SetInputFocus(${1:})",
+		"description":"SetInputFocus"
+	},
+	"SetPanelSelected":{
+		"prefix":"SetPanelSelected",
+		"body":"SetPanelSelected(${1:bool selected})",
+		"description":"SetPanelSelected"
+	},
+	"TogglePanelSelected":{
+		"prefix":"TogglePanelSelected",
+		"body":"TogglePanelSelected(${1:})",
+		"description":"TogglePanelSelected"
+	},
+	"ToggleStyle":{
+		"prefix":"ToggleStyle",
+		"body":"ToggleStyle(${1:string class})",
+		"description":"ToggleStyle"
+	},
+	"SetCameraYaw":{
+		"prefix":"SetCameraYaw",
+		"body":"SetCameraYaw(${1: float flCameraYaw})",
+		"description":"SetCameraYaw"
+	},
+	"GameUI_SetCameraPitchMin":{
+		"prefix":"GameUI_SetCameraPitchMin",
+		"body":"GameUI_SetCameraPitchMin(${1: float flCameraPitchMin})",
+		"description":"GameUI_SetCameraPitchMin"
+	},
+	"IsInAbilityLearnMode":{
+		"prefix":"IsInAbilityLearnMode",
+		"body":"IsInAbilityLearnMode()",
+		"description":"IsInAbilityLearnMode"
+	},
+	"EnterAbilityLearnMode":{
+		"prefix":"EnterAbilityLearnMode",
+		"body":"EnterAbilityLearnMode()",
+		"description":"EnterAbilityLearnMode"
+	},
+	"EndAbilityLearnMode":{
+		"prefix":"EndAbilityLearnMode",
+		"body":"EndAbilityLearnMode()",
+		"description":"EndAbilityLearnMode"
+	},
+	"GetAbilityPoints":{
+		"prefix":"GetAbilityPoints",
+		"body":"GetAbilityPoints(${1:nEntityIndex})",
+		"description":"GetAbilityPoints"
+	},
+	"SetCameraPitchMax":{
+		"prefix":"SetCameraPitchMax",
+		"body":"SetCameraPitchMax(${1:float flPitchMax})",
+		"description":"SetCameraPitchMax"
+	},
+	"SetCameraDistance":{
+		"prefix":"SetCameraDistance",
+		"body":"SetCameraDistance(${1:float flDistance})",
+		"description":"SetCameraDistance"
+	},
+	"SetRenderBottomInsetOverride":{
+		"prefix":"SetRenderBottomInsetOverride",
+		"body":"SetRenderBottomInsetOverride(${1:integer nInset})",
+		"description":"SetRenderBottomInsetOverride"
+	},
+	"SetRenderTopInsetOverride":{
+		"prefix":"SetRenderTopInsetOverride",
+		"body":"SetRenderTopInsetOverride(${1:integer nInset})",
+		"description":"SetRenderTopInsetOverride"
+	},
+	"IsValidEntity":{
+		"prefix":"IsValidEntity",
+		"body":"IsValidEntity(${1:integer nEntityIndex})",
+		"description":"IsValidEntity"
+	},
+	"IsItemPhysical":{
+		"prefix":"IsItemPhysical",
+		"body":"IsItemPhysical(${1:integer nEntityIndex})",
+		"description":"IsItemPhysical"
+	},
+	"GetContainedItem":{
+		"prefix":"GetContainedItem",
+		"body":"GetContainedItem(${1:integer nEntityIndex})",
+		"description":"GetContainedItem"
+	},
+	"Subscribe":{
+		"prefix":"Subscribe",
+		"body":"Subscribe(${1:cstring pEventName#test}, ${2:js_value funcVal})",
+		"description":"Subscribe"
+	},
+	"Unsubscribe":{
+		"prefix":"Unsubscribe",
+		"body":"Unsubscribe(${1:integer nCallbackHandle})",
+		"description":"Unsubscribe"
+	},
+	"SendCustomGameEventToServer":{
+		"prefix":"SendCustomGameEventToServer",
+		"body":"SendCustomGameEventToServer(${1:cstring pEventName}, ${2:js_object jsObject})",
+		"description":"SendCustomGameEventToServer"
+	},
+	"SetDefaultUIEnabled":{
+		"prefix":"SetDefaultUIEnabled",
+		"body":"SetDefaultUIEnabled(${1:integer nElementType}, ${2:boolean bVisible})",
+		"description":"SetDefaultUIEnabled"
+	},
+	"CustomUIConfig":{
+		"prefix":"CustomUIConfig",
+		"body":"CustomUIConfig(${1:js_raw_args args})",
+		"description":"CustomUIConfig"
+	},
+	"PingMinimapAtLocation":{
+		"prefix":"PingMinimapAtLocation",
+		"body":"PingMinimapAtLocation(${1:js_value vec3})",
+		"description":"PingMinimapAtLocation"
+	},
+	"SetMouseCallback":{
+		"prefix":"SetMouseCallback",
+		"body":"SetMouseCallback(${1:js_value callbackFn})",
+		"description":"SetMouseCallback"
+	},
+	"GetCursorPosition":{
+		"prefix":"GetCursorPosition",
+		"body":"GetCursorPosition(${1:js_raw_args args})",
+		"description":"GetCursorPosition"
+	},
+	"FindScreenEntities":{
+		"prefix":"FindScreenEntities",
+		"body":"FindScreenEntities(${1:js_raw_args args})",
+		"description":"FindScreenEntities"
+	},
+	"GetScreenWorldPosition":{
+		"prefix":"GetScreenWorldPosition",
+		"body":"GetScreenWorldPosition(${1:js_raw_args args})",
+		"description":"GetScreenWorldPosition"
+	},
+	"WasMousePressed":{
+		"prefix":"WasMousePressed",
+		"body":"WasMousePressed(${1:integer nButtonNum})",
+		"description":"WasMousePressed"
+	},
+	"WasMouseDoublePressed":{
+		"prefix":"WasMouseDoublePressed",
+		"body":"WasMouseDoublePressed(${1:integer nButtonNum})",
+		"description":"WasMouseDoublePressed"
+	},
+	"IsMouseDown":{
+		"prefix":"IsMouseDown",
+		"body":"IsMouseDown(${1:integer nButtonNum})",
+		"description":"IsMouseDown"
+	},
+	"IsShiftDown":{
+		"prefix":"IsShiftDown",
+		"body":"IsShiftDown()",
+		"description":"IsShiftDown"
+	},
+	"IsAltDown":{
+		"prefix":"IsAltDown",
+		"body":"IsAltDown()",
+		"description":"IsAltDown"
+	},
+	"IsControlDown":{
+		"prefix":"IsControlDown",
+		"body":"IsControlDown()",
+		"description":"IsControlDown"
+	},
+	"GetClickBehaviors":{
+		"prefix":"GetClickBehaviors",
+		"body":"GetClickBehaviors()",
+		"description":"GetClickBehaviors"
+	},
+	"SelectUnit":{
+		"prefix":"SelectUnit",
+		"body":"SelectUnit(${1:integer nEntityIndex}, ${2:boolean bAddToGroup})",
+		"description":"SelectUnit"
+	},
+	"GetTableValue":{
+		"prefix":"GetTableValue",
+		"body":"GetTableValue(${1:cstring pTableName}, ${2:cstring pKeyName})",
+		"description":"GetTableValue"
+	},
+	"GetAllTableValues":{
+		"prefix":"GetAllTableValues",
+		"body":"GetAllTableValues(${1:cstring pTableName})",
+		"description":"GetAllTableValues"
+	},
+	"SubscribeNetTableListener":{
+		"prefix":"SubscribeNetTableListener",
+		"body":"SubscribeNetTableListener(${1:js_raw_args args})",
+		"description":"SubscribeNetTableListener"
+	},
+	"UnsubscribeNetTableListener":{
+		"prefix":"UnsubscribeNetTableListener",
+		"body":"UnsubscribeNetTableListener(${1:integer nCallbackHandle})",
+		"description":"UnsubscribeNetTableListener"
+	},
+	"GetMaxPlayers":{
+		"prefix":"GetMaxPlayers",
+		"body":"GetMaxPlayers()",
+		"description":"GetMaxPlayers"
+	},
+	"GetMaxTeamPlayers":{
+		"prefix":"GetMaxTeamPlayers",
+		"body":"GetMaxTeamPlayers()",
+		"description":"GetMaxTeamPlayers"
+	},
+	"GetLocalPlayer":{
+		"prefix":"GetLocalPlayer",
+		"body":"GetLocalPlayer()",
+		"description":"GetLocalPlayer"
+	},
+	"IsValidPlayer":{
+		"prefix":"IsValidPlayer",
+		"body":"IsValidPlayer(${1:integer iPlayerID})",
+		"description":"IsValidPlayer"
+	},
+	"GetPlayerName":{
+		"prefix":"GetPlayerName",
+		"body":"GetPlayerName(${1:integer iPlayerID})",
+		"description":"GetPlayerName"
+	},
+	"GetPlayerHeroEntityIndex":{
+		"prefix":"GetPlayerHeroEntityIndex",
+		"body":"GetPlayerHeroEntityIndex(${1:integer iPlayerID})",
+		"description":"GetPlayerHeroEntityIndex"
+	},
+	"GetSelectedEntities":{
+		"prefix":"GetSelectedEntities",
+		"body":"GetSelectedEntities(${1:integer iPlayerID})",
+		"description":"GetSelectedEntities"
+	},
+	"GetQueryUnit":{
+		"prefix":"GetQueryUnit",
+		"body":"GetQueryUnit(${1:integer iPlayerID})",
+		"description":"GetQueryUnit"
+	},
+	"GetLocalPlayerPortraitUnit":{
+		"prefix":"GetLocalPlayerPortraitUnit",
+		"body":"GetLocalPlayerPortraitUnit()",
+		"description":"GetLocalPlayerPortraitUnit"
+	},
+	"CanPlayerBuyback":{
+		"prefix":"CanPlayerBuyback",
+		"body":"CanPlayerBuyback(${1:integer iPlayerID})",
+		"description":"CanPlayerBuyback"
+	},
+	"GetAssists":{
+		"prefix":"GetAssists",
+		"body":"GetAssists(${1:integer iPlayerID})",
+		"description":"GetAssists"
+	},
+	"GetClaimedDenies":{
+		"prefix":"GetClaimedDenies",
+		"body":"GetClaimedDenies(${1:integer iPlayerID})",
+		"description":"GetClaimedDenies"
+	},
+	"GetClaimedMisses":{
+		"prefix":"GetClaimedMisses",
+		"body":"GetClaimedMisses(${1:integer iPlayerID})",
+		"description":"GetClaimedMisses"
+	},
+	"GetDeaths":{
+		"prefix":"GetDeaths",
+		"body":"GetDeaths(${1:integer iPlayerID})",
+		"description":"GetDeaths"
+	},
+	"GetDenies":{
+		"prefix":"GetDenies",
+		"body":"GetDenies(${1:integer iPlayerID})",
+		"description":"GetDenies"
+	},
+	"GetGold":{
+		"prefix":"GetGold",
+		"body":"GetGold(${1:integer iPlayerID})",
+		"description":"GetGold"
+	},
+	"GetGoldBagsCollected":{
+		"prefix":"GetGoldBagsCollected",
+		"body":"GetGoldBagsCollected(${1:integer iPlayerID})",
+		"description":"GetGoldBagsCollected"
+	},
+	"GetKills":{
+		"prefix":"GetKills",
+		"body":"GetKills(${1:integer iPlayerID})",
+		"description":"GetKills"
+	},
+	"GetLastBuybackTime":{
+		"prefix":"GetLastBuybackTime",
+		"body":"GetLastBuybackTime(${1:integer iPlayerID})",
+		"description":"GetLastBuybackTime"
+	},
+	"GetLastHitMultikill":{
+		"prefix":"GetLastHitMultikill",
+		"body":"GetLastHitMultikill(${1:integer iPlayerID})",
+		"description":"GetLastHitMultikill"
+	},
+	"GetLastHits":{
+		"prefix":"GetLastHits",
+		"body":"GetLastHits(${1:integer iPlayerID})",
+		"description":"GetLastHits"
+	},
+	"GetLastHitStreak":{
+		"prefix":"GetLastHitStreak",
+		"body":"GetLastHitStreak(${1:integer iPlayerID})",
+		"description":"GetLastHitStreak"
+	},
+	"GetLevel":{
+		"prefix":"GetLevel",
+		"body":"GetLevel(${1:integer iPlayerID})",
+		"description":"GetLevel"
+	},
+	"GetMisses":{
+		"prefix":"GetMisses",
+		"body":"GetMisses(${1:integer iPlayerID})",
+		"description":"GetMisses"
+	},
+	"GetNearbyCreepDeaths":{
+		"prefix":"GetNearbyCreepDeaths",
+		"body":"GetNearbyCreepDeaths(${1:integer iPlayerID})",
+		"description":"GetNearbyCreepDeaths"
+	},
+	"GetReliableGold":{
+		"prefix":"GetReliableGold",
+		"body":"GetReliableGold(${1:integer iPlayerID})",
+		"description":"GetReliableGold"
+	},
+	"GetRespawnSeconds":{
+		"prefix":"GetRespawnSeconds",
+		"body":"GetRespawnSeconds(${1:integer iPlayerID})",
+		"description":"GetRespawnSeconds"
+	},
+	"GetStreak":{
+		"prefix":"GetStreak",
+		"body":"GetStreak(${1:integer iPlayerID})",
+		"description":"GetStreak"
+	},
+	"GetTotalEarnedGold":{
+		"prefix":"GetTotalEarnedGold",
+		"body":"GetTotalEarnedGold(${1:integer iPlayerID})",
+		"description":"GetTotalEarnedGold"
+	},
+	"GetTotalEarnedXP":{
+		"prefix":"GetTotalEarnedXP",
+		"body":"GetTotalEarnedXP(${1:integer iPlayerID})",
+		"description":"GetTotalEarnedXP"
+	},
+	"GetUnreliableGold":{
+		"prefix":"GetUnreliableGold",
+		"body":"GetUnreliableGold(${1:integer iPlayerID})",
+		"description":"GetUnreliableGold"
+	},
+	"GetGoldPerMin":{
+		"prefix":"GetGoldPerMin",
+		"body":"GetGoldPerMin(${1:integer iPlayerID})",
+		"description":"GetGoldPerMin"
+	},
+	"GetXPPerMin":{
+		"prefix":"GetXPPerMin",
+		"body":"GetXPPerMin(${1:integer iPlayerID})",
+		"description":"GetXPPerMin"
+	},
+	"GetPlayerSelectedHero":{
+		"prefix":"GetPlayerSelectedHero",
+		"body":"GetPlayerSelectedHero(${1:integer iPlayerID})",
+		"description":"GetPlayerSelectedHero"
+	},
+	"GetPlayerColor":{
+		"prefix":"GetPlayerColor",
+		"body":"GetPlayerColor(${1:integer iPlayerID})",
+		"description":"GetPlayerColor"
+	},
+	"IsSpectator":{
+		"prefix":"IsSpectator",
+		"body":"IsSpectator(${1:integer iPlayerID})",
+		"description":"IsSpectator"
+	},
+	"GetAbsOrigin":{
+		"prefix":"GetAbsOrigin",
+		"body":"GetAbsOrigin(${1:integer nEntityIndex})",
+		"description":"GetAbsOrigin"
+	},
+	"GetAllBuildingEntities":{
+		"prefix":"GetAllBuildingEntities",
+		"body":"GetAllBuildingEntities()",
+		"description":"GetAllBuildingEntities"
+	},
+	"GetAllHeroEntities":{
+		"prefix":"GetAllHeroEntities",
+		"body":"GetAllHeroEntities()",
+		"description":"GetAllHeroEntities"
+	},
+	"GetAllEntitiesByName":{
+		"prefix":"GetAllEntitiesByName",
+		"body":"GetAllEntitiesByName(${1:cstring pszName})",
+		"description":"GetAllEntitiesByName"
+	},
+	"GetAllEntitiesByClassname":{
+		"prefix":"GetAllEntitiesByClassname",
+		"body":"GetAllEntitiesByClassname(${1:cstring pszName})",
+		"description":"GetAllEntitiesByClassname"
+	},
+	"GetAllCreatureEntities":{
+		"prefix":"GetAllCreatureEntities",
+		"body":"GetAllCreatureEntities()",
+		"description":"GetAllCreatureEntities"
+	},
+	"GetAllEntities":{
+		"prefix":"GetAllEntities",
+		"body":"GetAllEntities()",
+		"description":"GetAllEntities"
+	},
+	"CanBeDominated":{
+		"prefix":"CanBeDominated",
+		"body":"CanBeDominated(${1:integer nEntityIndex})",
+		"description":"CanBeDominated"
+	},
+	"HasAttackCapability":{
+		"prefix":"HasAttackCapability",
+		"body":"HasAttackCapability(${1:integer nEntityIndex})",
+		"description":"HasAttackCapability"
+	},
+	"HasCastableAbilities":{
+		"prefix":"HasCastableAbilities",
+		"body":"HasCastableAbilities(${1:integer nEntityIndex})",
+		"description":"HasCastableAbilities"
+	},
+	"HasFlyingVision":{
+		"prefix":"HasFlyingVision",
+		"body":"HasFlyingVision(${1:integer nEntityIndex})",
+		"description":"HasFlyingVision"
+	},
+	"HasFlyMovementCapability":{
+		"prefix":"HasFlyMovementCapability",
+		"body":"HasFlyMovementCapability(${1:integer nEntityIndex})",
+		"description":"HasFlyMovementCapability"
+	},
+	"HasGroundMovementCapability":{
+		"prefix":"HasGroundMovementCapability",
+		"body":"HasGroundMovementCapability(${1:integer nEntityIndex})",
+		"description":"HasGroundMovementCapability"
+	},
+	"HasMovementCapability":{
+		"prefix":"HasMovementCapability",
+		"body":"HasMovementCapability(${1:integer nEntityIndex})",
+		"description":"HasMovementCapability"
+	},
+	"HasScepter":{
+		"prefix":"HasScepter",
+		"body":"HasScepter(${1:integer nEntityIndex})",
+		"description":"HasScepter"
+	},
+	"HasUpgradeableAbilities":{
+		"prefix":"HasUpgradeableAbilities",
+		"body":"HasUpgradeableAbilities(${1:integer nEntityIndex})",
+		"description":"HasUpgradeableAbilities"
+	},
+	"HasUpgradeableAbilitiesThatArentMaxed":{
+		"prefix":"HasUpgradeableAbilitiesThatArentMaxed",
+		"body":"HasUpgradeableAbilitiesThatArentMaxed(${1:integer nEntityIndex})",
+		"description":"HasUpgradeableAbilitiesThatArentMaxed"
+	},
+	"IsAlive":{
+		"prefix":"IsAlive",
+		"body":"IsAlive(${1:integer nEntityIndex})",
+		"description":"IsAlive"
+	},
+	"IsAncient":{
+		"prefix":"IsAncient",
+		"body":"IsAncient(${1:integer nEntityIndex})",
+		"description":"IsAncient"
+	},
+	"IsAttackImmune":{
+		"prefix":"IsAttackImmune",
+		"body":"IsAttackImmune(${1:integer nEntityIndex})",
+		"description":"IsAttackImmune"
+	},
+	"IsBarracks":{
+		"prefix":"IsBarracks",
+		"body":"IsBarracks(${1:integer nEntityIndex})",
+		"description":"IsBarracks"
+	},
+	"IsBlind":{
+		"prefix":"IsBlind",
+		"body":"IsBlind(${1:integer nEntityIndex})",
+		"description":"IsBlind"
+	},
+	"IsBoss":{
+		"prefix":"IsBoss",
+		"body":"IsBoss(${1:integer nEntityIndex})",
+		"description":"IsBoss"
+	},
+	"IsRoshan":{
+		"prefix":"IsRoshan",
+		"body":"IsRoshan(${1:integer nEntityIndex})",
+		"description":"IsRoshan"
+	},
+	"IsBuilding":{
+		"prefix":"IsBuilding",
+		"body":"IsBuilding(${1:integer nEntityIndex})",
+		"description":"IsBuilding"
+	},
+	"IsCommandRestricted":{
+		"prefix":"IsCommandRestricted",
+		"body":"IsCommandRestricted(${1:integer nEntityIndex})",
+		"description":"IsCommandRestricted"
+	},
+	"IsConsideredHero":{
+		"prefix":"IsConsideredHero",
+		"body":"IsConsideredHero(${1:integer nEntityIndex})",
+		"description":"IsConsideredHero"
+	},
+	"IsControllableByAnyPlayer":{
+		"prefix":"IsControllableByAnyPlayer",
+		"body":"IsControllableByAnyPlayer(${1:integer nEntityIndex})",
+		"description":"IsControllableByAnyPlayer"
+	},
+	"IsCourier":{
+		"prefix":"IsCourier",
+		"body":"IsCourier(${1:integer nEntityIndex})",
+		"description":"IsCourier"
+	},
+	"IsCreature":{
+		"prefix":"IsCreature",
+		"body":"IsCreature(${1:integer nEntityIndex})",
+		"description":"IsCreature"
+	},
+	"IsCreep":{
+		"prefix":"IsCreep",
+		"body":"IsCreep(${1:integer nEntityIndex})",
+		"description":"IsCreep"
+	},
+	"IsCreepHero":{
+		"prefix":"IsCreepHero",
+		"body":"IsCreepHero(${1:integer nEntityIndex})",
+		"description":"IsCreepHero"
+	},
+	"IsDeniable":{
+		"prefix":"IsDeniable",
+		"body":"IsDeniable(${1:integer nEntityIndex})",
+		"description":"IsDeniable"
+	},
+	"IsDominated":{
+		"prefix":"IsDominated",
+		"body":"IsDominated(${1:integer nEntityIndex})",
+		"description":"IsDominated"
+	},
+	"IsEnemy":{
+		"prefix":"IsEnemy",
+		"body":"IsEnemy(${1:integer nEntityIndex})",
+		"description":"IsEnemy"
+	},
+	"IsEvadeDisabled":{
+		"prefix":"IsEvadeDisabled",
+		"body":"IsEvadeDisabled(${1:integer nEntityIndex})",
+		"description":"IsEvadeDisabled"
+	},
+	"IsFort":{
+		"prefix":"IsFort",
+		"body":"IsFort(${1:integer nEntityIndex})",
+		"description":"IsFort"
+	},
+	"IsFrozen":{
+		"prefix":"IsFrozen",
+		"body":"IsFrozen(${1:integer nEntityIndex})",
+		"description":"IsFrozen"
+	},
+	"IsGeneratedByEconItem":{
+		"prefix":"IsGeneratedByEconItem",
+		"body":"IsGeneratedByEconItem(${1:integer nEntityIndex})",
+		"description":"IsGeneratedByEconItem"
+	},
+	"IsGreevil":{
+		"prefix":"IsGreevil",
+		"body":"IsGreevil(${1:integer nEntityIndex})",
+		"description":"IsGreevil"
+	},
+	"IsHallofFame":{
+		"prefix":"IsHallofFame",
+		"body":"IsHallofFame(${1:integer nEntityIndex})",
+		"description":"IsHallofFame"
+	},
+	"IsDisarmed":{
+		"prefix":"IsDisarmed",
+		"body":"IsDisarmed(${1:integer nEntityIndex})",
+		"description":"IsDisarmed"
+	},
+	"IsHero":{
+		"prefix":"IsHero",
+		"body":"IsHero(${1:integer nEntityIndex})",
+		"description":"IsHero"
+	},
+	"IsHexed":{
+		"prefix":"IsHexed",
+		"body":"IsHexed(${1:integer nEntityIndex})",
+		"description":"IsHexed"
+	},
+	"IsIllusion":{
+		"prefix":"IsIllusion",
+		"body":"IsIllusion(${1:integer nEntityIndex})",
+		"description":"IsIllusion"
+	},
+	"IsInRangeOfFountain":{
+		"prefix":"IsInRangeOfFountain",
+		"body":"IsInRangeOfFountain(${1:integer nEntityIndex})",
+		"description":"IsInRangeOfFountain"
+	},
+	"IsInventoryEnabled":{
+		"prefix":"IsInventoryEnabled",
+		"body":"IsInventoryEnabled(${1:integer nEntityIndex})",
+		"description":"IsInventoryEnabled"
+	},
+	"IsInvisible":{
+		"prefix":"IsInvisible",
+		"body":"IsInvisible(${1:integer nEntityIndex})",
+		"description":"IsInvisible"
+	},
+	"IsInvulnerable":{
+		"prefix":"IsInvulnerable",
+		"body":"IsInvulnerable(${1:integer nEntityIndex})",
+		"description":"IsInvulnerable"
+	},
+	"IsLaneCreep":{
+		"prefix":"IsLaneCreep",
+		"body":"IsLaneCreep(${1:integer nEntityIndex})",
+		"description":"IsLaneCreep"
+	},
+	"IsLootGreevil":{
+		"prefix":"IsLootGreevil",
+		"body":"IsLootGreevil(${1:integer nEntityIndex})",
+		"description":"IsLootGreevil"
+	},
+	"IsLowAttackPriority":{
+		"prefix":"IsLowAttackPriority",
+		"body":"IsLowAttackPriority(${1:integer nEntityIndex})",
+		"description":"IsLowAttackPriority"
+	},
+	"IsMagicImmune":{
+		"prefix":"IsMagicImmune",
+		"body":"IsMagicImmune(${1:integer nEntityIndex})",
+		"description":"IsMagicImmune"
+	},
+	"IsMechanical":{
+		"prefix":"IsMechanical",
+		"body":"IsMechanical(${1:integer nEntityIndex})",
+		"description":"IsMechanical"
+	},
+	"IsMuted":{
+		"prefix":"IsMuted",
+		"body":"IsMuted(${1:integer nEntityIndex})",
+		"description":"IsMuted"
+	},
+	"IsNeutralUnitType":{
+		"prefix":"IsNeutralUnitType",
+		"body":"IsNeutralUnitType(${1:integer nEntityIndex})",
+		"description":"IsNeutralUnitType"
+	},
+	"IsNightmared":{
+		"prefix":"IsNightmared",
+		"body":"IsNightmared(${1:integer nEntityIndex})",
+		"description":"IsNightmared"
+	},
+	"IsOther":{
+		"prefix":"IsOther",
+		"body":"IsOther(${1:integer nEntityIndex})",
+		"description":"IsOther"
+	},
+	"IsOutOfGame":{
+		"prefix":"IsOutOfGame",
+		"body":"IsOutOfGame(${1:integer nEntityIndex})",
+		"description":"IsOutOfGame"
+	},
+	"IsOwnedByAnyPlayer":{
+		"prefix":"IsOwnedByAnyPlayer",
+		"body":"IsOwnedByAnyPlayer(${1:integer nEntityIndex})",
+		"description":"IsOwnedByAnyPlayer"
+	},
+	"IsPhantom":{
+		"prefix":"IsPhantom",
+		"body":"IsPhantom(${1:integer nEntityIndex})",
+		"description":"IsPhantom"
+	},
+	"IsRangedAttacker":{
+		"prefix":"IsRangedAttacker",
+		"body":"IsRangedAttacker(${1:integer nEntityIndex})",
+		"description":"IsRangedAttacker"
+	},
+	"IsRealHero":{
+		"prefix":"IsRealHero",
+		"body":"IsRealHero(${1:integer nEntityIndex})",
+		"description":"IsRealHero"
+	},
+	"IsRooted":{
+		"prefix":"IsRooted",
+		"body":"IsRooted(${1:integer nEntityIndex})",
+		"description":"IsRooted"
+	},
+	"IsSelectable":{
+		"prefix":"IsSelectable",
+		"body":"IsSelectable(${1:integer nEntityIndex})",
+		"description":"IsSelectable"
+	},
+	"IsShop":{
+		"prefix":"IsShop",
+		"body":"IsShop(${1:integer nEntityIndex})",
+		"description":"IsShop"
+	},
+	"IsSilenced":{
+		"prefix":"IsSilenced",
+		"body":"IsSilenced(${1:integer nEntityIndex})",
+		"description":"IsSilenced"
+	},
+	"IsSpeciallyDeniable":{
+		"prefix":"IsSpeciallyDeniable",
+		"body":"IsSpeciallyDeniable(${1:integer nEntityIndex})",
+		"description":"IsSpeciallyDeniable"
+	},
+	"IsStunned":{
+		"prefix":"IsStunned",
+		"body":"IsStunned(${1:integer nEntityIndex})",
+		"description":"IsStunned"
+	},
+	"IsSummoned":{
+		"prefix":"IsSummoned",
+		"body":"IsSummoned(${1:integer nEntityIndex})",
+		"description":"IsSummoned"
+	},
+	"IsTower":{
+		"prefix":"IsTower",
+		"body":"IsTower(${1:integer nEntityIndex})",
+		"description":"IsTower"
+	},
+	"IsUnselectable":{
+		"prefix":"IsUnselectable",
+		"body":"IsUnselectable(${1:integer nEntityIndex})",
+		"description":"IsUnselectable"
+	},
+	"IsWard":{
+		"prefix":"IsWard",
+		"body":"IsWard(${1:integer nEntityIndex})",
+		"description":"IsWard"
+	},
+	"IsZombie":{
+		"prefix":"IsZombie",
+		"body":"IsZombie(${1:integer nEntityIndex})",
+		"description":"IsZombie"
+	},
+	"NoHealthBar":{
+		"prefix":"NoHealthBar",
+		"body":"NoHealthBar(${1:integer nEntityIndex})",
+		"description":"NoHealthBar"
+	},
+	"NoTeamMoveTo":{
+		"prefix":"NoTeamMoveTo",
+		"body":"NoTeamMoveTo(${1:integer nEntityIndex})",
+		"description":"NoTeamMoveTo"
+	},
+	"NoTeamSelect":{
+		"prefix":"NoTeamSelect",
+		"body":"NoTeamSelect(${1:integer nEntityIndex})",
+		"description":"NoTeamSelect"
+	},
+	"NotOnMinimap":{
+		"prefix":"NotOnMinimap",
+		"body":"NotOnMinimap(${1:integer nEntityIndex})",
+		"description":"NotOnMinimap"
+	},
+	"NotOnMinimapForEnemies":{
+		"prefix":"NotOnMinimapForEnemies",
+		"body":"NotOnMinimapForEnemies(${1:integer nEntityIndex})",
+		"description":"NotOnMinimapForEnemies"
+	},
+	"NoUnitCollision":{
+		"prefix":"NoUnitCollision",
+		"body":"NoUnitCollision(${1:integer nEntityIndex})",
+		"description":"NoUnitCollision"
+	},
+	"PassivesDisabled":{
+		"prefix":"PassivesDisabled",
+		"body":"PassivesDisabled(${1:integer nEntityIndex})",
+		"description":"PassivesDisabled"
+	},
+	"ProvidesVision":{
+		"prefix":"ProvidesVision",
+		"body":"ProvidesVision(${1:integer nEntityIndex})",
+		"description":"ProvidesVision"
+	},
+	"UsesHeroAbilityNumbers":{
+		"prefix":"UsesHeroAbilityNumbers",
+		"body":"UsesHeroAbilityNumbers(${1:integer nEntityIndex})",
+		"description":"UsesHeroAbilityNumbers"
+	},
+	"GetAbilityCount":{
+		"prefix":"GetAbilityCount",
+		"body":"GetAbilityCount(${1:integer nEntityIndex})",
+		"description":"GetAbilityCount"
+	},
+	"GetCombatClassAttack":{
+		"prefix":"GetCombatClassAttack",
+		"body":"GetCombatClassAttack(${1:integer nEntityIndex})",
+		"description":"GetCombatClassAttack"
+	},
+	"GetCombatClassDefend":{
+		"prefix":"GetCombatClassDefend",
+		"body":"GetCombatClassDefend(${1:integer nEntityIndex})",
+		"description":"GetCombatClassDefend"
+	},
+	"GetCurrentVisionRange":{
+		"prefix":"GetCurrentVisionRange",
+		"body":"GetCurrentVisionRange(${1:integer nEntityIndex})",
+		"description":"GetCurrentVisionRange"
+	},
+	"GetDamageBonus":{
+		"prefix":"GetDamageBonus",
+		"body":"GetDamageBonus(${1:integer nEntityIndex})",
+		"description":"GetDamageBonus"
+	},
+	"GetDamageMax":{
+		"prefix":"GetDamageMax",
+		"body":"GetDamageMax(${1:integer nEntityIndex})",
+		"description":"GetDamageMax"
+	},
+	"GetDamageMin":{
+		"prefix":"GetDamageMin",
+		"body":"GetDamageMin(${1:integer nEntityIndex})",
+		"description":"GetDamageMin"
+	},
+	"GetDayTimeVisionRange":{
+		"prefix":"GetDayTimeVisionRange",
+		"body":"GetDayTimeVisionRange(${1:integer nEntityIndex})",
+		"description":"GetDayTimeVisionRange"
+	},
+	"GetHealth":{
+		"prefix":"GetHealth",
+		"body":"GetHealth(${1:integer nEntityIndex})",
+		"description":"GetHealth"
+	},
+	"GetHealthPercent":{
+		"prefix":"GetHealthPercent",
+		"body":"GetHealthPercent(${1:integer nEntityIndex})",
+		"description":"GetHealthPercent"
+	},
+	"GetHealthThinkRegen":{
+		"prefix":"GetHealthThinkRegen",
+		"body":"GetHealthThinkRegen(${1:integer nEntityIndex})",
+		"description":"GetHealthThinkRegen"
+	},
+	"GetMaxHealth":{
+		"prefix":"GetMaxHealth",
+		"body":"GetMaxHealth(${1:integer nEntityIndex})",
+		"description":"GetMaxHealth"
+	},
+	"GetNightTimeVisionRange":{
+		"prefix":"GetNightTimeVisionRange",
+		"body":"GetNightTimeVisionRange(${1:integer nEntityIndex})",
+		"description":"GetNightTimeVisionRange"
+	},
+	"GetStates":{
+		"prefix":"GetStates",
+		"body":"GetStates(${1:integer nEntityIndex})",
+		"description":"GetStates"
+	},
+	"GetTotalPurchasedUpgradeGoldCost":{
+		"prefix":"GetTotalPurchasedUpgradeGoldCost",
+		"body":"GetTotalPurchasedUpgradeGoldCost(${1:integer nEntityIndex})",
+		"description":"GetTotalPurchasedUpgradeGoldCost"
+	},
+	"GetAttackRange":{
+		"prefix":"GetAttackRange",
+		"body":"GetAttackRange(${1:integer nEntityIndex})",
+		"description":"GetAttackRange"
+	},
+	"GetAttackSpeed":{
+		"prefix":"GetAttackSpeed",
+		"body":"GetAttackSpeed(${1:integer nEntityIndex})",
+		"description":"GetAttackSpeed"
+	},
+	"GetAttacksPerSecond":{
+		"prefix":"GetAttacksPerSecond",
+		"body":"GetAttacksPerSecond(${1:integer nEntityIndex})",
+		"description":"GetAttacksPerSecond"
+	},
+	"GetBaseAttackTime":{
+		"prefix":"GetBaseAttackTime",
+		"body":"GetBaseAttackTime(${1:integer nEntityIndex})",
+		"description":"GetBaseAttackTime"
+	},
+	"GetBaseMagicalResistanceValue":{
+		"prefix":"GetBaseMagicalResistanceValue",
+		"body":"GetBaseMagicalResistanceValue(${1:integer nEntityIndex})",
+		"description":"GetBaseMagicalResistanceValue"
+	},
+	"GetBaseMoveSpeed":{
+		"prefix":"GetBaseMoveSpeed",
+		"body":"GetBaseMoveSpeed(${1:integer nEntityIndex})",
+		"description":"GetBaseMoveSpeed"
+	},
+	"GetCollisionPadding":{
+		"prefix":"GetCollisionPadding",
+		"body":"GetCollisionPadding(${1:integer nEntityIndex})",
+		"description":"GetCollisionPadding"
+	},
+	"GetEffectiveInvisibilityLevel":{
+		"prefix":"GetEffectiveInvisibilityLevel",
+		"body":"GetEffectiveInvisibilityLevel(${1:integer nEntityIndex})",
+		"description":"GetEffectiveInvisibilityLevel"
+	},
+	"GetHasteFactor":{
+		"prefix":"GetHasteFactor",
+		"body":"GetHasteFactor(${1:integer nEntityIndex})",
+		"description":"GetHasteFactor"
+	},
+	"GetHullRadius":{
+		"prefix":"GetHullRadius",
+		"body":"GetHullRadius(${1:integer nEntityIndex})",
+		"description":"GetHullRadius"
+	},
+	"GetIdealSpeed":{
+		"prefix":"GetIdealSpeed",
+		"body":"GetIdealSpeed(${1:integer nEntityIndex})",
+		"description":"GetIdealSpeed"
+	},
+	"GetIncreasedAttackSpeed":{
+		"prefix":"GetIncreasedAttackSpeed",
+		"body":"GetIncreasedAttackSpeed(${1:integer nEntityIndex})",
+		"description":"GetIncreasedAttackSpeed"
+	},
+	"GetMana":{
+		"prefix":"GetMana",
+		"body":"GetMana(${1:integer nEntityIndex})",
+		"description":"GetMana"
+	},
+	"GetManaThinkRegen":{
+		"prefix":"GetManaThinkRegen",
+		"body":"GetManaThinkRegen(${1:integer nEntityIndex})",
+		"description":"GetManaThinkRegen"
+	},
+	"GetMaxMana":{
+		"prefix":"GetMaxMana",
+		"body":"GetMaxMana(${1:integer nEntityIndex})",
+		"description":"GetMaxMana"
+	},
+	"GetPaddedCollisionRadius":{
+		"prefix":"GetPaddedCollisionRadius",
+		"body":"GetPaddedCollisionRadius(${1:integer nEntityIndex})",
+		"description":"GetPaddedCollisionRadius"
+	},
+	"GetPercentInvisible":{
+		"prefix":"GetPercentInvisible",
+		"body":"GetPercentInvisible(${1:integer nEntityIndex})",
+		"description":"GetPercentInvisible"
+	},
+	"GetProjectileCollisionSize":{
+		"prefix":"GetProjectileCollisionSize",
+		"body":"GetProjectileCollisionSize(${1:integer nEntityIndex})",
+		"description":"GetProjectileCollisionSize"
+	},
+	"GetRingRadius":{
+		"prefix":"GetRingRadius",
+		"body":"GetRingRadius(${1:integer nEntityIndex})",
+		"description":"GetRingRadius"
+	},
+	"GetSecondsPerAttack":{
+		"prefix":"GetSecondsPerAttack",
+		"body":"GetSecondsPerAttack(${1:integer nEntityIndex})",
+		"description":"GetSecondsPerAttack"
+	},
+	"ManaFraction":{
+		"prefix":"ManaFraction",
+		"body":"ManaFraction(${1:integer nEntityIndex})",
+		"description":"ManaFraction"
+	},
+	"GetClassname":{
+		"prefix":"GetClassname",
+		"body":"GetClassname(${1:integer nEntityIndex})",
+		"description":"GetClassname"
+	},
+	"GetDisplayedUnitName":{
+		"prefix":"GetDisplayedUnitName",
+		"body":"GetDisplayedUnitName(${1:integer nEntityIndex})",
+		"description":"GetDisplayedUnitName"
+	},
+	"GetSelectionGroup":{
+		"prefix":"GetSelectionGroup",
+		"body":"GetSelectionGroup(${1:integer nEntityIndex})",
+		"description":"GetSelectionGroup"
+	},
+	"GetSoundSet":{
+		"prefix":"GetSoundSet",
+		"body":"GetSoundSet(${1:integer nEntityIndex})",
+		"description":"GetSoundSet"
+	},
+	"GetUnitLabel":{
+		"prefix":"GetUnitLabel",
+		"body":"GetUnitLabel(${1:integer nEntityIndex})",
+		"description":"GetUnitLabel"
+	},
+	"GetUnitName":{
+		"prefix":"GetUnitName",
+		"body":"GetUnitName(${1:integer nEntityIndex})",
+		"description":"GetUnitName"
+	},
+	"GetTotalDamageTaken":{
+		"prefix":"GetTotalDamageTaken",
+		"body":"GetTotalDamageTaken(${1:integer nEntityIndex})",
+		"description":"GetTotalDamageTaken"
+	},
+	"IsControllableByPlayer":{
+		"prefix":"IsControllableByPlayer",
+		"body":"IsControllableByPlayer(${1:integer nEntityIndex}, ${2:integer nPlayerIndex})",
+		"description":"IsControllableByPlayer"
+	},
+	"GetChosenTarget":{
+		"prefix":"GetChosenTarget",
+		"body":"GetChosenTarget(${1:integer nEntityIndex})",
+		"description":"GetChosenTarget"
+	},
+	"HasItemInInventory":{
+		"prefix":"HasItemInInventory",
+		"body":"HasItemInInventory(${1:integer nEntityIndex}, ${2:cstring pItemName})",
+		"description":"HasItemInInventory"
+	},
+	"GetRangeToUnit":{
+		"prefix":"GetRangeToUnit",
+		"body":"GetRangeToUnit(${1:integer nEntityIndex}, ${2:integer nEntityIndex2})",
+		"description":"GetRangeToUnit"
+	},
+	"IsEntityInRange":{
+		"prefix":"IsEntityInRange",
+		"body":"IsEntityInRange(${1:integer nEntityIndex}, ${2:integer nEntityIndex2}, float flRange )",
+		"description":"IsEntityInRange"
+	},
+	"GetMoveSpeedModifier":{
+		"prefix":"GetMoveSpeedModifier",
+		"body":"GetMoveSpeedModifier(${1:integer nEntityIndex}, ${2:float flBaseSpeed})",
+		"description":"GetMoveSpeedModifier"
+	},
+	"CanAcceptTargetToAttack":{
+		"prefix":"CanAcceptTargetToAttack",
+		"body":"CanAcceptTargetToAttack(${1:integer nEntityIndex}, ${2:integer nEntityIndex2})",
+		"description":"CanAcceptTargetToAttack"
+	},
+	"InState":{
+		"prefix":"InState",
+		"body":"InState(${1:integer nEntityIndex}, ${2:integer nState})",
+		"description":"InState"
+	},
+	"GetArmorForDamageType":{
+		"prefix":"GetArmorForDamageType",
+		"body":"GetArmorForDamageType(${1:integer nEntityIndex}, ${2:integer iDamageType})",
+		"description":"GetArmorForDamageType"
+	},
+	"GetArmorReductionForDamageType":{
+		"prefix":"GetArmorReductionForDamageType",
+		"body":"GetArmorReductionForDamageType(${1:integer nEntityIndex}, ${2:integer iDamageType})",
+		"description":"GetArmorReductionForDamageType"
+	},
+	"IsInRangeOfShop":{
+		"prefix":"IsInRangeOfShop",
+		"body":"IsInRangeOfShop(${1:integer nEntityIndex}, ${2:integer iShopType}, boolean bSpecific )",
+		"description":"IsInRangeOfShop"
+	},
+	"GetNumItemsInStash":{
+		"prefix":"GetNumItemsInStash",
+		"body":"GetNumItemsInStash(${1:integer nEntityIndex})",
+		"description":"GetNumItemsInStash"
+	},
+	"GetNumItemsInInventory":{
+		"prefix":"GetNumItemsInInventory",
+		"body":"GetNumItemsInInventory(${1:integer nEntityIndex})",
+		"description":"GetNumItemsInInventory"
+	},
+	"GetItemInSlot":{
+		"prefix":"GetItemInSlot",
+		"body":"GetItemInSlot(${1:integer nEntityIndex}, ${2:integer nSlotIndex})",
+		"description":"GetItemInSlot"
+	},
+	"GetAbility":{
+		"prefix":"GetAbility",
+		"body":"GetAbility(${1:integer nEntityIndex}, ${2:integer nSlotIndex})",
+		"description":"GetAbility"
+	},
+	"GetAbilityByName":{
+		"prefix":"GetAbilityByName",
+		"body":"GetAbilityByName(${1:integer nEntityIndex}, ${2:cstring pszAbilityName})",
+		"description":"GetAbilityByName"
+	},
+	"GetSelectionEntities":{
+		"prefix":"GetSelectionEntities",
+		"body":"GetSelectionEntities(${1:integer nEntityIndex})",
+		"description":"GetSelectionEntities"
+	},
+	"GetAbilityName":{
+		"prefix":"GetAbilityName",
+		"body":"GetAbilityName(${1:integer nEntityIndex})",
+		"description":"GetAbilityName"
+	},
+	"GetAbilityTextureName":{
+		"prefix":"GetAbilityTextureName",
+		"body":"GetAbilityTextureName(${1:integer nEntityIndex})",
+		"description":"GetAbilityTextureName"
+	},
+	"GetAssociatedPrimaryAbilities":{
+		"prefix":"GetAssociatedPrimaryAbilities",
+		"body":"GetAssociatedPrimaryAbilities(${1:integer nEntityIndex})",
+		"description":"GetAssociatedPrimaryAbilities"
+	},
+	"GetAssociatedSecondaryAbilities":{
+		"prefix":"GetAssociatedSecondaryAbilities",
+		"body":"GetAssociatedSecondaryAbilities(${1:integer nEntityIndex})",
+		"description":"GetAssociatedSecondaryAbilities"
+	},
+	"GetHotkeyOverride":{
+		"prefix":"GetHotkeyOverride",
+		"body":"GetHotkeyOverride(${1:integer nEntityIndex})",
+		"description":"GetHotkeyOverride"
+	},
+	"GetIntrinsicModifierName":{
+		"prefix":"GetIntrinsicModifierName",
+		"body":"GetIntrinsicModifierName(${1:integer nEntityIndex})",
+		"description":"GetIntrinsicModifierName"
+	},
+	"GetSharedCooldownName":{
+		"prefix":"GetSharedCooldownName",
+		"body":"GetSharedCooldownName(${1:integer nEntityIndex})",
+		"description":"GetSharedCooldownName"
+	},
+	"AbilityReady":{
+		"prefix":"AbilityReady",
+		"body":"AbilityReady(${1:integer nEntityIndex})",
+		"description":"AbilityReady"
+	},
+	"CanAbilityBeUpgraded":{
+		"prefix":"CanAbilityBeUpgraded",
+		"body":"CanAbilityBeUpgraded(${1:integer nEntityIndex})",
+		"description":"CanAbilityBeUpgraded"
+	},
+	"CanBeExecuted":{
+		"prefix":"CanBeExecuted",
+		"body":"CanBeExecuted(${1:integer nEntityIndex})",
+		"description":"CanBeExecuted"
+	},
+	"GetAbilityDamage":{
+		"prefix":"GetAbilityDamage",
+		"body":"GetAbilityDamage(${1:integer nEntityIndex})",
+		"description":"GetAbilityDamage"
+	},
+	"GetAbilityDamageType":{
+		"prefix":"GetAbilityDamageType",
+		"body":"GetAbilityDamageType(${1:integer nEntityIndex})",
+		"description":"GetAbilityDamageType"
+	},
+	"GetAbilityTargetFlags":{
+		"prefix":"GetAbilityTargetFlags",
+		"body":"GetAbilityTargetFlags(${1:integer nEntityIndex})",
+		"description":"GetAbilityTargetFlags"
+	},
+	"GetAbilityTargetTeam":{
+		"prefix":"GetAbilityTargetTeam",
+		"body":"GetAbilityTargetTeam(${1:integer nEntityIndex})",
+		"description":"GetAbilityTargetTeam"
+	},
+	"GetAbilityTargetType":{
+		"prefix":"GetAbilityTargetType",
+		"body":"GetAbilityTargetType(${1:integer nEntityIndex})",
+		"description":"GetAbilityTargetType"
+	},
+	"GetAbilityType":{
+		"prefix":"GetAbilityType",
+		"body":"GetAbilityType(${1:integer nEntityIndex})",
+		"description":"GetAbilityType"
+	},
+	"GetBehavior":{
+		"prefix":"GetBehavior",
+		"body":"GetBehavior(${1:integer nEntityIndex})",
+		"description":"GetBehavior"
+	},
+	"GetCastRange":{
+		"prefix":"GetCastRange",
+		"body":"GetCastRange(${1:integer nEntityIndex})",
+		"description":"GetCastRange"
+	},
+	"GetChannelledManaCostPerSecond":{
+		"prefix":"GetChannelledManaCostPerSecond",
+		"body":"GetChannelledManaCostPerSecond(${1:integer nEntityIndex})",
+		"description":"GetChannelledManaCostPerSecond"
+	},
+	"GetCurrentCharges":{
+		"prefix":"GetCurrentCharges",
+		"body":"GetCurrentCharges(${1:integer nEntityIndex})",
+		"description":"GetCurrentCharges"
+	},
+	"GetEffectiveLevel":{
+		"prefix":"GetEffectiveLevel",
+		"body":"GetEffectiveLevel(${1:integer nEntityIndex})",
+		"description":"GetEffectiveLevel"
+	},
+	"GetHeroLevelRequiredToUpgrade":{
+		"prefix":"GetHeroLevelRequiredToUpgrade",
+		"body":"GetHeroLevelRequiredToUpgrade(${1:integer nEntityIndex})",
+		"description":"GetHeroLevelRequiredToUpgrade"
+	},
+	"GetManaCost":{
+		"prefix":"GetManaCost",
+		"body":"GetManaCost(${1:integer nEntityIndex})",
+		"description":"GetManaCost"
+	},
+	"GetMaxLevel":{
+		"prefix":"GetMaxLevel",
+		"body":"GetMaxLevel(${1:integer nEntityIndex})",
+		"description":"GetMaxLevel"
+	},
+	"AttemptToUpgrade":{
+		"prefix":"AttemptToUpgrade",
+		"body":"AttemptToUpgrade(${1:integer nEntityIndex})",
+		"description":"AttemptToUpgrade"
+	},
+	"CanLearn":{
+		"prefix":"CanLearn",
+		"body":"CanLearn(${1:integer nEntityIndex})",
+		"description":"CanLearn"
+	},
+	"GetAutoCastState":{
+		"prefix":"GetAutoCastState",
+		"body":"GetAutoCastState(${1:integer nEntityIndex})",
+		"description":"GetAutoCastState"
+	},
+	"GetToggleState":{
+		"prefix":"GetToggleState",
+		"body":"GetToggleState(${1:integer nEntityIndex})",
+		"description":"GetToggleState"
+	},
+	"HasScepterUpgradeTooltip":{
+		"prefix":"HasScepterUpgradeTooltip",
+		"body":"HasScepterUpgradeTooltip(${1:integer nEntityIndex})",
+		"description":"HasScepterUpgradeTooltip"
+	},
+	"IsActivated":{
+		"prefix":"IsActivated",
+		"body":"IsActivated(${1:integer nEntityIndex})",
+		"description":"IsActivated"
+	},
+	"IsActivatedChanging":{
+		"prefix":"IsActivatedChanging",
+		"body":"IsActivatedChanging(${1:integer nEntityIndex})",
+		"description":"IsActivatedChanging"
+	},
+	"IsAttributeBonus":{
+		"prefix":"IsAttributeBonus",
+		"body":"IsAttributeBonus(${1:integer nEntityIndex})",
+		"description":"IsAttributeBonus"
+	},
+	"IsAutocast":{
+		"prefix":"IsAutocast",
+		"body":"IsAutocast(${1:integer nEntityIndex})",
+		"description":"IsAutocast"
+	},
+	"IsCooldownReady":{
+		"prefix":"IsCooldownReady",
+		"body":"IsCooldownReady(${1:integer nEntityIndex})",
+		"description":"IsCooldownReady"
+	},
+	"IsDisplayedAbility":{
+		"prefix":"IsDisplayedAbility",
+		"body":"IsDisplayedAbility(${1:integer nEntityIndex})",
+		"description":"IsDisplayedAbility"
+	},
+	"IsHidden":{
+		"prefix":"IsHidden",
+		"body":"IsHidden(${1:integer nEntityIndex})",
+		"description":"IsHidden"
+	},
+	"IsHiddenWhenStolen":{
+		"prefix":"IsHiddenWhenStolen",
+		"body":"IsHiddenWhenStolen(${1:integer nEntityIndex})",
+		"description":"IsHiddenWhenStolen"
+	},
+	"IsInAbilityPhase":{
+		"prefix":"IsInAbilityPhase",
+		"body":"IsInAbilityPhase(${1:integer nEntityIndex})",
+		"description":"IsInAbilityPhase"
+	},
+	"IsItem":{
+		"prefix":"IsItem",
+		"body":"IsItem(${1:integer nEntityIndex})",
+		"description":"IsItem"
+	},
+	"IsMarkedAsDirty":{
+		"prefix":"IsMarkedAsDirty",
+		"body":"IsMarkedAsDirty(${1:integer nEntityIndex})",
+		"description":"IsMarkedAsDirty"
+	},
+	"IsOnCastbar":{
+		"prefix":"IsOnCastbar",
+		"body":"IsOnCastbar(${1:integer nEntityIndex})",
+		"description":"IsOnCastbar"
+	},
+	"IsOnLearnbar":{
+		"prefix":"IsOnLearnbar",
+		"body":"IsOnLearnbar(${1:integer nEntityIndex})",
+		"description":"IsOnLearnbar"
+	},
+	"IsOwnersGoldEnough":{
+		"prefix":"IsOwnersGoldEnough",
+		"body":"IsOwnersGoldEnough(${1:integer nEntityIndex})",
+		"description":"IsOwnersGoldEnough"
+	},
+	"IsOwnersGoldEnoughForUpgrade":{
+		"prefix":"IsOwnersGoldEnoughForUpgrade",
+		"body":"IsOwnersGoldEnoughForUpgrade(${1:integer nEntityIndex})",
+		"description":"IsOwnersGoldEnoughForUpgrade"
+	},
+	"IsOwnersManaEnough":{
+		"prefix":"IsOwnersManaEnough",
+		"body":"IsOwnersManaEnough(${1:integer nEntityIndex})",
+		"description":"IsOwnersManaEnough"
+	},
+	"IsPassive":{
+		"prefix":"IsPassive",
+		"body":"IsPassive(${1:integer nEntityIndex})",
+		"description":"IsPassive"
+	},
+	"IsRecipe":{
+		"prefix":"IsRecipe",
+		"body":"IsRecipe(${1:integer nEntityIndex})",
+		"description":"IsRecipe"
+	},
+	"IsSharedWithTeammates":{
+		"prefix":"IsSharedWithTeammates",
+		"body":"IsSharedWithTeammates(${1:integer nEntityIndex})",
+		"description":"IsSharedWithTeammates"
+	},
+	"IsStealable":{
+		"prefix":"IsStealable",
+		"body":"IsStealable(${1:integer nEntityIndex})",
+		"description":"IsStealable"
+	},
+	"IsStolen":{
+		"prefix":"IsStolen",
+		"body":"IsStolen(${1:integer nEntityIndex})",
+		"description":"IsStolen"
+	},
+	"GetAOERadius":{
+		"prefix":"GetAOERadius",
+		"body":"GetAOERadius(${1:integer nEntityIndex})",
+		"description":"GetAOERadius"
+	},
+	"GetBackswingTime":{
+		"prefix":"GetBackswingTime",
+		"body":"GetBackswingTime(${1:integer nEntityIndex})",
+		"description":"GetBackswingTime"
+	},
+	"GetCastPoint":{
+		"prefix":"GetCastPoint",
+		"body":"GetCastPoint(${1:integer nEntityIndex})",
+		"description":"GetCastPoint"
+	},
+	"GetChannelStartTime":{
+		"prefix":"GetChannelStartTime",
+		"body":"GetChannelStartTime(${1:integer nEntityIndex})",
+		"description":"GetChannelStartTime"
+	},
+	"GetChannelTime":{
+		"prefix":"GetChannelTime",
+		"body":"GetChannelTime(${1:integer nEntityIndex})",
+		"description":"GetChannelTime"
+	},
+	"GetCooldown":{
+		"prefix":"GetCooldown",
+		"body":"GetCooldown(${1:integer nEntityIndex})",
+		"description":"GetCooldown"
+	},
+	"GetCooldownLength":{
+		"prefix":"GetCooldownLength",
+		"body":"GetCooldownLength(${1:integer nEntityIndex})",
+		"description":"GetCooldownLength"
+	},
+	"GetCooldownTime":{
+		"prefix":"GetCooldownTime",
+		"body":"GetCooldownTime(${1:integer nEntityIndex})",
+		"description":"GetCooldownTime"
+	},
+	"GetCooldownTimeRemaining":{
+		"prefix":"GetCooldownTimeRemaining",
+		"body":"GetCooldownTimeRemaining(${1:integer nEntityIndex})",
+		"description":"GetCooldownTimeRemaining"
+	},
+	"GetDuration":{
+		"prefix":"GetDuration",
+		"body":"GetDuration(${1:integer nEntityIndex})",
+		"description":"GetDuration"
+	},
+	"GetUpgradeBlend":{
+		"prefix":"GetUpgradeBlend",
+		"body":"GetUpgradeBlend(${1:integer nEntityIndex})",
+		"description":"GetUpgradeBlend"
+	},
+	"GetCaster":{
+		"prefix":"GetCaster",
+		"body":"GetCaster(${1:integer nAbilityIndex})",
+		"description":"GetCaster"
+	},
+	"GetCustomValueFor":{
+		"prefix":"GetCustomValueFor",
+		"body":"GetCustomValueFor(${1:integer nAbilityIndex}, ${2:cstring pszAbilityVarName})",
+		"description":"GetCustomValueFor"
+	},
+	"GetLevelSpecialValueFor":{
+		"prefix":"GetLevelSpecialValueFor",
+		"body":"GetLevelSpecialValueFor(${1:integer nAbilityIndex}, ${2:cstring szName}, ${3:integer nLevel})",
+		"description":"GetLevelSpecialValueFor"
+	},
+	"GetSpecialValueFor":{
+		"prefix":"GetSpecialValueFor",
+		"body":"GetSpecialValueFor(${1:integer nAbilityIndex}, ${2:cstring szName})",
+		"description":"GetSpecialValueFor"
+	},
+	"IsCosmetic":{
+		"prefix":"IsCosmetic",
+		"body":"IsCosmetic(${1:integer nAbilityIndex}, ${2:integer nTargetEntityIndex})",
+		"description":"IsCosmetic"
+	},
+	"ExecuteAbility":{
+		"prefix":"ExecuteAbility",
+		"body":"ExecuteAbility(${1:integer nAbilityEntIndex}, ${2:integer nCasterEntIndex}, ${3:boolean bIsQuickCast})",
+		"description":"ExecuteAbility"
+	},
+	"CreateDoubleTapCastOrder":{
+		"prefix":"CreateDoubleTapCastOrder",
+		"body":"CreateDoubleTapCastOrder(${1:integer nAbilityEntIndex}, ${2:integer nCasterEntIndex})",
+		"description":"CreateDoubleTapCastOrder"
+	},
+	"PingAbility":{
+		"prefix":"PingAbility",
+		"body":"PingAbility(${1:integer nAbilityIndex})",
+		"description":"PingAbility"
+	},
+	"GetKeybind":{
+		"prefix":"GetKeybind",
+		"body":"GetKeybind(${1:integer nAbilityEntIndex})",
+		"description":"GetKeybind"
+	},
+	"ShouldDisplayCharges":{
+		"prefix":"ShouldDisplayCharges",
+		"body":"ShouldDisplayCharges(${1:integer nEntityIndex})",
+		"description":"ShouldDisplayCharges"
+	},
+	"AlwaysDisplayCharges":{
+		"prefix":"AlwaysDisplayCharges",
+		"body":"AlwaysDisplayCharges(${1:integer nEntityIndex})",
+		"description":"AlwaysDisplayCharges"
+	},
+	"ShowSecondaryCharges":{
+		"prefix":"ShowSecondaryCharges",
+		"body":"ShowSecondaryCharges(${1:integer nEntityIndex})",
+		"description":"ShowSecondaryCharges"
+	},
+	"CanBeSoldByLocalPlayer":{
+		"prefix":"CanBeSoldByLocalPlayer",
+		"body":"CanBeSoldByLocalPlayer(${1:integer nEntityIndex})",
+		"description":"CanBeSoldByLocalPlayer"
+	},
+	"CanDoubleTapCast":{
+		"prefix":"CanDoubleTapCast",
+		"body":"CanDoubleTapCast(${1:integer nEntityIndex})",
+		"description":"CanDoubleTapCast"
+	},
+	"ForceHideCharges":{
+		"prefix":"ForceHideCharges",
+		"body":"ForceHideCharges(${1:integer nEntityIndex})",
+		"description":"ForceHideCharges"
+	},
+	"IsAlertableItem":{
+		"prefix":"IsAlertableItem",
+		"body":"IsAlertableItem(${1:integer nEntityIndex})",
+		"description":"IsAlertableItem"
+	},
+	"IsCastOnPickup":{
+		"prefix":"IsCastOnPickup",
+		"body":"IsCastOnPickup(${1:integer nEntityIndex})",
+		"description":"IsCastOnPickup"
+	},
+	"IsDisassemblable":{
+		"prefix":"IsDisassemblable",
+		"body":"IsDisassemblable(${1:integer nEntityIndex})",
+		"description":"IsDisassemblable"
+	},
+	"IsDroppable":{
+		"prefix":"IsDroppable",
+		"body":"IsDroppable(${1:integer nEntityIndex})",
+		"description":"IsDroppable"
+	},
+	"IsInnatelyDisassemblable":{
+		"prefix":"IsInnatelyDisassemblable",
+		"body":"IsInnatelyDisassemblable(${1:integer nEntityIndex})",
+		"description":"IsInnatelyDisassemblable"
+	},
+	"IsKillable":{
+		"prefix":"IsKillable",
+		"body":"IsKillable(${1:integer nEntityIndex})",
+		"description":"IsKillable"
+	},
+	"IsPermanent":{
+		"prefix":"IsPermanent",
+		"body":"IsPermanent(${1:integer nEntityIndex})",
+		"description":"IsPermanent"
+	},
+	"IsPurchasable":{
+		"prefix":"IsPurchasable",
+		"body":"IsPurchasable(${1:integer nEntityIndex})",
+		"description":"IsPurchasable"
+	},
+	"IsRecipeGenerated":{
+		"prefix":"IsRecipeGenerated",
+		"body":"IsRecipeGenerated(${1:integer nEntityIndex})",
+		"description":"IsRecipeGenerated"
+	},
+	"IsSellable":{
+		"prefix":"IsSellable",
+		"body":"IsSellable(${1:integer nEntityIndex})",
+		"description":"IsSellable"
+	},
+	"IsStackable":{
+		"prefix":"IsStackable",
+		"body":"IsStackable(${1:integer nEntityIndex})",
+		"description":"IsStackable"
+	},
+	"ProRatesChargesWhenSelling":{
+		"prefix":"ProRatesChargesWhenSelling",
+		"body":"ProRatesChargesWhenSelling(${1:integer nEntityIndex})",
+		"description":"ProRatesChargesWhenSelling"
+	},
+	"RequiresCharges":{
+		"prefix":"RequiresCharges",
+		"body":"RequiresCharges(${1:integer nEntityIndex})",
+		"description":"RequiresCharges"
+	},
+	"GetCost":{
+		"prefix":"GetCost",
+		"body":"GetCost(${1:integer nEntityIndex})",
+		"description":"GetCost"
+	},
+	"GetSecondaryCharges":{
+		"prefix":"GetSecondaryCharges",
+		"body":"GetSecondaryCharges(${1:integer nEntityIndex})",
+		"description":"GetSecondaryCharges"
+	},
+	"GetDisplayedCharges":{
+		"prefix":"GetDisplayedCharges",
+		"body":"GetDisplayedCharges(${1:integer nEntityIndex})",
+		"description":"GetDisplayedCharges"
+	},
+	"GetInitialCharges":{
+		"prefix":"GetInitialCharges",
+		"body":"GetInitialCharges(${1:integer nEntityIndex})",
+		"description":"GetInitialCharges"
+	},
+	"GetItemColor":{
+		"prefix":"GetItemColor",
+		"body":"GetItemColor(${1:integer nEntityIndex})",
+		"description":"GetItemColor"
+	},
+	"GetShareability":{
+		"prefix":"GetShareability",
+		"body":"GetShareability(${1:integer nEntityIndex})",
+		"description":"GetShareability"
+	},
+	"GetAbilityTextureSF":{
+		"prefix":"GetAbilityTextureSF",
+		"body":"GetAbilityTextureSF(${1:integer nEntityIndex})",
+		"description":"GetAbilityTextureSF"
+	},
+	"GetAssembledTime":{
+		"prefix":"GetAssembledTime",
+		"body":"GetAssembledTime(${1:integer nEntityIndex})",
+		"description":"GetAssembledTime"
+	},
+	"GetPurchaseTime":{
+		"prefix":"GetPurchaseTime",
+		"body":"GetPurchaseTime(${1:integer nEntityIndex})",
+		"description":"GetPurchaseTime"
+	},
+	"GetPurchaser":{
+		"prefix":"GetPurchaser",
+		"body":"GetPurchaser(${1:integer nItemID})",
+		"description":"GetPurchaser"
+	},
+	"Time":{
+		"prefix":"Time",
+		"body":"Time()",
+		"description":"Time"
+	},
+	"GetGameTime":{
+		"prefix":"GetGameTime",
+		"body":"GetGameTime()",
+		"description":"GetGameTime"
+	},
+	"GetDOTATime":{
+		"prefix":"GetDOTATime",
+		"body":"GetDOTATime(${1:boolean bIncludePreGame}, ${2:boolean bIncludeNegativeTime})",
+		"description":"GetDOTATime"
+	},
+	"GetGameWinner":{
+		"prefix":"GetGameWinner",
+		"body":"GetGameWinner()",
+		"description":"GetGameWinner"
+	},
+	"GetStateTransitionTime":{
+		"prefix":"GetStateTransitionTime",
+		"body":"GetStateTransitionTime()",
+		"description":"GetStateTransitionTime"
+	},
+	"IsHUDFlipped":{
+		"prefix":"IsHUDFlipped",
+		"body":"IsHUDFlipped()",
+		"description":"IsHUDFlipped"
+	},
+	"WorldToScreenX":{
+		"prefix":"WorldToScreenX",
+		"body":"WorldToScreenX(${1:float x}, ${2:float y}, float z )",
+		"description":"WorldToScreenX"
+	},
+	"WorldToScreenY":{
+		"prefix":"WorldToScreenY",
+		"body":"WorldToScreenY(${1:float x}, ${2:float y}, float z )",
+		"description":"WorldToScreenY"
+	},
+	"ScreenXYToWorld":{
+		"prefix":"ScreenXYToWorld",
+		"body":"ScreenXYToWorld(${1:integer nX}, ${2:integer nY})",
+		"description":"ScreenXYToWorld"
+	},
+	"GetKeybindForAbility":{
+		"prefix":"GetKeybindForAbility",
+		"body":"GetKeybindForAbility(${1:integer iSlot})",
+		"description":"GetKeybindForAbility"
+	},
+	"GetNianFightTimeLeft":{
+		"prefix":"GetNianFightTimeLeft",
+		"body":"GetNianFightTimeLeft()",
+		"description":"GetNianFightTimeLeft"
+	},
+	"GetState":{
+		"prefix":"GetState",
+		"body":"GetState()",
+		"description":"GetState"
+	},
+	"GameStateIs":{
+		"prefix":"GameStateIs",
+		"body":"GameStateIs(${1:integer nState})",
+		"description":"GameStateIs"
+	},
+	"GameStateIsBefore":{
+		"prefix":"GameStateIsBefore",
+		"body":"GameStateIsBefore(${1:integer nState})",
+		"description":"GameStateIsBefore"
+	},
+	"GameStateIsAfter":{
+		"prefix":"GameStateIsAfter",
+		"body":"GameStateIsAfter(${1:integer nState})",
+		"description":"GameStateIsAfter"
+	},
+	"AddCommand":{
+		"prefix":"AddCommand",
+		"body":"AddCommand(${1:cstring pszCommandName}, ${2:js_value callback}, ${3:cstring pszDescription}, ${4:integer nFlags})",
+		"description":"AddCommand"
+	},
+	"GetLocalPlayerID":{
+		"prefix":"GetLocalPlayerID",
+		"body":"GetLocalPlayerID()",
+		"description":"GetLocalPlayerID"
+	},
+	"PlayerJoinTeam":{
+		"prefix":"PlayerJoinTeam",
+		"body":"PlayerJoinTeam(${1:integer nTeamID})",
+		"description":"PlayerJoinTeam"
+	},
+	"AutoAssignPlayersToTeams":{
+		"prefix":"AutoAssignPlayersToTeams",
+		"body":"AutoAssignPlayersToTeams()",
+		"description":"AutoAssignPlayersToTeams"
+	},
+	"ShufflePlayerTeamAssignments":{
+		"prefix":"ShufflePlayerTeamAssignments",
+		"body":"ShufflePlayerTeamAssignments()",
+		"description":"ShufflePlayerTeamAssignments"
+	},
+	"SetRemainingSetupTime":{
+		"prefix":"SetRemainingSetupTime",
+		"body":"SetRemainingSetupTime(${1:float flSeconds})",
+		"description":"SetRemainingSetupTime"
+	},
+	"SetAutoLaunchDelay":{
+		"prefix":"SetAutoLaunchDelay",
+		"body":"SetAutoLaunchDelay(${1:float flSeconds})",
+		"description":"SetAutoLaunchDelay"
+	},
+	"SetAutoLaunchEnabled":{
+		"prefix":"SetAutoLaunchEnabled",
+		"body":"SetAutoLaunchEnabled(${1:boolean bEnable})",
+		"description":"SetAutoLaunchEnabled"
+	},
+	"GetAutoLaunchEnabled":{
+		"prefix":"GetAutoLaunchEnabled",
+		"body":"GetAutoLaunchEnabled()",
+		"description":"GetAutoLaunchEnabled"
+	},
+	"SetTeamSelectionLocked":{
+		"prefix":"SetTeamSelectionLocked",
+		"body":"SetTeamSelectionLocked(${1:boolean bLockTeams})",
+		"description":"SetTeamSelectionLocked"
+	},
+	"GetTeamSelectionLocked":{
+		"prefix":"GetTeamSelectionLocked",
+		"body":"GetTeamSelectionLocked()",
+		"description":"GetTeamSelectionLocked"
+	},
+	"GetAllTeamIDs":{
+		"prefix":"GetAllTeamIDs",
+		"body":"GetAllTeamIDs()",
+		"description":"GetAllTeamIDs"
+	},
+	"GetAllPlayerIDs":{
+		"prefix":"GetAllPlayerIDs",
+		"body":"GetAllPlayerIDs()",
+		"description":"GetAllPlayerIDs"
+	},
+	"GetUnassignedPlayerIDs":{
+		"prefix":"GetUnassignedPlayerIDs",
+		"body":"GetUnassignedPlayerIDs()",
+		"description":"GetUnassignedPlayerIDs"
+	},
+	"GetPlayerUltimateStateOrTime":{
+		"prefix":"GetPlayerUltimateStateOrTime",
+		"body":"GetPlayerUltimateStateOrTime(${1:integer nPlayerID})",
+		"description":"GetPlayerUltimateStateOrTime"
+	},
+	"IsPlayerMuted":{
+		"prefix":"IsPlayerMuted",
+		"body":"IsPlayerMuted(${1:integer nPlayerID})",
+		"description":"IsPlayerMuted"
+	},
+	"SetPlayerMuted":{
+		"prefix":"SetPlayerMuted",
+		"body":"SetPlayerMuted(${1:integer nPlayerID}, ${2:boolean bMuted})",
+		"description":"SetPlayerMuted"
+	},
+	"GetTeamDetails":{
+		"prefix":"GetTeamDetails",
+		"body":"GetTeamDetails(${1:integer nTeam})",
+		"description":"GetTeamDetails"
+	},
+	"GetLocalPlayerInfo":{
+		"prefix":"GetLocalPlayerInfo",
+		"body":"GetLocalPlayerInfo()",
+		"description":"GetLocalPlayerInfo"
+	},
+	"GetPlayerItems":{
+		"prefix":"GetPlayerItems",
+		"body":"GetPlayerItems(${1:integer nPlayerID})",
+		"description":"GetPlayerItems"
+	},
+	"GetPlayerInfo":{
+		"prefix":"GetPlayerInfo",
+		"body":"GetPlayerInfo(${1:integer nPlayerID})",
+		"description":"GetPlayerInfo"
+	},
+	"GetPlayerIDsOnTeam":{
+		"prefix":"GetPlayerIDsOnTeam",
+		"body":"GetPlayerIDsOnTeam(${1:integer nTeam})",
+		"description":"GetPlayerIDsOnTeam"
+	},
+	"ServerCmd":{
+		"prefix":"ServerCmd",
+		"body":"ServerCmd(${1:cstring pMsg})",
+		"description":"ServerCmd"
+	},
+	"FinishGame":{
+		"prefix":"FinishGame",
+		"body":"FinishGame()",
+		"description":"FinishGame"
+	},
+	"EmitSound":{
+		"prefix":"EmitSound",
+		"body":"EmitSound(${1:cstring pSoundEventName})",
+		"description":"EmitSound"
+	},
+	"StopSound":{
+		"prefix":"StopSound",
+		"body":"StopSound(${1:cstring pSoundEventName})",
+		"description":"StopSound"
+	},
+	"GetMapInfo":{
+		"prefix":"GetMapInfo",
+		"body":"GetMapInfo()",
+		"description":"GetMapInfo"
+	},
+	"PrepareUnitOrders":{
+		"prefix":"PrepareUnitOrders",
+		"body":"PrepareUnitOrders(${1:js_raw_args args})",
+		"description":"PrepareUnitOrders"
+	},
+	"DropItemAtCursor":{
+		"prefix":"DropItemAtCursor",
+		"body":"DropItemAtCursor(${1:integer nControlledUnitEnt}, ${2:integer nItemEnt}",
+		"description":"DropItemAtCursor"
+	},
+	"Msg":{
+		"prefix":"Msg",
+		"body":"Msg(${1:js_raw_args js_raw_args_1})",
+		"description":"Msg"
+	},
+	"DispatchEvent":{
+		"prefix":"DispatchEvent",
+		"body":"DispatchEvent(${1:js_raw_args js_raw_args_1})",
+		"description":"DispatchEvent"
+	},
+	"DispatchEventAsync":{
+		"prefix":"DispatchEventAsync",
+		"body":"DispatchEventAsync(${1:js_raw_args js_raw_args_1})",
+		"description":"DispatchEventAsync"
+	},
+	"RegisterEventHandler":{
+		"prefix":"RegisterEventHandler",
+		"body":"RegisterEventHandler(${1:js_raw_args js_raw_args_1})",
+		"description":"RegisterEventHandler"
+	},
+	"RegisterForUnhandledEvent":{
+		"prefix":"RegisterForUnhandledEvent",
+		"body":"RegisterForUnhandledEvent(${1:js_raw_args js_raw_args_1})",
+		"description":"RegisterForUnhandledEvent"
+	},
+	"UnregisterForUnhandledEvent":{
+		"prefix":"UnregisterForUnhandledEvent",
+		"body":"UnregisterForUnhandledEvent(${1:js_raw_args js_raw_args_1})",
+		"description":"UnregisterForUnhandledEvent"
+	},
+	"FindChildInContext":{
+		"prefix":"FindChildInContext",
+		"body":"FindChildInContext(${1:js_raw_args js_raw_args_1})",
+		"description":"FindChildInContext"
+	},
+	"AsyncWebRequest":{
+		"prefix":"AsyncWebRequest",
+		"body":"AsyncWebRequest(${1:js_raw_args js_raw_args_1})",
+		"description":"AsyncWebRequest"
+	},
+	"CreatePanel":{
+		"prefix":"CreatePanel",
+		"body":"CreatePanel(${panelType}, ${parent}, ${id})",
+		"description":"CreatePanel"
+	},
+	"Localize":{
+		"prefix":"Localize",
+		"body":"Localize(${1:js_raw_args js_raw_args_1})",
+		"description":"Localize"
+	},
+	"Language":{
+		"prefix":"Language",
+		"body":"Language(${1:js_raw_args js_raw_args_1})",
+		"description":"Language"
+	},
+	"Schedule":{
+		"prefix":"Schedule",
+		"body":"Schedule(${1:js_raw_args js_raw_args_1})",
+		"description":"Schedule"
+	},
+	"GetContextPanel":{
+		"prefix":"GetContextPanel",
+		"body":"GetContextPanel(${1:js_raw_args js_raw_args_1})",
+		"description":"GetContextPanel"
+	},
+	"RegisterKeyBind":{
+		"prefix":"RegisterKeyBind",
+		"body":"RegisterKeyBind(${1:js_raw_args js_raw_args_1})",
+		"description":"RegisterKeyBind"
+	},
+	"Each":{
+		"prefix":"Each",
+		"body":"Each(${1:js_raw_args js_raw_args_1}",
+		"description":"Each"
+	},
+	"visible":{
+		"prefix":"visible",
+		"body":"visible(${1:boolean boolean_1})",
+		"description":"visible"
+	},
+	"enabled":{
+		"prefix":"enabled",
+		"body":"enabled(${1:boolean boolean_1})",
+		"description":"enabled"
+	},
+	"checked":{
+		"prefix":"checked",
+		"body":"checked(${1:boolean boolean_1})",
+		"description":"checked"
+	},
+	"defaultfocus":{
+		"prefix":"defaultfocus",
+		"body":"defaultfocus(${1:cstring cstring_1})",
+		"description":"defaultfocus"
+	},
+	"inputnamespace":{
+		"prefix":"inputnamespace",
+		"body":"inputnamespace(${1:cstring cstring_1})",
+		"description":"inputnamespace"
+	},
+	"hittest":{
+		"prefix":"hittest",
+		"body":"hittest(${1:boolean boolean_1})",
+		"description":"hittest"
+	},
+	"tabindex":{
+		"prefix":"tabindex",
+		"body":"tabindex(${1:float float_1})",
+		"description":"tabindex"
+	},
+	"selectionpos_x":{
+		"prefix":"selectionpos_x",
+		"body":"selectionpos_x(${1:float float_1})",
+		"description":"selectionpos_x"
+	},
+	"selectionpos_y":{
+		"prefix":"selectionpos_y",
+		"body":"selectionpos_y(${1:float float_1})",
+		"description":"selectionpos_y"
+	},
+	"id":{
+		"prefix":"id",
+		"body":"id()",
+		"description":"id"
+	},
+	"layoutfile":{
+		"prefix":"layoutfile",
+		"body":"layoutfile()",
+		"description":"layoutfile"
+	},
+	"contentswidth":{
+		"prefix":"contentswidth",
+		"body":"contentswidth()",
+		"description":"contentswidth"
+	},
+	"contentsheight":{
+		"prefix":"contentsheight",
+		"body":"contentsheight()",
+		"description":"contentsheight"
+	},
+	"desiredlayoutwidth":{
+		"prefix":"desiredlayoutwidth",
+		"body":"desiredlayoutwidth()",
+		"description":"desiredlayoutwidth"
+	},
+	"desiredlayoutheight":{
+		"prefix":"desiredlayoutheight",
+		"body":"desiredlayoutheight()",
+		"description":"desiredlayoutheight"
+	},
+	"actuallayoutwidth":{
+		"prefix":"actuallayoutwidth",
+		"body":"actuallayoutwidth()",
+		"description":"actuallayoutwidth"
+	},
+	"actuallayoutheight":{
+		"prefix":"actuallayoutheight",
+		"body":"actuallayoutheight()",
+		"description":"actuallayoutheight"
+	},
+	"actualxoffset":{
+		"prefix":"actualxoffset",
+		"body":"actualxoffset()",
+		"description":"actualxoffset"
+	},
+	"actualyoffset":{
+		"prefix":"actualyoffset",
+		"body":"actualyoffset()",
+		"description":"actualyoffset"
+	},
+	"scrolloffset_y":{
+		"prefix":"scrolloffset_y",
+		"body":"scrolloffset_y()",
+		"description":"scrolloffset_y"
+	},
+	"scrolloffset_x":{
+		"prefix":"scrolloffset_x",
+		"body":"scrolloffset_x()",
+		"description":"scrolloffset_x"
+	},
+	"style":{
+		"prefix":"style",
+		"body":"style()",
+		"description":"style"
+	},
+	"AddClass":{
+		"prefix":"AddClass",
+		"body":"AddClass(${1:cstring cstring_1})",
+		"description":"AddClass"
+	},
+	"RemoveClass":{
+		"prefix":"RemoveClass",
+		"body":"RemoveClass(${1:cstring cstring_1})",
+		"description":"RemoveClass"
+	},
+	"BHasClass":{
+		"prefix":"BHasClass",
+		"body":"BHasClass(${1:cstring cstring_1})",
+		"description":"BHasClass"
+	},
+	"SetHasClass":{
+		"prefix":"SetHasClass",
+		"body":"SetHasClass(${1:cstring cstring_1}, ${2:boolean boolean_2})",
+		"description":"SetHasClass"
+	},
+	"ToggleClass":{
+		"prefix":"ToggleClass",
+		"body":"ToggleClass(${1:cstring cstring_1})",
+		"description":"ToggleClass"
+	},
+	"ClearPanelEvent":{
+		"prefix":"ClearPanelEvent",
+		"body":"ClearPanelEvent(${1:cstring cstring_1})",
+		"description":"ClearPanelEvent"
+	},
+	"GetChildCount":{
+		"prefix":"GetChildCount",
+		"body":"GetChildCount()",
+		"description":"GetChildCount"
+	},
+	"GetChild":{
+		"prefix":"GetChild",
+		"body":"GetChild(${1:integer integer_1})",
+		"description":"GetChild"
+	},
+	"Children":{
+		"prefix":"Children",
+		"body":"Children()",
+		"description":"Children"
+	},
+	"FindChildrenWithClassTraverse":{
+		"prefix":"FindChildrenWithClassTraverse",
+		"body":"FindChildrenWithClassTraverse(${1:cstring cstring_1})",
+		"description":"FindChildrenWithClassTraverse"
+	},
+	"GetParent":{
+		"prefix":"GetParent",
+		"body":"GetParent()",
+		"description":"GetParent"
+	},
+	"SetParent":{
+		"prefix":"SetParent",
+		"body":"SetParent(${1:unknown_variant_type unknown_variant_type_1})",
+		"description":"SetParent"
+	},
+	"FindChild":{
+		"prefix":"FindChild",
+		"body":"FindChild(${1:cstring cstring_1})",
+		"description":"FindChild"
+	},
+	"FindChildTraverse":{
+		"prefix":"FindChildTraverse",
+		"body":"FindChildTraverse(${1:cstring cstring_1})",
+		"description":"FindChildTraverse"
+	},
+	"FindChildInLayoutFile":{
+		"prefix":"FindChildInLayoutFile",
+		"body":"FindChildInLayoutFile(${1:cstring cstring_1})",
+		"description":"FindChildInLayoutFile"
+	},
+	"RemoveAndDeleteChildren":{
+		"prefix":"RemoveAndDeleteChildren",
+		"body":"RemoveAndDeleteChildren()",
+		"description":"RemoveAndDeleteChildren"
+	},
+	"MoveChildBefore":{
+		"prefix":"MoveChildBefore",
+		"body":"MoveChildBefore(${1:unknown_variant_type unknown_variant_type_1}, ${2:unknown_variant_type unknown_variant_type_2})",
+		"description":"MoveChildBefore"
+	},
+	"MoveChildAfter":{
+		"prefix":"MoveChildAfter",
+		"body":"MoveChildAfter(${1:unknown_variant_type unknown_variant_type_1}, ${2:unknown_variant_type unknown_variant_type_2})",
+		"description":"MoveChildAfter"
+	},
+	"DeleteAsync":{
+		"prefix":"DeleteAsync",
+		"body":"DeleteAsync(${1:float float_1})",
+		"description":"DeleteAsync"
+	},
+	"BIsTransparent":{
+		"prefix":"BIsTransparent",
+		"body":"BIsTransparent()",
+		"description":"BIsTransparent"
+	},
+	"BAcceptsInput":{
+		"prefix":"BAcceptsInput",
+		"body":"BAcceptsInput()",
+		"description":"BAcceptsInput"
+	},
+	"BAcceptsFocus":{
+		"prefix":"BAcceptsFocus",
+		"body":"BAcceptsFocus()",
+		"description":"BAcceptsFocus"
+	},
+	"SetFocus":{
+		"prefix":"SetFocus",
+		"body":"SetFocus()",
+		"description":"SetFocus"
+	},
+	"BHasHoverStyle":{
+		"prefix":"BHasHoverStyle",
+		"body":"BHasHoverStyle()",
+		"description":"BHasHoverStyle"
+	},
+	"SetAcceptsFocus":{
+		"prefix":"SetAcceptsFocus",
+		"body":"SetAcceptsFocus(${1:boolean boolean_1})",
+		"description":"SetAcceptsFocus"
+	},
+	"SetDisableFocusOnMouseDown":{
+		"prefix":"SetDisableFocusOnMouseDown",
+		"body":"SetDisableFocusOnMouseDown(${1:boolean boolean_1})",
+		"description":"SetDisableFocusOnMouseDown"
+	},
+	"BHasKeyFocus":{
+		"prefix":"BHasKeyFocus",
+		"body":"BHasKeyFocus()",
+		"description":"BHasKeyFocus"
+	},
+	"IsSelected":{
+		"prefix":"IsSelected",
+		"body":"IsSelected()",
+		"description":"IsSelected"
+	},
+	"BHasDescendantKeyFocus":{
+		"prefix":"BHasDescendantKeyFocus",
+		"body":"BHasDescendantKeyFocus()",
+		"description":"BHasDescendantKeyFocus"
+	},
+	"BLoadLayout":{
+		"prefix":"BLoadLayout",
+		"body":"BLoadLayout(${1:cstring cstring_1}, ${2:boolean boolean_2}, ${3:boolean boolean_3})",
+		"description":"BLoadLayout"
+	},
+	"BLoadLayoutFromString":{
+		"prefix":"BLoadLayoutFromString",
+		"body":"BLoadLayoutFromString(${1:cstring cstring_1}, ${2:boolean boolean_2}, ${3:boolean boolean_3})",
+		"description":"BLoadLayoutFromString"
+	},
+	"LoadLayoutFromStringAsync":{
+		"prefix":"LoadLayoutFromStringAsync",
+		"body":"LoadLayoutFromStringAsync(${1:cstring cstring_1}, ${2:boolean boolean_2}, ${3:boolean boolean_3})",
+		"description":"LoadLayoutFromStringAsync"
+	},
+	"LoadLayoutAsync":{
+		"prefix":"LoadLayoutAsync",
+		"body":"LoadLayoutAsync(${1:cstring cstring_1}, ${2:boolean boolean_2}, ${3:boolean boolean_3})",
+		"description":"LoadLayoutAsync"
+	},
+	"SetDialogVariable":{
+		"prefix":"SetDialogVariable",
+		"body":"SetDialogVariable(${1:cstring cstring_1}, ${2:cstring cstring_2})",
+		"description":"SetDialogVariable"
+	},
+	"SetDialogVariableInt":{
+		"prefix":"SetDialogVariableInt",
+		"body":"SetDialogVariableInt(${1:cstring cstring_1}, ${2:integer integer_2})",
+		"description":"SetDialogVariableInt"
+	},
+	"ScrollToLeftEdge":{
+		"prefix":"ScrollToLeftEdge",
+		"body":"ScrollToLeftEdge()",
+		"description":"ScrollToLeftEdge"
+	},
+	"ScrollToRightEdge":{
+		"prefix":"ScrollToRightEdge",
+		"body":"ScrollToRightEdge()",
+		"description":"ScrollToRightEdge"
+	},
+	"ScrollParentToMakePanelFit":{
+		"prefix":"ScrollParentToMakePanelFit",
+		"body":"ScrollParentToMakePanelFit(${1:unknown_variant_type unknown_variant_type_1}, ${2:boolean boolean_2})",
+		"description":"ScrollParentToMakePanelFit"
+	},
+	"BCanSeeInParentScroll":{
+		"prefix":"BCanSeeInParentScroll",
+		"body":"BCanSeeInParentScroll()",
+		"description":"BCanSeeInParentScroll"
+	},
+	"GetAttributeInt":{
+		"prefix":"GetAttributeInt",
+		"body":"GetAttributeInt(${1:cstring cstring_1}, ${2:integer integer_2})",
+		"description":"GetAttributeInt"
+	},
+	"GetAttributeString":{
+		"prefix":"GetAttributeString",
+		"body":"GetAttributeString(${1:cstring cstring_1}, ${2:cstring cstring_2})",
+		"description":"GetAttributeString"
+	},
+	"GetAttributeUInt32":{
+		"prefix":"GetAttributeUInt32",
+		"body":"GetAttributeUInt32(${1:cstring cstring_1}, ${2:unsigned unsigned_2})",
+		"description":"GetAttributeUInt32"
+	},
+	"SetAttributeInt":{
+		"prefix":"SetAttributeInt",
+		"body":"SetAttributeInt(${1:cstring cstring_1}, ${2:integer integer_2})",
+		"description":"SetAttributeInt"
+	},
+	"SetAttributeString":{
+		"prefix":"SetAttributeString",
+		"body":"SetAttributeString(${1:cstring cstring_1}, ${2:cstring cstring_2})",
+		"description":"SetAttributeString"
+	},
+	"SetAttributeUInt32":{
+		"prefix":"SetAttributeUInt32",
+		"body":"SetAttributeUInt32(${1:cstring cstring_1}, ${2:unsigned unsigned_2})",
+		"description":"SetAttributeUInt32"
+	},
+	"SetInputNamespace":{
+		"prefix":"SetInputNamespace",
+		"body":"SetInputNamespace(${1:cstring cstring_1})",
+		"description":"SetInputNamespace"
+	},
+	"SetPanelEvent":{
+		"prefix":"SetPanelEvent",
+		"body":"SetPanelEvent(${1:cstring cstring_1}, ${2:unknown_variant_type unknown_variant_type_2})",
+		"description":"SetPanelEvent"
+	},
+	"paneltype":{
+		"prefix":"paneltype",
+		"body":"paneltype()",
+		"description":"paneltype"
+	}
+}

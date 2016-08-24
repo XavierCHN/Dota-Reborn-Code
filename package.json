@@ -1,0 +1,40 @@
+{
+    "name": "dota2 reborn code",
+    "publisher": "XavierCHN",
+    "description": "Snippets to assist you making dota2 custom games, including lua/moonscript, javascript/typescript, plaintext(kv), xml(panorama xml) and css",
+    "version": "0.0.1",
+    "engines": { "vscode": "^0.10.1" },
+    "categories": ["Snippets"], 
+    "contributes": {
+        "snippets": [
+            {
+                "language": "lua",
+                "path": "./snippets/lua.json"
+            },
+            {
+                "language": "moonscript",
+                "path": "./snippets/lua.json"
+            },
+            {
+                "language": "javascript",
+                "path": "./snippets/javascript.json"
+            },
+            {
+                "language": "typescript",
+                "path": "./snippets/javascript.json"
+            },
+            {
+                "language": "plaintext",
+                "path": "./snippets/plaintext.json"
+            },
+            {
+                "language": "xml",
+                "path": "./snippets/xml.json"
+            },
+            {
+                "language": "css",
+                "path": "./snippets/css.json"
+            }
+        ]
+    }
+}
