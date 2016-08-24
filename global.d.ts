@@ -1774,6 +1774,10 @@ interface Panel{
 interface Button extends Panel{
 }
 
+interface Image extends Panel{
+    SetImage(url: string) : any
+}
+
 interface Label extends Panel{
     text( string_1 : string )
     html( boolean_1 : boolean )
