@@ -1771,6 +1771,8 @@ interface Panel{
     SetPanelEvent( eventName: string, callback:Function ) : void
     rememberchildfocus : boolean
     paneltype : string
+    text : string
+    html : boolean
 }
 
 interface Button extends Panel{
