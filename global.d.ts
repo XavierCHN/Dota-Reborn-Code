@@ -1612,6 +1612,8 @@ interface CScriptBindingPR_Game{
 
 interface ${
 
+    (idSelector: string) : Panel
+
     /**
     Log a message
     */
