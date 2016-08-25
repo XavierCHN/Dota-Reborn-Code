@@ -1,0 +1,232 @@
+{
+    "CastFilterResult": {
+        "prefix": "CastFilterResult",
+        "body": "CastFilterResult()",
+        "description": "Determine whether an issued command with no target is valid. return 	int"
+    },
+    "CastFilterResultLocation": {
+        "prefix": "CastFilterResultLocation",
+        "body": "CastFilterResultLocation(Vector vLocation)",
+        "description": "Determine whether an issued command on a location is valid. return 	int"
+    },
+    "CastFilterResultTarget": {
+        "prefix": "CastFilterResultTarget",
+        "body": "CastFilterResultTarget(handle hTarget)",
+        "description": "Determine whether an issued command on a target is valid. return 	int"
+    },
+    "GetAssociatedPrimaryAbilities": {
+        "prefix": "GetAssociatedPrimaryAbilities",
+        "body": "GetAssociatedPrimaryAbilities()",
+        "description": "Returns abilities that are stolen simultaneously, or otherwise related in functionality. return 	string"
+    },
+    "GetAssociatedSecondaryAbilities": {
+        "prefix": "GetAssociatedSecondaryAbilities",
+        "body": "GetAssociatedSecondaryAbilities()",
+        "description": "Returns other abilities that are stolen simultaneously, or otherwise related in functionality. Generally hidden abilities. return 	string"
+    },
+    "GetBehavior": {
+        "prefix": "GetBehavior",
+        "body": "GetBehavior()",
+        "description": "Return cast behavior type of this ability. return 	int"
+    },
+    "GetCastAnimation": {
+        "prefix": "GetCastAnimation",
+        "body": "GetCastAnimation()",
+        "description": "Return casting animation of this ability. return 	int"
+    },
+    "GetCastRange": {
+        "prefix": "GetCastRange",
+        "body": "GetCastRange(Vector vLocation, handle hTarget)",
+        "description": "Return cast range of this ability. return 	int"
+    },
+    "GetChannelAnimation": {
+        "prefix": "GetChannelAnimation",
+        "body": "GetChannelAnimation()",
+        "description": "Return channel animation of this ability. return 	int"
+    },
+    "GetChannelledManaCostPerSecond": {
+        "prefix": "GetChannelledManaCostPerSecond",
+        "body": "GetChannelledManaCostPerSecond(int iLevel)",
+        "description": "Return mana cost at the given level per second while channeling (-1 is current) return 	int"
+    },
+    "GetChannelTime": {
+        "prefix": "GetChannelTime",
+        "body": "GetChannelTime()",
+        "description": "Return the channel time of this ability. return 	float"
+    },
+    "GetConceptRecipientType": {
+        "prefix": "GetConceptRecipientType",
+        "body": "GetConceptRecipientType()",
+        "description": "Return who hears speech when this spell is cast. return 	int"
+    },
+    "GetCooldown": {
+        "prefix": "GetCooldown",
+        "body": "GetCooldown(int iLevel)",
+        "description": "Return cooldown of this ability. return 	float"
+    },
+    "GetCustomCastError": {
+        "prefix": "GetCustomCastError",
+        "body": "GetCustomCastError()",
+        "description": "Return the error string of a failed command with no target. return 	string"
+    },
+    "GetCustomCastErrorLocation": {
+        "prefix": "GetCustomCastErrorLocation",
+        "body": "GetCustomCastErrorLocation(Vector vLocation)",
+        "description": "Return the error string of a failed command on a location. return 	string"
+    },
+    "GetCustomCastErrorTarget": {
+        "prefix": "GetCustomCastErrorTarget",
+        "body": "GetCustomCastErrorTarget(handle hTarget)",
+        "description": "Return the error string of a failed command on a target. return 	string"
+    },
+    "GetGoldCost": {
+        "prefix": "GetGoldCost",
+        "body": "GetGoldCost(int iLevel)",
+        "description": "Return gold cost at the given level (-1 is current)return 	int"
+    },
+    "GetIntrinsicModifierName": {
+        "prefix": "GetIntrinsicModifierName",
+        "body": "GetIntrinsicModifierName()",
+        "description": "Returns the name of the modifier applied passively by this ability. return 	string"
+    },
+    "GetManaCost": {
+        "prefix": "GetManaCost",
+        "body": "GetManaCost(int iLevel)",
+        "description": "Return mana cost at the given level (-1 is current) return 	int"
+    },
+    "GetPlaybackRateOverride": {
+        "prefix": "GetPlaybackRateOverride",
+        "body": "GetPlaybackRateOverride()",
+        "description": "Return the animation rate of the cast animation. return 	float"
+    },
+    "IsHiddenAbilityCastable": {
+        "prefix": "IsHiddenAbilityCastable",
+        "body": "IsHiddenAbilityCastable()",
+        "description": "Returns true if this ability can be used when not on the action panel. return 	bool"
+    },
+    "IsHiddenWhenStolen": {
+        "prefix": "IsHiddenWhenStolen",
+        "body": "IsHiddenWhenStolen()",
+        "description": "Returns true if this ability is hidden when stolen by Spell Steal. return 	bool"
+    },
+    "IsRefreshable": {
+        "prefix": "IsRefreshable",
+        "body": "IsRefreshable()",
+        "description": "Returns true if this ability is refreshed by Refresher Orb. return 	bool"
+    },
+    "IsStealable": {
+        "prefix": "IsStealable",
+        "body": "IsStealable()",
+        "description": "Returns true if this ability can be stolen by Spell Steal. return 	bool"
+    },
+    "OnAbilityPhaseInterrupted": {
+        "prefix": "OnAbilityPhaseInterrupted",
+        "body": "OnAbilityPhaseInterrupted()",
+        "description": "Cast time did not complete successfully. return 	void"
+    },
+    "OnAbilityPhaseStart": {
+        "prefix": "OnAbilityPhaseStart",
+        "body": "OnAbilityPhaseStart()",
+        "description": "Cast time begins (return true for successful cast) . return 	bool"
+    },
+    "OnChannelFinish": {
+        "prefix": "OnChannelFinish",
+        "body": "OnChannelFinish(bool bInterrupted)",
+        "description": "Channel finished. return 	void"
+    },
+    "OnChannelThink": {
+        "prefix": "OnChannelThink",
+        "body": "OnChannelThink(float flInterval)",
+        "description": "Channeling is taking place. return 	void"
+    },
+    "OnHeroCalculateStatBonus": {
+        "prefix": "OnHeroCalculateStatBonus",
+        "body": "OnHeroCalculateStatBonus()",
+        "description": "gained a level, skilled an ability, or received a new stat bonus. return 	void"
+    },
+    "OnHeroDiedNearby": {
+        "prefix": "OnHeroDiedNearby",
+        "body": "OnHeroDiedNearby(handle unit, handle attacker, handle table)",
+        "description": "A hero has died in the vicinity (ie Urn) , takes table of params. return 	void"
+    },
+    "OnHeroLevelUp": {
+        "prefix": "OnHeroLevelUp",
+        "body": "OnHeroLevelUp()",
+        "description": "Caster gained a level. return 	void"
+    },
+    "OnInventoryContentsChanged": {
+        "prefix": "OnInventoryContentsChanged",
+        "body": "OnInventoryContentsChanged()",
+        "description": "Caster inventory changed. return 	void"
+    },
+    "OnItemEquipped": {
+        "prefix": "OnItemEquipped",
+        "body": "OnItemEquipped(handle hItem)",
+        "description": "( HSCRIPT hItem ) Caster equipped item. return 	void"
+    },
+    "OnOwnerDied": {
+        "prefix": "OnOwnerDied",
+        "body": "OnOwnerDied()",
+        "description": "Caster died. return 	void"
+    },
+    "OnOwnerSpawned": {
+        "prefix": "OnOwnerSpawned",
+        "body": "OnOwnerSpawned()",
+        "description": "Caster respawned or spawned for the first time. return 	void"
+    },
+    "OnProjectileHit": {
+        "prefix": "OnProjectileHit",
+        "body": "OnProjectileHit(handle hTarget, Vector vLocation)",
+        "description": "HSCRIPT hTarget, Vector vLocation) Projectile has collided with a given target or reached its destination (target is invalid). return 	bool"
+    },
+    "OnProjectileHit_ExtraData": {
+        "prefix": "OnProjectileHit_ExtraData",
+        "body": "OnProjectileHit_ExtraData(handle hTarget, Vector vLocation, handle table)",
+        "description": "HSCRIPT hTarget, Vector vLocation, table kv)Projectile has collided with a given target or reached its destination (target is invalid) return 	bool"
+    },
+    "OnProjectileThink": {
+        "prefix": "OnProjectileThink",
+        "body": "OnProjectileThink(Vector vLocation)",
+        "description": "Vector vLocation) Projectile is actively moving. return 	void"
+    },
+    "OnProjectileThink_ExtraData": {
+        "prefix": "OnProjectileThink_ExtraData",
+        "body": "OnProjectileThink_ExtraData(Vector vLocation, handle table)",
+        "description": "Vector vLocation, table kv ) Projectile is actively moving. return 	void"
+    },
+    "OnSpellStart": {
+        "prefix": "OnSpellStart",
+        "body": "OnSpellStart()",
+        "description": "Cast time finished, spell effects begin. return 	void"
+    },
+    "OnStolen": {
+        "prefix": "OnStolen",
+        "body": "OnStolen(handle hSourceAbility)",
+        "description": "( HSCRIPT hAbility )Special behavior when stolen by Spell Steal. return 	void"
+    },
+    "OnToggle": {
+        "prefix": "OnToggle",
+        "body": "OnToggle()",
+        "description": "Ability is toggled on/off. return 	void"
+    },
+    "OnUnStolen": {
+        "prefix": "OnUnStolen",
+        "body": "OnUnStolen()",
+        "description": "Special behavior when lost by Spell Steal. return 	void"
+    },
+    "OnUpgrade": {
+        "prefix": "OnUpgrade",
+        "body": "OnUpgrade()",
+        "description": "Ability gained a level. return 	void"
+    },
+    "ProcsMagicStick": {
+        "prefix": "ProcsMagicStick",
+        "body": "ProcsMagicStick()",
+        "description": "Returns true if this ability will generate magic stick charges for nearby enemies. return 	bool"
+    },
+    "SpeakTrigger": {
+        "prefix": "SpeakTrigger",
+        "body": "SpeakTrigger()",
+        "description": "Return the type of speech used. return 	int"
+    }
+}
