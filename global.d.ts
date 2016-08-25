@@ -1783,8 +1783,6 @@ interface Image extends Panel{
 }
 
 interface Label extends Panel{
-    text( string_1 : string )
-    html( boolean_1 : boolean )
 }
 
 interface DOTAAvatarImage extends Panel{
