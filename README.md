@@ -1,6 +1,7 @@
 # Dota-Reborn-Code
 
-## Working in progress
+
+## Features
 
 - [x] Lua: Function and enum snippets;
 

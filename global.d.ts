@@ -44,7 +44,7 @@ interface CDOTA_PanoramaScript_GameUI{
     /**
      *   Get the current UI configuration
      */
-    CustomUIConfig() : Object
+    CustomUIConfig() : any
     /**
      *   Create a minimap ping at the given location
      */
