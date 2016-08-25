@@ -2,7 +2,7 @@
     "name": "dota-reborn-code",
     "displayName": "dota-reborn-code",
     "description": "dota2 custom game kv/js/lua/xml/css syntax and snippets",
-    "version": "0.0.3",
+    "version": "0.0.5",
     "publisher": "XavierCHN",
     "icon": "images/xavier.png",
     "engines": {
