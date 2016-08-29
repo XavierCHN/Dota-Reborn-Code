@@ -2,6 +2,8 @@
 
 ## Changelog
 
+    v0.1.1 Now aotumatic copy global.d.ts to your addon to support typescript intellsence;
+
     v0.0.9 Add css completion while editing xml and js files;
 
 ![CSS Feature](https://github.com/XavierCHN/Dota-Reborn-Code/raw/master/images/css.png)
@@ -17,8 +19,6 @@
     ![Lua](https://github.com/XavierCHN/Dota-Reborn-Code/raw/master/images/usage_2.png)
 
 - [x] TypeScript: Function and enum snippets(Copy global.d.ts to your project);
-
-    if you found any good method to implement this, please contact me.
 
     plan: Add snippets for Javascript;
 

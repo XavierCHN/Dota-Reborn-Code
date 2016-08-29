@@ -2,7 +2,7 @@
     "name": "dota-reborn-code",
     "displayName": "dota-reborn-code",
     "description": "Help you with everything you need along dota2 modding",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "XavierCHN",
     "icon": "images/xavier.png",
     "engines": {
