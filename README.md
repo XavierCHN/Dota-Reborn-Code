@@ -3,8 +3,8 @@
 ## Changelog
 
     v0.0.9 Add css completion while editing xml and js files;
-    
-    ![Lua](https://github.com/XavierCHN/Dota-Reborn-Code/raw/master/images/css.png)
+
+![CSS Feature](https://github.com/XavierCHN/Dota-Reborn-Code/raw/master/images/css.png)
 
     v0.0.8 Add Lua ability snippets.
 
