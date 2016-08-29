@@ -188,17 +188,14 @@ function parse(uri: vsc.Uri): void {
 export function activate(context: vsc.ExtensionContext) {
 
     if (vsc.workspace.rootPath) {
-        console.log(vsc.workspace.rootPath)
         let resourceJson = path.resolve(vsc.workspace.rootPath, 'resource.json');
 
         fs.readFile(resourceJson, 'utf8', function (err: any, data: string) {
             let glob = '**/*.css';
 
             if (err) {
-            console.log(`didnt find resource.json`)
                 vsc.workspace.findFiles(glob, '').then(function (uris: vsc.Uri[]) {
                     for (let i = 0; i < uris.length; i++) {
-                        console.log(`parsing ${uris[i]}`)
                         parse(uris[i]);
                     }
                 });
@@ -245,6 +242,18 @@ export function activate(context: vsc.ExtensionContext) {
     context.subscriptions.push(vsc.languages.setLanguageConfiguration('js', {
         wordPattern: wp
     }));
+    
+    fs.exists(`${vsc.workspace.rootPath}/global.d.ts`,function(exist:boolean){
+        if (!exist){
+            fs.readFile(`${vsc.extensions.getExtension("XavierCHN.dota-reborn-code").extensionPath}/global.d.ts`,'utf8', function (err: any, data: string) {
+                fs.writeFile(`${vsc.workspace.rootPath}/global.d.ts`, data, function(err:any){
+                    if(!err){
+                        vsc.window.showInformationMessage("global.d.ts is copyed to your addon, trying use .ts files instead of javascript");
+                    }
+                })
+            })
+        }
+    })
 }
 
 export function deactivate() {
