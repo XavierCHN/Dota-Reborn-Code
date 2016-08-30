@@ -2,6 +2,8 @@
 
 ## Changelog
 
+    v0.1.2 Fixed missing lua snippets;
+
     v0.1.1 Now aotumatic copy global.d.ts to your addon to support typescript intellsence;
 
     v0.0.9 Add css completion while editing xml and js files;
