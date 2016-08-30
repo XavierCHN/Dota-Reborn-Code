@@ -2,7 +2,7 @@
     "name": "dota-reborn-code",
     "displayName": "dota-reborn-code",
     "description": "Help you with everything you need along dota2 modding",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "publisher": "XavierCHN",
     "icon": "images/xavier.png",
     "engines": {
@@ -20,7 +20,8 @@
     "activationEvents": [
         "onLanguage:xml",
         "onLanguage:typescript",
-        "onLanguage:javascript"
+        "onLanguage:javascript",
+        "onCommand:drc.createTypeScriptDefination"
     ],
     "main": "./out/src/extension",
     "contributes": {
@@ -35,6 +36,12 @@
                     ".txt"
                 ],
                 "configuration": "./language-configuration.json"
+            }
+        ],
+        "commands": [
+            {
+                "command": "drc.createTypeScriptDefination",
+                "title": "Create Snippets for dota2 typescript"
             }
         ],
         "grammars": [

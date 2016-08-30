@@ -2,6 +2,12 @@
 
 ## Changelog
 
+    v0.1.3 Fixed missing KV syntax, now global.d.ts file needs commmand to copy:
+
+    Hit `ctrl+shift+p` and type `Create Sni...`;
+
+![Copy ts script](https://github.com/XavierCHN/Dota-Reborn-Code/raw/master/images/ts_1.png)
+    
     v0.1.2 Fixed missing lua snippets;
 
     v0.1.1 Now aotumatic copy global.d.ts to your addon to support typescript intellsence;
