@@ -243,17 +243,15 @@ export function activate(context: vsc.ExtensionContext) {
         wordPattern: wp
     }));
     
-    fs.exists(`${vsc.workspace.rootPath}/global.d.ts`,function(exist:boolean){
-        if (!exist){
-            fs.readFile(`${vsc.extensions.getExtension("XavierCHN.dota-reborn-code").extensionPath}/global.d.ts`,'utf8', function (err: any, data: string) {
-                fs.writeFile(`${vsc.workspace.rootPath}/global.d.ts`, data, function(err:any){
-                    if(!err){
-                        vsc.window.showInformationMessage("global.d.ts is copyed to your addon, trying use .ts files instead of javascript");
-                    }
-                })
+    context.subscriptions.push(vsc.commands.registerCommand("drc.createTypeScriptDefination",()=>{
+        fs.readFile(`${vsc.extensions.getExtension("XavierCHN.dota-reborn-code").extensionPath}/global.d.ts`,'utf8', function (err: any, data: string) {
+            fs.writeFile(`${vsc.workspace.rootPath}/global.d.ts`, data, function(err:any){
+                if(!err){
+                    vsc.window.showInformationMessage("global.d.ts is copyed to your addon, trying use .ts files instead of javascript");
+                }
             })
-        }
-    })
+        })
+    }))
 }
 
 export function deactivate() {
