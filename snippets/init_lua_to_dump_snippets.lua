@@ -65,7 +65,11 @@ function DumpScriptBindings()
 		end
 		new_snippet.body = string.format("%s(%s)", fnName, table.concat( snippet_para_list , ", " ))
 		new_snippet.prefix = fnName
-		all_snippets[fnName] = new_snippet
+		local ss = fnName
+		if className then
+			ss = className .. "_" .. ss
+		end
+		all_snippets[ss] = new_snippet
 
 		return string.format( "%s\nf %s( %s ) end\n", table.concat( docList, "\n"), fnName, table.concat( parameterList, ", " ) )
 	end
