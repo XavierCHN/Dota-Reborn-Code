@@ -2,6 +2,8 @@
 
 ## Changelog
 
+    v0.1.4 Update lua snippets to latest version.
+
     v0.1.3 Fixed missing KV syntax, now global.d.ts file needs commmand to copy:
 
     Hit `ctrl+shift+p` and type `Create Sni...`;
