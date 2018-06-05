@@ -1,0 +1,36 @@
+{
+    "ModifierLuaTemplate":
+    {
+        "prefix":"modifier_LuaModifierTemplate",
+        "body":[
+            "local funcs = {",
+            "\t",
+            "}",
+            "",
+            "local stats = {",
+            "\t",
+            "}",
+            "",
+            "local m = class({})",
+            "",
+            "function m:IsPurgable()",
+            "\treturn false",
+            "end",
+            "",
+            "function m:IsHidden()",
+            "\treturn false",
+            "end",
+            "",
+            "function m:DeclareFunctions()",
+            "\treturn funcs",
+            "end",
+            "",
+            "function m:CheckState()",
+            "\treturn stats",
+            "end",
+            "",
+            "${modifier_name} = m"
+        ],
+        "description":"generate modifier lua template"
+    }
+}
