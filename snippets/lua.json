@@ -122,8 +122,14 @@
 	"CreateTempTree":
 	{
 		"body":"CreateTempTree(${vLocation}, ${flDuration})",
-		"description":"CreateTempTree:\nCreate a temporary tree. (vLocation, flDuration).\nreturn void",
+		"description":"CreateTempTree:\nCreate a temporary tree, uses a default tree model. (vLocation, flDuration).\nreturn handle",
 		"prefix":"CreateTempTree"
+	},
+	"CreateTempTreeWithModel":
+	{
+		"body":"CreateTempTreeWithModel(${vLocation}, ${flDuration}, ${szModelName})",
+		"description":"CreateTempTreeWithModel:\nCreate a temporary tree, specifying the tree model name. (vLocation, flDuration, szModelName).\nreturn handle",
+		"prefix":"CreateTempTreeWithModel"
 	},
 	"CreateTrigger":
 	{
@@ -425,30 +431,6 @@
 		"description":"GetFrameCount:\nReturns the engines current frame count\nreturn int",
 		"prefix":"GetFrameCount"
 	},
-	"GetFrostyBoostAmount":
-	{
-		"body":"GetFrostyBoostAmount(${int_1}, ${int_2})",
-		"description":"GetFrostyBoostAmount:\n\nreturn float",
-		"prefix":"GetFrostyBoostAmount"
-	},
-	"GetFrostyPointsForRound":
-	{
-		"body":"GetFrostyPointsForRound(${int_1}, ${int_2}, ${int_3})",
-		"description":"GetFrostyPointsForRound:\n\nreturn int",
-		"prefix":"GetFrostyPointsForRound"
-	},
-	"GetGoldFrostyBoostAmount":
-	{
-		"body":"GetGoldFrostyBoostAmount(${int_1}, ${int_2})",
-		"description":"GetGoldFrostyBoostAmount:\n\nreturn float",
-		"prefix":"GetGoldFrostyBoostAmount"
-	},
-	"GetGoldFrostyPointsForRound":
-	{
-		"body":"GetGoldFrostyPointsForRound(${int_1}, ${int_2}, ${int_3})",
-		"description":"GetGoldFrostyPointsForRound:\n\nreturn int",
-		"prefix":"GetGoldFrostyPointsForRound"
-	},
 	"GetGroundHeight":
 	{
 		"body":"GetGroundHeight(${Vector_1}, ${handle_2})",
@@ -485,6 +467,12 @@
 		"description":"GetListenServerHost:\nGet the local player on a listen server.\nreturn handle",
 		"prefix":"GetListenServerHost"
 	},
+	"GetLobbyEventGameDetails":
+	{
+		"body":"GetLobbyEventGameDetails()",
+		"description":"GetLobbyEventGameDetails:\n( )\nreturn table",
+		"prefix":"GetLobbyEventGameDetails"
+	},
 	"GetMapName":
 	{
 		"body":"GetMapName()",
@@ -520,6 +508,18 @@
 		"body":"GetSystemTime()",
 		"description":"GetSystemTime:\nGet the current real world time\nreturn string",
 		"prefix":"GetSystemTime"
+	},
+	"GetTargetAOELocation":
+	{
+		"body":"GetTargetAOELocation(${int_1}, ${int_2}, ${int_3}, ${Vector_4}, ${int_5}, ${int_6}, ${int_7})",
+		"description":"GetTargetAOELocation:\n\nreturn Vector",
+		"prefix":"GetTargetAOELocation"
+	},
+	"GetTargetLinearLocation":
+	{
+		"body":"GetTargetLinearLocation(${int_1}, ${int_2}, ${int_3}, ${Vector_4}, ${int_5}, ${int_6}, ${int_7})",
+		"description":"GetTargetLinearLocation:\n\nreturn Vector",
+		"prefix":"GetTargetLinearLocation"
 	},
 	"GetTeamHeroKills":
 	{
@@ -845,18 +845,6 @@
 		"description":"ScreenShake:\nStart a screenshake with the following parameters. vecCenter, flAmplitude, flFrequency, flDuration, flRadius, eCommand( SHAKE_START = 0, SHAKE_STOP = 1 ), bAirShake\nreturn void",
 		"prefix":"ScreenShake"
 	},
-	"SendFrostivusTimeElapsedToGC":
-	{
-		"body":"SendFrostivusTimeElapsedToGC()",
-		"description":"SendFrostivusTimeElapsedToGC:\n\nreturn void",
-		"prefix":"SendFrostivusTimeElapsedToGC"
-	},
-	"SendFrostyPointsMessageToGC":
-	{
-		"body":"SendFrostyPointsMessageToGC(${handle_1})",
-		"description":"SendFrostyPointsMessageToGC:\n\nreturn void",
-		"prefix":"SendFrostyPointsMessageToGC"
-	},
 	"SendOverheadEventMessage":
 	{
 		"body":"SendOverheadEventMessage(${DOTAPlayersendToPlayer}, ${intiMessageType}, ${EntitytargetEntity}, ${intiValue}, ${DOTAPlayersourcePlayer})",
@@ -1025,6 +1013,12 @@
 		"description":"StopEffect:\nPass entity and effect name\nreturn void",
 		"prefix":"StopEffect"
 	},
+	"StopGlobalSound":
+	{
+		"body":"StopGlobalSound(${string_1})",
+		"description":"StopGlobalSound:\nStop named sound for all players\nreturn void",
+		"prefix":"StopGlobalSound"
+	},
 	"StopListeningToAllGameEvents":
 	{
 		"body":"StopListeningToAllGameEvents(${handle_1})",
@@ -1147,8 +1141,8 @@
 	},
 	"UpdateEventPoints":
 	{
-		"body":"UpdateEventPoints(${handle_1})",
-		"description":"UpdateEventPoints:\n\nreturn void",
+		"body":"UpdateEventPoints(${hEventPointData})",
+		"description":"UpdateEventPoints:\n( hEventPointData )\nreturn void",
 		"prefix":"UpdateEventPoints"
 	},
 	"VectorAngles":
@@ -1205,6 +1199,10 @@
 		"description":"rr_QueryBestResponse:\nParams: (entity, query) : tests 'query' against entity's response system and returns the best response found (or null if none found).\nreturn bool",
 		"prefix":"rr_QueryBestResponse"
 	},
+	"ABILITY_TYPE_ATTRIBUTES":{"body":"ABILITY_TYPE_ATTRIBUTES", "description":"", "prefix": "ABILITY_TYPE_ATTRIBUTES"},
+	"ABILITY_TYPE_BASIC":{"body":"ABILITY_TYPE_BASIC", "description":"", "prefix": "ABILITY_TYPE_BASIC"},
+	"ABILITY_TYPE_HIDDEN":{"body":"ABILITY_TYPE_HIDDEN", "description":"", "prefix": "ABILITY_TYPE_HIDDEN"},
+	"ABILITY_TYPE_ULTIMATE":{"body":"ABILITY_TYPE_ULTIMATE", "description":"", "prefix": "ABILITY_TYPE_ULTIMATE"},
 	"ABILITY_CANNOT_BE_UPGRADED_AT_MAX":{"body":"ABILITY_CANNOT_BE_UPGRADED_AT_MAX", "description":"", "prefix": "ABILITY_CANNOT_BE_UPGRADED_AT_MAX"},
 	"ABILITY_CANNOT_BE_UPGRADED_NOT_UPGRADABLE":{"body":"ABILITY_CANNOT_BE_UPGRADED_NOT_UPGRADABLE", "description":"", "prefix": "ABILITY_CANNOT_BE_UPGRADED_NOT_UPGRADABLE"},
 	"ABILITY_CANNOT_BE_UPGRADED_REQUIRES_LEVEL":{"body":"ABILITY_CANNOT_BE_UPGRADED_REQUIRES_LEVEL", "description":"", "prefix": "ABILITY_CANNOT_BE_UPGRADED_REQUIRES_LEVEL"},
@@ -1217,11 +1215,11 @@
 	"DOTA_ATTRIBUTE_INTELLIGENCE_DAMAGE":{"body":"DOTA_ATTRIBUTE_INTELLIGENCE_DAMAGE", "description":"", "prefix": "DOTA_ATTRIBUTE_INTELLIGENCE_DAMAGE"},
 	"DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESISTANCE_PERCENT":{"body":"DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESISTANCE_PERCENT", "description":"", "prefix": "DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESISTANCE_PERCENT"},
 	"DOTA_ATTRIBUTE_INTELLIGENCE_MANA":{"body":"DOTA_ATTRIBUTE_INTELLIGENCE_MANA", "description":"", "prefix": "DOTA_ATTRIBUTE_INTELLIGENCE_MANA"},
-	"DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN_PERCENT":{"body":"DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN_PERCENT", "description":"", "prefix": "DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN_PERCENT"},
+	"DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN":{"body":"DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN", "description":"", "prefix": "DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN"},
 	"DOTA_ATTRIBUTE_INTELLIGENCE_SPELL_AMP_PERCENT":{"body":"DOTA_ATTRIBUTE_INTELLIGENCE_SPELL_AMP_PERCENT", "description":"", "prefix": "DOTA_ATTRIBUTE_INTELLIGENCE_SPELL_AMP_PERCENT"},
 	"DOTA_ATTRIBUTE_STRENGTH_DAMAGE":{"body":"DOTA_ATTRIBUTE_STRENGTH_DAMAGE", "description":"", "prefix": "DOTA_ATTRIBUTE_STRENGTH_DAMAGE"},
 	"DOTA_ATTRIBUTE_STRENGTH_HP":{"body":"DOTA_ATTRIBUTE_STRENGTH_HP", "description":"", "prefix": "DOTA_ATTRIBUTE_STRENGTH_HP"},
-	"DOTA_ATTRIBUTE_STRENGTH_HP_REGEN_PERCENT":{"body":"DOTA_ATTRIBUTE_STRENGTH_HP_REGEN_PERCENT", "description":"", "prefix": "DOTA_ATTRIBUTE_STRENGTH_HP_REGEN_PERCENT"},
+	"DOTA_ATTRIBUTE_STRENGTH_HP_REGEN":{"body":"DOTA_ATTRIBUTE_STRENGTH_HP_REGEN", "description":"", "prefix": "DOTA_ATTRIBUTE_STRENGTH_HP_REGEN"},
 	"DOTA_ATTRIBUTE_STRENGTH_MAGIC_RESISTANCE_PERCENT":{"body":"DOTA_ATTRIBUTE_STRENGTH_MAGIC_RESISTANCE_PERCENT", "description":"", "prefix": "DOTA_ATTRIBUTE_STRENGTH_MAGIC_RESISTANCE_PERCENT"},
 	"DOTA_ATTRIBUTE_STRENGTH_STATUS_RESISTANCE_PERCENT":{"body":"DOTA_ATTRIBUTE_STRENGTH_STATUS_RESISTANCE_PERCENT", "description":"", "prefix": "DOTA_ATTRIBUTE_STRENGTH_STATUS_RESISTANCE_PERCENT"},
 	"DOTA_ATTRIBUTE_AGILITY":{"body":"DOTA_ATTRIBUTE_AGILITY", "description":"", "prefix": "DOTA_ATTRIBUTE_AGILITY"},
@@ -1249,6 +1247,7 @@
 	"DOTA_DAMAGE_FLAG_NO_DIRECTOR_EVENT":{"body":"DOTA_DAMAGE_FLAG_NO_DIRECTOR_EVENT", "description":"", "prefix": "DOTA_DAMAGE_FLAG_NO_DIRECTOR_EVENT"},
 	"DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION":{"body":"DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION", "description":"", "prefix": "DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION"},
 	"DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL":{"body":"DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL", "description":"", "prefix": "DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL"},
+	"DOTA_DAMAGE_FLAG_PROPERTY_FIRE":{"body":"DOTA_DAMAGE_FLAG_PROPERTY_FIRE", "description":"", "prefix": "DOTA_DAMAGE_FLAG_PROPERTY_FIRE"},
 	"DOTA_DAMAGE_FLAG_REFLECTION":{"body":"DOTA_DAMAGE_FLAG_REFLECTION", "description":"", "prefix": "DOTA_DAMAGE_FLAG_REFLECTION"},
 	"DOTA_DAMAGE_FLAG_USE_COMBAT_PROFICIENCY":{"body":"DOTA_DAMAGE_FLAG_USE_COMBAT_PROFICIENCY", "description":"", "prefix": "DOTA_DAMAGE_FLAG_USE_COMBAT_PROFICIENCY"},
 	"DOTA_HUD_VISIBILITY_ACTION_MINIMAP":{"body":"DOTA_HUD_VISIBILITY_ACTION_MINIMAP", "description":"", "prefix": "DOTA_HUD_VISIBILITY_ACTION_MINIMAP"},
@@ -1347,7 +1346,6 @@
 	"DOTA_LOADOUT_TYPE_ABILITY4":{"body":"DOTA_LOADOUT_TYPE_ABILITY4", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ABILITY4"},
 	"DOTA_LOADOUT_TYPE_ABILITY_ATTACK":{"body":"DOTA_LOADOUT_TYPE_ABILITY_ATTACK", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ABILITY_ATTACK"},
 	"DOTA_LOADOUT_TYPE_ABILITY_ULTIMATE":{"body":"DOTA_LOADOUT_TYPE_ABILITY_ULTIMATE", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ABILITY_ULTIMATE"},
-	"DOTA_LOADOUT_TYPE_ACTION_ITEM":{"body":"DOTA_LOADOUT_TYPE_ACTION_ITEM", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ACTION_ITEM"},
 	"DOTA_LOADOUT_TYPE_AMBIENT_EFFECTS":{"body":"DOTA_LOADOUT_TYPE_AMBIENT_EFFECTS", "description":"", "prefix": "DOTA_LOADOUT_TYPE_AMBIENT_EFFECTS"},
 	"DOTA_LOADOUT_TYPE_ANNOUNCER":{"body":"DOTA_LOADOUT_TYPE_ANNOUNCER", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ANNOUNCER"},
 	"DOTA_LOADOUT_TYPE_ARMOR":{"body":"DOTA_LOADOUT_TYPE_ARMOR", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ARMOR"},
@@ -1751,6 +1749,7 @@
 	"ACT_DOTA_GREEVIL_HOOK_END":{"body":"ACT_DOTA_GREEVIL_HOOK_END", "description":"", "prefix": "ACT_DOTA_GREEVIL_HOOK_END"},
 	"ACT_DOTA_GREEVIL_HOOK_START":{"body":"ACT_DOTA_GREEVIL_HOOK_START", "description":"", "prefix": "ACT_DOTA_GREEVIL_HOOK_START"},
 	"ACT_DOTA_GREEVIL_OVERRIDE_ABILITY":{"body":"ACT_DOTA_GREEVIL_OVERRIDE_ABILITY", "description":"", "prefix": "ACT_DOTA_GREEVIL_OVERRIDE_ABILITY"},
+	"ACT_DOTA_GS_INK_CREATURE":{"body":"ACT_DOTA_GS_INK_CREATURE", "description":"", "prefix": "ACT_DOTA_GS_INK_CREATURE"},
 	"ACT_DOTA_GS_SOUL_CHAIN":{"body":"ACT_DOTA_GS_SOUL_CHAIN", "description":"", "prefix": "ACT_DOTA_GS_SOUL_CHAIN"},
 	"ACT_DOTA_ICE_VORTEX":{"body":"ACT_DOTA_ICE_VORTEX", "description":"", "prefix": "ACT_DOTA_ICE_VORTEX"},
 	"ACT_DOTA_IDLE":{"body":"ACT_DOTA_IDLE", "description":"", "prefix": "ACT_DOTA_IDLE"},
@@ -1858,6 +1857,7 @@
 	"ACT_DOTA_TINKER_REARM1":{"body":"ACT_DOTA_TINKER_REARM1", "description":"", "prefix": "ACT_DOTA_TINKER_REARM1"},
 	"ACT_DOTA_TINKER_REARM2":{"body":"ACT_DOTA_TINKER_REARM2", "description":"", "prefix": "ACT_DOTA_TINKER_REARM2"},
 	"ACT_DOTA_TINKER_REARM3":{"body":"ACT_DOTA_TINKER_REARM3", "description":"", "prefix": "ACT_DOTA_TINKER_REARM3"},
+	"ACT_DOTA_TRANSITION":{"body":"ACT_DOTA_TRANSITION", "description":"", "prefix": "ACT_DOTA_TRANSITION"},
 	"ACT_DOTA_TRICKS_END":{"body":"ACT_DOTA_TRICKS_END", "description":"", "prefix": "ACT_DOTA_TRICKS_END"},
 	"ACT_DOTA_TROT":{"body":"ACT_DOTA_TROT", "description":"", "prefix": "ACT_DOTA_TROT"},
 	"ACT_DOTA_UNDYING_DECAY":{"body":"ACT_DOTA_UNDYING_DECAY", "description":"", "prefix": "ACT_DOTA_UNDYING_DECAY"},
@@ -1950,6 +1950,7 @@
 	"MODIFIER_EVENT_ON_ATTACK_START":{"body":"MODIFIER_EVENT_ON_ATTACK_START", "description":"OnAttackStart", "prefix": "MODIFIER_EVENT_ON_ATTACK_START"},
 	"MODIFIER_EVENT_ON_BREAK_INVISIBILITY":{"body":"MODIFIER_EVENT_ON_BREAK_INVISIBILITY", "description":"OnBreakInvisibility", "prefix": "MODIFIER_EVENT_ON_BREAK_INVISIBILITY"},
 	"MODIFIER_EVENT_ON_BUILDING_KILLED":{"body":"MODIFIER_EVENT_ON_BUILDING_KILLED", "description":"OnBuildingKilled", "prefix": "MODIFIER_EVENT_ON_BUILDING_KILLED"},
+	"MODIFIER_EVENT_ON_DAMAGE_CALCULATED":{"body":"MODIFIER_EVENT_ON_DAMAGE_CALCULATED", "description":"OnDamageCalculated", "prefix": "MODIFIER_EVENT_ON_DAMAGE_CALCULATED"},
 	"MODIFIER_EVENT_ON_DEATH":{"body":"MODIFIER_EVENT_ON_DEATH", "description":"OnDeath", "prefix": "MODIFIER_EVENT_ON_DEATH"},
 	"MODIFIER_EVENT_ON_DOMINATED":{"body":"MODIFIER_EVENT_ON_DOMINATED", "description":"OnDominated", "prefix": "MODIFIER_EVENT_ON_DOMINATED"},
 	"MODIFIER_EVENT_ON_HEALTH_GAINED":{"body":"MODIFIER_EVENT_ON_HEALTH_GAINED", "description":"OnHealthGained", "prefix": "MODIFIER_EVENT_ON_HEALTH_GAINED"},
@@ -1958,12 +1959,13 @@
 	"MODIFIER_EVENT_ON_MANA_GAINED":{"body":"MODIFIER_EVENT_ON_MANA_GAINED", "description":"OnManaGained", "prefix": "MODIFIER_EVENT_ON_MANA_GAINED"},
 	"MODIFIER_EVENT_ON_MODEL_CHANGED":{"body":"MODIFIER_EVENT_ON_MODEL_CHANGED", "description":"OnModelChanged", "prefix": "MODIFIER_EVENT_ON_MODEL_CHANGED"},
 	"MODIFIER_EVENT_ON_MODIFIER_ADDED":{"body":"MODIFIER_EVENT_ON_MODIFIER_ADDED", "description":"OnModifierAdded", "prefix": "MODIFIER_EVENT_ON_MODIFIER_ADDED"},
-	"MODIFIER_EVENT_ON_ORB_EFFECT":{"body":"MODIFIER_EVENT_ON_ORB_EFFECT", "description":"", "prefix": "MODIFIER_EVENT_ON_ORB_EFFECT"},
+	"MODIFIER_EVENT_ON_ORB_EFFECT":{"body":"MODIFIER_EVENT_ON_ORB_EFFECT", "description":"Unused", "prefix": "MODIFIER_EVENT_ON_ORB_EFFECT"},
 	"MODIFIER_EVENT_ON_ORDER":{"body":"MODIFIER_EVENT_ON_ORDER", "description":"OnOrder", "prefix": "MODIFIER_EVENT_ON_ORDER"},
-	"MODIFIER_EVENT_ON_PROCESS_UPGRADE":{"body":"MODIFIER_EVENT_ON_PROCESS_UPGRADE", "description":"", "prefix": "MODIFIER_EVENT_ON_PROCESS_UPGRADE"},
+	"MODIFIER_EVENT_ON_PROCESS_CLEAVE":{"body":"MODIFIER_EVENT_ON_PROCESS_CLEAVE", "description":"OnProcessCleave", "prefix": "MODIFIER_EVENT_ON_PROCESS_CLEAVE"},
+	"MODIFIER_EVENT_ON_PROCESS_UPGRADE":{"body":"MODIFIER_EVENT_ON_PROCESS_UPGRADE", "description":"Unused", "prefix": "MODIFIER_EVENT_ON_PROCESS_UPGRADE"},
 	"MODIFIER_EVENT_ON_PROJECTILE_DODGE":{"body":"MODIFIER_EVENT_ON_PROJECTILE_DODGE", "description":"OnProjectileDodge", "prefix": "MODIFIER_EVENT_ON_PROJECTILE_DODGE"},
 	"MODIFIER_EVENT_ON_PROJECTILE_OBSTRUCTION_HIT":{"body":"MODIFIER_EVENT_ON_PROJECTILE_OBSTRUCTION_HIT", "description":"OnProjectileObstructionHit", "prefix": "MODIFIER_EVENT_ON_PROJECTILE_OBSTRUCTION_HIT"},
-	"MODIFIER_EVENT_ON_REFRESH":{"body":"MODIFIER_EVENT_ON_REFRESH", "description":"", "prefix": "MODIFIER_EVENT_ON_REFRESH"},
+	"MODIFIER_EVENT_ON_REFRESH":{"body":"MODIFIER_EVENT_ON_REFRESH", "description":"Unused", "prefix": "MODIFIER_EVENT_ON_REFRESH"},
 	"MODIFIER_EVENT_ON_RESPAWN":{"body":"MODIFIER_EVENT_ON_RESPAWN", "description":"OnRespawn", "prefix": "MODIFIER_EVENT_ON_RESPAWN"},
 	"MODIFIER_EVENT_ON_SET_LOCATION":{"body":"MODIFIER_EVENT_ON_SET_LOCATION", "description":"OnSetLocation", "prefix": "MODIFIER_EVENT_ON_SET_LOCATION"},
 	"MODIFIER_EVENT_ON_SPELL_TARGET_READY":{"body":"MODIFIER_EVENT_ON_SPELL_TARGET_READY", "description":"OnSpellTargetReady", "prefix": "MODIFIER_EVENT_ON_SPELL_TARGET_READY"},
@@ -1987,6 +1989,7 @@
 	"MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT":{"body":"MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT", "description":"GetModifierAttackPointConstant", "prefix": "MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT"},
 	"MODIFIER_PROPERTY_ATTACK_RANGE_BASE_OVERRIDE":{"body":"MODIFIER_PROPERTY_ATTACK_RANGE_BASE_OVERRIDE", "description":"GetModifierAttackRangeOverride", "prefix": "MODIFIER_PROPERTY_ATTACK_RANGE_BASE_OVERRIDE"},
 	"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS":{"body":"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS", "description":"GetModifierAttackRangeBonus", "prefix": "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"},
+	"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS_PERCENTAGE":{"body":"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS_PERCENTAGE", "description":"GetModifierAttackRangeBonusPercentage", "prefix": "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS_PERCENTAGE"},
 	"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS_UNIQUE":{"body":"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS_UNIQUE", "description":"GetModifierAttackRangeBonusUnique", "prefix": "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS_UNIQUE"},
 	"MODIFIER_PROPERTY_AVOID_DAMAGE":{"body":"MODIFIER_PROPERTY_AVOID_DAMAGE", "description":"GetModifierAvoidDamage", "prefix": "MODIFIER_PROPERTY_AVOID_DAMAGE"},
 	"MODIFIER_PROPERTY_AVOID_SPELL":{"body":"MODIFIER_PROPERTY_AVOID_SPELL", "description":"GetModifierAvoidSpell", "prefix": "MODIFIER_PROPERTY_AVOID_SPELL"},
@@ -1999,8 +2002,8 @@
 	"MODIFIER_PROPERTY_BONUS_NIGHT_VISION":{"body":"MODIFIER_PROPERTY_BONUS_NIGHT_VISION", "description":"GetBonusNightVision", "prefix": "MODIFIER_PROPERTY_BONUS_NIGHT_VISION"},
 	"MODIFIER_PROPERTY_BONUS_NIGHT_VISION_UNIQUE":{"body":"MODIFIER_PROPERTY_BONUS_NIGHT_VISION_UNIQUE", "description":"GetBonusNightVisionUnique", "prefix": "MODIFIER_PROPERTY_BONUS_NIGHT_VISION_UNIQUE"},
 	"MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE":{"body":"MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE", "description":"GetBonusVisionPercentage", "prefix": "MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE"},
-	"MODIFIER_PROPERTY_BOUNTY_CREEP_MULTIPLIER":{"body":"MODIFIER_PROPERTY_BOUNTY_CREEP_MULTIPLIER", "description":"GetModifierBountyCreepMultiplier", "prefix": "MODIFIER_PROPERTY_BOUNTY_CREEP_MULTIPLIER"},
-	"MODIFIER_PROPERTY_BOUNTY_OTHER_MULTIPLIER":{"body":"MODIFIER_PROPERTY_BOUNTY_OTHER_MULTIPLIER", "description":"GetModifierBountyOtherMultiplier", "prefix": "MODIFIER_PROPERTY_BOUNTY_OTHER_MULTIPLIER"},
+	"MODIFIER_PROPERTY_BOUNTY_CREEP_MULTIPLIER":{"body":"MODIFIER_PROPERTY_BOUNTY_CREEP_MULTIPLIER", "description":"Unused", "prefix": "MODIFIER_PROPERTY_BOUNTY_CREEP_MULTIPLIER"},
+	"MODIFIER_PROPERTY_BOUNTY_OTHER_MULTIPLIER":{"body":"MODIFIER_PROPERTY_BOUNTY_OTHER_MULTIPLIER", "description":"Unused", "prefix": "MODIFIER_PROPERTY_BOUNTY_OTHER_MULTIPLIER"},
 	"MODIFIER_PROPERTY_CAN_ATTACK_TREES":{"body":"MODIFIER_PROPERTY_CAN_ATTACK_TREES", "description":"GetModifierCanAttackTrees", "prefix": "MODIFIER_PROPERTY_CAN_ATTACK_TREES"},
 	"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE":{"body":"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE", "description":"GetModifierPercentageCasttime", "prefix": "MODIFIER_PROPERTY_CASTTIME_PERCENTAGE"},
 	"MODIFIER_PROPERTY_CAST_RANGE_BONUS":{"body":"MODIFIER_PROPERTY_CAST_RANGE_BONUS", "description":"GetModifierCastRangeBonus", "prefix": "MODIFIER_PROPERTY_CAST_RANGE_BONUS"},
@@ -2017,7 +2020,7 @@
 	"MODIFIER_PROPERTY_DISABLE_HEALING":{"body":"MODIFIER_PROPERTY_DISABLE_HEALING", "description":"GetDisableHealing", "prefix": "MODIFIER_PROPERTY_DISABLE_HEALING"},
 	"MODIFIER_PROPERTY_DISABLE_TURNING":{"body":"MODIFIER_PROPERTY_DISABLE_TURNING", "description":"GetModifierDisableTurning", "prefix": "MODIFIER_PROPERTY_DISABLE_TURNING"},
 	"MODIFIER_PROPERTY_DODGE_PROJECTILE":{"body":"MODIFIER_PROPERTY_DODGE_PROJECTILE", "description":"GetModifierDodgeProjectile", "prefix": "MODIFIER_PROPERTY_DODGE_PROJECTILE"},
-	"MODIFIER_PROPERTY_DONT_GIVE_VISION_OF_ATTACKER":{"body":"MODIFIER_PROPERTY_DONT_GIVE_VISION_OF_ATTACKER", "description":"", "prefix": "MODIFIER_PROPERTY_DONT_GIVE_VISION_OF_ATTACKER"},
+	"MODIFIER_PROPERTY_DONT_GIVE_VISION_OF_ATTACKER":{"body":"MODIFIER_PROPERTY_DONT_GIVE_VISION_OF_ATTACKER", "description":"GetModifierNoVisionOfAttacker", "prefix": "MODIFIER_PROPERTY_DONT_GIVE_VISION_OF_ATTACKER"},
 	"MODIFIER_PROPERTY_EVASION_CONSTANT":{"body":"MODIFIER_PROPERTY_EVASION_CONSTANT", "description":"GetModifierEvasion_Constant", "prefix": "MODIFIER_PROPERTY_EVASION_CONSTANT"},
 	"MODIFIER_PROPERTY_EXP_RATE_BOOST":{"body":"MODIFIER_PROPERTY_EXP_RATE_BOOST", "description":"GetModifierPercentageExpRateBoost", "prefix": "MODIFIER_PROPERTY_EXP_RATE_BOOST"},
 	"MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS":{"body":"MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS", "description":"GetModifierExtraHealthBonus", "prefix": "MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS"},
@@ -2033,8 +2036,10 @@
 	"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE":{"body":"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE", "description":"GetModifierHealthRegenPercentage", "prefix": "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"},
 	"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE":{"body":"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE", "description":"GetModifierHealthRegenPercentageUnique", "prefix": "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE"},
 	"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE":{"body":"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE", "description":"GetModifierHPRegenAmplify_Percentage", "prefix": "MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE"},
+	"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE_SOURCE":{"body":"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE_SOURCE", "description":"GetModifierHPRegenAmplify_PercentageSource", "prefix": "MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE_SOURCE"},
 	"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE":{"body":"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE", "description":"GetModifierIgnoreCastAngle", "prefix": "MODIFIER_PROPERTY_IGNORE_CAST_ANGLE"},
 	"MODIFIER_PROPERTY_IGNORE_COOLDOWN":{"body":"MODIFIER_PROPERTY_IGNORE_COOLDOWN", "description":"GetModifierIgnoreCooldown", "prefix": "MODIFIER_PROPERTY_IGNORE_COOLDOWN"},
+	"MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT":{"body":"MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT", "description":"GetModifierIgnoreMovespeedLimit", "prefix": "MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT"},
 	"MODIFIER_PROPERTY_IGNORE_PHYSICAL_ARMOR":{"body":"MODIFIER_PROPERTY_IGNORE_PHYSICAL_ARMOR", "description":"GetModifierIgnorePhysicalArmor", "prefix": "MODIFIER_PROPERTY_IGNORE_PHYSICAL_ARMOR"},
 	"MODIFIER_PROPERTY_ILLUSION_LABEL":{"body":"MODIFIER_PROPERTY_ILLUSION_LABEL", "description":"GetModifierIllusionLabel", "prefix": "MODIFIER_PROPERTY_ILLUSION_LABEL"},
 	"MODIFIER_PROPERTY_INCOMING_DAMAGE_ILLUSION":{"body":"MODIFIER_PROPERTY_INCOMING_DAMAGE_ILLUSION", "description":"", "prefix": "MODIFIER_PROPERTY_INCOMING_DAMAGE_ILLUSION"},
@@ -2042,6 +2047,7 @@
 	"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_CONSTANT":{"body":"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_CONSTANT", "description":"GetModifierIncomingPhysicalDamageConstant", "prefix": "MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_CONSTANT"},
 	"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE":{"body":"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE", "description":"GetModifierIncomingPhysicalDamage_Percentage", "prefix": "MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"},
 	"MODIFIER_PROPERTY_INCOMING_SPELL_DAMAGE_CONSTANT":{"body":"MODIFIER_PROPERTY_INCOMING_SPELL_DAMAGE_CONSTANT", "description":"GetModifierIncomingSpellDamageConstant", "prefix": "MODIFIER_PROPERTY_INCOMING_SPELL_DAMAGE_CONSTANT"},
+	"MODIFIER_PROPERTY_INVISIBILITY_ATTACK_BEHAVIOR_EXCEPTION":{"body":"MODIFIER_PROPERTY_INVISIBILITY_ATTACK_BEHAVIOR_EXCEPTION", "description":"GetModifierInvisibilityAttackBehaviorException", "prefix": "MODIFIER_PROPERTY_INVISIBILITY_ATTACK_BEHAVIOR_EXCEPTION"},
 	"MODIFIER_PROPERTY_INVISIBILITY_LEVEL":{"body":"MODIFIER_PROPERTY_INVISIBILITY_LEVEL", "description":"GetModifierInvisibilityLevel", "prefix": "MODIFIER_PROPERTY_INVISIBILITY_LEVEL"},
 	"MODIFIER_PROPERTY_IS_ILLUSION":{"body":"MODIFIER_PROPERTY_IS_ILLUSION", "description":"GetIsIllusion", "prefix": "MODIFIER_PROPERTY_IS_ILLUSION"},
 	"MODIFIER_PROPERTY_IS_SCEPTER":{"body":"MODIFIER_PROPERTY_IS_SCEPTER", "description":"GetModifierScepter", "prefix": "MODIFIER_PROPERTY_IS_SCEPTER"},
@@ -2050,7 +2056,6 @@
 	"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS":{"body":"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS", "description":"GetModifierMagicalResistanceBonus", "prefix": "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"},
 	"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE":{"body":"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE", "description":"GetModifierMagicalResistanceDecrepifyUnique", "prefix": "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE"},
 	"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DIRECT_MODIFICATION":{"body":"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DIRECT_MODIFICATION", "description":"GetModifierMagicalResistanceDirectModification", "prefix": "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DIRECT_MODIFICATION"},
-	"MODIFIER_PROPERTY_MAGICDAMAGEOUTGOING_PERCENTAGE":{"body":"MODIFIER_PROPERTY_MAGICDAMAGEOUTGOING_PERCENTAGE", "description":"GetModifierMagicDamageOutgoing_Percentage", "prefix": "MODIFIER_PROPERTY_MAGICDAMAGEOUTGOING_PERCENTAGE"},
 	"MODIFIER_PROPERTY_MANACOST_PERCENTAGE":{"body":"MODIFIER_PROPERTY_MANACOST_PERCENTAGE", "description":"GetModifierPercentageManacost", "prefix": "MODIFIER_PROPERTY_MANACOST_PERCENTAGE"},
 	"MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING":{"body":"MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING", "description":"GetModifierPercentageManacostStacking", "prefix": "MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING"},
 	"MODIFIER_PROPERTY_MANA_BONUS":{"body":"MODIFIER_PROPERTY_MANA_BONUS", "description":"GetModifierManaBonus", "prefix": "MODIFIER_PROPERTY_MANA_BONUS"},
@@ -2063,17 +2068,19 @@
 	"MODIFIER_PROPERTY_MODEL_CHANGE":{"body":"MODIFIER_PROPERTY_MODEL_CHANGE", "description":"GetModifierModelChange", "prefix": "MODIFIER_PROPERTY_MODEL_CHANGE"},
 	"MODIFIER_PROPERTY_MODEL_SCALE":{"body":"MODIFIER_PROPERTY_MODEL_SCALE", "description":"GetModifierModelScale", "prefix": "MODIFIER_PROPERTY_MODEL_SCALE"},
 	"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE":{"body":"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE", "description":"GetModifierMoveSpeed_Absolute", "prefix": "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"},
+	"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MAX":{"body":"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MAX", "description":"GetModifierMoveSpeed_AbsoluteMax", "prefix": "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MAX"},
 	"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MIN":{"body":"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MIN", "description":"GetModifierMoveSpeed_AbsoluteMin", "prefix": "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MIN"},
 	"MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE":{"body":"MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE", "description":"GetModifierMoveSpeedOverride", "prefix": "MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE"},
 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT":{"body":"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT", "description":"GetModifierMoveSpeedBonus_Constant", "prefix": "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"},
+	"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT_UNIQUE":{"body":"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT_UNIQUE", "description":"GetModifierMoveSpeedBonus_Constant_Unique", "prefix": "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT_UNIQUE"},
 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE":{"body":"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE", "description":"GetModifierMoveSpeedBonus_Percentage", "prefix": "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"},
 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE":{"body":"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE", "description":"GetModifierMoveSpeedBonus_Percentage_Unique", "prefix": "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE"},
 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE_2":{"body":"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE_2", "description":"GetModifierMoveSpeedBonus_Percentage_Unique_2", "prefix": "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE_2"},
 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE":{"body":"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE", "description":"GetModifierMoveSpeedBonus_Special_Boots", "prefix": "MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"},
 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE_2":{"body":"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE_2", "description":"GetModifierMoveSpeedBonus_Special_Boots_2", "prefix": "MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE_2"},
 	"MODIFIER_PROPERTY_MOVESPEED_LIMIT":{"body":"MODIFIER_PROPERTY_MOVESPEED_LIMIT", "description":"GetModifierMoveSpeed_Limit", "prefix": "MODIFIER_PROPERTY_MOVESPEED_LIMIT"},
-	"MODIFIER_PROPERTY_MOVESPEED_MAX":{"body":"MODIFIER_PROPERTY_MOVESPEED_MAX", "description":"GetModifierMoveSpeed_Max", "prefix": "MODIFIER_PROPERTY_MOVESPEED_MAX"},
 	"MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE":{"body":"MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE", "description":"GetModifierMPRegenAmplify_Percentage", "prefix": "MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE"},
+	"MODIFIER_PROPERTY_MP_RESTORE_AMPLIFY_PERCENTAGE":{"body":"MODIFIER_PROPERTY_MP_RESTORE_AMPLIFY_PERCENTAGE", "description":"GetModifierMPRestoreAmplify_Percentage", "prefix": "MODIFIER_PROPERTY_MP_RESTORE_AMPLIFY_PERCENTAGE"},
 	"MODIFIER_PROPERTY_NEGATIVE_EVASION_CONSTANT":{"body":"MODIFIER_PROPERTY_NEGATIVE_EVASION_CONSTANT", "description":"GetModifierNegativeEvasion_Constant", "prefix": "MODIFIER_PROPERTY_NEGATIVE_EVASION_CONSTANT"},
 	"MODIFIER_PROPERTY_OVERRIDE_ANIMATION":{"body":"MODIFIER_PROPERTY_OVERRIDE_ANIMATION", "description":"GetOverrideAnimation", "prefix": "MODIFIER_PROPERTY_OVERRIDE_ANIMATION"},
 	"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE":{"body":"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE", "description":"GetOverrideAnimationRate", "prefix": "MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"},
@@ -2089,6 +2096,7 @@
 	"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE":{"body":"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE", "description":"GetModifierPreAttack_BonusDamage", "prefix": "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"},
 	"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_POST_CRIT":{"body":"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_POST_CRIT", "description":"GetModifierPreAttack_BonusDamagePostCrit", "prefix": "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_POST_CRIT"},
 	"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_PROC":{"body":"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_PROC", "description":"GetModifierPreAttack_BonusDamage_Proc", "prefix": "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_PROC"},
+	"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_TARGET":{"body":"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_TARGET", "description":"GetModifierPreAttack_BonusDamage_Target", "prefix": "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_TARGET"},
 	"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE":{"body":"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE", "description":"GetModifierPreAttack_CriticalStrike", "prefix": "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"},
 	"MODIFIER_PROPERTY_PREATTACK_TARGET_CRITICALSTRIKE":{"body":"MODIFIER_PROPERTY_PREATTACK_TARGET_CRITICALSTRIKE", "description":"GetModifierPreAttack_Target_CriticalStrike", "prefix": "MODIFIER_PROPERTY_PREATTACK_TARGET_CRITICALSTRIKE"},
 	"MODIFIER_PROPERTY_PRESERVE_PARTICLES_ON_MODEL_CHANGE":{"body":"MODIFIER_PROPERTY_PRESERVE_PARTICLES_ON_MODEL_CHANGE", "description":"PreserveParticlesOnModelChanged", "prefix": "MODIFIER_PROPERTY_PRESERVE_PARTICLES_ON_MODEL_CHANGE"},
@@ -2112,13 +2120,14 @@
 	"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS":{"body":"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS", "description":"GetModifierBonusStats_Intellect", "prefix": "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"},
 	"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS":{"body":"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS", "description":"GetModifierBonusStats_Strength", "prefix": "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"},
 	"MODIFIER_PROPERTY_STATUS_RESISTANCE":{"body":"MODIFIER_PROPERTY_STATUS_RESISTANCE", "description":"GetModifierStatusResistance", "prefix": "MODIFIER_PROPERTY_STATUS_RESISTANCE"},
+	"MODIFIER_PROPERTY_STATUS_RESISTANCE_CASTER":{"body":"MODIFIER_PROPERTY_STATUS_RESISTANCE_CASTER", "description":"GetModifierStatusResistanceCaster", "prefix": "MODIFIER_PROPERTY_STATUS_RESISTANCE_CASTER"},
 	"MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING":{"body":"MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING", "description":"GetModifierStatusResistanceStacking", "prefix": "MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING"},
 	"MODIFIER_PROPERTY_SUPER_ILLUSION":{"body":"MODIFIER_PROPERTY_SUPER_ILLUSION", "description":"GetModifierSuperIllusion", "prefix": "MODIFIER_PROPERTY_SUPER_ILLUSION"},
 	"MODIFIER_PROPERTY_SUPER_ILLUSION_WITH_ULTIMATE":{"body":"MODIFIER_PROPERTY_SUPER_ILLUSION_WITH_ULTIMATE", "description":"GetModifierSuperIllusionWithUltimate", "prefix": "MODIFIER_PROPERTY_SUPER_ILLUSION_WITH_ULTIMATE"},
 	"MODIFIER_PROPERTY_SUPPRESS_TELEPORT":{"body":"MODIFIER_PROPERTY_SUPPRESS_TELEPORT", "description":"GetSuppressTeleport", "prefix": "MODIFIER_PROPERTY_SUPPRESS_TELEPORT"},
 	"MODIFIER_PROPERTY_TEMPEST_DOUBLE":{"body":"MODIFIER_PROPERTY_TEMPEST_DOUBLE", "description":"GetModifierTempestDouble", "prefix": "MODIFIER_PROPERTY_TEMPEST_DOUBLE"},
 	"MODIFIER_PROPERTY_TOOLTIP":{"body":"MODIFIER_PROPERTY_TOOLTIP", "description":"OnTooltip", "prefix": "MODIFIER_PROPERTY_TOOLTIP"},
-	"MODIFIER_PROPERTY_TOOLTIP2":{"body":"MODIFIER_PROPERTY_TOOLTIP2", "description":"", "prefix": "MODIFIER_PROPERTY_TOOLTIP2"},
+	"MODIFIER_PROPERTY_TOOLTIP2":{"body":"MODIFIER_PROPERTY_TOOLTIP2", "description":"OnTooltip2", "prefix": "MODIFIER_PROPERTY_TOOLTIP2"},
 	"MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE":{"body":"MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE", "description":"GetModifierTotalDamageOutgoing_Percentage", "prefix": "MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE"},
 	"MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK":{"body":"MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK", "description":"GetModifierTotal_ConstantBlock", "prefix": "MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK"},
 	"MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK_UNAVOIDABLE_PRE_ARMOR":{"body":"MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK_UNAVOIDABLE_PRE_ARMOR", "description":"GetModifierPhysical_ConstantBlockUnavoidablePreArmor", "prefix": "MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK_UNAVOIDABLE_PRE_ARMOR"},
@@ -2137,6 +2146,7 @@
 	"DOTA_BUFF_REMOVE_ALL":{"body":"DOTA_BUFF_REMOVE_ALL", "description":"", "prefix": "DOTA_BUFF_REMOVE_ALL"},
 	"DOTA_BUFF_REMOVE_ALLY":{"body":"DOTA_BUFF_REMOVE_ALLY", "description":"", "prefix": "DOTA_BUFF_REMOVE_ALLY"},
 	"DOTA_BUFF_REMOVE_ENEMY":{"body":"DOTA_BUFF_REMOVE_ENEMY", "description":"", "prefix": "DOTA_BUFF_REMOVE_ENEMY"},
+	"MODIFIER_STATE_ALLOW_PATHING_TROUGH_TREES":{"body":"MODIFIER_STATE_ALLOW_PATHING_TROUGH_TREES", "description":"", "prefix": "MODIFIER_STATE_ALLOW_PATHING_TROUGH_TREES"},
 	"MODIFIER_STATE_ATTACK_IMMUNE":{"body":"MODIFIER_STATE_ATTACK_IMMUNE", "description":"", "prefix": "MODIFIER_STATE_ATTACK_IMMUNE"},
 	"MODIFIER_STATE_BLIND":{"body":"MODIFIER_STATE_BLIND", "description":"", "prefix": "MODIFIER_STATE_BLIND"},
 	"MODIFIER_STATE_BLOCK_DISABLED":{"body":"MODIFIER_STATE_BLOCK_DISABLED", "description":"", "prefix": "MODIFIER_STATE_BLOCK_DISABLED"},
@@ -2151,6 +2161,7 @@
 	"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY":{"body":"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY", "description":"", "prefix": "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"},
 	"MODIFIER_STATE_FROZEN":{"body":"MODIFIER_STATE_FROZEN", "description":"", "prefix": "MODIFIER_STATE_FROZEN"},
 	"MODIFIER_STATE_HEXED":{"body":"MODIFIER_STATE_HEXED", "description":"", "prefix": "MODIFIER_STATE_HEXED"},
+	"MODIFIER_STATE_IGNORING_MOVE_AND_ATTACK_ORDERS":{"body":"MODIFIER_STATE_IGNORING_MOVE_AND_ATTACK_ORDERS", "description":"", "prefix": "MODIFIER_STATE_IGNORING_MOVE_AND_ATTACK_ORDERS"},
 	"MODIFIER_STATE_INVISIBLE":{"body":"MODIFIER_STATE_INVISIBLE", "description":"", "prefix": "MODIFIER_STATE_INVISIBLE"},
 	"MODIFIER_STATE_INVULNERABLE":{"body":"MODIFIER_STATE_INVULNERABLE", "description":"", "prefix": "MODIFIER_STATE_INVULNERABLE"},
 	"MODIFIER_STATE_LAST":{"body":"MODIFIER_STATE_LAST", "description":"", "prefix": "MODIFIER_STATE_LAST"},
@@ -2171,8 +2182,10 @@
 	"MODIFIER_STATE_SILENCED":{"body":"MODIFIER_STATE_SILENCED", "description":"", "prefix": "MODIFIER_STATE_SILENCED"},
 	"MODIFIER_STATE_SPECIALLY_DENIABLE":{"body":"MODIFIER_STATE_SPECIALLY_DENIABLE", "description":"", "prefix": "MODIFIER_STATE_SPECIALLY_DENIABLE"},
 	"MODIFIER_STATE_STUNNED":{"body":"MODIFIER_STATE_STUNNED", "description":"", "prefix": "MODIFIER_STATE_STUNNED"},
+	"MODIFIER_STATE_TETHERED":{"body":"MODIFIER_STATE_TETHERED", "description":"", "prefix": "MODIFIER_STATE_TETHERED"},
 	"MODIFIER_STATE_TRUESIGHT_IMMUNE":{"body":"MODIFIER_STATE_TRUESIGHT_IMMUNE", "description":"", "prefix": "MODIFIER_STATE_TRUESIGHT_IMMUNE"},
 	"MODIFIER_STATE_UNSELECTABLE":{"body":"MODIFIER_STATE_UNSELECTABLE", "description":"", "prefix": "MODIFIER_STATE_UNSELECTABLE"},
+	"MODIFIER_STATE_UNSLOWABLE":{"body":"MODIFIER_STATE_UNSLOWABLE", "description":"", "prefix": "MODIFIER_STATE_UNSLOWABLE"},
 	"MODIFIER_STATE_UNTARGETABLE":{"body":"MODIFIER_STATE_UNTARGETABLE", "description":"", "prefix": "MODIFIER_STATE_UNTARGETABLE"},
 	"QUEST_NUM_TEXT_REPLACE_VALUES":{"body":"QUEST_NUM_TEXT_REPLACE_VALUES", "description":"", "prefix": "QUEST_NUM_TEXT_REPLACE_VALUES"},
 	"QUEST_TEXT_REPLACE_VALUE_CURRENT_VALUE":{"body":"QUEST_TEXT_REPLACE_VALUE_CURRENT_VALUE", "description":"", "prefix": "QUEST_TEXT_REPLACE_VALUE_CURRENT_VALUE"},
@@ -2248,18 +2261,6 @@
 		"description":"CBaseAnimating_SequenceDuration:\nReturns the duration in seconds of the given sequence name.\nreturn float",
 		"prefix":"SequenceDuration"
 	},
-	"CBaseAnimating_SetBodygroup":
-	{
-		"body":"SetBodygroup(${iGroup}, ${iValue})",
-		"description":"CBaseAnimating_SetBodygroup:\nSets a bodygroup.\nreturn void",
-		"prefix":"SetBodygroup"
-	},
-	"CBaseAnimating_SetBodygroupByName":
-	{
-		"body":"SetBodygroupByName(${pName}, ${iValue})",
-		"description":"CBaseAnimating_SetBodygroupByName:\nSets a bodygroup by name.\nreturn void",
-		"prefix":"SetBodygroupByName"
-	},
 	"CBaseAnimating_SetGraphLookTarget":
 	{
 		"body":"SetGraphLookTarget(${vValue})",
@@ -2314,29 +2315,11 @@
 		"description":"CBaseAnimating_SetPoseParameter:\nSet the specified pose parameter to the specified value.\nreturn float",
 		"prefix":"SetPoseParameter"
 	},
-	"CBaseAnimating_SetProceduralIKTarget":
-	{
-		"body":"SetProceduralIKTarget(${pChainName}, ${pTargetName}, ${vTargetPosition}, ${qTargetRotation})",
-		"description":"CBaseAnimating_SetProceduralIKTarget:\nSets the named procedural IK target.\nreturn bool",
-		"prefix":"SetProceduralIKTarget"
-	},
-	"CBaseAnimating_SetProceduralIKTargetWeight":
-	{
-		"body":"SetProceduralIKTargetWeight(${pChainName}, ${pTargetName}, ${flWeight})",
-		"description":"CBaseAnimating_SetProceduralIKTargetWeight:\nSets the named procedural IK targets weight: 0 = full animation, 1 = full IK.\nreturn bool",
-		"prefix":"SetProceduralIKTargetWeight"
-	},
 	"CBaseAnimating_SetSequence":
 	{
 		"body":"SetSequence(${pSequenceName})",
 		"description":"CBaseAnimating_SetSequence:\nSets the active sequence by name, keeping the current cycle.\nreturn void",
 		"prefix":"SetSequence"
-	},
-	"CBaseAnimating_SetSkin":
-	{
-		"body":"SetSkin(${iSkin})",
-		"description":"CBaseAnimating_SetSkin:\nSet skin (int).\nreturn void",
-		"prefix":"SetSkin"
 	},
 	"CBaseAnimating_StopAnimation":
 	{
@@ -2920,6 +2903,18 @@
 		"description":"CBaseModelEntity_GetRenderColor:\nGetRenderColor(): Get the render color of the entity.\nreturn Vector",
 		"prefix":"GetRenderColor"
 	},
+	"CBaseModelEntity_SetBodygroup":
+	{
+		"body":"SetBodygroup(${iGroup}, ${iValue})",
+		"description":"CBaseModelEntity_SetBodygroup:\nSets a bodygroup.\nreturn void",
+		"prefix":"SetBodygroup"
+	},
+	"CBaseModelEntity_SetBodygroupByName":
+	{
+		"body":"SetBodygroupByName(${pName}, ${iValue})",
+		"description":"CBaseModelEntity_SetBodygroupByName:\nSets a bodygroup by name.\nreturn void",
+		"prefix":"SetBodygroupByName"
+	},
 	"CBaseModelEntity_SetLightGroup":
 	{
 		"body":"SetLightGroup(${pLightGroup})",
@@ -2980,6 +2975,12 @@
 		"description":"CBaseModelEntity_SetSize:\n\nreturn void",
 		"prefix":"SetSize"
 	},
+	"CBaseModelEntity_SetSkin":
+	{
+		"body":"SetSkin(${iSkin})",
+		"description":"CBaseModelEntity_SetSkin:\nSet skin (int).\nreturn void",
+		"prefix":"SetSkin"
+	},
 	"CBasePlayer_AreChaperoneBoundsVisible":
 	{
 		"body":"AreChaperoneBoundsVisible()",
@@ -3039,12 +3040,6 @@
 		"body":"IsVRDashboardShowing()",
 		"description":"CBasePlayer_IsVRDashboardShowing:\nReturns true if the SteamVR dashboard is showing for this player.\nreturn bool",
 		"prefix":"IsVRDashboardShowing"
-	},
-	"CBasePlayer_Quit":
-	{
-		"body":"Quit()",
-		"description":"CBasePlayer_Quit:\nQuit the game from script.\nreturn void",
-		"prefix":"Quit"
 	},
 	"CBaseTrigger_Disable":
 	{
@@ -3215,6 +3210,12 @@
 		"body":"EndCooldown()",
 		"description":"CDOTABaseAbility_EndCooldown:\nClear the cooldown remaining on this ability.\nreturn void",
 		"prefix":"EndCooldown"
+	},
+	"CDOTABaseAbility_GetAOERadius":
+	{
+		"body":"GetAOERadius()",
+		"description":"CDOTABaseAbility_GetAOERadius:\n\nreturn int",
+		"prefix":"GetAOERadius"
 	},
 	"CDOTABaseAbility_GetAbilityDamage":
 	{
@@ -3395,6 +3396,12 @@
 		"body":"GetDuration()",
 		"description":"CDOTABaseAbility_GetDuration:\n\nreturn float",
 		"prefix":"GetDuration"
+	},
+	"CDOTABaseAbility_GetEffectiveCooldown":
+	{
+		"body":"GetEffectiveCooldown(${iLevel})",
+		"description":"CDOTABaseAbility_GetEffectiveCooldown:\n\nreturn float",
+		"prefix":"GetEffectiveCooldown"
 	},
 	"CDOTABaseAbility_GetGoldCost":
 	{
@@ -3644,7 +3651,7 @@
 	},
 	"CDOTABaseAbility_OnAbilityPinged":
 	{
-		"body":"OnAbilityPinged(${nPlayerID})",
+		"body":"OnAbilityPinged(${nPlayerID}, ${bCtrlHeld})",
 		"description":"CDOTABaseAbility_OnAbilityPinged:\n\nreturn void",
 		"prefix":"OnAbilityPinged"
 	},
@@ -3984,6 +3991,12 @@
 		"description":"CDOTABaseGameMode_GetCustomHeroMaxLevel:\nAllows definition of the max level heroes can achieve (default is 25).\nreturn int",
 		"prefix":"GetCustomHeroMaxLevel"
 	},
+	"CDOTABaseGameMode_GetCustomScanCooldown":
+	{
+		"body":"GetCustomScanCooldown()",
+		"description":"CDOTABaseGameMode_GetCustomScanCooldown:\nGet the current custom scan cooldown.\nreturn float",
+		"prefix":"GetCustomScanCooldown"
+	},
 	"CDOTABaseGameMode_GetFixedRespawnTime":
 	{
 		"body":"GetFixedRespawnTime()",
@@ -4134,6 +4147,12 @@
 		"description":"CDOTABaseGameMode_SetBountyRunePickupFilter:\nSet a filter function to control the behavior when a bounty rune is picked up. (Modify the table and Return true to use new values, return false to cancel the event)\nreturn void",
 		"prefix":"SetBountyRunePickupFilter"
 	},
+	"CDOTABaseGameMode_SetBountyRuneSpawnInterval":
+	{
+		"body":"SetBountyRuneSpawnInterval(${flInterval})",
+		"description":"CDOTABaseGameMode_SetBountyRuneSpawnInterval:\nSet bounty rune spawn rate\nreturn void",
+		"prefix":"SetBountyRuneSpawnInterval"
+	},
 	"CDOTABaseGameMode_SetBuybackEnabled":
 	{
 		"body":"SetBuybackEnabled(${bEnabled})",
@@ -4182,6 +4201,12 @@
 		"description":"CDOTABaseGameMode_SetCustomHeroMaxLevel:\nAllows definition of the max level heroes can achieve (default is 25).\nreturn void",
 		"prefix":"SetCustomHeroMaxLevel"
 	},
+	"CDOTABaseGameMode_SetCustomScanCooldown":
+	{
+		"body":"SetCustomScanCooldown(${flCooldown})",
+		"description":"CDOTABaseGameMode_SetCustomScanCooldown:\nSet a custom cooldown for team Scan ability.\nreturn void",
+		"prefix":"SetCustomScanCooldown"
+	},
 	"CDOTABaseGameMode_SetCustomTerrainWeatherEffect":
 	{
 		"body":"SetCustomTerrainWeatherEffect(${pszEffectName})",
@@ -4211,6 +4236,18 @@
 		"body":"SetDeathOverlayDisabled(${bDisabled})",
 		"description":"CDOTABaseGameMode_SetDeathOverlayDisabled:\nSpecify whether the full screen death overlay effect plays when the selected hero dies.\nreturn void",
 		"prefix":"SetDeathOverlayDisabled"
+	},
+	"CDOTABaseGameMode_SetDraftingBanningTimeOverride":
+	{
+		"body":"SetDraftingBanningTimeOverride(${flValue})",
+		"description":"CDOTABaseGameMode_SetDraftingBanningTimeOverride:\nSet drafting hero banning time\nreturn void",
+		"prefix":"SetDraftingBanningTimeOverride"
+	},
+	"CDOTABaseGameMode_SetDraftingHeroPickSelectTimeOverride":
+	{
+		"body":"SetDraftingHeroPickSelectTimeOverride(${flValue})",
+		"description":"CDOTABaseGameMode_SetDraftingHeroPickSelectTimeOverride:\nSet drafting hero pick time\nreturn void",
+		"prefix":"SetDraftingHeroPickSelectTimeOverride"
 	},
 	"CDOTABaseGameMode_SetExecuteOrderFilter":
 	{
@@ -4284,6 +4321,12 @@
 		"description":"CDOTABaseGameMode_SetItemAddedToInventoryFilter:\nSet a filter function to control what happens to items that are added to an inventory, return false to cancel the event\nreturn void",
 		"prefix":"SetItemAddedToInventoryFilter"
 	},
+	"CDOTABaseGameMode_SetKillableTombstones":
+	{
+		"body":"SetKillableTombstones(${bEnabled})",
+		"description":"CDOTABaseGameMode_SetKillableTombstones:\nSet whether tombstones can be channeled to be removed by enemy heroes.\nreturn void",
+		"prefix":"SetKillableTombstones"
+	},
 	"CDOTABaseGameMode_SetKillingSpreeAnnouncerDisabled":
 	{
 		"body":"SetKillingSpreeAnnouncerDisabled(${bDisabled})",
@@ -4331,6 +4374,18 @@
 		"body":"SetOverrideSelectionEntity(${hOverrideEntity})",
 		"description":"CDOTABaseGameMode_SetOverrideSelectionEntity:\nSet an override for the default selection entity, instead of each player's hero.\nreturn void",
 		"prefix":"SetOverrideSelectionEntity"
+	},
+	"CDOTABaseGameMode_SetPauseEnabled":
+	{
+		"body":"SetPauseEnabled(${bEnabled})",
+		"description":"CDOTABaseGameMode_SetPauseEnabled:\nSet pausing enabled/disabled\nreturn void",
+		"prefix":"SetPauseEnabled"
+	},
+	"CDOTABaseGameMode_SetPowerRuneSpawnInterval":
+	{
+		"body":"SetPowerRuneSpawnInterval(${flInterval})",
+		"description":"CDOTABaseGameMode_SetPowerRuneSpawnInterval:\nSet power rune spawn rate\nreturn void",
+		"prefix":"SetPowerRuneSpawnInterval"
 	},
 	"CDOTABaseGameMode_SetRecommendedItemsDisabled":
 	{
@@ -4422,6 +4477,12 @@
 		"description":"CDOTABaseGameMode_SetUseCustomHeroLevels:\nTurn on custom-defined XP values for hero level ups.  The table should be defined before switching this on.\nreturn void",
 		"prefix":"SetUseCustomHeroLevels"
 	},
+	"CDOTABaseGameMode_SetUseDefaultDOTARuneSpawnLogic":
+	{
+		"body":"SetUseDefaultDOTARuneSpawnLogic(${bEnabled})",
+		"description":"CDOTABaseGameMode_SetUseDefaultDOTARuneSpawnLogic:\nIf set to true, use current rune spawn rules.  Either setting respects custom spawn intervals.\nreturn void",
+		"prefix":"SetUseDefaultDOTARuneSpawnLogic"
+	},
 	"CDOTABaseGameMode_SetWeatherEffectsDisabled":
 	{
 		"body":"SetWeatherEffectsDisabled(${bDisable})",
@@ -4458,6 +4519,510 @@
 		"description":"CDOTAGameManager_GetHeroUnitNameByID:\nGet the hero unit name given the hero ID.\nreturn string",
 		"prefix":"GetHeroUnitNameByID"
 	},
+	"CDOTAGamerules_AddEventMetadataLeaderboardEntry":
+	{
+		"body":"AddEventMetadataLeaderboardEntry(${stringszNameSuffix}, ${intnStars}, ${intnMaxStars}, ${intnExtraData1}, ${intnExtraData2}, ${unsigned_6}, ${unsigned_7}, ${unsigned_8}, ${unsigned_9})",
+		"description":"CDOTAGamerules_AddEventMetadataLeaderboardEntry:\nEvent-only ( string szNameSuffix, int nStars, int nMaxStars, int nExtraData1, int nExtraData2 )\nreturn bool",
+		"prefix":"AddEventMetadataLeaderboardEntry"
+	},
+	"CDOTAGamerules_AddMinimapDebugPoint":
+	{
+		"body":"AddMinimapDebugPoint(${int_1}, ${Vector_2}, ${int_3}, ${int_4}, ${int_5}, ${int_6}, ${float_7})",
+		"description":"CDOTAGamerules_AddMinimapDebugPoint:\nAdd a point on the minimap.\nreturn void",
+		"prefix":"AddMinimapDebugPoint"
+	},
+	"CDOTAGamerules_AddMinimapDebugPointForTeam":
+	{
+		"body":"AddMinimapDebugPointForTeam(${int_1}, ${Vector_2}, ${int_3}, ${int_4}, ${int_5}, ${int_6}, ${float_7}, ${int_8})",
+		"description":"CDOTAGamerules_AddMinimapDebugPointForTeam:\nAdd a point on the minimap for a specific team.\nreturn void",
+		"prefix":"AddMinimapDebugPointForTeam"
+	},
+	"CDOTAGamerules_BeginNightstalkerNight":
+	{
+		"body":"BeginNightstalkerNight(${float_1})",
+		"description":"CDOTAGamerules_BeginNightstalkerNight:\nBegin night stalker night.\nreturn void",
+		"prefix":"BeginNightstalkerNight"
+	},
+	"CDOTAGamerules_BeginTemporaryNight":
+	{
+		"body":"BeginTemporaryNight(${float_1})",
+		"description":"CDOTAGamerules_BeginTemporaryNight:\nBegin temporary night.\nreturn void",
+		"prefix":"BeginTemporaryNight"
+	},
+	"CDOTAGamerules_BotPopulate":
+	{
+		"body":"BotPopulate()",
+		"description":"CDOTAGamerules_BotPopulate:\nFills all the teams with bots if cheat mode is enabled.\nreturn void",
+		"prefix":"BotPopulate"
+	},
+	"CDOTAGamerules_Defeated":
+	{
+		"body":"Defeated()",
+		"description":"CDOTAGamerules_Defeated:\nKills the ancient, etc.\nreturn void",
+		"prefix":"Defeated"
+	},
+	"CDOTAGamerules_DidMatchSignoutTimeOut":
+	{
+		"body":"DidMatchSignoutTimeOut()",
+		"description":"CDOTAGamerules_DidMatchSignoutTimeOut:\ntrue when we have waited some time after end of the game and not received signout\nreturn bool",
+		"prefix":"DidMatchSignoutTimeOut"
+	},
+	"CDOTAGamerules_EnableCustomGameSetupAutoLaunch":
+	{
+		"body":"EnableCustomGameSetupAutoLaunch(${true})",
+		"description":"CDOTAGamerules_EnableCustomGameSetupAutoLaunch:\nEnabled (true) or disable (false) auto launch for custom game setup.\nreturn void",
+		"prefix":"EnableCustomGameSetupAutoLaunch"
+	},
+	"CDOTAGamerules_FinishCustomGameSetup":
+	{
+		"body":"FinishCustomGameSetup()",
+		"description":"CDOTAGamerules_FinishCustomGameSetup:\nIndicate that the custom game setup phase is complete, and advance to the game.\nreturn void",
+		"prefix":"FinishCustomGameSetup"
+	},
+	"CDOTAGamerules_GetCustomGameDifficulty":
+	{
+		"body":"GetCustomGameDifficulty()",
+		"description":"CDOTAGamerules_GetCustomGameDifficulty:\nReturns the difficulty level of the custom game mode\nreturn int",
+		"prefix":"GetCustomGameDifficulty"
+	},
+	"CDOTAGamerules_GetCustomGameTeamMaxPlayers":
+	{
+		"body":"GetCustomGameTeamMaxPlayers(${int_1})",
+		"description":"CDOTAGamerules_GetCustomGameTeamMaxPlayers:\nGet whether a team is selectable during game setup\nreturn int",
+		"prefix":"GetCustomGameTeamMaxPlayers"
+	},
+	"CDOTAGamerules_GetDOTATime":
+	{
+		"body":"GetDOTATime(${bIncludePregameTimebIncludeNegativeTime}, ${bool_2})",
+		"description":"CDOTAGamerules_GetDOTATime:\n(b IncludePregameTime b IncludeNegativeTime) Returns the actual DOTA in-game clock time.\nreturn float",
+		"prefix":"GetDOTATime"
+	},
+	"CDOTAGamerules_GetDifficulty":
+	{
+		"body":"GetDifficulty()",
+		"description":"CDOTAGamerules_GetDifficulty:\nReturns difficulty level of the custom game mode\nreturn int",
+		"prefix":"GetDifficulty"
+	},
+	"CDOTAGamerules_GetDroppedItem":
+	{
+		"body":"GetDroppedItem(${int_1})",
+		"description":"CDOTAGamerules_GetDroppedItem:\nGets the Xth dropped item\nreturn handle",
+		"prefix":"GetDroppedItem"
+	},
+	"CDOTAGamerules_GetGameFrameTime":
+	{
+		"body":"GetGameFrameTime()",
+		"description":"CDOTAGamerules_GetGameFrameTime:\nReturns the number of seconds elapsed since the last frame was renderered. This time doesn't count up when the game is paused\nreturn float",
+		"prefix":"GetGameFrameTime"
+	},
+	"CDOTAGamerules_GetGameModeEntity":
+	{
+		"body":"GetGameModeEntity()",
+		"description":"CDOTAGamerules_GetGameModeEntity:\nGet the game mode entity\nreturn handle",
+		"prefix":"GetGameModeEntity"
+	},
+	"CDOTAGamerules_GetGameSessionConfigValue":
+	{
+		"body":"GetGameSessionConfigValue(${mapoptions}, ${string_2})",
+		"description":"CDOTAGamerules_GetGameSessionConfigValue:\nGet a string value from the game session config (map options)\nreturn string",
+		"prefix":"GetGameSessionConfigValue"
+	},
+	"CDOTAGamerules_GetGameTime":
+	{
+		"body":"GetGameTime()",
+		"description":"CDOTAGamerules_GetGameTime:\nReturns the number of seconds elapsed since map start. This time doesn't count up when the game is paused\nreturn float",
+		"prefix":"GetGameTime"
+	},
+	"CDOTAGamerules_GetMatchID":
+	{
+		"body":"GetMatchID()",
+		"description":"CDOTAGamerules_GetMatchID:\nGet the MatchID for this game.\nreturn uint64",
+		"prefix":"GetMatchID"
+	},
+	"CDOTAGamerules_GetMatchSignoutComplete":
+	{
+		"body":"GetMatchSignoutComplete()",
+		"description":"CDOTAGamerules_GetMatchSignoutComplete:\nHave we received the post match signout message that includes reward information\nreturn bool",
+		"prefix":"GetMatchSignoutComplete"
+	},
+	"CDOTAGamerules_GetNianTotalDamageTaken":
+	{
+		"body":"GetNianTotalDamageTaken()",
+		"description":"CDOTAGamerules_GetNianTotalDamageTaken:\nFor New Bloom, get total damage taken by the Nian / Year Beast\nreturn int",
+		"prefix":"GetNianTotalDamageTaken"
+	},
+	"CDOTAGamerules_GetPlayerCustomGameAccountRecord":
+	{
+		"body":"GetPlayerCustomGameAccountRecord(${Preview/Unreleased})",
+		"description":"CDOTAGamerules_GetPlayerCustomGameAccountRecord:\n(Preview/Unreleased) Gets the player's custom game account record, as it looked at the start of this session\nreturn table",
+		"prefix":"GetPlayerCustomGameAccountRecord"
+	},
+	"CDOTAGamerules_GetStateTransitionTime":
+	{
+		"body":"GetStateTransitionTime()",
+		"description":"CDOTAGamerules_GetStateTransitionTime:\nGet time remaining between state changes.\nreturn float",
+		"prefix":"GetStateTransitionTime"
+	},
+	"CDOTAGamerules_GetTimeOfDay":
+	{
+		"body":"GetTimeOfDay()",
+		"description":"CDOTAGamerules_GetTimeOfDay:\nGet the time of day\nreturn float",
+		"prefix":"GetTimeOfDay"
+	},
+	"CDOTAGamerules_GetWeatherWindDirection":
+	{
+		"body":"GetWeatherWindDirection()",
+		"description":"CDOTAGamerules_GetWeatherWindDirection:\nGet Weather Wind Direction Vector\nreturn Vector",
+		"prefix":"GetWeatherWindDirection"
+	},
+	"CDOTAGamerules_IsCheatMode":
+	{
+		"body":"IsCheatMode()",
+		"description":"CDOTAGamerules_IsCheatMode:\nAre cheats enabled on the server\nreturn bool",
+		"prefix":"IsCheatMode"
+	},
+	"CDOTAGamerules_IsDaytime":
+	{
+		"body":"IsDaytime()",
+		"description":"CDOTAGamerules_IsDaytime:\nIs it day time?\nreturn bool",
+		"prefix":"IsDaytime"
+	},
+	"CDOTAGamerules_IsGamePaused":
+	{
+		"body":"IsGamePaused()",
+		"description":"CDOTAGamerules_IsGamePaused:\nReturns whether the game is paused.\nreturn bool",
+		"prefix":"IsGamePaused"
+	},
+	"CDOTAGamerules_IsHeroRespawnEnabled":
+	{
+		"body":"IsHeroRespawnEnabled()",
+		"description":"CDOTAGamerules_IsHeroRespawnEnabled:\nReturns whether hero respawn is enabled.\nreturn bool",
+		"prefix":"IsHeroRespawnEnabled"
+	},
+	"CDOTAGamerules_IsInBanPhase":
+	{
+		"body":"IsInBanPhase()",
+		"description":"CDOTAGamerules_IsInBanPhase:\nAre we in the ban phase of hero pick?\nreturn bool",
+		"prefix":"IsInBanPhase"
+	},
+	"CDOTAGamerules_IsNightstalkerNight":
+	{
+		"body":"IsNightstalkerNight()",
+		"description":"CDOTAGamerules_IsNightstalkerNight:\nIs it night stalker night-time?\nreturn bool",
+		"prefix":"IsNightstalkerNight"
+	},
+	"CDOTAGamerules_IsTemporaryNight":
+	{
+		"body":"IsTemporaryNight()",
+		"description":"CDOTAGamerules_IsTemporaryNight:\nIs it temporarily night-time?\nreturn bool",
+		"prefix":"IsTemporaryNight"
+	},
+	"CDOTAGamerules_LockCustomGameSetupTeamAssignment":
+	{
+		"body":"LockCustomGameSetupTeamAssignment(${true})",
+		"description":"CDOTAGamerules_LockCustomGameSetupTeamAssignment:\nLock (true) or unlock (false) team assignemnt. If team assignment is locked players cannot change teams.\nreturn void",
+		"prefix":"LockCustomGameSetupTeamAssignment"
+	},
+	"CDOTAGamerules_MakeTeamLose":
+	{
+		"body":"MakeTeamLose(${int_1})",
+		"description":"CDOTAGamerules_MakeTeamLose:\nMakes the specified team lose\nreturn void",
+		"prefix":"MakeTeamLose"
+	},
+	"CDOTAGamerules_NumDroppedItems":
+	{
+		"body":"NumDroppedItems()",
+		"description":"CDOTAGamerules_NumDroppedItems:\nReturns the number of items currently dropped on the ground\nreturn int",
+		"prefix":"NumDroppedItems"
+	},
+	"CDOTAGamerules_PlayerHasCustomGameHostPrivileges":
+	{
+		"body":"PlayerHasCustomGameHostPrivileges(${shuffleteams})",
+		"description":"CDOTAGamerules_PlayerHasCustomGameHostPrivileges:\nWhether a player has custom game host privileges (shuffle teams, etc.)\nreturn bool",
+		"prefix":"PlayerHasCustomGameHostPrivileges"
+	},
+	"CDOTAGamerules_Playtesting_UpdateAddOnKeyValues":
+	{
+		"body":"Playtesting_UpdateAddOnKeyValues()",
+		"description":"CDOTAGamerules_Playtesting_UpdateAddOnKeyValues:\nUpdates custom hero, unit and ability KeyValues in memory with the latest values from disk\nreturn void",
+		"prefix":"Playtesting_UpdateAddOnKeyValues"
+	},
+	"CDOTAGamerules_ResetDefeated":
+	{
+		"body":"ResetDefeated()",
+		"description":"CDOTAGamerules_ResetDefeated:\nRestart after killing the ancient, etc.\nreturn void",
+		"prefix":"ResetDefeated"
+	},
+	"CDOTAGamerules_ResetToHeroSelection":
+	{
+		"body":"ResetToHeroSelection()",
+		"description":"CDOTAGamerules_ResetToHeroSelection:\nRestart the game at hero selection\nreturn void",
+		"prefix":"ResetToHeroSelection"
+	},
+	"CDOTAGamerules_SendCustomMessage":
+	{
+		"body":"SendCustomMessage(${string_1}, ${int_2}, ${int_3})",
+		"description":"CDOTAGamerules_SendCustomMessage:\nSends a message on behalf of a player.\nreturn void",
+		"prefix":"SendCustomMessage"
+	},
+	"CDOTAGamerules_SendCustomMessageToTeam":
+	{
+		"body":"SendCustomMessageToTeam(${string_1}, ${int_2}, ${int_3}, ${int_4})",
+		"description":"CDOTAGamerules_SendCustomMessageToTeam:\nSends a message on behalf of a player to the specified team.\nreturn void",
+		"prefix":"SendCustomMessageToTeam"
+	},
+	"CDOTAGamerules_SetCreepMinimapIconScale":
+	{
+		"body":"SetCreepMinimapIconScale(${flMinimapCreepIconScale})",
+		"description":"CDOTAGamerules_SetCreepMinimapIconScale:\n(flMinimapCreepIconScale) - Scale the creep icons on the minimap.\nreturn void",
+		"prefix":"SetCreepMinimapIconScale"
+	},
+	"CDOTAGamerules_SetCreepSpawningEnabled":
+	{
+		"body":"SetCreepSpawningEnabled(${bool_1})",
+		"description":"CDOTAGamerules_SetCreepSpawningEnabled:\nSets whether the regular Dota creeps spawn.\nreturn void",
+		"prefix":"SetCreepSpawningEnabled"
+	},
+	"CDOTAGamerules_SetCustomGameAccountRecordSaveFunction":
+	{
+		"body":"SetCustomGameAccountRecordSaveFunction(${Preview/Unreleased}, ${handle_2})",
+		"description":"CDOTAGamerules_SetCustomGameAccountRecordSaveFunction:\n(Preview/Unreleased) Sets a callback to handle saving custom game account records (callback is passed a Player ID and should return a flat simple table)\nreturn void",
+		"prefix":"SetCustomGameAccountRecordSaveFunction"
+	},
+	"CDOTAGamerules_SetCustomGameAllowBattleMusic":
+	{
+		"body":"SetCustomGameAllowBattleMusic(${bool_1})",
+		"description":"CDOTAGamerules_SetCustomGameAllowBattleMusic:\nSets a flag to enable/disable the default music handling code for custom games\nreturn void",
+		"prefix":"SetCustomGameAllowBattleMusic"
+	},
+	"CDOTAGamerules_SetCustomGameAllowHeroPickMusic":
+	{
+		"body":"SetCustomGameAllowHeroPickMusic(${bool_1})",
+		"description":"CDOTAGamerules_SetCustomGameAllowHeroPickMusic:\nSets a flag to enable/disable the default music handling code for custom games\nreturn void",
+		"prefix":"SetCustomGameAllowHeroPickMusic"
+	},
+	"CDOTAGamerules_SetCustomGameAllowMusicAtGameStart":
+	{
+		"body":"SetCustomGameAllowMusicAtGameStart(${bool_1})",
+		"description":"CDOTAGamerules_SetCustomGameAllowMusicAtGameStart:\nSets a flag to enable/disable the default music handling code for custom games\nreturn void",
+		"prefix":"SetCustomGameAllowMusicAtGameStart"
+	},
+	"CDOTAGamerules_SetCustomGameDifficulty":
+	{
+		"body":"SetCustomGameDifficulty(${int_1})",
+		"description":"CDOTAGamerules_SetCustomGameDifficulty:\nSet the difficulty level of the custom game mode\nreturn void",
+		"prefix":"SetCustomGameDifficulty"
+	},
+	"CDOTAGamerules_SetCustomGameEndDelay":
+	{
+		"body":"SetCustomGameEndDelay(${float_1})",
+		"description":"CDOTAGamerules_SetCustomGameEndDelay:\nSets the game end delay.\nreturn void",
+		"prefix":"SetCustomGameEndDelay"
+	},
+	"CDOTAGamerules_SetCustomGameSetupAutoLaunchDelay":
+	{
+		"body":"SetCustomGameSetupAutoLaunchDelay(${float_1})",
+		"description":"CDOTAGamerules_SetCustomGameSetupAutoLaunchDelay:\nSet the amount of time to wait for auto launch.\nreturn void",
+		"prefix":"SetCustomGameSetupAutoLaunchDelay"
+	},
+	"CDOTAGamerules_SetCustomGameSetupRemainingTime":
+	{
+		"body":"SetCustomGameSetupRemainingTime(${float_1})",
+		"description":"CDOTAGamerules_SetCustomGameSetupRemainingTime:\nSet the amount of remaining time, in seconds, for custom game setup. 0 = finish immediately, -1 = wait forever\nreturn void",
+		"prefix":"SetCustomGameSetupRemainingTime"
+	},
+	"CDOTAGamerules_SetCustomGameSetupTimeout":
+	{
+		"body":"SetCustomGameSetupTimeout(${pre-gameplay})",
+		"description":"CDOTAGamerules_SetCustomGameSetupTimeout:\nSetup (pre-gameplay) phase timeout. 0 = instant, -1 = forever (until FinishCustomGameSetup is called)\nreturn void",
+		"prefix":"SetCustomGameSetupTimeout"
+	},
+	"CDOTAGamerules_SetCustomGameTeamMaxPlayers":
+	{
+		"body":"SetCustomGameTeamMaxPlayers(${int_1}, ${int_2})",
+		"description":"CDOTAGamerules_SetCustomGameTeamMaxPlayers:\nSet whether a team is selectable during game setup\nreturn void",
+		"prefix":"SetCustomGameTeamMaxPlayers"
+	},
+	"CDOTAGamerules_SetCustomVictoryMessage":
+	{
+		"body":"SetCustomVictoryMessage(${string_1})",
+		"description":"CDOTAGamerules_SetCustomVictoryMessage:\nSets the victory message.\nreturn void",
+		"prefix":"SetCustomVictoryMessage"
+	},
+	"CDOTAGamerules_SetCustomVictoryMessageDuration":
+	{
+		"body":"SetCustomVictoryMessageDuration(${float_1})",
+		"description":"CDOTAGamerules_SetCustomVictoryMessageDuration:\nSets the victory message duration.\nreturn void",
+		"prefix":"SetCustomVictoryMessageDuration"
+	},
+	"CDOTAGamerules_SetEventMetadataCustomTable":
+	{
+		"body":"SetEventMetadataCustomTable(${tablehMetadataTable})",
+		"description":"CDOTAGamerules_SetEventMetadataCustomTable:\nEvent-only ( table hMetadataTable )\nreturn bool",
+		"prefix":"SetEventMetadataCustomTable"
+	},
+	"CDOTAGamerules_SetEventSignoutCustomTable":
+	{
+		"body":"SetEventSignoutCustomTable(${tablehMetadataTable})",
+		"description":"CDOTAGamerules_SetEventSignoutCustomTable:\nEvent-only ( table hMetadataTable )\nreturn bool",
+		"prefix":"SetEventSignoutCustomTable"
+	},
+	"CDOTAGamerules_SetFirstBloodActive":
+	{
+		"body":"SetFirstBloodActive(${bool_1})",
+		"description":"CDOTAGamerules_SetFirstBloodActive:\nSets whether First Blood has been triggered.\nreturn void",
+		"prefix":"SetFirstBloodActive"
+	},
+	"CDOTAGamerules_SetGameWinner":
+	{
+		"body":"SetGameWinner(${int_1})",
+		"description":"CDOTAGamerules_SetGameWinner:\nMakes the specified team win\nreturn void",
+		"prefix":"SetGameWinner"
+	},
+	"CDOTAGamerules_SetGoldPerTick":
+	{
+		"body":"SetGoldPerTick(${int_1})",
+		"description":"CDOTAGamerules_SetGoldPerTick:\nSet the auto gold increase per timed interval.\nreturn void",
+		"prefix":"SetGoldPerTick"
+	},
+	"CDOTAGamerules_SetGoldTickTime":
+	{
+		"body":"SetGoldTickTime(${float_1})",
+		"description":"CDOTAGamerules_SetGoldTickTime:\nSet the time interval between auto gold increases.\nreturn void",
+		"prefix":"SetGoldTickTime"
+	},
+	"CDOTAGamerules_SetHeroMinimapIconScale":
+	{
+		"body":"SetHeroMinimapIconScale(${flMinimapHeroIconScale})",
+		"description":"CDOTAGamerules_SetHeroMinimapIconScale:\n(flMinimapHeroIconScale) - Scale the hero minimap icons on the minimap.\nreturn void",
+		"prefix":"SetHeroMinimapIconScale"
+	},
+	"CDOTAGamerules_SetHeroRespawnEnabled":
+	{
+		"body":"SetHeroRespawnEnabled(${bool_1})",
+		"description":"CDOTAGamerules_SetHeroRespawnEnabled:\nControl if the normal DOTA hero respawn rules apply.\nreturn void",
+		"prefix":"SetHeroRespawnEnabled"
+	},
+	"CDOTAGamerules_SetHeroSelectPenaltyTime":
+	{
+		"body":"SetHeroSelectPenaltyTime(${float_1})",
+		"description":"CDOTAGamerules_SetHeroSelectPenaltyTime:\nSets amount of penalty time before randoming a hero\nreturn void",
+		"prefix":"SetHeroSelectPenaltyTime"
+	},
+	"CDOTAGamerules_SetHeroSelectionTime":
+	{
+		"body":"SetHeroSelectionTime(${float_1})",
+		"description":"CDOTAGamerules_SetHeroSelectionTime:\nSets the amount of time players have to pick their hero.\nreturn void",
+		"prefix":"SetHeroSelectionTime"
+	},
+	"CDOTAGamerules_SetHideKillMessageHeaders":
+	{
+		"body":"SetHideKillMessageHeaders(${bool_1})",
+		"description":"CDOTAGamerules_SetHideKillMessageHeaders:\nSets whether the multikill, streak, and first-blood banners appear at the top of the screen.\nreturn void",
+		"prefix":"SetHideKillMessageHeaders"
+	},
+	"CDOTAGamerules_SetOverlayHealthBarUnit":
+	{
+		"body":"SetOverlayHealthBarUnit(${handle_1}, ${int_2})",
+		"description":"CDOTAGamerules_SetOverlayHealthBarUnit:\nShow this unit's health on the overlay health bar\nreturn void",
+		"prefix":"SetOverlayHealthBarUnit"
+	},
+	"CDOTAGamerules_SetPostGameTime":
+	{
+		"body":"SetPostGameTime(${float_1})",
+		"description":"CDOTAGamerules_SetPostGameTime:\nSets the amount of time players have between the game ending and the server disconnecting them.\nreturn void",
+		"prefix":"SetPostGameTime"
+	},
+	"CDOTAGamerules_SetPreGameTime":
+	{
+		"body":"SetPreGameTime(${float_1})",
+		"description":"CDOTAGamerules_SetPreGameTime:\nSets the amount of time players have between picking their hero and game start.\nreturn void",
+		"prefix":"SetPreGameTime"
+	},
+	"CDOTAGamerules_SetRuneMinimapIconScale":
+	{
+		"body":"SetRuneMinimapIconScale(${flMinimapRuneIconScale})",
+		"description":"CDOTAGamerules_SetRuneMinimapIconScale:\n(flMinimapRuneIconScale) - Scale the rune icons on the minimap.\nreturn void",
+		"prefix":"SetRuneMinimapIconScale"
+	},
+	"CDOTAGamerules_SetRuneSpawnTime":
+	{
+		"body":"SetRuneSpawnTime(${float_1})",
+		"description":"CDOTAGamerules_SetRuneSpawnTime:\nSets the amount of time between rune spawns.\nreturn void",
+		"prefix":"SetRuneSpawnTime"
+	},
+	"CDOTAGamerules_SetSafeToLeave":
+	{
+		"body":"SetSafeToLeave(${bSafeToLeave})",
+		"description":"CDOTAGamerules_SetSafeToLeave:\n(bSafeToLeave) - Mark this game as safe to leave.\nreturn void",
+		"prefix":"SetSafeToLeave"
+	},
+	"CDOTAGamerules_SetSameHeroSelectionEnabled":
+	{
+		"body":"SetSameHeroSelectionEnabled(${bool_1})",
+		"description":"CDOTAGamerules_SetSameHeroSelectionEnabled:\nWhen true, players can repeatedly pick the same hero.\nreturn void",
+		"prefix":"SetSameHeroSelectionEnabled"
+	},
+	"CDOTAGamerules_SetShowcaseTime":
+	{
+		"body":"SetShowcaseTime(${float_1})",
+		"description":"CDOTAGamerules_SetShowcaseTime:\nSets the amount of time players have between the strategy phase and entering the pre-game phase.\nreturn void",
+		"prefix":"SetShowcaseTime"
+	},
+	"CDOTAGamerules_SetStartingGold":
+	{
+		"body":"SetStartingGold(${int_1})",
+		"description":"CDOTAGamerules_SetStartingGold:\nSet the starting gold amount.\nreturn void",
+		"prefix":"SetStartingGold"
+	},
+	"CDOTAGamerules_SetStrategyTime":
+	{
+		"body":"SetStrategyTime(${float_1})",
+		"description":"CDOTAGamerules_SetStrategyTime:\nSets the amount of time players have between the hero selection and entering the showcase phase.\nreturn void",
+		"prefix":"SetStrategyTime"
+	},
+	"CDOTAGamerules_SetTimeOfDay":
+	{
+		"body":"SetTimeOfDay(${float_1})",
+		"description":"CDOTAGamerules_SetTimeOfDay:\nSet the time of day.\nreturn void",
+		"prefix":"SetTimeOfDay"
+	},
+	"CDOTAGamerules_SetTreeRegrowTime":
+	{
+		"body":"SetTreeRegrowTime(${float_1})",
+		"description":"CDOTAGamerules_SetTreeRegrowTime:\nSets the tree regrow time in seconds.\nreturn void",
+		"prefix":"SetTreeRegrowTime"
+	},
+	"CDOTAGamerules_SetUseBaseGoldBountyOnHeroes":
+	{
+		"body":"SetUseBaseGoldBountyOnHeroes(${bool_1})",
+		"description":"CDOTAGamerules_SetUseBaseGoldBountyOnHeroes:\nHeroes will use the basic NPC functionality for determining their bounty, rather than DOTA specific formulas.\nreturn void",
+		"prefix":"SetUseBaseGoldBountyOnHeroes"
+	},
+	"CDOTAGamerules_SetUseCustomHeroXPValues":
+	{
+		"body":"SetUseCustomHeroXPValues(${thisvaluemustbeset})",
+		"description":"CDOTAGamerules_SetUseCustomHeroXPValues:\nAllows heroes in the map to give a specific amount of XP (this value must be set).\nreturn void",
+		"prefix":"SetUseCustomHeroXPValues"
+	},
+	"CDOTAGamerules_SetUseUniversalShopMode":
+	{
+		"body":"SetUseUniversalShopMode(${bool_1})",
+		"description":"CDOTAGamerules_SetUseUniversalShopMode:\nWhen true, all items are available at as long as any shop is in range.\nreturn void",
+		"prefix":"SetUseUniversalShopMode"
+	},
+	"CDOTAGamerules_SetWeatherWindDirection":
+	{
+		"body":"SetWeatherWindDirection(${Vector_1})",
+		"description":"CDOTAGamerules_SetWeatherWindDirection:\nSet Weather Wind Direction Vector\nreturn void",
+		"prefix":"SetWeatherWindDirection"
+	},
+	"CDOTAGamerules_State_Get":
+	{
+		"body":"State_Get()",
+		"description":"CDOTAGamerules_State_Get:\nGet the current Gamerules state\nreturn int",
+		"prefix":"State_Get"
+	},
 	"CDOTAPlayer_GetAssignedHero":
 	{
 		"body":"GetAssignedHero()",
@@ -4487,6 +5052,162 @@
 		"body":"SetMusicStatus(${nMusicStatus}, ${flIntensity})",
 		"description":"CDOTAPlayer_SetMusicStatus:\n(nMusicStatus, flIntensity) - Set the music status for this player, note this will only really apply if dota_music_battle_enable is off.\nreturn void",
 		"prefix":"SetMusicStatus"
+	},
+	"CDOTAPlayer_SetSelectedHero":
+	{
+		"body":"SetSelectedHero(${pszHeroName})",
+		"description":"CDOTAPlayer_SetSelectedHero:\nSets this player's hero selection.\nreturn void",
+		"prefix":"SetSelectedHero"
+	},
+	"CDOTATutorial_AddBot":
+	{
+		"body":"AddBot(${string_1}, ${string_2}, ${string_3}, ${bool_4})",
+		"description":"CDOTATutorial_AddBot:\nAdd a computer controlled bot.\nreturn bool",
+		"prefix":"AddBot"
+	},
+	"CDOTATutorial_AddQuest":
+	{
+		"body":"AddQuest(${string_1}, ${int_2}, ${string_3}, ${string_4})",
+		"description":"CDOTATutorial_AddQuest:\nAdd a quest to the quest log\nreturn void",
+		"prefix":"AddQuest"
+	},
+	"CDOTATutorial_AddShopWhitelistItem":
+	{
+		"body":"AddShopWhitelistItem(${string_1})",
+		"description":"CDOTATutorial_AddShopWhitelistItem:\nAdd an item to the shop whitelist.\nreturn void",
+		"prefix":"AddShopWhitelistItem"
+	},
+	"CDOTATutorial_CompleteQuest":
+	{
+		"body":"CompleteQuest(${string_1})",
+		"description":"CDOTATutorial_CompleteQuest:\nComplete a quest,\nreturn void",
+		"prefix":"CompleteQuest"
+	},
+	"CDOTATutorial_CreateLocationTask":
+	{
+		"body":"CreateLocationTask(${Vector_1})",
+		"description":"CDOTATutorial_CreateLocationTask:\nAdd a task to move to a specific location\nreturn void",
+		"prefix":"CreateLocationTask"
+	},
+	"CDOTATutorial_EnableCreepAggroViz":
+	{
+		"body":"EnableCreepAggroViz(${bool_1})",
+		"description":"CDOTATutorial_EnableCreepAggroViz:\nAlert the player when a creep becomes agro to their hero.\nreturn void",
+		"prefix":"EnableCreepAggroViz"
+	},
+	"CDOTATutorial_EnablePlayerOffscreenTip":
+	{
+		"body":"EnablePlayerOffscreenTip(${bool_1})",
+		"description":"CDOTATutorial_EnablePlayerOffscreenTip:\nEnable the tip to alert players how to find their hero.\nreturn void",
+		"prefix":"EnablePlayerOffscreenTip"
+	},
+	"CDOTATutorial_EnableTowerAggroViz":
+	{
+		"body":"EnableTowerAggroViz(${bool_1})",
+		"description":"CDOTATutorial_EnableTowerAggroViz:\nAlert the player when a tower becomes agro to their hero.\nreturn void",
+		"prefix":"EnableTowerAggroViz"
+	},
+	"CDOTATutorial_FinishTutorial":
+	{
+		"body":"FinishTutorial()",
+		"description":"CDOTATutorial_FinishTutorial:\nEnd the tutorial.\nreturn void",
+		"prefix":"FinishTutorial"
+	},
+	"CDOTATutorial_ForceGameStart":
+	{
+		"body":"ForceGameStart()",
+		"description":"CDOTATutorial_ForceGameStart:\nForce the start of the game.\nreturn void",
+		"prefix":"ForceGameStart"
+	},
+	"CDOTATutorial_GetTimeFrozen":
+	{
+		"body":"GetTimeFrozen()",
+		"description":"CDOTATutorial_GetTimeFrozen:\nIs our time frozen?\nreturn bool",
+		"prefix":"GetTimeFrozen"
+	},
+	"CDOTATutorial_IsItemInWhiteList":
+	{
+		"body":"IsItemInWhiteList(${string_1})",
+		"description":"CDOTATutorial_IsItemInWhiteList:\nIs this item currently in the white list.\nreturn bool",
+		"prefix":"IsItemInWhiteList"
+	},
+	"CDOTATutorial_RemoveShopWhitelistItem":
+	{
+		"body":"RemoveShopWhitelistItem(${string_1})",
+		"description":"CDOTATutorial_RemoveShopWhitelistItem:\nRemove an item from the shop whitelist.\nreturn void",
+		"prefix":"RemoveShopWhitelistItem"
+	},
+	"CDOTATutorial_SelectHero":
+	{
+		"body":"SelectHero(${string_1})",
+		"description":"CDOTATutorial_SelectHero:\nSelect a hero for the local player\nreturn void",
+		"prefix":"SelectHero"
+	},
+	"CDOTATutorial_SelectPlayerTeam":
+	{
+		"body":"SelectPlayerTeam(${string_1})",
+		"description":"CDOTATutorial_SelectPlayerTeam:\nSelect the team for the local player\nreturn void",
+		"prefix":"SelectPlayerTeam"
+	},
+	"CDOTATutorial_SetItemGuide":
+	{
+		"body":"SetItemGuide(${string_1})",
+		"description":"CDOTATutorial_SetItemGuide:\nSet the current item guide.\nreturn void",
+		"prefix":"SetItemGuide"
+	},
+	"CDOTATutorial_SetOrModifyPlayerGold":
+	{
+		"body":"SetOrModifyPlayerGold(${int}, ${bool_2})",
+		"description":"CDOTATutorial_SetOrModifyPlayerGold:\nSet gold amount for the tutorial player. (int) GoldAmount, (bool) true=Set, false=Modify\nreturn void",
+		"prefix":"SetOrModifyPlayerGold"
+	},
+	"CDOTATutorial_SetQuickBuy":
+	{
+		"body":"SetQuickBuy(${string_1})",
+		"description":"CDOTATutorial_SetQuickBuy:\nSet players quick buy item.\nreturn void",
+		"prefix":"SetQuickBuy"
+	},
+	"CDOTATutorial_SetShopOpen":
+	{
+		"body":"SetShopOpen(${bool_1})",
+		"description":"CDOTATutorial_SetShopOpen:\nSet the shop open or closed.\nreturn void",
+		"prefix":"SetShopOpen"
+	},
+	"CDOTATutorial_SetTimeFrozen":
+	{
+		"body":"SetTimeFrozen(${bool_1})",
+		"description":"CDOTATutorial_SetTimeFrozen:\nSet if we should freeze time or not.\nreturn void",
+		"prefix":"SetTimeFrozen"
+	},
+	"CDOTATutorial_SetTutorialConvar":
+	{
+		"body":"SetTutorialConvar(${string_1}, ${string_2})",
+		"description":"CDOTATutorial_SetTutorialConvar:\nSet a tutorial convar\nreturn void",
+		"prefix":"SetTutorialConvar"
+	},
+	"CDOTATutorial_SetTutorialUI":
+	{
+		"body":"SetTutorialUI(${int_1})",
+		"description":"CDOTATutorial_SetTutorialUI:\nSet the UI to use a reduced version to focus attention to specific elements.\nreturn void",
+		"prefix":"SetTutorialUI"
+	},
+	"CDOTATutorial_SetWhiteListEnabled":
+	{
+		"body":"SetWhiteListEnabled(${bool_1})",
+		"description":"CDOTATutorial_SetWhiteListEnabled:\nSet if we should whitelist shop items.\nreturn void",
+		"prefix":"SetWhiteListEnabled"
+	},
+	"CDOTATutorial_StartTutorialMode":
+	{
+		"body":"StartTutorialMode()",
+		"description":"CDOTATutorial_StartTutorialMode:\nInitialize Tutorial Mode\nreturn void",
+		"prefix":"StartTutorialMode"
+	},
+	"CDOTATutorial_UpgradePlayerAbility":
+	{
+		"body":"UpgradePlayerAbility(${string_1})",
+		"description":"CDOTATutorial_UpgradePlayerAbility:\nUpgrade a specific ability for the local hero\nreturn void",
+		"prefix":"UpgradePlayerAbility"
 	},
 	"CDOTAVoteSystem_StartVote":
 	{
@@ -4535,6 +5256,12 @@
 		"body":"CastFilterResultTarget(${hTarget})",
 		"description":"CDOTA_Ability_Lua_CastFilterResultTarget:\n(HSCRIPT hTarget) Determine whether an issued command on a target is valid.\nreturn int",
 		"prefix":"CastFilterResultTarget"
+	},
+	"CDOTA_Ability_Lua_GetAOERadius":
+	{
+		"body":"GetAOERadius()",
+		"description":"CDOTA_Ability_Lua_GetAOERadius:\nControls the size of the AOE casting cursor.\nreturn float",
+		"prefix":"GetAOERadius"
 	},
 	"CDOTA_Ability_Lua_GetAssociatedPrimaryAbilities":
 	{
@@ -5076,12 +5803,6 @@
 		"description":"CDOTA_BaseNPC_GetAttackDamage:\nReturns a random integer between the minimum and maximum base damage of the unit.\nreturn int",
 		"prefix":"GetAttackDamage"
 	},
-	"CDOTA_BaseNPC_GetAttackRange":
-	{
-		"body":"GetAttackRange()",
-		"description":"CDOTA_BaseNPC_GetAttackRange:\nGets this unit's attack range after all modifiers.\nreturn float",
-		"prefix":"GetAttackRange"
-	},
 	"CDOTA_BaseNPC_GetAttackRangeBuffer":
 	{
 		"body":"GetAttackRangeBuffer()",
@@ -5111,6 +5832,12 @@
 		"body":"GetAverageTrueAttackDamage(${hTarget})",
 		"description":"CDOTA_BaseNPC_GetAverageTrueAttackDamage:\nReturns the average value of the minimum and maximum damage values.\nreturn int",
 		"prefix":"GetAverageTrueAttackDamage"
+	},
+	"CDOTA_BaseNPC_GetBaseAttackRange":
+	{
+		"body":"GetBaseAttackRange()",
+		"description":"CDOTA_BaseNPC_GetBaseAttackRange:\n\nreturn int",
+		"prefix":"GetBaseAttackRange"
 	},
 	"CDOTA_BaseNPC_GetBaseAttackTime":
 	{
@@ -5238,6 +5965,12 @@
 		"description":"CDOTA_BaseNPC_GetDeathXP:\nGet the XP bounty on this unit.\nreturn int",
 		"prefix":"GetDeathXP"
 	},
+	"CDOTA_BaseNPC_GetEvasion":
+	{
+		"body":"GetEvasion()",
+		"description":"CDOTA_BaseNPC_GetEvasion:\n\nreturn float",
+		"prefix":"GetEvasion"
+	},
 	"CDOTA_BaseNPC_GetForceAttackTarget":
 	{
 		"body":"GetForceAttackTarget()",
@@ -5364,12 +6097,6 @@
 		"description":"CDOTA_BaseNPC_GetManaRegen:\n\nreturn float",
 		"prefix":"GetManaRegen"
 	},
-	"CDOTA_BaseNPC_GetManaRegenMultiplier":
-	{
-		"body":"GetManaRegenMultiplier()",
-		"description":"CDOTA_BaseNPC_GetManaRegenMultiplier:\nReturns mana regen rate per intelligence.\nreturn float",
-		"prefix":"GetManaRegenMultiplier"
-	},
 	"CDOTA_BaseNPC_GetMaxMana":
 	{
 		"body":"GetMaxMana()",
@@ -5495,6 +6222,18 @@
 		"body":"GetSecondsPerAttack()",
 		"description":"CDOTA_BaseNPC_GetSecondsPerAttack:\n\nreturn float",
 		"prefix":"GetSecondsPerAttack"
+	},
+	"CDOTA_BaseNPC_GetSpellAmplification":
+	{
+		"body":"GetSpellAmplification(${bBaseOnly})",
+		"description":"CDOTA_BaseNPC_GetSpellAmplification:\n\nreturn float",
+		"prefix":"GetSpellAmplification"
+	},
+	"CDOTA_BaseNPC_GetStatusResistance":
+	{
+		"body":"GetStatusResistance()",
+		"description":"CDOTA_BaseNPC_GetStatusResistance:\n\nreturn float",
+		"prefix":"GetStatusResistance"
 	},
 	"CDOTA_BaseNPC_GetTotalPurchasedUpgradeGoldCost":
 	{
@@ -6186,6 +6925,12 @@
 		"description":"CDOTA_BaseNPC_RespawnUnit:\nRespawns the target unit if it can be respawned.\nreturn void",
 		"prefix":"RespawnUnit"
 	},
+	"CDOTA_BaseNPC_Script_GetAttackRange":
+	{
+		"body":"Script_GetAttackRange()",
+		"description":"CDOTA_BaseNPC_Script_GetAttackRange:\nGets this unit's attack range after all modifiers.\nreturn float",
+		"prefix":"Script_GetAttackRange"
+	},
 	"CDOTA_BaseNPC_SellItem":
 	{
 		"body":"SellItem(${hItem})",
@@ -6666,10 +7411,16 @@
 		"description":"CDOTA_BaseNPC_Creature_SetMoveSpeedGain:\nSet the move speed gained per level on this creature.\nreturn void",
 		"prefix":"SetMoveSpeedGain"
 	},
+	"CDOTA_BaseNPC_Creature_SetRequiresReachingEndPath":
+	{
+		"body":"SetRequiresReachingEndPath(${bRequiresReachingEndPath})",
+		"description":"CDOTA_BaseNPC_Creature_SetRequiresReachingEndPath:\nSet whether creatures require reaching their end path before becoming idle\nreturn void",
+		"prefix":"SetRequiresReachingEndPath"
+	},
 	"CDOTA_BaseNPC_Creature_SetXPGain":
 	{
 		"body":"SetXPGain(${nXPGain})",
-		"description":"CDOTA_BaseNPC_Creature_SetXPGain:\nSet the xp reward gained per level on this creature.\nreturn void",
+		"description":"CDOTA_BaseNPC_Creature_SetXPGain:\nSet the XP gained per level on this creature.\nreturn void",
 		"prefix":"SetXPGain"
 	},
 	"CDOTA_BaseNPC_Hero_AddExperience":
@@ -6875,12 +7626,6 @@
 		"body":"GetLastHits()",
 		"description":"CDOTA_BaseNPC_Hero_GetLastHits:\nValue is stored in PlayerResource.\nreturn int",
 		"prefix":"GetLastHits"
-	},
-	"CDOTA_BaseNPC_Hero_GetManaRegenMultiplier":
-	{
-		"body":"GetManaRegenMultiplier()",
-		"description":"CDOTA_BaseNPC_Hero_GetManaRegenMultiplier:\nReturns the intelligenced based mana regen multiplier.\nreturn float",
-		"prefix":"GetManaRegenMultiplier"
 	},
 	"CDOTA_BaseNPC_Hero_GetMostRecentDamageTime":
 	{
@@ -7476,6 +8221,12 @@
 		"description":"CDOTA_Item_GetItemState:\nGets whether item is unequipped or ready.\nreturn int",
 		"prefix":"GetItemState"
 	},
+	"CDOTA_Item_GetParent":
+	{
+		"body":"GetParent()",
+		"description":"CDOTA_Item_GetParent:\nGet the parent for this item.\nreturn handle",
+		"prefix":"GetParent"
+	},
 	"CDOTA_Item_GetPurchaseTime":
 	{
 		"body":"GetPurchaseTime()",
@@ -7988,7 +8739,7 @@
 	},
 	"CDOTA_MapTree_CutDown":
 	{
-		"body":"CutDown(${nTreeNumberKnownTo})",
+		"body":"CutDown(${nTeamNumberKnownTo})",
 		"description":"CDOTA_MapTree_CutDown:\nCuts down this tree. Parameters: int nTeamNumberKnownTo (-1 = invalid team)\nreturn void",
 		"prefix":"CutDown"
 	},
@@ -8640,6 +9391,12 @@
 		"description":"CDOTA_PlayerResource_GetNumItemsPurchased:\n\nreturn int",
 		"prefix":"GetNumItemsPurchased"
 	},
+	"CDOTA_PlayerResource_GetPartyID":
+	{
+		"body":"GetPartyID(${iPlayerID})",
+		"description":"CDOTA_PlayerResource_GetPartyID:\n\nreturn uint64",
+		"prefix":"GetPartyID"
+	},
 	"CDOTA_PlayerResource_GetPlayer":
 	{
 		"body":"GetPlayer(${iPlayerID})",
@@ -8999,6 +9756,12 @@
 		"body":"NumTeamPlayers()",
 		"description":"CDOTA_PlayerResource_NumTeamPlayers:\n\nreturn int",
 		"prefix":"NumTeamPlayers"
+	},
+	"CDOTA_PlayerResource_RecordConsumableAbilityChargeChange":
+	{
+		"body":"RecordConsumableAbilityChargeChange(${iPlayerID}, ${item_definition_index}, ${nChargeIncrementOrDecrement})",
+		"description":"CDOTA_PlayerResource_RecordConsumableAbilityChargeChange:\nIncrement or decrement consumable charges (nPlayerID, item_definition_index, nChargeIncrementOrDecrement)\nreturn void",
+		"prefix":"RecordConsumableAbilityChargeChange"
 	},
 	"CDOTA_PlayerResource_ReplaceHeroWith":
 	{
@@ -9918,6 +10681,12 @@
 		"description":"CPropVRHand_GetHandID:\nGet hand ID\nreturn int",
 		"prefix":"GetHandID"
 	},
+	"CPropVRHand_GetLiteralHandType":
+	{
+		"body":"GetLiteralHandType()",
+		"description":"CPropVRHand_GetLiteralHandType:\nGet literal type for this hand\nreturn int",
+		"prefix":"GetLiteralHandType"
+	},
 	"CPropVRHand_GetPlayer":
 	{
 		"body":"GetPlayer()",
@@ -10014,6 +10783,42 @@
 		"description":"CSceneEntity_Start:\nStart scene playback, takes activatorEntity as param\nreturn void",
 		"prefix":"Start"
 	},
+	"CScriptHTTPRequest_Send":
+	{
+		"body":"Send(${handle_1})",
+		"description":"CScriptHTTPRequest_Send:\nSend a HTTP request.\nreturn bool",
+		"prefix":"Send"
+	},
+	"CScriptHTTPRequest_SetHTTPRequestAbsoluteTimeoutMS":
+	{
+		"body":"SetHTTPRequestAbsoluteTimeoutMS(${unsigned_1})",
+		"description":"CScriptHTTPRequest_SetHTTPRequestAbsoluteTimeoutMS:\nSet the total timeout on the request.\nreturn bool",
+		"prefix":"SetHTTPRequestAbsoluteTimeoutMS"
+	},
+	"CScriptHTTPRequest_SetHTTPRequestGetOrPostParameter":
+	{
+		"body":"SetHTTPRequestGetOrPostParameter(${string_1}, ${string_2})",
+		"description":"CScriptHTTPRequest_SetHTTPRequestGetOrPostParameter:\nSet a POST or GET parameter on the request.\nreturn bool",
+		"prefix":"SetHTTPRequestGetOrPostParameter"
+	},
+	"CScriptHTTPRequest_SetHTTPRequestHeaderValue":
+	{
+		"body":"SetHTTPRequestHeaderValue(${string_1}, ${string_2})",
+		"description":"CScriptHTTPRequest_SetHTTPRequestHeaderValue:\nSet a header value on the request.\nreturn bool",
+		"prefix":"SetHTTPRequestHeaderValue"
+	},
+	"CScriptHTTPRequest_SetHTTPRequestNetworkActivityTimeout":
+	{
+		"body":"SetHTTPRequestNetworkActivityTimeout(${unsigned_1})",
+		"description":"CScriptHTTPRequest_SetHTTPRequestNetworkActivityTimeout:\nSet the network timeout on the request - this timer is reset when any data is received.\nreturn bool",
+		"prefix":"SetHTTPRequestNetworkActivityTimeout"
+	},
+	"CScriptHTTPRequest_SetHTTPRequestRawPostBody":
+	{
+		"body":"SetHTTPRequestRawPostBody(${string_1}, ${string_2})",
+		"description":"CScriptHTTPRequest_SetHTTPRequestRawPostBody:\nSet the literal body of a post - invalid after setting a post parameter.\nreturn bool",
+		"prefix":"SetHTTPRequestRawPostBody"
+	},
 	"CScriptHeroList_GetAllHeroes":
 	{
 		"body":"GetAllHeroes()",
@@ -10107,8 +10912,14 @@
 	"CScriptParticleManager_SetParticleControlOrientation":
 	{
 		"body":"SetParticleControlOrientation(${intnFXIndex}, ${intnPoint}, ${vForward}, ${vRight}, ${vUp})",
-		"description":"CScriptParticleManager_SetParticleControlOrientation:\n(int nFXIndex, int nPoint, vForward, vRight, vUp)\nreturn void",
+		"description":"CScriptParticleManager_SetParticleControlOrientation:\n(int nFXIndex, int nPoint, vForward, vRight, vUp) - Set the orientation for a control on a particle effect (NOTE: This is left handed -- bad!!)\nreturn void",
 		"prefix":"SetParticleControlOrientation"
+	},
+	"CScriptParticleManager_SetParticleControlOrientationFLU":
+	{
+		"body":"SetParticleControlOrientationFLU(${intnFXIndex}, ${intnPoint}, ${VectorvecForward}, ${VectorvecLeft}, ${VectorvecUp})",
+		"description":"CScriptParticleManager_SetParticleControlOrientationFLU:\n(int nFXIndex, int nPoint, Vector vecForward, Vector vecLeft, Vector vecUp) - Set the orientation for a control on a particle effect\nreturn void",
+		"prefix":"SetParticleControlOrientationFLU"
 	},
 	"CScriptParticleManager_SetParticleFoWProperties":
 	{
@@ -10355,5 +11166,11 @@
 		"body":"UpdateLinearProjectileDirection(${int_1}, ${Vector_2}, ${float_3})",
 		"description":"ProjectileManager_UpdateLinearProjectileDirection:\nUpdate velocity\nreturn void",
 		"prefix":"UpdateLinearProjectileDirection"
+	},
+	"SteamInfo_IsPublicUniverse":
+	{
+		"body":"IsPublicUniverse()",
+		"description":"SteamInfo_IsPublicUniverse:\nIs the script connected to the public Steam universe\nreturn bool",
+		"prefix":"IsPublicUniverse"
 	}
 }
