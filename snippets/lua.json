@@ -1661,6 +1661,8 @@
 	"ACT_DOTA_BELLYACHE_END":{"body":"ACT_DOTA_BELLYACHE_END", "description":"", "prefix": "ACT_DOTA_BELLYACHE_END"},
 	"ACT_DOTA_BELLYACHE_LOOP":{"body":"ACT_DOTA_BELLYACHE_LOOP", "description":"", "prefix": "ACT_DOTA_BELLYACHE_LOOP"},
 	"ACT_DOTA_BELLYACHE_START":{"body":"ACT_DOTA_BELLYACHE_START", "description":"", "prefix": "ACT_DOTA_BELLYACHE_START"},
+	"ACT_DOTA_BLINK_DAGGER":{"body":"ACT_DOTA_BLINK_DAGGER", "description":"", "prefix": "ACT_DOTA_BLINK_DAGGER"},
+	"ACT_DOTA_BLINK_DAGGER_END":{"body":"ACT_DOTA_BLINK_DAGGER_END", "description":"", "prefix": "ACT_DOTA_BLINK_DAGGER_END"},
 	"ACT_DOTA_BRIDGE_DESTROY":{"body":"ACT_DOTA_BRIDGE_DESTROY", "description":"", "prefix": "ACT_DOTA_BRIDGE_DESTROY"},
 	"ACT_DOTA_BRIDGE_THREAT":{"body":"ACT_DOTA_BRIDGE_THREAT", "description":"", "prefix": "ACT_DOTA_BRIDGE_THREAT"},
 	"ACT_DOTA_CAGED_CREEP_RAGE":{"body":"ACT_DOTA_CAGED_CREEP_RAGE", "description":"", "prefix": "ACT_DOTA_CAGED_CREEP_RAGE"},
@@ -1942,6 +1944,7 @@
 	"MODIFIER_EVENT_ON_ATTACK":{"body":"MODIFIER_EVENT_ON_ATTACK", "description":"OnAttack", "prefix": "MODIFIER_EVENT_ON_ATTACK"},
 	"MODIFIER_EVENT_ON_ATTACKED":{"body":"MODIFIER_EVENT_ON_ATTACKED", "description":"OnAttacked", "prefix": "MODIFIER_EVENT_ON_ATTACKED"},
 	"MODIFIER_EVENT_ON_ATTACK_ALLIED":{"body":"MODIFIER_EVENT_ON_ATTACK_ALLIED", "description":"OnAttackAllied", "prefix": "MODIFIER_EVENT_ON_ATTACK_ALLIED"},
+	"MODIFIER_EVENT_ON_ATTACK_CANCELLED":{"body":"MODIFIER_EVENT_ON_ATTACK_CANCELLED", "description":"OnAttackCancelled", "prefix": "MODIFIER_EVENT_ON_ATTACK_CANCELLED"},
 	"MODIFIER_EVENT_ON_ATTACK_FAIL":{"body":"MODIFIER_EVENT_ON_ATTACK_FAIL", "description":"OnAttackFail", "prefix": "MODIFIER_EVENT_ON_ATTACK_FAIL"},
 	"MODIFIER_EVENT_ON_ATTACK_FINISHED":{"body":"MODIFIER_EVENT_ON_ATTACK_FINISHED", "description":"OnAttackFinished", "prefix": "MODIFIER_EVENT_ON_ATTACK_FINISHED"},
 	"MODIFIER_EVENT_ON_ATTACK_LANDED":{"body":"MODIFIER_EVENT_ON_ATTACK_LANDED", "description":"OnAttackLanded", "prefix": "MODIFIER_EVENT_ON_ATTACK_LANDED"},
@@ -2073,6 +2076,7 @@
 	"MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE":{"body":"MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE", "description":"GetModifierMoveSpeedOverride", "prefix": "MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE"},
 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT":{"body":"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT", "description":"GetModifierMoveSpeedBonus_Constant", "prefix": "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"},
 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT_UNIQUE":{"body":"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT_UNIQUE", "description":"GetModifierMoveSpeedBonus_Constant_Unique", "prefix": "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT_UNIQUE"},
+	"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT_UNIQUE_2":{"body":"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT_UNIQUE_2", "description":"GetModifierMoveSpeedBonus_Constant_Unique_2", "prefix": "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT_UNIQUE_2"},
 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE":{"body":"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE", "description":"GetModifierMoveSpeedBonus_Percentage", "prefix": "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"},
 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE":{"body":"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE", "description":"GetModifierMoveSpeedBonus_Percentage_Unique", "prefix": "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE"},
 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE_2":{"body":"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE_2", "description":"GetModifierMoveSpeedBonus_Percentage_Unique_2", "prefix": "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE_2"},
@@ -6141,7 +6145,7 @@
 	},
 	"CDOTA_BaseNPC_GetMoveSpeedModifier":
 	{
-		"body":"GetMoveSpeedModifier(${flBaseSpeed})",
+		"body":"GetMoveSpeedModifier(${flBaseSpeed}, ${bReturnUnslowed})",
 		"description":"CDOTA_BaseNPC_GetMoveSpeedModifier:\n\nreturn float",
 		"prefix":"GetMoveSpeedModifier"
 	},
@@ -10782,42 +10786,6 @@
 		"body":"Start(${handle_1})",
 		"description":"CSceneEntity_Start:\nStart scene playback, takes activatorEntity as param\nreturn void",
 		"prefix":"Start"
-	},
-	"CScriptHTTPRequest_Send":
-	{
-		"body":"Send(${handle_1})",
-		"description":"CScriptHTTPRequest_Send:\nSend a HTTP request.\nreturn bool",
-		"prefix":"Send"
-	},
-	"CScriptHTTPRequest_SetHTTPRequestAbsoluteTimeoutMS":
-	{
-		"body":"SetHTTPRequestAbsoluteTimeoutMS(${unsigned_1})",
-		"description":"CScriptHTTPRequest_SetHTTPRequestAbsoluteTimeoutMS:\nSet the total timeout on the request.\nreturn bool",
-		"prefix":"SetHTTPRequestAbsoluteTimeoutMS"
-	},
-	"CScriptHTTPRequest_SetHTTPRequestGetOrPostParameter":
-	{
-		"body":"SetHTTPRequestGetOrPostParameter(${string_1}, ${string_2})",
-		"description":"CScriptHTTPRequest_SetHTTPRequestGetOrPostParameter:\nSet a POST or GET parameter on the request.\nreturn bool",
-		"prefix":"SetHTTPRequestGetOrPostParameter"
-	},
-	"CScriptHTTPRequest_SetHTTPRequestHeaderValue":
-	{
-		"body":"SetHTTPRequestHeaderValue(${string_1}, ${string_2})",
-		"description":"CScriptHTTPRequest_SetHTTPRequestHeaderValue:\nSet a header value on the request.\nreturn bool",
-		"prefix":"SetHTTPRequestHeaderValue"
-	},
-	"CScriptHTTPRequest_SetHTTPRequestNetworkActivityTimeout":
-	{
-		"body":"SetHTTPRequestNetworkActivityTimeout(${unsigned_1})",
-		"description":"CScriptHTTPRequest_SetHTTPRequestNetworkActivityTimeout:\nSet the network timeout on the request - this timer is reset when any data is received.\nreturn bool",
-		"prefix":"SetHTTPRequestNetworkActivityTimeout"
-	},
-	"CScriptHTTPRequest_SetHTTPRequestRawPostBody":
-	{
-		"body":"SetHTTPRequestRawPostBody(${string_1}, ${string_2})",
-		"description":"CScriptHTTPRequest_SetHTTPRequestRawPostBody:\nSet the literal body of a post - invalid after setting a post parameter.\nreturn bool",
-		"prefix":"SetHTTPRequestRawPostBody"
 	},
 	"CScriptHeroList_GetAllHeroes":
 	{
