@@ -10787,6 +10787,42 @@
 		"description":"CSceneEntity_Start:\nStart scene playback, takes activatorEntity as param\nreturn void",
 		"prefix":"Start"
 	},
+	"CScriptHTTPRequest_Send":
+	{
+		"body":"Send(${handle_1})",
+		"description":"CScriptHTTPRequest_Send:\nSend a HTTP request.\nreturn bool",
+		"prefix":"Send"
+	},
+	"CScriptHTTPRequest_SetHTTPRequestAbsoluteTimeoutMS":
+	{
+		"body":"SetHTTPRequestAbsoluteTimeoutMS(${unsigned_1})",
+		"description":"CScriptHTTPRequest_SetHTTPRequestAbsoluteTimeoutMS:\nSet the total timeout on the request.\nreturn bool",
+		"prefix":"SetHTTPRequestAbsoluteTimeoutMS"
+	},
+	"CScriptHTTPRequest_SetHTTPRequestGetOrPostParameter":
+	{
+		"body":"SetHTTPRequestGetOrPostParameter(${string_1}, ${string_2})",
+		"description":"CScriptHTTPRequest_SetHTTPRequestGetOrPostParameter:\nSet a POST or GET parameter on the request.\nreturn bool",
+		"prefix":"SetHTTPRequestGetOrPostParameter"
+	},
+	"CScriptHTTPRequest_SetHTTPRequestHeaderValue":
+	{
+		"body":"SetHTTPRequestHeaderValue(${string_1}, ${string_2})",
+		"description":"CScriptHTTPRequest_SetHTTPRequestHeaderValue:\nSet a header value on the request.\nreturn bool",
+		"prefix":"SetHTTPRequestHeaderValue"
+	},
+	"CScriptHTTPRequest_SetHTTPRequestNetworkActivityTimeout":
+	{
+		"body":"SetHTTPRequestNetworkActivityTimeout(${unsigned_1})",
+		"description":"CScriptHTTPRequest_SetHTTPRequestNetworkActivityTimeout:\nSet the network timeout on the request - this timer is reset when any data is received.\nreturn bool",
+		"prefix":"SetHTTPRequestNetworkActivityTimeout"
+	},
+	"CScriptHTTPRequest_SetHTTPRequestRawPostBody":
+	{
+		"body":"SetHTTPRequestRawPostBody(${string_1}, ${string_2})",
+		"description":"CScriptHTTPRequest_SetHTTPRequestRawPostBody:\nSet the literal body of a post - invalid after setting a post parameter.\nreturn bool",
+		"prefix":"SetHTTPRequestRawPostBody"
+	},
 	"CScriptHeroList_GetAllHeroes":
 	{
 		"body":"GetAllHeroes()",
