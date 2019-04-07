@@ -1,0 +1,857 @@
+{
+    "GetModifierPreAttack_BonusDamage" : {
+        "prefix": "GetModifierPreAttack_BonusDamage",
+        "body": "GetModifierPreAttack_BonusDamage()",
+        "description": "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE  callback"
+    },
+    "GetModifierPreAttack_BonusDamage_Proc" : {
+        "prefix": "GetModifierPreAttack_BonusDamage_Proc",
+        "body": "GetModifierPreAttack_BonusDamage_Proc()",
+        "description": "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_PROC  callback"
+    },
+    "GetModifierPreAttack_BonusDamagePostCrit" : {
+        "prefix": "GetModifierPreAttack_BonusDamagePostCrit",
+        "body": "GetModifierPreAttack_BonusDamagePostCrit()",
+        "description": "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_POST_CRIT  callback"
+    },
+    "GetModifierBaseAttack_BonusDamage" : {
+        "prefix": "GetModifierBaseAttack_BonusDamage",
+        "body": "GetModifierBaseAttack_BonusDamage()",
+        "description": "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE  callback"
+    },
+    "GetModifierProcAttack_BonusDamage_Physical" : {
+        "prefix": "GetModifierProcAttack_BonusDamage_Physical",
+        "body": "GetModifierProcAttack_BonusDamage_Physical()",
+        "description": "MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PHYSICAL  callback"
+    },
+    "GetModifierProcAttack_BonusDamage_Magical" : {
+        "prefix": "GetModifierProcAttack_BonusDamage_Magical",
+        "body": "GetModifierProcAttack_BonusDamage_Magical()",
+        "description": "MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL  callback"
+    },
+    "GetModifierProcAttack_BonusDamage_Pure" : {
+        "prefix": "GetModifierProcAttack_BonusDamage_Pure",
+        "body": "GetModifierProcAttack_BonusDamage_Pure()",
+        "description": "MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PURE  callback"
+    },
+    "GetModifierProcAttack_Feedback" : {
+        "prefix": "GetModifierProcAttack_Feedback",
+        "body": "GetModifierProcAttack_Feedback()",
+        "description": "MODIFIER_PROPERTY_PROCATTACK_FEEDBACK  callback"
+    },
+    "GetModifierPreAttack" : {
+        "prefix": "GetModifierPreAttack",
+        "body": "GetModifierPreAttack()",
+        "description": "MODIFIER_PROPERTY_PRE_ATTACK  callback"
+    },
+    "GetModifierInvisibilityLevel" : {
+        "prefix": "GetModifierInvisibilityLevel",
+        "body": "GetModifierInvisibilityLevel()",
+        "description": "MODIFIER_PROPERTY_INVISIBILITY_LEVEL  callback"
+    },
+    "GetModifierPersistentInvisibility" : {
+        "prefix": "GetModifierPersistentInvisibility",
+        "body": "GetModifierPersistentInvisibility()",
+        "description": "MODIFIER_PROPERTY_PERSISTENT_INVISIBILITY  callback"
+    },
+    "GetModifierMoveSpeedBonus_Constant" : {
+        "prefix": "GetModifierMoveSpeedBonus_Constant",
+        "body": "GetModifierMoveSpeedBonus_Constant()",
+        "description": "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT  callback"
+    },
+    "GetModifierMoveSpeedOverride" : {
+        "prefix": "GetModifierMoveSpeedOverride",
+        "body": "GetModifierMoveSpeedOverride()",
+        "description": "MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE  callback"
+    },
+    "GetModifierMoveSpeedBonus_Percentage" : {
+        "prefix": "GetModifierMoveSpeedBonus_Percentage",
+        "body": "GetModifierMoveSpeedBonus_Percentage()",
+        "description": "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE  callback"
+    },
+    "GetModifierMoveSpeedBonus_Percentage_Unique" : {
+        "prefix": "GetModifierMoveSpeedBonus_Percentage_Unique",
+        "body": "GetModifierMoveSpeedBonus_Percentage_Unique()",
+        "description": "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE  callback"
+    },
+    "GetModifierMoveSpeedBonus_Percentage_Unique_2" : {
+        "prefix": "GetModifierMoveSpeedBonus_Percentage_Unique_2",
+        "body": "GetModifierMoveSpeedBonus_Percentage_Unique_2()",
+        "description": "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE_2  callback"
+    },
+    "GetModifierMoveSpeedBonus_Special_Boots" : {
+        "prefix": "GetModifierMoveSpeedBonus_Special_Boots",
+        "body": "GetModifierMoveSpeedBonus_Special_Boots()",
+        "description": "MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE  callback"
+    },
+    "GetModifierMoveSpeedBonus_Special_Boots_2" : {
+        "prefix": "GetModifierMoveSpeedBonus_Special_Boots_2",
+        "body": "GetModifierMoveSpeedBonus_Special_Boots_2()",
+        "description": "MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE_2  callback"
+    },
+    "GetModifierMoveSpeed_Absolute" : {
+        "prefix": "GetModifierMoveSpeed_Absolute",
+        "body": "GetModifierMoveSpeed_Absolute()",
+        "description": "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE  callback"
+    },
+    "GetModifierMoveSpeed_AbsoluteMin" : {
+        "prefix": "GetModifierMoveSpeed_AbsoluteMin",
+        "body": "GetModifierMoveSpeed_AbsoluteMin()",
+        "description": "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MIN  callback"
+    },
+    "GetModifierMoveSpeed_Limit" : {
+        "prefix": "GetModifierMoveSpeed_Limit",
+        "body": "GetModifierMoveSpeed_Limit()",
+        "description": "MODIFIER_PROPERTY_MOVESPEED_LIMIT  callback"
+    },
+    "GetModifierMoveSpeed_Max" : {
+        "prefix": "GetModifierMoveSpeed_Max",
+        "body": "GetModifierMoveSpeed_Max()",
+        "description": "MODIFIER_PROPERTY_MOVESPEED_MAX  callback"
+    },
+    "GetModifierAttackSpeedBaseOverride" : {
+        "prefix": "GetModifierAttackSpeedBaseOverride",
+        "body": "GetModifierAttackSpeedBaseOverride()",
+        "description": "MODIFIER_PROPERTY_ATTACKSPEED_BASE_OVERRIDE  callback"
+    },
+    "GetModifierAttackSpeedBaseOverride" : {
+        "prefix": "GetModifierAttackSpeedBaseOverride",
+        "body": "GetModifierAttackSpeedBaseOverride()",
+        "description": "MODIFIER_PROPERTY_FIXED_ATTACK_RATE  callback"
+    },
+    "GetModifierAttackSpeedBonus_Constant" : {
+        "prefix": "GetModifierAttackSpeedBonus_Constant",
+        "body": "GetModifierAttackSpeedBonus_Constant()",
+        "description": "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT  callback"
+    },
+    "GetModifierCooldownReduction_Constant" : {
+        "prefix": "GetModifierCooldownReduction_Constant",
+        "body": "GetModifierCooldownReduction_Constant()",
+        "description": "MODIFIER_PROPERTY_COOLDOWN_REDUCTION_CONSTANT  callback"
+    },
+    "GetModifierBaseAttackTimeConstant" : {
+        "prefix": "GetModifierBaseAttackTimeConstant",
+        "body": "GetModifierBaseAttackTimeConstant()",
+        "description": "MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT  callback"
+    },
+    "GetModifierAttackPointConstant" : {
+        "prefix": "GetModifierAttackPointConstant",
+        "body": "GetModifierAttackPointConstant()",
+        "description": "MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT  callback"
+    },
+    "GetModifierDamageOutgoing_Percentage" : {
+        "prefix": "GetModifierDamageOutgoing_Percentage",
+        "body": "GetModifierDamageOutgoing_Percentage()",
+        "description": "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE  callback"
+    },
+    "GetModifierDamageOutgoing_Percentage_Illusion" : {
+        "prefix": "GetModifierDamageOutgoing_Percentage_Illusion",
+        "body": "GetModifierDamageOutgoing_Percentage_Illusion()",
+        "description": "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE_ILLUSION  callback"
+    },
+    "GetModifierTotalDamageOutgoing_Percentage" : {
+        "prefix": "GetModifierTotalDamageOutgoing_Percentage",
+        "body": "GetModifierTotalDamageOutgoing_Percentage()",
+        "description": "MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE  callback"
+    },
+    "GetModifierSpellAmplify_Percentage" : {
+        "prefix": "GetModifierSpellAmplify_Percentage",
+        "body": "GetModifierSpellAmplify_Percentage()",
+        "description": "MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE  callback"
+    },
+    "GetModifierHPRegenAmplify_Percentage" : {
+        "prefix": "GetModifierHPRegenAmplify_Percentage",
+        "body": "GetModifierHPRegenAmplify_Percentage()",
+        "description": "MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE  callback"
+    },
+    "GetModifierMagicDamageOutgoing_Percentage" : {
+        "prefix": "GetModifierMagicDamageOutgoing_Percentage",
+        "body": "GetModifierMagicDamageOutgoing_Percentage()",
+        "description": "MODIFIER_PROPERTY_MAGICDAMAGEOUTGOING_PERCENTAGE  callback"
+    },
+    "GetModifierBaseDamageOutgoing_Percentage" : {
+        "prefix": "GetModifierBaseDamageOutgoing_Percentage",
+        "body": "GetModifierBaseDamageOutgoing_Percentage()",
+        "description": "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE  callback"
+    },
+    "GetModifierBaseDamageOutgoing_PercentageUnique" : {
+        "prefix": "GetModifierBaseDamageOutgoing_PercentageUnique",
+        "body": "GetModifierBaseDamageOutgoing_PercentageUnique()",
+        "description": "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE_UNIQUE  callback"
+    },
+    "GetModifierIncomingDamage_Percentage" : {
+        "prefix": "GetModifierIncomingDamage_Percentage",
+        "body": "GetModifierIncomingDamage_Percentage()",
+        "description": "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE  callback"
+    },
+    "GetModifierIncomingPhysicalDamage_Percentage" : {
+        "prefix": "GetModifierIncomingPhysicalDamage_Percentage",
+        "body": "GetModifierIncomingPhysicalDamage_Percentage()",
+        "description": "MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE  callback"
+    },
+    "GetModifierIncomingPhysicalDamageConstant" : {
+        "prefix": "GetModifierIncomingPhysicalDamageConstant",
+        "body": "GetModifierIncomingPhysicalDamageConstant()",
+        "description": "MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_CONSTANT  callback"
+    },
+    "GetModifierIncomingSpellDamageConstant" : {
+        "prefix": "GetModifierIncomingSpellDamageConstant",
+        "body": "GetModifierIncomingSpellDamageConstant()",
+        "description": "MODIFIER_PROPERTY_INCOMING_SPELL_DAMAGE_CONSTANT  callback"
+    },
+    "GetModifierEvasion_Constant" : {
+        "prefix": "GetModifierEvasion_Constant",
+        "body": "GetModifierEvasion_Constant()",
+        "description": "MODIFIER_PROPERTY_EVASION_CONSTANT  callback"
+    },
+    "GetModifierNegativeEvasion_Constant" : {
+        "prefix": "GetModifierNegativeEvasion_Constant",
+        "body": "GetModifierNegativeEvasion_Constant()",
+        "description": "MODIFIER_PROPERTY_NEGATIVE_EVASION_CONSTANT  callback"
+    },
+    "GetModifierAvoidDamage" : {
+        "prefix": "GetModifierAvoidDamage",
+        "body": "GetModifierAvoidDamage()",
+        "description": "MODIFIER_PROPERTY_AVOID_DAMAGE  callback"
+    },
+    "GetModifierAvoidSpell" : {
+        "prefix": "GetModifierAvoidSpell",
+        "body": "GetModifierAvoidSpell()",
+        "description": "MODIFIER_PROPERTY_AVOID_SPELL  callback"
+    },
+    "GetModifierMiss_Percentage" : {
+        "prefix": "GetModifierMiss_Percentage",
+        "body": "GetModifierMiss_Percentage()",
+        "description": "MODIFIER_PROPERTY_MISS_PERCENTAGE  callback"
+    },
+    "GetModifierPhysicalArmorBonus" : {
+        "prefix": "GetModifierPhysicalArmorBonus",
+        "body": "GetModifierPhysicalArmorBonus()",
+        "description": "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS  callback"
+    },
+    "GetModifierPhysicalArmorBonusUnique" : {
+        "prefix": "GetModifierPhysicalArmorBonusUnique",
+        "body": "GetModifierPhysicalArmorBonusUnique()",
+        "description": "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE  callback"
+    },
+    "GetModifierPhysicalArmorBonusUniqueActive" : {
+        "prefix": "GetModifierPhysicalArmorBonusUniqueActive",
+        "body": "GetModifierPhysicalArmorBonusUniqueActive()",
+        "description": "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE_ACTIVE  callback"
+    },
+    "GetModifierIgnorePhysicalArmor" : {
+        "prefix": "GetModifierIgnorePhysicalArmor",
+        "body": "GetModifierIgnorePhysicalArmor()",
+        "description": "MODIFIER_PROPERTY_IGNORE_PHYSICAL_ARMOR  callback"
+    },
+    "GetModifierMagicalResistanceDirectModification" : {
+        "prefix": "GetModifierMagicalResistanceDirectModification",
+        "body": "GetModifierMagicalResistanceDirectModification()",
+        "description": "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DIRECT_MODIFICATION  callback"
+    },
+    "GetModifierMagicalResistanceBonus" : {
+        "prefix": "GetModifierMagicalResistanceBonus",
+        "body": "GetModifierMagicalResistanceBonus()",
+        "description": "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS  callback"
+    },
+    "GetModifierMagicalResistanceDecrepifyUnique" : {
+        "prefix": "GetModifierMagicalResistanceDecrepifyUnique",
+        "body": "GetModifierMagicalResistanceDecrepifyUnique()",
+        "description": "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE  callback"
+    },
+    "GetModifierBaseRegen" : {
+        "prefix": "GetModifierBaseRegen",
+        "body": "GetModifierBaseRegen()",
+        "description": "MODIFIER_PROPERTY_BASE_MANA_REGEN  callback"
+    },
+    "GetModifierConstantManaRegen" : {
+        "prefix": "GetModifierConstantManaRegen",
+        "body": "GetModifierConstantManaRegen()",
+        "description": "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT  callback"
+    },
+    "GetModifierConstantManaRegenUnique" : {
+        "prefix": "GetModifierConstantManaRegenUnique",
+        "body": "GetModifierConstantManaRegenUnique()",
+        "description": "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT_UNIQUE  callback"
+    },
+    "GetModifierPercentageManaRegen" : {
+        "prefix": "GetModifierPercentageManaRegen",
+        "body": "GetModifierPercentageManaRegen()",
+        "description": "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE  callback"
+    },
+    "GetModifierTotalPercentageManaRegen" : {
+        "prefix": "GetModifierTotalPercentageManaRegen",
+        "body": "GetModifierTotalPercentageManaRegen()",
+        "description": "MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE  callback"
+    },
+    "GetModifierConstantHealthRegen" : {
+        "prefix": "GetModifierConstantHealthRegen",
+        "body": "GetModifierConstantHealthRegen()",
+        "description": "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT  callback"
+    },
+    "GetModifierHealthRegenPercentage" : {
+        "prefix": "GetModifierHealthRegenPercentage",
+        "body": "GetModifierHealthRegenPercentage()",
+        "description": "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE  callback"
+    },
+    "GetModifierHealthBonus" : {
+        "prefix": "GetModifierHealthBonus",
+        "body": "GetModifierHealthBonus()",
+        "description": "MODIFIER_PROPERTY_HEALTH_BONUS  callback"
+    },
+    "GetModifierManaBonus" : {
+        "prefix": "GetModifierManaBonus",
+        "body": "GetModifierManaBonus()",
+        "description": "MODIFIER_PROPERTY_MANA_BONUS  callback"
+    },
+    "GetModifierExtraStrengthBonus" : {
+        "prefix": "GetModifierExtraStrengthBonus",
+        "body": "GetModifierExtraStrengthBonus()",
+        "description": "MODIFIER_PROPERTY_EXTRA_STRENGTH_BONUS  callback"
+    },
+    "GetModifierExtraHealthBonus" : {
+        "prefix": "GetModifierExtraHealthBonus",
+        "body": "GetModifierExtraHealthBonus()",
+        "description": "MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS  callback"
+    },
+    "GetModifierExtraManaBonus" : {
+        "prefix": "GetModifierExtraManaBonus",
+        "body": "GetModifierExtraManaBonus()",
+        "description": "MODIFIER_PROPERTY_EXTRA_MANA_BONUS  callback"
+    },
+    "GetModifierExtraHealthPercentage" : {
+        "prefix": "GetModifierExtraHealthPercentage",
+        "body": "GetModifierExtraHealthPercentage()",
+        "description": "MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE  callback"
+    },
+    "GetModifierBonusStats_Strength" : {
+        "prefix": "GetModifierBonusStats_Strength",
+        "body": "GetModifierBonusStats_Strength()",
+        "description": "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS  callback"
+    },
+    "GetModifierBonusStats_Agility" : {
+        "prefix": "GetModifierBonusStats_Agility",
+        "body": "GetModifierBonusStats_Agility()",
+        "description": "MODIFIER_PROPERTY_STATS_AGILITY_BONUS  callback"
+    },
+    "GetModifierBonusStats_Intellect" : {
+        "prefix": "GetModifierBonusStats_Intellect",
+        "body": "GetModifierBonusStats_Intellect()",
+        "description": "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS  callback"
+    },
+    "GetModifierCastRangeBonus" : {
+        "prefix": "GetModifierCastRangeBonus",
+        "body": "GetModifierCastRangeBonus()",
+        "description": "MODIFIER_PROPERTY_CAST_RANGE_BONUS  callback"
+    },
+    "GetModifierCastRangeBonusStacking" : {
+        "prefix": "GetModifierCastRangeBonusStacking",
+        "body": "GetModifierCastRangeBonusStacking()",
+        "description": "MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING  callback"
+    },
+    "GetModifierAttackRangeBonus" : {
+        "prefix": "GetModifierAttackRangeBonus",
+        "body": "GetModifierAttackRangeBonus()",
+        "description": "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS  callback"
+    },
+    "GetModifierAttackRangeBonusUnique" : {
+        "prefix": "GetModifierAttackRangeBonusUnique",
+        "body": "GetModifierAttackRangeBonusUnique()",
+        "description": "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS_UNIQUE  callback"
+    },
+    "GetModifierMaxAttackRange" : {
+        "prefix": "GetModifierMaxAttackRange",
+        "body": "GetModifierMaxAttackRange()",
+        "description": "MODIFIER_PROPERTY_MAX_ATTACK_RANGE  callback"
+    },
+    "GetModifierProjectileSpeedBonus" : {
+        "prefix": "GetModifierProjectileSpeedBonus",
+        "body": "GetModifierProjectileSpeedBonus()",
+        "description": "MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS  callback"
+    },
+    "ReincarnateTime" : {
+        "prefix": "ReincarnateTime",
+        "body": "ReincarnateTime()",
+        "description": "MODIFIER_PROPERTY_REINCARNATION  callback"
+    },
+    "GetModifierConstantRespawnTime" : {
+        "prefix": "GetModifierConstantRespawnTime",
+        "body": "GetModifierConstantRespawnTime()",
+        "description": "MODIFIER_PROPERTY_RESPAWNTIME  callback"
+    },
+    "GetModifierPercentageRespawnTime" : {
+        "prefix": "GetModifierPercentageRespawnTime",
+        "body": "GetModifierPercentageRespawnTime()",
+        "description": "MODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE  callback"
+    },
+    "GetModifierStackingRespawnTime" : {
+        "prefix": "GetModifierStackingRespawnTime",
+        "body": "GetModifierStackingRespawnTime()",
+        "description": "MODIFIER_PROPERTY_RESPAWNTIME_STACKING  callback"
+    },
+    "GetModifierPercentageCooldown" : {
+        "prefix": "GetModifierPercentageCooldown",
+        "body": "GetModifierPercentageCooldown()",
+        "description": "MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE  callback"
+    },
+    "GetModifierPercentageCooldownStacking" : {
+        "prefix": "GetModifierPercentageCooldownStacking",
+        "body": "GetModifierPercentageCooldownStacking()",
+        "description": "MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_STACKING  callback"
+    },
+    "GetModifierPercentageCasttime" : {
+        "prefix": "GetModifierPercentageCasttime",
+        "body": "GetModifierPercentageCasttime()",
+        "description": "MODIFIER_PROPERTY_CASTTIME_PERCENTAGE  callback"
+    },
+    "GetModifierPercentageManacost" : {
+        "prefix": "GetModifierPercentageManacost",
+        "body": "GetModifierPercentageManacost()",
+        "description": "MODIFIER_PROPERTY_MANACOST_PERCENTAGE  callback"
+    },
+    "GetModifierConstantDeathGoldCost" : {
+        "prefix": "GetModifierConstantDeathGoldCost",
+        "body": "GetModifierConstantDeathGoldCost()",
+        "description": "MODIFIER_PROPERTY_DEATHGOLDCOST  callback"
+    },
+    "GetModifierPercentageExpRateBoost" : {
+        "prefix": "GetModifierPercentageExpRateBoost",
+        "body": "GetModifierPercentageExpRateBoost()",
+        "description": "MODIFIER_PROPERTY_EXP_RATE_BOOST  callback"
+    },
+    "GetModifierPreAttack_CriticalStrike" : {
+        "prefix": "GetModifierPreAttack_CriticalStrike",
+        "body": "GetModifierPreAttack_CriticalStrike()",
+        "description": "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE  callback"
+    },
+    "GetModifierPreAttack_Target_CriticalStrike" : {
+        "prefix": "GetModifierPreAttack_Target_CriticalStrike",
+        "body": "GetModifierPreAttack_Target_CriticalStrike()",
+        "description": "MODIFIER_PROPERTY_PREATTACK_TARGET_CRITICALSTRIKE  callback"
+    },
+    "GetModifierMagical_ConstantBlock" : {
+        "prefix": "GetModifierMagical_ConstantBlock",
+        "body": "GetModifierMagical_ConstantBlock()",
+        "description": "MODIFIER_PROPERTY_MAGICAL_CONSTANT_BLOCK  callback"
+    },
+    "GetModifierPhysical_ConstantBlock" : {
+        "prefix": "GetModifierPhysical_ConstantBlock",
+        "body": "GetModifierPhysical_ConstantBlock()",
+        "description": "MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK  callback"
+    },
+    "GetModifierPhysical_ConstantBlockSpecial" : {
+        "prefix": "GetModifierPhysical_ConstantBlockSpecial",
+        "body": "GetModifierPhysical_ConstantBlockSpecial()",
+        "description": "MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK_SPECIAL  callback"
+    },
+    "GetModifierPhysical_ConstantBlockUnavoidablePreArmor" : {
+        "prefix": "GetModifierPhysical_ConstantBlockUnavoidablePreArmor",
+        "body": "GetModifierPhysical_ConstantBlockUnavoidablePreArmor()",
+        "description": "MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK_UNAVOIDABLE_PRE_ARMOR  callback"
+    },
+    "GetModifierTotal_ConstantBlock" : {
+        "prefix": "GetModifierTotal_ConstantBlock",
+        "body": "GetModifierTotal_ConstantBlock()",
+        "description": "MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK  callback"
+    },
+    "GetOverrideAnimation" : {
+        "prefix": "GetOverrideAnimation",
+        "body": "GetOverrideAnimation()",
+        "description": "MODIFIER_PROPERTY_OVERRIDE_ANIMATION  callback"
+    },
+    "GetOverrideAnimationWeight" : {
+        "prefix": "GetOverrideAnimationWeight",
+        "body": "GetOverrideAnimationWeight()",
+        "description": "MODIFIER_PROPERTY_OVERRIDE_ANIMATION_WEIGHT  callback"
+    },
+    "GetOverrideAnimationRate" : {
+        "prefix": "GetOverrideAnimationRate",
+        "body": "GetOverrideAnimationRate()",
+        "description": "MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE  callback"
+    },
+    "GetAbsorbSpell" : {
+        "prefix": "GetAbsorbSpell",
+        "body": "GetAbsorbSpell()",
+        "description": "MODIFIER_PROPERTY_ABSORB_SPELL  callback"
+    },
+    "GetReflectSpell" : {
+        "prefix": "GetReflectSpell",
+        "body": "GetReflectSpell()",
+        "description": "MODIFIER_PROPERTY_REFLECT_SPELL  callback"
+    },
+    "GetDisableAutoAttack" : {
+        "prefix": "GetDisableAutoAttack",
+        "body": "GetDisableAutoAttack()",
+        "description": "MODIFIER_PROPERTY_DISABLE_AUTOATTACK  callback"
+    },
+    "GetBonusDayVision" : {
+        "prefix": "GetBonusDayVision",
+        "body": "GetBonusDayVision()",
+        "description": "MODIFIER_PROPERTY_BONUS_DAY_VISION  callback"
+    },
+    "GetBonusNightVision" : {
+        "prefix": "GetBonusNightVision",
+        "body": "GetBonusNightVision()",
+        "description": "MODIFIER_PROPERTY_BONUS_NIGHT_VISION  callback"
+    },
+    "GetBonusNightVisionUnique" : {
+        "prefix": "GetBonusNightVisionUnique",
+        "body": "GetBonusNightVisionUnique()",
+        "description": "MODIFIER_PROPERTY_BONUS_NIGHT_VISION_UNIQUE  callback"
+    },
+    "GetBonusVisionPercentage" : {
+        "prefix": "GetBonusVisionPercentage",
+        "body": "GetBonusVisionPercentage()",
+        "description": "MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE  callback"
+    },
+    "GetFixedDayVision" : {
+        "prefix": "GetFixedDayVision",
+        "body": "GetFixedDayVision()",
+        "description": "MODIFIER_PROPERTY_FIXED_DAY_VISION  callback"
+    },
+    "GetFixedNightVision" : {
+        "prefix": "GetFixedNightVision",
+        "body": "GetFixedNightVision()",
+        "description": "MODIFIER_PROPERTY_FIXED_NIGHT_VISION  callback"
+    },
+    "GetMinHealth" : {
+        "prefix": "GetMinHealth",
+        "body": "GetMinHealth()",
+        "description": "MODIFIER_PROPERTY_MIN_HEALTH  callback"
+    },
+    "GetAbsoluteNoDamagePhysical" : {
+        "prefix": "GetAbsoluteNoDamagePhysical",
+        "body": "GetAbsoluteNoDamagePhysical()",
+        "description": "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL  callback"
+    },
+    "GetAbsoluteNoDamageMagical" : {
+        "prefix": "GetAbsoluteNoDamageMagical",
+        "body": "GetAbsoluteNoDamageMagical()",
+        "description": "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL  callback"
+    },
+    "GetAbsoluteNoDamagePure" : {
+        "prefix": "GetAbsoluteNoDamagePure",
+        "body": "GetAbsoluteNoDamagePure()",
+        "description": "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE  callback"
+    },
+    "GetIsIllusion" : {
+        "prefix": "GetIsIllusion",
+        "body": "GetIsIllusion()",
+        "description": "MODIFIER_PROPERTY_IS_ILLUSION  callback"
+    },
+    "GetModifierIllusionLabel" : {
+        "prefix": "GetModifierIllusionLabel",
+        "body": "GetModifierIllusionLabel()",
+        "description": "MODIFIER_PROPERTY_ILLUSION_LABEL  callback"
+    },
+    "GetModifierSuperIllusion" : {
+        "prefix": "GetModifierSuperIllusion",
+        "body": "GetModifierSuperIllusion()",
+        "description": "MODIFIER_PROPERTY_SUPER_ILLUSION  callback"
+    },
+    "GetModifierSuperIllusionWithUltimate" : {
+        "prefix": "GetModifierSuperIllusionWithUltimate",
+        "body": "GetModifierSuperIllusionWithUltimate()",
+        "description": "MODIFIER_PROPERTY_SUPER_ILLUSION_WITH_ULTIMATE  callback"
+    },
+    "GetModifierTurnRate_Percentage" : {
+        "prefix": "GetModifierTurnRate_Percentage",
+        "body": "GetModifierTurnRate_Percentage()",
+        "description": "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE  callback"
+    },
+    "GetDisableHealing" : {
+        "prefix": "GetDisableHealing",
+        "body": "GetDisableHealing()",
+        "description": "MODIFIER_PROPERTY_DISABLE_HEALING  callback"
+    },
+    "GetAlwaysAllowAttack" : {
+        "prefix": "GetAlwaysAllowAttack",
+        "body": "GetAlwaysAllowAttack()",
+        "description": "MODIFIER_PROPERTY_ALWAYS_ALLOW_ATTACK  callback"
+    },
+    "GetOverrideAttackMagical" : {
+        "prefix": "GetOverrideAttackMagical",
+        "body": "GetOverrideAttackMagical()",
+        "description": "MODIFIER_PROPERTY_OVERRIDE_ATTACK_MAGICAL  callback"
+    },
+    "GetModifierUnitStatsNeedsRefresh" : {
+        "prefix": "GetModifierUnitStatsNeedsRefresh",
+        "body": "GetModifierUnitStatsNeedsRefresh()",
+        "description": "MODIFIER_PROPERTY_UNIT_STATS_NEEDS_REFRESH  callback"
+    },
+    "GetModifierBountyCreepMultiplier" : {
+        "prefix": "GetModifierBountyCreepMultiplier",
+        "body": "GetModifierBountyCreepMultiplier()",
+        "description": "MODIFIER_PROPERTY_BOUNTY_CREEP_MULTIPLIER  callback"
+    },
+    "GetModifierBountyOtherMultiplier" : {
+        "prefix": "GetModifierBountyOtherMultiplier",
+        "body": "GetModifierBountyOtherMultiplier()",
+        "description": "MODIFIER_PROPERTY_BOUNTY_OTHER_MULTIPLIER  callback"
+    },
+    "OnSpellTargetReady" : {
+        "prefix": "OnSpellTargetReady",
+        "body": "OnSpellTargetReady(keys)",
+        "description": "MODIFIER_EVENT_ON_SPELL_TARGET_READY  callback"
+    },
+    "OnAttackRecord" : {
+        "prefix": "OnAttackRecord",
+        "body": "OnAttackRecord(keys)",
+        "description": "MODIFIER_EVENT_ON_ATTACK_RECORD  callback"
+    },
+    "OnAttackStart" : {
+        "prefix": "OnAttackStart",
+        "body": "OnAttackStart(keys)",
+        "description": "MODIFIER_EVENT_ON_ATTACK_START  callback"
+    },
+    "OnAttack" : {
+        "prefix": "OnAttack",
+        "body": "OnAttack(keys)",
+        "description": "MODIFIER_EVENT_ON_ATTACK  callback"
+    },
+    "OnAttackLanded" : {
+        "prefix": "OnAttackLanded",
+        "body": "OnAttackLanded(keys)",
+        "description": "MODIFIER_EVENT_ON_ATTACK_LANDED  callback"
+    },
+    "OnAttackFail" : {
+        "prefix": "OnAttackFail",
+        "body": "OnAttackFail(keys)",
+        "description": "MODIFIER_EVENT_ON_ATTACK_FAIL  callback"
+    },
+    "OnAttackAllied" : {
+        "prefix": "OnAttackAllied",
+        "body": "OnAttackAllied(keys)",
+        "description": "MODIFIER_EVENT_ON_ATTACK_ALLIED  callback"
+    },
+    "OnProjectileDodge" : {
+        "prefix": "OnProjectileDodge",
+        "body": "OnProjectileDodge(keys)",
+        "description": "MODIFIER_EVENT_ON_PROJECTILE_DODGE  callback"
+    },
+    "OnOrder" : {
+        "prefix": "OnOrder",
+        "body": "OnOrder(keys)",
+        "description": "MODIFIER_EVENT_ON_ORDER  callback"
+    },
+    "OnUnitMoved" : {
+        "prefix": "OnUnitMoved",
+        "body": "OnUnitMoved(keys)",
+        "description": "MODIFIER_EVENT_ON_UNIT_MOVED  callback"
+    },
+    "OnAbilityStart" : {
+        "prefix": "OnAbilityStart",
+        "body": "OnAbilityStart(keys)",
+        "description": "MODIFIER_EVENT_ON_ABILITY_START  callback"
+    },
+    "OnAbilityExecuted" : {
+        "prefix": "OnAbilityExecuted",
+        "body": "OnAbilityExecuted(keys)",
+        "description": "MODIFIER_EVENT_ON_ABILITY_EXECUTED  callback"
+    },
+    "OnAbilityFullyCast" : {
+        "prefix": "OnAbilityFullyCast",
+        "body": "OnAbilityFullyCast(keys)",
+        "description": "MODIFIER_EVENT_ON_ABILITY_FULLY_CAST  callback"
+    },
+    "OnBreakInvisibility" : {
+        "prefix": "OnBreakInvisibility",
+        "body": "OnBreakInvisibility(keys)",
+        "description": "MODIFIER_EVENT_ON_BREAK_INVISIBILITY  callback"
+    },
+    "OnAbilityEndChannel" : {
+        "prefix": "OnAbilityEndChannel",
+        "body": "OnAbilityEndChannel(keys)",
+        "description": "MODIFIER_EVENT_ON_ABILITY_END_CHANNEL  callback"
+    },
+    "OnTakeDamage" : {
+        "prefix": "OnTakeDamage",
+        "body": "OnTakeDamage(keys)",
+        "description": "MODIFIER_EVENT_ON_TAKEDAMAGE  callback"
+    },
+    "OnStateChanged" : {
+        "prefix": "OnStateChanged",
+        "body": "OnStateChanged(keys)",
+        "description": "MODIFIER_EVENT_ON_STATE_CHANGED  callback"
+    },
+    "OnAttacked" : {
+        "prefix": "OnAttacked",
+        "body": "OnAttacked(keys)",
+        "description": "MODIFIER_EVENT_ON_ATTACKED  callback"
+    },
+    "OnDeath" : {
+        "prefix": "OnDeath",
+        "body": "OnDeath(keys)",
+        "description": "MODIFIER_EVENT_ON_DEATH  callback"
+    },
+    "OnRespawn" : {
+        "prefix": "OnRespawn",
+        "body": "OnRespawn(keys)",
+        "description": "MODIFIER_EVENT_ON_RESPAWN  callback"
+    },
+    "OnSpentMana" : {
+        "prefix": "OnSpentMana",
+        "body": "OnSpentMana(keys)",
+        "description": "MODIFIER_EVENT_ON_SPENT_MANA  callback"
+    },
+    "OnTeleporting" : {
+        "prefix": "OnTeleporting",
+        "body": "OnTeleporting(keys)",
+        "description": "MODIFIER_EVENT_ON_TELEPORTING  callback"
+    },
+    "OnTeleported" : {
+        "prefix": "OnTeleported",
+        "body": "OnTeleported(keys)",
+        "description": "MODIFIER_EVENT_ON_TELEPORTED  callback"
+    },
+    "OnSetLocation" : {
+        "prefix": "OnSetLocation",
+        "body": "OnSetLocation(keys)",
+        "description": "MODIFIER_EVENT_ON_SET_LOCATION  callback"
+    },
+    "OnHealthGained" : {
+        "prefix": "OnHealthGained",
+        "body": "OnHealthGained(keys)",
+        "description": "MODIFIER_EVENT_ON_HEALTH_GAINED  callback"
+    },
+    "OnManaGained" : {
+        "prefix": "OnManaGained",
+        "body": "OnManaGained(keys)",
+        "description": "MODIFIER_EVENT_ON_MANA_GAINED  callback"
+    },
+    "OnTakeDamageKillCredit" : {
+        "prefix": "OnTakeDamageKillCredit",
+        "body": "OnTakeDamageKillCredit(keys)",
+        "description": "MODIFIER_EVENT_ON_TAKEDAMAGE_KILLCREDIT  callback"
+    },
+    "OnHeroKilled" : {
+        "prefix": "OnHeroKilled",
+        "body": "OnHeroKilled(keys)",
+        "description": "MODIFIER_EVENT_ON_HERO_KILLED  callback"
+    },
+    "OnHealReceived" : {
+        "prefix": "OnHealReceived",
+        "body": "OnHealReceived(keys)",
+        "description": "MODIFIER_EVENT_ON_HEAL_RECEIVED  callback"
+    },
+    "OnBuildingKilled" : {
+        "prefix": "OnBuildingKilled",
+        "body": "OnBuildingKilled(keys)",
+        "description": "MODIFIER_EVENT_ON_BUILDING_KILLED  callback"
+    },
+    "OnModelChanged" : {
+        "prefix": "OnModelChanged",
+        "body": "OnModelChanged(keys)",
+        "description": "MODIFIER_EVENT_ON_MODEL_CHANGED  callback"
+    },
+    "OnModifierAdded" : {
+        "prefix": "OnModifierAdded",
+        "body": "OnModifierAdded(keys)",
+        "description": "MODIFIER_EVENT_ON_MODIFIER_ADDED  callback"
+    },
+    "OnTooltip" : {
+        "prefix": "OnTooltip",
+        "body": "OnTooltip()",
+        "description": "MODIFIER_PROPERTY_TOOLTIP  callback"
+    },
+    "GetModifierModelChange" : {
+        "prefix": "GetModifierModelChange",
+        "body": "GetModifierModelChange()",
+        "description": "MODIFIER_PROPERTY_MODEL_CHANGE  callback"
+    },
+    "GetModifierModelScale" : {
+        "prefix": "GetModifierModelScale",
+        "body": "GetModifierModelScale()",
+        "description": "MODIFIER_PROPERTY_MODEL_SCALE  callback"
+    },
+    "GetModifierScepter" : {
+        "prefix": "GetModifierScepter",
+        "body": "GetModifierScepter()",
+        "description": "MODIFIER_PROPERTY_IS_SCEPTER  callback"
+    },
+    "GetActivityTranslationModifiers" : {
+        "prefix": "GetActivityTranslationModifiers",
+        "body": "GetActivityTranslationModifiers()",
+        "description": "MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS  callback"
+    },
+    "GetAttackSound" : {
+        "prefix": "GetAttackSound",
+        "body": "GetAttackSound()",
+        "description": "MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND  callback"
+    },
+    "GetUnitLifetimeFraction" : {
+        "prefix": "GetUnitLifetimeFraction",
+        "body": "GetUnitLifetimeFraction()",
+        "description": "MODIFIER_PROPERTY_LIFETIME_FRACTION  callback"
+    },
+    "GetModifierProvidesFOWVision" : {
+        "prefix": "GetModifierProvidesFOWVision",
+        "body": "GetModifierProvidesFOWVision()",
+        "description": "MODIFIER_PROPERTY_PROVIDES_FOW_POSITION  callback"
+    },
+    "GetModifierSpellsRequireHP" : {
+        "prefix": "GetModifierSpellsRequireHP",
+        "body": "GetModifierSpellsRequireHP()",
+        "description": "MODIFIER_PROPERTY_SPELLS_REQUIRE_HP  callback"
+    },
+    "GetForceDrawOnMinimap" : {
+        "prefix": "GetForceDrawOnMinimap",
+        "body": "GetForceDrawOnMinimap()",
+        "description": "MODIFIER_PROPERTY_FORCE_DRAW_MINIMAP  callback"
+    },
+    "GetModifierDisableTurning" : {
+        "prefix": "GetModifierDisableTurning",
+        "body": "GetModifierDisableTurning()",
+        "description": "MODIFIER_PROPERTY_DISABLE_TURNING  callback"
+    },
+    "GetModifierIgnoreCastAngle" : {
+        "prefix": "GetModifierIgnoreCastAngle",
+        "body": "GetModifierIgnoreCastAngle()",
+        "description": "MODIFIER_PROPERTY_IGNORE_CAST_ANGLE  callback"
+    },
+    "GetModifierChangeAbilityValue" : {
+        "prefix": "GetModifierChangeAbilityValue",
+        "body": "GetModifierChangeAbilityValue()",
+        "description": "MODIFIER_PROPERTY_CHANGE_ABILITY_VALUE  callback"
+    },
+    "GetModifierAbilityLayout" : {
+        "prefix": "GetModifierAbilityLayout",
+        "body": "GetModifierAbilityLayout()",
+        "description": "MODIFIER_PROPERTY_ABILITY_LAYOUT  callback"
+    },
+    "OnDominated" : {
+        "prefix": "OnDominated",
+        "body": "OnDominated(keys)",
+        "description": "MODIFIER_EVENT_ON_DOMINATED  callback"
+    },
+    "GetModifierTempestDouble" : {
+        "prefix": "GetModifierTempestDouble",
+        "body": "GetModifierTempestDouble()",
+        "description": "MODIFIER_PROPERTY_TEMPEST_DOUBLE  callback"
+    },
+    "PreserveParticlesOnModelChanged" : {
+        "prefix": "PreserveParticlesOnModelChanged",
+        "body": "PreserveParticlesOnModelChanged()",
+        "description": "MODIFIER_PROPERTY_PRESERVE_PARTICLES_ON_MODEL_CHANGE  callback"
+    },
+    "OnAttackFinished" : {
+        "prefix": "OnAttackFinished",
+        "body": "OnAttackFinished(keys)",
+        "description": "MODIFIER_EVENT_ON_ATTACK_FINISHED  callback"
+    },
+    "GetModifierIgnoreCooldown" : {
+        "prefix": "GetModifierIgnoreCooldown",
+        "body": "GetModifierIgnoreCooldown()",
+        "description": "MODIFIER_PROPERTY_IGNORE_COOLDOWN  callback"
+    },
+    "GetModifierCanAttackTrees" : {
+        "prefix": "GetModifierCanAttackTrees",
+        "body": "GetModifierCanAttackTrees()",
+        "description": "MODIFIER_PROPERTY_CAN_ATTACK_TREES  callback"
+    },
+    "GetVisualZDelta" : {
+        "prefix": "GetVisualZDelta",
+        "body": "GetVisualZDelta()",
+        "description": "MODIFIER_PROPERTY_VISUAL_Z_DELTA  callback"
+    }
+}

@@ -1,9 +1,12 @@
 # Dota-Reborn-Code
 
 ## Changelog
-
+    v0.1.9 Add support of lua modifiers, update lua snippets to latest version.
+    v0.1.8 Update lua snippets to latest version.
+    v0.1.7 Update lua snippets to latest version.
+    v0.1.6 Update lua snippets to latest version.
+    v0.1.5 Update lua snippets to latest version.
     v0.1.4 Update lua snippets to latest version.
-
     v0.1.3 Fixed missing KV syntax, now global.d.ts file needs commmand to copy:
 
     Hit `ctrl+shift+p` and type `Create Sni...`;
