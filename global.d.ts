@@ -9,12 +9,65 @@ declare var Entities : CScriptBindingPR_Entities;
 declare var Abilities : CScriptBindingPR_Abilities;
 declare var Items : CScriptBindingPR_Items;
 declare var Game : CScriptBindingPR_Game;
+declare var Particles : CParticles;
 
 type js_raw_args = any;
 type unknown_variant_type = any;
 type js_value = any;
 type js_object = Object;
 
+declare interface CParticles {
+    /**
+     * Create a particle system
+     * @param pParticleName
+     * @param nAttachType ParticleAttachment_t
+     * @param nEntityToAttach 
+     */
+    CreateParticle(pParticleName: string, nAttachType: number, nEntityToAttach:number ): number;
+
+    /**
+     * Destroy a particle system
+     * @param iIndex 
+     * @param bDestroyImmediately
+     */
+    DestroyParticleEffect(iIndex: number, bDestroyImmediately: boolean): void;
+
+    /**
+     * Release a particle system
+     * @param iIndex 
+     */
+    ReleaseParticleIndex(iIndex: number): void;
+
+    /**
+     * Set a control point on a particle system
+     * @param iIndex 
+     * @param iPoint 
+     * @param vPosVal 
+     */
+    SetParticleControl( iIndex: number, iPoint: number, vPosVal: number[] ): void;
+
+    /**
+     * Set the orientation on a control point on a particle system
+     * @param iIndex 
+     * @param iPoint 
+     * @param vForwardVal 
+     */
+    SetParticleControlForward( iIndex: number, iPoint: number, vForwardVal: number[] ): void;
+
+    SetParticleAlwaysSimulate( iIndex: number ): void;
+
+    /**
+     * Set a control point to track an entity on a particle system
+     * @param iIndex 
+     * @param iPoint 
+     * @param iEntIndex 
+     * @param iAttachType ParticleAttachment_t
+     * @param pszAttachName "attach_hitloc"
+     * @param vecFallbackPositionVal 
+     * @param bIncludeWearables 
+     */
+    SetParticleControlEnt( iIndex: number, iPoint: number, iEntIndex: number, iAttachType: number, pszAttachName: string, vecFallbackPositionVal: number[], bIncludeWearables: boolean ): void;
+}
 
 interface CDOTA_PanoramaScript_GameEvents{
     /**
@@ -24,15 +77,15 @@ interface CDOTA_PanoramaScript_GameEvents{
     /**
      * Unsubscribe from a game event
      */
-    Unsubscribe( nCallbackHandle : number ) 
+    Unsubscribe( nCallbackHandle : number ) : void
     /**
      * Send a custom game event
      */
-    SendCustomGameEventToServer( pEventName : string , eventArgs : Object )
+    SendCustomGameEventToServer( pEventName : string , eventArgs : Object ): void
     /**
      * Send a client-side event using gameeventmanager (only useful for a few specific events)
      */
-    SendEventClientSide( pEventName : string , eventArgs : Object )
+    SendEventClientSide( pEventName : string , eventArgs : Object ): void
 }
 
 interface CDOTA_PanoramaScript_GameUI{
@@ -56,7 +109,7 @@ interface CDOTA_PanoramaScript_GameUI{
     /**
      *    
      */
-    EnableAliMode( bEnable : boolean , nPort : number ,  offsetVal : number , nScale : number )
+    EnableAliMode( bEnable : boolean , nPort : number ,  offsetVal : number , nScale : number ): void
     /**
      *    Get the current mouse position.
      */
@@ -100,7 +153,7 @@ interface CDOTA_PanoramaScript_GameUI{
     /**
      *    Select a unit, adding it to the group or replacing the current selection.
      */
-    SelectUnit( nEntityIndex : number , bAddToGroup : boolean )
+    SelectUnit( nEntityIndex : number , bAddToGroup : boolean ): void
     /**
      *    Set the minimum camera pitch angle.
      */
@@ -134,6 +187,15 @@ interface CDOTA_PanoramaScript_GameUI{
      */
     SetCameraTarget( nTargetEntIndex : number ) : void
 
+    WorldToScreenXYClamped( vec: number[] ): number[]
+
+    /**
+     * Set the camera target as position for the local player over specified lerp.
+     * @param vec 
+     * @param lerp 
+     */
+    SetCameraTargetPosition( vec: any, lerp: number): void
+
 }
 
 interface CDOTA_PanoramaScript_CustomNetTables{
@@ -141,11 +203,11 @@ interface CDOTA_PanoramaScript_CustomNetTables{
     /**
      *  Get a key from a custom net table
      */
-    GetTableValue( pTableName : string , pKeyName : string ) 
+    GetTableValue( pTableName : string , pKeyName : string ) : any
     /**
      *  Get all values from a custom net table
      */
-    GetAllTableValues( pTableName : string ) 
+    GetAllTableValues( pTableName : string ) : any
     /**
      *  Register a callback when a particular custom net table changes
      */
@@ -258,7 +320,7 @@ interface CScriptBindingPR_Players{
     /**
      *  
      */
-    GetNearbyCreepDeaths( iPlayerID : number )
+    GetNearbyCreepDeaths( iPlayerID : number ): any
     /**
      *   Total reliable gold for this player.
      */
@@ -298,7 +360,7 @@ interface CScriptBindingPR_Players{
     /**
      *   Return the name of the hero a player is controlling.
      */
-    GetPlayerSelectedHero( iPlayerID : number ) : number
+    GetPlayerSelectedHero( iPlayerID : number ) : string
     /**
      *  Get the player color.
      */
@@ -310,15 +372,16 @@ interface CScriptBindingPR_Players{
     /**
      *   .
      */
-    PlayerPortraitClicked( nClickedPlayerID : number , bHoldingCtrl : boolean ,  bHoldingAlt : boolean )
+    PlayerPortraitClicked( nClickedPlayerID : number , bHoldingCtrl : boolean ,  bHoldingAlt : boolean ): void
     /**
      *  .
      */
-    BuffClicked( nEntity : number , nBuffSerial : number ,  bAlert : boolean )
+    BuffClicked( nEntity : number , nBuffSerial : number ,  bAlert : boolean ): void
 
 }
 
 interface CScriptBindingPR_Entities{
+    GetPlayerOwnerID( nEntityIndex : number ): number
     /**
      *  Get the world origin of the entity.
      */
@@ -654,7 +717,7 @@ interface CScriptBindingPR_Entities{
     /**
      *  
      */
-    UsesHeroAbilityNumbers( nEntityIndex : number )
+    UsesHeroAbilityNumbers( nEntityIndex : number ): void
     /**
      *   
      */
@@ -878,15 +941,15 @@ interface CScriptBindingPR_Entities{
     /**
      *   
      */
-    InState( nEntityIndex : number , nState : number )
+    InState( nEntityIndex : number , nState : number ): boolean
     /**
      *  
      */
-    GetArmorForDamageType( nEntityIndex : number , iDamageType : number )
+    GetArmorForDamageType( nEntityIndex : number , iDamageType : number ): number
     /**
      *   
      */
-    GetArmorReductionForDamageType( nEntityIndex : number , iDamageType : number )
+    GetArmorReductionForDamageType( nEntityIndex : number , iDamageType : number ): number
     /**
      *   
      */
@@ -894,47 +957,47 @@ interface CScriptBindingPR_Entities{
     /**
      *  
      */
-    GetNumItemsInStash( nEntityIndex : number )
+    GetNumItemsInStash( nEntityIndex : number ): number
     /**
      *  
      */
-    GetNumItemsInInventory( nEntityIndex : number )
+    GetNumItemsInInventory( nEntityIndex : number ): number
     /**
      *   
      */
-    GetItemInSlot( nEntityIndex : number , nSlotIndex : number )
+    GetItemInSlot( nEntityIndex : number , nSlotIndex : number ): number
     /**
      *  
      */
-    GetAbility( nEntityIndex : number , nSlotIndex : number )
+    GetAbility( nEntityIndex : number , nSlotIndex : number ): number
     /**
      *  
      */
-    GetAbilityByName( nEntityIndex : number , pszAbilityName : string )
+    GetAbilityByName( nEntityIndex : number , pszAbilityName : string ): string
     /**
      *   
      */
-    GetNumBuffs( nEntityIndex : number )
+    GetNumBuffs( nEntityIndex : number ): number
     /**
      *  
      */
-    GetBuff( nEntityIndex : number , nBufIndex : number )
+    GetBuff( nEntityIndex : number , nBufIndex : number ): any
     /**
      *  
      */
-    GetAbilityPoints( nEntityIndex : number )
+    GetAbilityPoints( nEntityIndex : number ): number
     /**
      *  
      */
-    GetCurrentXP( nEntityIndex : number )
+    GetCurrentXP( nEntityIndex : number ): number
     /**
      *  
      */
-    GetNeededXPToLevel( nEntityIndex : number )
+    GetNeededXPToLevel( nEntityIndex : number ): number
     /**
      *  Get the currently selected entities
      */
-    GetSelectionEntities( nEntityIndex : number )
+    GetSelectionEntities( nEntityIndex : number ): number[]
     /**
      *   Is this a valid entity index?
      */
@@ -946,7 +1009,9 @@ interface CScriptBindingPR_Entities{
     /**
      *  Get the item contained in this physical item container.
      */
-    GetContainedItem( nEntityIndex : number )
+    GetContainedItem( nEntityIndex : number ): number
+
+    HasModifier(nEntityIndex : number, name: string): boolean;
 
 }
 
@@ -954,35 +1019,35 @@ interface CScriptBindingPR_Abilities{
     /**
      *  
      */
-    GetAbilityName( nEntityIndex : number ) 
+    GetAbilityName( nEntityIndex : number ) : string
     /**
      * 
      */
-    GetAbilityTextureName( nEntityIndex : number ) 
+    GetAbilityTextureName( nEntityIndex : number ) : string
     /**
      * 
      */
-    GetAssociatedPrimaryAbilities( nEntityIndex : number ) 
+    GetAssociatedPrimaryAbilities( nEntityIndex : number ) : number[]
     /**
      * 
      */
-    GetAssociatedSecondaryAbilities( nEntityIndex : number ) 
+    GetAssociatedSecondaryAbilities( nEntityIndex : number ) : number[]
     /**
      * 
      */
-    GetHotkeyOverride( nEntityIndex : number ) 
+    GetHotkeyOverride( nEntityIndex : number ) : string
     /**
      *  
      */
-    GetIntrinsicModifierName( nEntityIndex : number ) 
+    GetIntrinsicModifierName( nEntityIndex : number ) : string
     /**
      * 
      */
-    GetSharedCooldownName( nEntityIndex : number ) 
+    GetSharedCooldownName( nEntityIndex : number ) : string
     /**
      *  
      */
-    AbilityReady( nEntityIndex : number ) 
+    AbilityReady( nEntityIndex : number ) : boolean
     /**
      *  Returns an AbilityLearnResult_t
      */
@@ -994,83 +1059,83 @@ interface CScriptBindingPR_Abilities{
     /**
      *  
      */
-    GetAbilityDamage( nEntityIndex : number ) 
+    GetAbilityDamage( nEntityIndex : number ) : string
     /**
      *  
      */
-    GetAbilityDamageType( nEntityIndex : number ) 
+    GetAbilityDamageType( nEntityIndex : number ) : number
     /**
      * 
      */
-    GetAbilityTargetFlags( nEntityIndex : number ) 
+    GetAbilityTargetFlags( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetAbilityTargetTeam( nEntityIndex : number ) 
+    GetAbilityTargetTeam( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetAbilityTargetType( nEntityIndex : number ) 
+    GetAbilityTargetType( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetAbilityType( nEntityIndex : number ) 
+    GetAbilityType( nEntityIndex : number ) : number
     /**
      * 
      */
-    GetBehavior( nEntityIndex : number ) 
+    GetBehavior( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetCastRange( nEntityIndex : number ) 
+    GetCastRange( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetChannelledManaCostPerSecond( nEntityIndex : number ) 
+    GetChannelledManaCostPerSecond( nEntityIndex : number ) : number
     /**
      * 
      */
-    GetCurrentCharges( nEntityIndex : number ) 
+    GetCurrentCharges( nEntityIndex : number ) : number
     /**
      * 
      */
-    GetEffectiveLevel( nEntityIndex : number ) 
+    GetEffectiveLevel( nEntityIndex : number ) : number
     /**
      * 
      */
-    GetHeroLevelRequiredToUpgrade( nEntityIndex : number ) 
+    GetHeroLevelRequiredToUpgrade( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetLevel( nEntityIndex : number ) 
+    GetLevel( nEntityIndex : number ) : number
     /**
      * 
      */
-    GetManaCost( nEntityIndex : number ) 
+    GetManaCost( nEntityIndex : number ) : number
     /**
      * 
      */
-    GetMaxLevel( nEntityIndex : number ) 
+    GetMaxLevel( nEntityIndex : number ) : number
     /**
      *  
      */
-    AttemptToUpgrade( nEntityIndex : number ) 
+    AttemptToUpgrade( nEntityIndex : number ) : void
     /**
      *  
      */
-    CanLearn( nEntityIndex : number ) 
+    CanLearn( nEntityIndex : number ) : boolean
     /**
      *  
      */
-    GetAutoCastState( nEntityIndex : number ) 
+    GetAutoCastState( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetToggleState( nEntityIndex : number ) 
+    GetToggleState( nEntityIndex : number ) : number
     /**
      *  
      */
-    HasScepterUpgradeTooltip( nEntityIndex : number ) 
+    HasScepterUpgradeTooltip( nEntityIndex : number ) : boolean
     /**
      * 
      */
@@ -1166,67 +1231,67 @@ interface CScriptBindingPR_Abilities{
     /**
      *  
      */
-    GetAOERadius( nEntityIndex : number ) 
+    GetAOERadius( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetBackswingTime( nEntityIndex : number ) 
+    GetBackswingTime( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetCastPoint( nEntityIndex : number ) 
+    GetCastPoint( nEntityIndex : number ) : number
     /**
      * 
      */
-    GetChannelStartTime( nEntityIndex : number ) 
+    GetChannelStartTime( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetChannelTime( nEntityIndex : number ) 
+    GetChannelTime( nEntityIndex : number ) : number
     /**
      * 
      */
-    GetCooldown( nEntityIndex : number ) 
+    GetCooldown( nEntityIndex : number ) : number
     /**
      * 
      */
-    GetCooldownLength( nEntityIndex : number ) 
+    GetCooldownLength( nEntityIndex : number ) : number
     /**
      * 
      */
-    GetCooldownTime( nEntityIndex : number ) 
+    GetCooldownTime( nEntityIndex : number ) : number
     /**
      *  
      */
-    GetCooldownTimeRemaining( nEntityIndex : number ) 
+    GetCooldownTimeRemaining( nEntityIndex : number ) : number
     /**
      * 
      */
-    GetDuration( nEntityIndex : number ) 
+    GetDuration( nEntityIndex : number ) : number
     /**
      * 
      */
-    GetUpgradeBlend( nEntityIndex : number ) 
+    GetUpgradeBlend( nEntityIndex : number ) : number
     /**
      * Get the local player's current active ability. (Pre-cast targetting state.)
      */
-    GetLocalPlayerActiveAbility()
+    GetLocalPlayerActiveAbility(): number
     /**
      *  
      */
-    GetCaster( nAbilityIndex : number ) 
+    GetCaster( nAbilityIndex : number ) : number
     /**
      * 
      */
-    GetCustomValueFor( nAbilityIndex : number , pszAbilityVarName : string ) 
+    GetCustomValueFor( nAbilityIndex : number , pszAbilityVarName : string ) : any
     /**
      *  
      */
-    GetLevelSpecialValueFor( nAbilityIndex : number , szName : string ,  nLevel : number ) 
+    GetLevelSpecialValueFor( nAbilityIndex : number , szName : string ,  nLevel : number ) : number
     /**
      * 
      */
-    GetSpecialValueFor( nAbilityIndex : number , szName : string ) 
+    GetSpecialValueFor( nAbilityIndex : number , szName : string ) : number
     /**
      * 
      */
@@ -1234,19 +1299,19 @@ interface CScriptBindingPR_Abilities{
     /**
      * Attempt to execute the specified ability (Equivalent to clicking the ability in the HUD action bar)
      */
-    ExecuteAbility( nAbilityEntIndex : number , nCasterEntIndex : number ,  bIsQuickCast : boolean ) 
+    ExecuteAbility( nAbilityEntIndex : number , nCasterEntIndex : number ,  bIsQuickCast : boolean ) : void
     /**
      * Attempt to double-tap (self-cast) the specified ability (Equivalent to double-clicking the ability in the HUD action bar)
      */
-    CreateDoubleTapCastOrder( nAbilityEntIndex : number , nCasterEntIndex : number ) 
+    CreateDoubleTapCastOrder( nAbilityEntIndex : number , nCasterEntIndex : number ) : void
     /**
      *  Ping the specified ability (Equivalent to alt-clicking the ability in the HUD action bar)
      */
-    PingAbility( nAbilityIndex : number ) 
+    PingAbility( nAbilityIndex : number ) : void
     /**
      *  Returns the keybind (as a string) for the specified ability.
      */
-    GetKeybind( nAbilityEntIndex : number ) 
+    GetKeybind( nAbilityEntIndex : number ) : string
 
 }
 
@@ -1254,27 +1319,27 @@ interface CScriptBindingPR_Items extends CScriptBindingPR_Abilities{
     /**
      *   
      */
-    ShouldDisplayCharges( nEntityIndex : number )
+    ShouldDisplayCharges( nEntityIndex : number ): number
     /**
      *   
      */
-    AlwaysDisplayCharges( nEntityIndex : number )
+    AlwaysDisplayCharges( nEntityIndex : number ): number
     /**
      *   
      */
-    ShowSecondaryCharges( nEntityIndex : number )
+    ShowSecondaryCharges( nEntityIndex : number ): number
     /**
      *   
      */
-    CanBeSoldByLocalPlayer( nEntityIndex : number )
+    CanBeSoldByLocalPlayer( nEntityIndex : number ): boolean
     /**
      *   
      */
-    CanDoubleTapCast( nEntityIndex : number )
+    CanDoubleTapCast( nEntityIndex : number ): boolean
     /**
      *   
      */
-    ForceHideCharges( nEntityIndex : number )
+    ForceHideCharges( nEntityIndex : number ): number
     /**
      *  
      */
@@ -1330,107 +1395,151 @@ interface CScriptBindingPR_Items extends CScriptBindingPR_Abilities{
     /**
      *   
      */
-    ProRatesChargesWhenSelling( nEntityIndex : number )
+    ProRatesChargesWhenSelling( nEntityIndex : number ): any
     /**
      *  
      */
-    RequiresCharges( nEntityIndex : number )
+    RequiresCharges( nEntityIndex : number ): number
     /**
      *  
      */
-    CanBeExecuted( nEntityIndex : number )
+    CanBeExecuted( nEntityIndex : number ): boolean
     /**
      *  
      */
-    GetCost( nEntityIndex : number )
+    GetCost( nEntityIndex : number ): number
     /**
      *  
      */
-    GetCurrentCharges( nEntityIndex : number )
+    GetCurrentCharges( nEntityIndex : number ): number
     /**
      *  
      */
-    GetSecondaryCharges( nEntityIndex : number )
+    GetSecondaryCharges( nEntityIndex : number ): number
     /**
      *  
      */
-    GetDisplayedCharges( nEntityIndex : number )
+    GetDisplayedCharges( nEntityIndex : number ): number
     /**
      *  
      */
-    GetInitialCharges( nEntityIndex : number )
+    GetInitialCharges( nEntityIndex : number ): number
     /**
      *   
      */
-    GetItemColor( nEntityIndex : number )
+    GetItemColor( nEntityIndex : number ): string
     /**
      *  
      */
-    GetShareability( nEntityIndex : number )
+    GetShareability( nEntityIndex : number ): string
     /**
      *  
      */
-    GetAbilityTextureSF( nEntityIndex : number )
+    GetAbilityTextureSF( nEntityIndex : number ): string
     /**
      *   
      */
-    GetAssembledTime( nEntityIndex : number )
+    GetAssembledTime( nEntityIndex : number ): number
     /**
      *  
      */
-    GetPurchaseTime( nEntityIndex : number )
+    GetPurchaseTime( nEntityIndex : number ): number
     /**
      *  
      */
-    GetPurchaser( nItemID : number )
+    GetPurchaser( nItemID : number ): number
     /**
      *  Attempt to have the local player disassemble the specified item. Returns false if the order wasn't issued.
      */
-    LocalPlayerDisassembleItem( nItem : number )
+    LocalPlayerDisassembleItem( nItem : number ): void
     /**
      *  Attempt to have the local player drop the specified item from its stash. Returns false if the order wasn't issued.
      */
-    LocalPlayerDropItemFromStash( nItem : number )
+    LocalPlayerDropItemFromStash( nItem : number ): void
     /**
      *  Attempt to have the local player alert allies about the specified item. Returns false if the order wasn't issued.
      */
-    LocalPlayerItemAlertAllies( nItem : number )
+    LocalPlayerItemAlertAllies( nItem : number ): void
     /**
      *  Attempt to have the local player move the specified item to its stash. Returns false if the order wasn't issued.
      */
-    LocalPlayerMoveItemToStash( nItem : number )
+    LocalPlayerMoveItemToStash( nItem : number ): void
     /**
      *   Attempt to have the local player sell the specified item. Returns false if the order wasn't issued.
      */
-    LocalPlayerSellItem( nItem : number )
+    LocalPlayerSellItem( nItem : number ): void
 
 }
 
+/**
+ * {
+ *   "team_id": 2,
+ *   "team_name": "#DOTA_GoodGuys",
+ *   "team_max_players": 1,
+ *   "team_score": 0,
+ *   "team_num_players": 1
+ * }	
+ */
+declare interface ITeamDetails {
+    "team_id": number;
+    "team_name": string;
+    "team_max_players": number;
+    "team_score": number;
+    "team_num_players": number;
+}	
+
+declare interface IPlayerInfo {
+    "player_id": number;
+    "player_name": string;
+    "player_connection_state": number;
+    "player_steamid": string;
+    "player_kills": number;
+    "player_deaths": number;
+    "player_assists": number;
+    "player_selected_hero_id": number;
+    "player_selected_hero": string;
+    "player_selected_hero_entity_index": number;
+    "possible_hero_selection": "";
+    "player_level": number;
+    "player_respawn_seconds": number;
+    "player_gold": number;
+    "player_team_id": number;
+    "player_is_local": boolean;
+    "player_has_host_privileges": boolean;
+}	
+
+
+declare interface IMapInfo {
+    "map_name": string;
+    "map_display_name": string;
+}	
+
 interface CScriptBindingPR_Game{
+    IsInToolsMode(): boolean;
     /**
      * 
      */
-    Time()
+    Time(): number
     /**
      *  
      */
-    GetGameTime()
+    GetGameTime(): number
     /**
      * 
      */
-    GetDOTATime( bIncludePreGame : boolean , bIncludeNegativeTime : boolean ) 
+    GetDOTATime( bIncludePreGame : boolean , bIncludeNegativeTime : boolean ) : number
     /**
      *  Return the team id of the winning team.
      */
-    GetGameWinner()
+    GetGameWinner(): number
     /**
      * 
      */
-    GetStateTransitionTime()
+    GetStateTransitionTime(): number
     /**
      *  Get the difficulty setting of the 
      */
-    GetCustomGameDifficulty()
+    GetCustomGameDifficulty(): number
     /**
      * Returns true if the user has enabled flipped HUD
      */
@@ -1438,31 +1547,31 @@ interface CScriptBindingPR_Game{
     /**
      * Returns the width of the display.
      */
-    GetScreenWidth()
+    GetScreenWidth(): number
     /**
      *  Returns the height of the display.
      */
-    GetScreenHeight()
+    GetScreenHeight(): number
     /**
      *  Converts the specified x,y,z world co-ordinate into an x screen coordinate. Returns -1 if behind the camera
      */
-    WorldToScreenX( x : number , y : number ,  z : number ) 
+    WorldToScreenX( x : number , y : number ,  z : number ) : number
     /**
      *  Converts the specified x,y,z world co-ordinate into a y screen coordinate. Returns -1 if behind the camera
      */
-    WorldToScreenY( x : number , y : number ,  z : number ) 
+    WorldToScreenY( x : number , y : number ,  z : number ) : number
     /**
      *  Converts the specified x, y screen coordinates into a x, y, z world coordinates.
      */
-    ScreenXYToWorld( nX : number , nY : number ) 
+    ScreenXYToWorld( nX : number , nY : number ) : number
     /**
      *  Returns the keybind (as a string) for the requested ability slot.
      */
-    GetKeybindForAbility( iSlot : number ) 
+    GetKeybindForAbility( iSlot : number ) : string
     /**
      * 
      */
-    GetNianFightTimeLeft()
+    GetNianFightTimeLeft(): number
     /**
      * 
      */
@@ -1482,23 +1591,23 @@ interface CScriptBindingPR_Game{
     /**
      *  
      */
-    AddCommand( pszCommandName : string , callback : js_value ,  pszDescription : string , nFlags : number ) 
+    AddCommand( pszCommandName : string , callback : js_value ,  pszDescription : string , nFlags : number ) : void
     /**
      * 
      */
-    GetLocalPlayerID()
+    GetLocalPlayerID(): number
     /**
      *  Assign the local player to the specified team
      */
-    PlayerJoinTeam( nTeamID : number ) 
+    PlayerJoinTeam( nTeamID : number ) : void
     /**
      * Assign the currently unassigned players to teams
      */
-    AutoAssignPlayersToTeams()
+    AutoAssignPlayersToTeams(): void
     /**
      * Shuffle the team assignments of all of the players currently assigned to a team.
      */
-    ShufflePlayerTeamAssignments()
+    ShufflePlayerTeamAssignments(): void
     /**
      * Set the remaining seconds in team setup before the game starts. -1 to stop the countdown timer
      */
@@ -1514,7 +1623,7 @@ interface CScriptBindingPR_Game{
     /**
      * Return true of false indicating if automatically starting the game is enabled.
      */
-    GetAutoLaunchEnabled()
+    GetAutoLaunchEnabled(): any
     /**
      * Lock the team selection preventing players from swiching teams.
      */
@@ -1522,23 +1631,23 @@ interface CScriptBindingPR_Game{
     /**
      * Returns true or false to indicate if team selection is locked
      */
-    GetTeamSelectionLocked()
+    GetTeamSelectionLocked(): boolean
     /**
      *  Get all team IDs
      */
-    GetAllTeamIDs()
+    GetAllTeamIDs(): number[]
     /**
      *  Get all player IDs
      */
-    GetAllPlayerIDs()
+    GetAllPlayerIDs(): number[]
     /**
      * Get unassigned player IDs
      */
-    GetUnassignedPlayerIDs()
+    GetUnassignedPlayerIDs(): number[]
     /**
      *  Get info about the player hero ultimate ability
      */
-    GetPlayerUltimateStateOrTime( nPlayerID : number ) 
+    GetPlayerUltimateStateOrTime( nPlayerID : number ) : any
     /**
      * Whether the local player has muted text and voice chat for the specified player id
      */
@@ -1550,59 +1659,59 @@ interface CScriptBindingPR_Game{
     /**
      *  Get detailed information for the given team
      */
-    GetTeamDetails( nTeam : number ) 
+    GetTeamDetails( nTeam : number ) : ITeamDetails
     /**
      * Get details for the local player
      */
-    GetLocalPlayerInfo()
+    GetLocalPlayerInfo(): IPlayerInfo
     /**
      *  Get info about the player items.
      */
-    GetPlayerItems( nPlayerID : number ) 
+    GetPlayerItems( nPlayerID : number ) : number[]
     /**
      * Get info about the given player
      */
-    GetPlayerInfo( nPlayerID : number ) 
+    GetPlayerInfo( nPlayerID : number ) : any
     /**
      *  Get player IDs for the given team
      */
-    GetPlayerIDsOnTeam( nTeam : number ) 
+    GetPlayerIDsOnTeam( nTeam : number ) : number[]
     /**
      *  
      */
-    ServerCmd( pMsg : string ) 
+    ServerCmd( pMsg : string ) : void
     /**
      * 
      */
-    FinishGame()
+    FinishGame(): void
     /**
      * Emit a sound for the local player. Returns an number handle that can be passed to StopSound. (Returns 0 on failure.)
      */
-    EmitSound( pSoundEventName : string ) 
+    EmitSound( pSoundEventName : string ) : void
     /**
      * Stop a current playing sound on the local player. Takes handle from a call to EmitSound.
      */
-    StopSound( nHandle : number ) 
+    StopSound( nHandle : number ) : void
     /**
      * Return information about the current map.
      */
-    GetMapInfo()
+    GetMapInfo(): IMapInfo
     /**
      *  Orders from the local player - takes a single arguments object that supports: dotaunitorder_t OrderType, ent_index TargetIndex, vector Position, ent_index AbilityIndex, OrderIssuer_t OrderIssuer, ent_index UnitIndex, OrderQueueBehavior_t QueueBehavior, bool ShowEffects.
      */
-    PrepareUnitOrders( args : js_raw_args ) 
+    PrepareUnitOrders( args : js_raw_args ) : void
     /**
      * Order a unit to drop the specified item at the current cursor location.
      */
-    DropItemAtCursor( nControlledUnitEnt : number , nItemEnt : number ) 
+    DropItemAtCursor( nControlledUnitEnt : number , nItemEnt : number ) : void
     /**
      *  
      */
-    EnterAbilityLearnMode()
+    EnterAbilityLearnMode(): void
     /**
      *  
      */
-    EndAbilityLearnMode()
+    EndAbilityLearnMode(): void
     /**
      * 
      */
@@ -1617,15 +1726,15 @@ interface ${
     /**
     Log a message
     */
-    Msg(args:any) : void
+    Msg(...args: any[]) : void
     /**
     Dispatch an event
     */
-    DispatchEvent( eventName : string, eventArgs: any ) : void
+    DispatchEvent( eventName : string, ...eventArgs: any[] ) : void
     /**
     Dispatch an event to occur later
     */
-    DispatchEventAsync( delay:number, eventName: string, eventArgs: any) : void
+    DispatchEventAsync( delay:number, eventName: string, ...eventArgs: any[]) : void
     /**
     Register an event handler
     */
@@ -1633,11 +1742,11 @@ interface ${
     /**
     Register a handler for an event that is not otherwise handled
     */
-    RegisterForUnhandledEvent( eventName: string, callback: Function )
+    RegisterForUnhandledEvent( eventName: string, callback: Function ): void
     /**
     Remove an unhandled event handler
     */
-    UnregisterForUnhandledEvent( eventNameUnconfirmYet: string )
+    UnregisterForUnhandledEvent( eventNameUnconfirmYet: string ): void
     /**
     Find an element
     */
@@ -1645,15 +1754,24 @@ interface ${
     /**
     Make a web request
     */
-    AsyncWebRequest( url: string, args:Object )
+    AsyncWebRequest( url: string, args:Object ): void
     /**
     Create a new panel
     */
     CreatePanel( panelType:string, parent:Panel, id:string ) : Panel
+    CreatePanel( panelType:"Panel", parent:Panel, id:string ) : Panel
+    CreatePanel( panelType:"Image", parent:Panel, id:string ) : Image
+    CreatePanel( panelType:"Label", parent:Panel, id:string ) : Label
+    CreatePanel( panelType:"Button", parent:Panel, id:string ) : Button
+    CreatePanel( panelType:"DOTAHeroImage", parent:Panel, id:string ) : DOTAHeroImage
+    CreatePanel( panelType:"DOTAAbilityImage", parent:Panel, id:string ) : DOTAAbilityImage
+    CreatePanel( panelType:"DOTAAvatarImage", parent:Panel, id:string ) : DOTAAvatarImage
+    CreatePanel( panelType:"DOTAUserName", parent:Panel, id:string ) : DOTAUserName
+    CreatePanel( panelType:"DOTAScenePanel", parent:Panel, id:string ) : DOTAScenePanel
     /**
     Localize a string
     */
-    Localize( js_raw_args_1 : js_raw_args ) : string
+    Localize( text: string, panel?: Panel ) : string
     /**
     Get the current language
     */
@@ -1661,11 +1779,11 @@ interface ${
     /**
     Schedule a function to be called later
     */
-    Schedule( delay:number, callback:Function ) : Function
+    Schedule( delay:number, callback:Function ) : number
     /**
     Cancelse a scheduled function
     */
-    CancelScheduled( previousSchedule: Function )
+    CancelScheduled( previousSchedule: number ): void
     /**
     Get the current panel context
     */
@@ -1673,11 +1791,11 @@ interface ${
     /**
     Register a key binding
     */
-    RegisterKeyBind( context:Panel, keyName:string, callback:Function )
+    RegisterKeyBind( context:Panel, keyName:string, callback:Function ): void
     /**
     Call a function on each given item
     */
-    Each( table:Object, callback:Function )
+    Each( table:Object, callback:Function ): void
 
 }
 
@@ -1705,17 +1823,18 @@ interface Panel{
     scrolloffset_y : number
     scrolloffset_x : number
     style : any
+    contextEntityIndex: number
     AddClass( className : string ) : void
     RemoveClass( className :  string ) : void
     BHasClass( className :  string ) : boolean
     SetHasClass( className : string , onoff : boolean ) : void
-    ToggleClass( className : string )
-    ClearPanelEvent( eventName : string )
+    ToggleClass( className : string ): void
+    ClearPanelEvent( eventName : string ): void
     SetDraggable( draggable : boolean ) : void
     IsDraggable() : boolean
     GetChildCount() : number
     GetChild( childIndex : number ) : Panel
-    GetChildIndex( unknown_variant_type_1 : unknown_variant_type )
+    GetChildIndex( unknown_variant_type_1 : unknown_variant_type ): number
     Children() : Array<Panel>
     FindChildrenWithClassTraverse( className : string ) : Array<Panel>
     GetParent() : Panel
@@ -1724,17 +1843,17 @@ interface Panel{
     FindChildTraverse( id : string ) : Panel
     FindChildInLayoutFile( id : string ) : Panel
     RemoveAndDeleteChildren() : void
-    MoveChildBefore( panel1 : Panel , panel2 : Panel )
-    MoveChildAfter( panel1 : Panel , panel2 : Panel )
-    GetPositionWithinWindow()
-    ApplyStyles( boolean_1 : boolean )
-    ClearPropertyFromCode( unknown_variant_type_1 : unknown_variant_type )
-    DeleteAsync( delay : number )
+    MoveChildBefore( panel1 : Panel , panel2 : Panel ): void
+    MoveChildAfter( panel1 : Panel , panel2 : Panel ): void
+    GetPositionWithinWindow(): void
+    ApplyStyles( boolean_1 : boolean ): void
+    ClearPropertyFromCode( unknown_variant_type_1 : unknown_variant_type ): void
+    DeleteAsync( delay : number ): void
     BIsTransparent() : boolean
     BAcceptsInput() : boolean
     BAcceptsFocus() : boolean
     SetFocus() : void
-    UpdateFocusInContext()
+    UpdateFocusInContext(): void
     BHasHoverStyle() : boolean
     SetAcceptsFocus( boolean_1 : boolean ) : void
     SetDisableFocusOnMouseDown( boolean_1 : boolean ) : void
@@ -1742,37 +1861,68 @@ interface Panel{
     SetScrollParentToFitWhenFocused( boolean_1 : boolean ) : void
     BScrollParentToFitWhenFocused() : boolean
     IsSelected() : boolean
-    BHasDescendantKeyFocus()
+    BHasDescendantKeyFocus(): boolean
     BLoadLayout( layoutFilePath : string , boolean_2 : boolean ,  boolean_3 : boolean ) : boolean
     BLoadLayoutSnippet(SnippetName: string) : boolean
     BLoadLayoutFromString( js_raw_args_1 : js_raw_args ) : boolean
-    LoadLayoutFromStringAsync( string_1 : string , boolean_2 : boolean ,  boolean_3 : boolean )
-    LoadLayoutAsync( string_1 : string , boolean_2 : boolean ,  boolean_3 : boolean )
+    LoadLayoutFromStringAsync( string_1 : string , boolean_2 : boolean ,  boolean_3 : boolean ): void
+    LoadLayoutAsync( string_1 : string , boolean_2 : boolean ,  boolean_3 : boolean ): void
     BCreateChildren( string_1 : string ) : boolean
     SetTopOfInputContext( boolean_1 : boolean ) : void
     SetDialogVariable( string_1 : string , string_2 : string ) : void
     SetDialogVariableInt( string_1 : string , number_2 : number ) : void
-    ScrollToTop()
-    ScrollToBottom()
-    ScrollToLeftEdge()
-    ScrollToRightEdge()
-    ScrollParentToMakePanelFit( unknown_variant_type_1 : unknown_variant_type , boolean_2 : boolean )
+    ScrollToTop(): void
+    ScrollToBottom(): void
+    ScrollToLeftEdge(): void
+    ScrollToRightEdge(): void
+    ScrollParentToMakePanelFit( unknown_variant_type_1 : unknown_variant_type , boolean_2 : boolean ): void
     BCanSeeInParentScroll() : boolean
-    GetAttributeInt( string_1 : string , number_2 : number )
-    GetAttributeString( string_1 : string , string_2 : string )
-    GetAttributeUInt32( string_1 : string , number_2 : number )
+    GetAttributeInt( string_1 : string , number_2 : number ): number
+    GetAttributeString( string_1 : string , string_2 : string ): string
+    GetAttributeUInt32( string_1 : string , number_2 : number ): number
     SetAttributeInt( string_1 : string , number_2 : number ) : void
     SetAttributeString( string_1 : string , string_2 : string ) : void
     SetAttributeUInt32( string_1 : string , number_2 : number ) : void
     SetInputNamespace( string_1 : string ) : void
-    RegisterForReadyEvents( boolean_1 : boolean )
+    RegisterForReadyEvents( boolean_1 : boolean ): void
     BReadyForDisplay() : boolean
     SetReadyForDisplay( boolean_1 : boolean ) : void
-    SetPanelEvent( eventName: string, callback:Function ) : void
+    SetPositionInPixels( x: number,  y: number,  z: number ): void
     rememberchildfocus : boolean
     paneltype : string
     text : string
     html : boolean
+    SetImage(p: string): void
+    abilityname: string
+
+    SetPanelEvent( eventName: string, callback:Function ) : void
+    SetPanelEvent( eventName: "onload", callback: Function): void;
+    SetPanelEvent( eventName: "onactivate", callback: Function): void;
+    SetPanelEvent( eventName: "onmouseactivate", callback: Function): void;
+    SetPanelEvent( eventName: "oncontextmenu", callback: Function): void;
+    SetPanelEvent( eventName: "onfocus", callback: Function): void;
+    SetPanelEvent( eventName: "ondescendantfocus", callback: Function): void;
+    SetPanelEvent( eventName: "onblur", callback: Function): void;
+    SetPanelEvent( eventName: "ondescendantblur", callback: Function): void;
+    SetPanelEvent( eventName: "oncancel", callback: Function): void;
+    SetPanelEvent( eventName: "onmouseover", callback: Function): void;
+    SetPanelEvent( eventName: "onmouseout", callback: Function): void;
+    SetPanelEvent( eventName: "ondblclick", callback: Function): void;
+    SetPanelEvent( eventName: "onmoveup", callback: Function): void;
+    SetPanelEvent( eventName: "onmovedown", callback: Function): void;
+    SetPanelEvent( eventName: "onmoveleft", callback: Function): void;
+    SetPanelEvent( eventName: "onmoveright", callback: Function): void;
+    SetPanelEvent( eventName: "ontabforward", callback: Function): void;
+    SetPanelEvent( eventName: "ontabbackward", callback: Function): void;
+    SetPanelEvent( eventName: "onselect", callback: Function): void;
+    SetPanelEvent( eventName: "ondeselect", callback: Function): void;
+    SetPanelEvent( eventName: "onscrolledtobottom", callback: Function): void;
+    SetPanelEvent( eventName: "onscrolledtorightedge", callback: Function): void;
+}
+
+interface DOTAScenePanel extends Panel {
+    FireEntityInput(name: string, event: string, args?: string): void;
+    SetUnit(unitName: string, a: string): void;
 }
 
 interface Button extends Panel{
@@ -1786,8 +1936,19 @@ interface Label extends Panel{
 }
 
 interface DOTAAvatarImage extends Panel{
-    steamid : number
-    accountid : number
+    steamid : string
+    accountid : string
+}
+
+interface DOTAUserName extends Panel{
+    steamid : string
+    accountid : string
+}
+
+interface DOTAHeroImage extends Panel{
+    heroid : number
+    heroname : string
+    heroimagestyle : string
 }
 
 interface CustomUIElement extends Panel{
@@ -1801,322 +1962,295 @@ interface DOTAAbilityImage extends Panel{
     contextEntityIndex : number
 }
 
-declare var DOTA_GameState : DOTA_GameState;
-interface DOTA_GameState {
-    DOTA_GAMERULES_STATE_INIT
-    DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD
-    DOTA_GAMERULES_STATE_HERO_SELECTION
-    DOTA_GAMERULES_STATE_STRATEGY_TIME
-    DOTA_GAMERULES_STATE_PRE_GAME
-    DOTA_GAMERULES_STATE_GAME_IN_PROGRESS
-    DOTA_GAMERULES_STATE_POST_GAME
-    DOTA_GAMERULES_STATE_DISCONNECT
-    DOTA_GAMERULES_STATE_TEAM_SHOWCASE
-    DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP
-    DOTA_GAMERULES_STATE_LAST
+declare enum DOTA_GameState {
+    DOTA_GAMERULES_STATE_INIT,
+    DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD,
+    DOTA_GAMERULES_STATE_HERO_SELECTION,
+    DOTA_GAMERULES_STATE_STRATEGY_TIME,
+    DOTA_GAMERULES_STATE_PRE_GAME,
+    DOTA_GAMERULES_STATE_GAME_IN_PROGRESS,
+    DOTA_GAMERULES_STATE_POST_GAME,
+    DOTA_GAMERULES_STATE_DISCONNECT,
+    DOTA_GAMERULES_STATE_TEAM_SHOWCASE,
+    DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP,
+    DOTA_GAMERULES_STATE_LAST,
 }
-declare var DOTA_GC_TEAM : DOTA_GC_TEAM;
-interface DOTA_GC_TEAM{
-    DOTA_GC_TEAM_GOOD_GUYS
-    DOTA_GC_TEAM_BAD_GUYS
-    DOTA_GC_TEAM_BROADCASTER
-    DOTA_GC_TEAM_SPECTATOR
-    DOTA_GC_TEAM_PLAYER_POOL
-    DOTA_GC_TEAM_NOTEAM
+declare enum DOTA_GC_TEAM{
+    DOTA_GC_TEAM_GOOD_GUYS,
+    DOTA_GC_TEAM_BAD_GUYS,
+    DOTA_GC_TEAM_BROADCASTER,
+    DOTA_GC_TEAM_SPECTATOR,
+    DOTA_GC_TEAM_PLAYER_POOL,
+    DOTA_GC_TEAM_NOTEAM,
 }
-declare var DOTAConnectionState_t : DOTAConnectionState_t;
-interface DOTAConnectionState_t{
-    DOTA_CONNECTION_STATE_UNKNOWN
-    DOTA_CONNECTION_STATE_NOT_YET_CONNECTED
-    DOTA_CONNECTION_STATE_CONNECTED
-    DOTA_CONNECTION_STATE_DISCONNECTED
-    DOTA_CONNECTION_STATE_ABANDONED
-    DOTA_CONNECTION_STATE_LOADING
-    DOTA_CONNECTION_STATE_FAILED
+declare enum DOTAConnectionState_t{
+    DOTA_CONNECTION_STATE_UNKNOWN,
+    DOTA_CONNECTION_STATE_NOT_YET_CONNECTED,
+    DOTA_CONNECTION_STATE_CONNECTED,
+    DOTA_CONNECTION_STATE_DISCONNECTED,
+    DOTA_CONNECTION_STATE_ABANDONED,
+    DOTA_CONNECTION_STATE_LOADING,
+    DOTA_CONNECTION_STATE_FAILED,
 }
-declare var dotaunitorder_t : dotaunitorder_t;
-interface dotaunitorder_t{
-    DOTA_UNIT_ORDER_NONE
-    DOTA_UNIT_ORDER_MOVE_TO_POSITION
-    DOTA_UNIT_ORDER_MOVE_TO_TARGET
-    DOTA_UNIT_ORDER_ATTACK_MOVE
-    DOTA_UNIT_ORDER_ATTACK_TARGET
-    DOTA_UNIT_ORDER_CAST_POSITION
-    DOTA_UNIT_ORDER_CAST_TARGET
-    DOTA_UNIT_ORDER_CAST_TARGET_TREE
-    DOTA_UNIT_ORDER_CAST_NO_TARGET
-    DOTA_UNIT_ORDER_CAST_TOGGLE
-    DOTA_UNIT_ORDER_HOLD_POSITION
-    DOTA_UNIT_ORDER_TRAIN_ABILITY
-    DOTA_UNIT_ORDER_DROP_ITEM
-    DOTA_UNIT_ORDER_GIVE_ITEM
-    DOTA_UNIT_ORDER_PICKUP_ITEM
-    DOTA_UNIT_ORDER_PICKUP_RUNE
-    DOTA_UNIT_ORDER_PURCHASE_ITEM
-    DOTA_UNIT_ORDER_SELL_ITEM
-    DOTA_UNIT_ORDER_DISASSEMBLE_ITEM
-    DOTA_UNIT_ORDER_MOVE_ITEM
-    DOTA_UNIT_ORDER_CAST_TOGGLE_AUTO
-    DOTA_UNIT_ORDER_STOP
-    DOTA_UNIT_ORDER_TAUNT
-    DOTA_UNIT_ORDER_BUYBACK
-    DOTA_UNIT_ORDER_GLYPH
-    DOTA_UNIT_ORDER_EJECT_ITEM_FROM_STASH
-    DOTA_UNIT_ORDER_CAST_RUNE
-    DOTA_UNIT_ORDER_PING_ABILITY
-    DOTA_UNIT_ORDER_MOVE_TO_DIRECTION
-    DOTA_UNIT_ORDER_PATROL
-    DOTA_UNIT_ORDER_VECTOR_TARGET_POSITION
-    DOTA_UNIT_ORDER_RADAR
+declare enum dotaunitorder_t{
+    DOTA_UNIT_ORDER_NONE,
+    DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    DOTA_UNIT_ORDER_MOVE_TO_TARGET,
+    DOTA_UNIT_ORDER_ATTACK_MOVE,
+    DOTA_UNIT_ORDER_ATTACK_TARGET,
+    DOTA_UNIT_ORDER_CAST_POSITION,
+    DOTA_UNIT_ORDER_CAST_TARGET,
+    DOTA_UNIT_ORDER_CAST_TARGET_TREE,
+    DOTA_UNIT_ORDER_CAST_NO_TARGET,
+    DOTA_UNIT_ORDER_CAST_TOGGLE,
+    DOTA_UNIT_ORDER_HOLD_POSITION,
+    DOTA_UNIT_ORDER_TRAIN_ABILITY,
+    DOTA_UNIT_ORDER_DROP_ITEM,
+    DOTA_UNIT_ORDER_GIVE_ITEM,
+    DOTA_UNIT_ORDER_PICKUP_ITEM,
+    DOTA_UNIT_ORDER_PICKUP_RUNE,
+    DOTA_UNIT_ORDER_PURCHASE_ITEM,
+    DOTA_UNIT_ORDER_SELL_ITEM,
+    DOTA_UNIT_ORDER_DISASSEMBLE_ITEM,
+    DOTA_UNIT_ORDER_MOVE_ITEM,
+    DOTA_UNIT_ORDER_CAST_TOGGLE_AUTO,
+    DOTA_UNIT_ORDER_STOP,
+    DOTA_UNIT_ORDER_TAUNT,
+    DOTA_UNIT_ORDER_BUYBACK,
+    DOTA_UNIT_ORDER_GLYPH,
+    DOTA_UNIT_ORDER_EJECT_ITEM_FROM_STASH,
+    DOTA_UNIT_ORDER_CAST_RUNE,
+    DOTA_UNIT_ORDER_PING_ABILITY,
+    DOTA_UNIT_ORDER_MOVE_TO_DIRECTION,
+    DOTA_UNIT_ORDER_PATROL,
+    DOTA_UNIT_ORDER_VECTOR_TARGET_POSITION,
+    DOTA_UNIT_ORDER_RADAR,
 }
-declare var DOTA_OVERHEAD_ALERT : DOTA_OVERHEAD_ALERT;
-interface DOTA_OVERHEAD_ALERT{
-    OVERHEAD_ALERT_GOLD
-    OVERHEAD_ALERT_DENY
-    OVERHEAD_ALERT_CRITICAL
-    OVERHEAD_ALERT_XP
-    OVERHEAD_ALERT_BONUS_SPELL_DAMAGE
-    OVERHEAD_ALERT_MISS
-    OVERHEAD_ALERT_DAMAGE
-    OVERHEAD_ALERT_EVADE
-    OVERHEAD_ALERT_BLOCK
-    OVERHEAD_ALERT_BONUS_POISON_DAMAGE
-    OVERHEAD_ALERT_HEAL
-    OVERHEAD_ALERT_MANA_ADD
-    OVERHEAD_ALERT_MANA_LOSS
-    OVERHEAD_ALERT_LAST_HIT_EARLY
-    OVERHEAD_ALERT_LAST_HIT_CLOSE
-    OVERHEAD_ALERT_LAST_HIT_MISS
-    OVERHEAD_ALERT_MAGICAL_BLOCK
+declare enum DOTA_OVERHEAD_ALERT{
+    OVERHEAD_ALERT_GOLD,
+    OVERHEAD_ALERT_DENY,
+    OVERHEAD_ALERT_CRITICAL,
+    OVERHEAD_ALERT_XP,
+    OVERHEAD_ALERT_BONUS_SPELL_DAMAGE,
+    OVERHEAD_ALERT_MISS,
+    OVERHEAD_ALERT_DAMAGE,
+    OVERHEAD_ALERT_EVADE,
+    OVERHEAD_ALERT_BLOCK,
+    OVERHEAD_ALERT_BONUS_POISON_DAMAGE,
+    OVERHEAD_ALERT_HEAL,
+    OVERHEAD_ALERT_MANA_ADD,
+    OVERHEAD_ALERT_MANA_LOSS,
+    OVERHEAD_ALERT_LAST_HIT_EARLY,
+    OVERHEAD_ALERT_LAST_HIT_CLOSE,
+    OVERHEAD_ALERT_LAST_HIT_MISS,
+    OVERHEAD_ALERT_MAGICAL_BLOCK,
 }
-declare var DOTA_HeroPickState : DOTA_HeroPickState;
-interface DOTA_HeroPickState{
-    DOTA_HEROPICK_STATE_NONE
-    DOTA_HEROPICK_STATE_AP_SELECT
-    DOTA_HEROPICK_STATE_SD_SELECT
-    DOTA_HEROPICK_STATE_INTRO_SELECT
-    DOTA_HEROPICK_STATE_RD_SELECT
-    DOTA_HEROPICK_STATE_CM_INTRO
-    DOTA_HEROPICK_STATE_CM_CAPTAINPICK
-    DOTA_HEROPICK_STATE_CM_BAN1
-    DOTA_HEROPICK_STATE_CM_BAN2
-    DOTA_HEROPICK_STATE_CM_BAN3
-    DOTA_HEROPICK_STATE_CM_BAN4
-    DOTA_HEROPICK_STATE_CM_BAN5
-    DOTA_HEROPICK_STATE_CM_BAN6
-    DOTA_HEROPICK_STATE_CM_BAN7
-    DOTA_HEROPICK_STATE_CM_BAN8
-    DOTA_HEROPICK_STATE_CM_BAN9
-    DOTA_HEROPICK_STATE_CM_BAN10
-    DOTA_HEROPICK_STATE_CM_SELECT1
-    DOTA_HEROPICK_STATE_CM_SELECT2
-    DOTA_HEROPICK_STATE_CM_SELECT3
-    DOTA_HEROPICK_STATE_CM_SELECT4
-    DOTA_HEROPICK_STATE_CM_SELECT5
-    DOTA_HEROPICK_STATE_CM_SELECT6
-    DOTA_HEROPICK_STATE_CM_SELECT7
-    DOTA_HEROPICK_STATE_CM_SELECT8
-    DOTA_HEROPICK_STATE_CM_SELECT9
-    DOTA_HEROPICK_STATE_CM_SELECT10
-    DOTA_HEROPICK_STATE_CM_PICK
-    DOTA_HEROPICK_STATE_AR_SELECT
-    DOTA_HEROPICK_STATE_MO_SELECT
-    DOTA_HEROPICK_STATE_FH_SELECT
-    DOTA_HEROPICK_STATE_CD_INTRO
-    DOTA_HEROPICK_STATE_CD_CAPTAINPICK
-    DOTA_HEROPICK_STATE_CD_BAN1
-    DOTA_HEROPICK_STATE_CD_BAN2
-    DOTA_HEROPICK_STATE_CD_BAN3
-    DOTA_HEROPICK_STATE_CD_BAN4
-    DOTA_HEROPICK_STATE_CD_BAN5
-    DOTA_HEROPICK_STATE_CD_BAN6
-    DOTA_HEROPICK_STATE_CD_SELECT1
-    DOTA_HEROPICK_STATE_CD_SELECT2
-    DOTA_HEROPICK_STATE_CD_SELECT3
-    DOTA_HEROPICK_STATE_CD_SELECT4
-    DOTA_HEROPICK_STATE_CD_SELECT5
-    DOTA_HEROPICK_STATE_CD_SELECT6
-    DOTA_HEROPICK_STATE_CD_SELECT7
-    DOTA_HEROPICK_STATE_CD_SELECT8
-    DOTA_HEROPICK_STATE_CD_SELECT9
-    DOTA_HEROPICK_STATE_CD_SELECT10
-    DOTA_HEROPICK_STATE_CD_PICK
-    DOTA_HEROPICK_STATE_BD_SELECT
-    DOTA_HERO_PICK_STATE_ABILITY_DRAFT_SELECT
-    DOTA_HERO_PICK_STATE_ARDM_SELECT
-    DOTA_HEROPICK_STATE_ALL_DRAFT_SELECT
-    DOTA_HERO_PICK_STATE_CUSTOMGAME_SELECT
-    DOTA_HEROPICK_STATE_COUNT
+declare enum DOTA_HeroPickState{
+    DOTA_HEROPICK_STATE_NONE,
+    DOTA_HEROPICK_STATE_AP_SELECT,
+    DOTA_HEROPICK_STATE_SD_SELECT,
+    DOTA_HEROPICK_STATE_INTRO_SELECT,
+    DOTA_HEROPICK_STATE_RD_SELECT,
+    DOTA_HEROPICK_STATE_CM_INTRO,
+    DOTA_HEROPICK_STATE_CM_CAPTAINPICK,
+    DOTA_HEROPICK_STATE_CM_BAN1,
+    DOTA_HEROPICK_STATE_CM_BAN2,
+    DOTA_HEROPICK_STATE_CM_BAN3,
+    DOTA_HEROPICK_STATE_CM_BAN4,
+    DOTA_HEROPICK_STATE_CM_BAN5,
+    DOTA_HEROPICK_STATE_CM_BAN6,
+    DOTA_HEROPICK_STATE_CM_BAN7,
+    DOTA_HEROPICK_STATE_CM_BAN8,
+    DOTA_HEROPICK_STATE_CM_BAN9,
+    DOTA_HEROPICK_STATE_CM_BAN10,
+    DOTA_HEROPICK_STATE_CM_SELECT1,
+    DOTA_HEROPICK_STATE_CM_SELECT2,
+    DOTA_HEROPICK_STATE_CM_SELECT3,
+    DOTA_HEROPICK_STATE_CM_SELECT4,
+    DOTA_HEROPICK_STATE_CM_SELECT5,
+    DOTA_HEROPICK_STATE_CM_SELECT6,
+    DOTA_HEROPICK_STATE_CM_SELECT7,
+    DOTA_HEROPICK_STATE_CM_SELECT8,
+    DOTA_HEROPICK_STATE_CM_SELECT9,
+    DOTA_HEROPICK_STATE_CM_SELECT10,
+    DOTA_HEROPICK_STATE_CM_PICK,
+    DOTA_HEROPICK_STATE_AR_SELECT,
+    DOTA_HEROPICK_STATE_MO_SELECT,
+    DOTA_HEROPICK_STATE_FH_SELECT,
+    DOTA_HEROPICK_STATE_CD_INTRO,
+    DOTA_HEROPICK_STATE_CD_CAPTAINPICK,
+    DOTA_HEROPICK_STATE_CD_BAN1,
+    DOTA_HEROPICK_STATE_CD_BAN2,
+    DOTA_HEROPICK_STATE_CD_BAN3,
+    DOTA_HEROPICK_STATE_CD_BAN4,
+    DOTA_HEROPICK_STATE_CD_BAN5,
+    DOTA_HEROPICK_STATE_CD_BAN6,
+    DOTA_HEROPICK_STATE_CD_SELECT1,
+    DOTA_HEROPICK_STATE_CD_SELECT2,
+    DOTA_HEROPICK_STATE_CD_SELECT3,
+    DOTA_HEROPICK_STATE_CD_SELECT4,
+    DOTA_HEROPICK_STATE_CD_SELECT5,
+    DOTA_HEROPICK_STATE_CD_SELECT6,
+    DOTA_HEROPICK_STATE_CD_SELECT7,
+    DOTA_HEROPICK_STATE_CD_SELECT8,
+    DOTA_HEROPICK_STATE_CD_SELECT9,
+    DOTA_HEROPICK_STATE_CD_SELECT10,
+    DOTA_HEROPICK_STATE_CD_PICK,
+    DOTA_HEROPICK_STATE_BD_SELECT,
+    DOTA_HERO_PICK_STATE_ABILITY_DRAFT_SELECT,
+    DOTA_HERO_PICK_STATE_ARDM_SELECT,
+    DOTA_HEROPICK_STATE_ALL_DRAFT_SELECT,
+    DOTA_HERO_PICK_STATE_CUSTOMGAME_SELECT,
+    DOTA_HEROPICK_STATE_COUNT,
 }
-declare var DOTATeam_t : DOTATeam_t;
-interface DOTATeam_t{
-    DOTA_TEAM_FIRST : DOTATeam_t
-    DOTA_TEAM_GOODGUYS : DOTATeam_t
-    DOTA_TEAM_BADGUYS : DOTATeam_t
-    DOTA_TEAM_NEUTRALS : DOTATeam_t
-    DOTA_TEAM_NOTEAM : DOTATeam_t
-    DOTA_TEAM_CUSTOM_1 : DOTATeam_t
-    DOTA_TEAM_CUSTOM_2 : DOTATeam_t
-    DOTA_TEAM_CUSTOM_3 : DOTATeam_t
-    DOTA_TEAM_CUSTOM_4 : DOTATeam_t
-    DOTA_TEAM_CUSTOM_5 : DOTATeam_t
-    DOTA_TEAM_CUSTOM_6 : DOTATeam_t
-    DOTA_TEAM_CUSTOM_7 : DOTATeam_t
-    DOTA_TEAM_CUSTOM_8 : DOTATeam_t
-    DOTA_TEAM_COUNT : DOTATeam_t
-    DOTA_TEAM_CUSTOM_MIN : DOTATeam_t
-    DOTA_TEAM_CUSTOM_MAX : DOTATeam_t
-    DOTA_TEAM_CUSTOM_COUNT : DOTATeam_t
+declare enum DOTATeam_t{
+    DOTA_TEAM_FIRST,
+    DOTA_TEAM_GOODGUYS,
+    DOTA_TEAM_BADGUYS,
+    DOTA_TEAM_NEUTRALS,
+    DOTA_TEAM_NOTEAM,
+    DOTA_TEAM_CUSTOM_1,
+    DOTA_TEAM_CUSTOM_2,
+    DOTA_TEAM_CUSTOM_3,
+    DOTA_TEAM_CUSTOM_4,
+    DOTA_TEAM_CUSTOM_5,
+    DOTA_TEAM_CUSTOM_6,
+    DOTA_TEAM_CUSTOM_7,
+    DOTA_TEAM_CUSTOM_8,
+    DOTA_TEAM_COUNT,
+    DOTA_TEAM_CUSTOM_MIN,
+    DOTA_TEAM_CUSTOM_MAX,
+    DOTA_TEAM_CUSTOM_COUNT,
 }
-declare var DOTA_RUNES : DOTA_RUNES;
-interface DOTA_RUNES{
-    DOTA_RUNE_INVALID : DOTA_RUNES
-    DOTA_RUNE_DOUBLEDAMAGE : DOTA_RUNES
-    DOTA_RUNE_HASTE : DOTA_RUNES
-    DOTA_RUNE_ILLUSION : DOTA_RUNES
-    DOTA_RUNE_INVISIBILITY : DOTA_RUNES
-    DOTA_RUNE_REGENERATION : DOTA_RUNES
-    DOTA_RUNE_BOUNTY : DOTA_RUNES
-    DOTA_RUNE_ARCANE : DOTA_RUNES
-    DOTA_RUNE_COUNT : DOTA_RUNES
+declare enum DOTA_RUNES{
+    DOTA_RUNE_INVALID,
+    DOTA_RUNE_DOUBLEDAMAGE,
+    DOTA_RUNE_HASTE,
+    DOTA_RUNE_ILLUSION,
+    DOTA_RUNE_INVISIBILITY,
+    DOTA_RUNE_REGENERATION,
+    DOTA_RUNE_BOUNTY,
+    DOTA_RUNE_ARCANE,
+    DOTA_RUNE_COUNT,
 }
-declare var DOTA_UNIT_TARGET_TEAM : DOTA_UNIT_TARGET_TEAM;
-interface DOTA_UNIT_TARGET_TEAM{
-    DOTA_UNIT_TARGET_TEAM_NONE : DOTA_UNIT_TARGET_TEAM
-    DOTA_UNIT_TARGET_TEAM_FRIENDLY : DOTA_UNIT_TARGET_TEAM
-    DOTA_UNIT_TARGET_TEAM_ENEMY : DOTA_UNIT_TARGET_TEAM
-    DOTA_UNIT_TARGET_TEAM_CUSTOM : DOTA_UNIT_TARGET_TEAM
-    DOTA_UNIT_TARGET_TEAM_BOTH : DOTA_UNIT_TARGET_TEAM
+declare enum DOTA_UNIT_TARGET_TEAM{
+    DOTA_UNIT_TARGET_TEAM_NONE,
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_TEAM_CUSTOM,
+    DOTA_UNIT_TARGET_TEAM_BOTH,
 }
-declare var DOTA_UNIT_TARGET_TYPE : DOTA_UNIT_TARGET_TYPE;
-interface DOTA_UNIT_TARGET_TYPE{
+declare enum DOTA_UNIT_TARGET_TYPE{
 
 }
-declare var DOTA_UNIT_TARGET_FLAGS : DOTA_UNIT_TARGET_FLAGS;
-interface DOTA_UNIT_TARGET_FLAGS{
+declare enum DOTA_UNIT_TARGET_FLAGS{
 
 }
-declare var DOTALimits_t : DOTALimits_t;
-interface DOTALimits_t{
+declare enum DOTALimits_t{
 
 }
-declare var DOTAInventoryFlags_t : DOTAInventoryFlags_t;
-interface DOTAInventoryFlags_t{
+declare enum DOTAInventoryFlags_t{
 
 }
-declare var EDOTA_ModifyGold_Reason : EDOTA_ModifyGold_Reason;
-interface EDOTA_ModifyGold_Reason{
+declare enum EDOTA_ModifyGold_Reason{
 
 }
-declare var DOTAUnitAttackCapability_t : DOTAUnitAttackCapability_t;
-interface DOTAUnitAttackCapability_t{
+declare enum DOTAUnitAttackCapability_t{
 
 }
-declare var DOTAUnitMoveCapability_t : DOTAUnitMoveCapability_t;
-interface DOTAUnitMoveCapability_t{
+declare enum DOTAUnitMoveCapability_t{
 
 }
-declare var EShareAbility : EShareAbility;
-interface EShareAbility{
+declare enum EShareAbility{
     
 }
-declare var DOTAMusicStatus_t : DOTAMusicStatus_t;
-interface DOTAMusicStatus_t{
+declare enum DOTAMusicStatus_t{
     
 }
-declare var DOTA_ABILITY_BEHAVIOR : DOTA_ABILITY_BEHAVIOR;
-interface DOTA_ABILITY_BEHAVIOR{
+declare enum DOTA_ABILITY_BEHAVIOR{
     
 }
-declare var DAMAGE_TYPES : DAMAGE_TYPES;
-interface DAMAGE_TYPES{
+declare enum DAMAGE_TYPES{
     
 }
-declare var ABILITY_TYPES : ABILITY_TYPES;
-interface ABILITY_TYPES{
+declare enum ABILITY_TYPES{
     
 }
-declare var SPELL_IMMUNITY_TYPES : SPELL_IMMUNITY_TYPES;
-interface SPELL_IMMUNITY_TYPES{
+declare enum SPELL_IMMUNITY_TYPES{
     
 }
-declare var DOTADamageFlag_t : DOTADamageFlag_t;
-interface DOTADamageFlag_t{
+declare enum DOTADamageFlag_t{
     
 }
-declare var EDOTA_ModifyXP_Reason : EDOTA_ModifyXP_Reason;
-interface EDOTA_ModifyXP_Reason{
+declare enum EDOTA_ModifyXP_Reason{
     
 }
-declare var GameActivity_t : GameActivity_t;
-interface GameActivity_t{
+declare enum GameActivity_t{
     
 }
-declare var DOTAMinimapEvent_t : DOTAMinimapEvent_t;
-interface DOTAMinimapEvent_t{
+declare enum DOTAMinimapEvent_t{
     
 }
-declare var DOTASlotType_t : DOTASlotType_t;
-interface DOTASlotType_t{
+declare enum DOTASlotType_t{
     
 }
-declare var modifierfunction : modifierfunction;
-interface modifierfunction{
+declare enum modifierfunction{
     
 }
-declare var modifierstate : modifierstate;
-interface modifierstate{
+declare enum modifierstate{
     
 }
-declare var DOTAModifierAttribute_t : DOTAModifierAttribute_t;
-interface DOTAModifierAttribute_t{
+declare enum DOTAModifierAttribute_t{
     
 }
-declare var Attributes : Attributes;
-interface Attributes{
+declare enum Attributes{
     
 }
-declare var ParticleAttachment_t : ParticleAttachment_t;
-interface ParticleAttachment_t{
+declare enum ParticleAttachment_t{
+    PATTACH_INVALID,
+    PATTACH_ABSORIGIN,
+    PATTACH_ABSORIGIN_FOLLOW,
+    PATTACH_CUSTOMORIGIN,
+    PATTACH_CUSTOMORIGIN_FOLLOW,
+    PATTACH_POINT,
+    PATTACH_POINT_FOLLOW,
+    PATTACH_EYES_FOLLOW,
+    PATTACH_OVERHEAD_FOLLOW,
+    PATTACH_WORLDORIGIN,
+    PATTACH_ROOTBONE_FOLLOW,
+    PATTACH_RENDERORIGIN_FOLLOW,
+    PATTACH_MAIN_VIEW,
+    PATTACH_WATERWAKE,
+    PATTACH_CENTER_FOLLOW,
+    MAX_PATTACH_TYPES,
+}
+declare enum DOTA_MOTION_CONTROLLER_PRIORITY{
     
 }
-declare var DOTA_MOTION_CONTROLLER_PRIORITY : DOTA_MOTION_CONTROLLER_PRIORITY;
-interface DOTA_MOTION_CONTROLLER_PRIORITY{
+declare enum DOTASpeechType_t{
     
 }
-declare var DOTASpeechType_t : DOTASpeechType_t;
-interface DOTASpeechType_t{
+declare enum DOTAAbilitySpeakTrigger_t{
     
 }
-declare var DOTAAbilitySpeakTrigger_t : DOTAAbilitySpeakTrigger_t;
-interface DOTAAbilitySpeakTrigger_t{
+declare enum DotaCustomUIType_t{
     
 }
-declare var DotaCustomUIType_t : DotaCustomUIType_t;
-interface DotaCustomUIType_t{
+declare enum DotaDefaultUIElement_t{
     
 }
-declare var DotaDefaultUIElement_t : DotaDefaultUIElement_t;
-interface DotaDefaultUIElement_t{
+declare enum PlayerUltimateStateOrTime_t{
     
 }
-declare var PlayerUltimateStateOrTime_t : PlayerUltimateStateOrTime_t;
-interface PlayerUltimateStateOrTime_t{
+declare enum PlayerOrderIssuer_t{
     
 }
-declare var PlayerOrderIssuer_t : PlayerOrderIssuer_t;
-interface PlayerOrderIssuer_t{
+declare enum OrderQueueBehavior_t{
     
 }
-declare var OrderQueueBehavior_t : OrderQueueBehavior_t;
-interface OrderQueueBehavior_t{
+declare enum CLICK_BEHAVIORS{
     
 }
-declare var CLICK_BEHAVIORS : CLICK_BEHAVIORS;
-interface CLICK_BEHAVIORS{
-    
-}
-declare var AbilityLearnResult_t : AbilityLearnResult_t;
-interface AbilityLearnResult_t{
+declare enum AbilityLearnResult_t{
     
 }
