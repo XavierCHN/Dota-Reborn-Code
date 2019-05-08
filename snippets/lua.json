@@ -419,6 +419,12 @@
 		"description":"GetDedicatedServerKey:\n( version )\nreturn string",
 		"prefix":"GetDedicatedServerKey"
 	},
+	"GetDedicatedServerKeyV2":
+	{
+		"body":"GetDedicatedServerKeyV2(${version})",
+		"description":"GetDedicatedServerKeyV2:\n( version )\nreturn string",
+		"prefix":"GetDedicatedServerKeyV2"
+	},
 	"GetEntityIndexForTreeId":
 	{
 		"body":"GetEntityIndexForTreeId(${unsigned_1})",
@@ -1358,6 +1364,7 @@
 	"DOTA_LOADOUT_TYPE_COURIER":{"body":"DOTA_LOADOUT_TYPE_COURIER", "description":"", "prefix": "DOTA_LOADOUT_TYPE_COURIER"},
 	"DOTA_LOADOUT_TYPE_CURSOR_PACK":{"body":"DOTA_LOADOUT_TYPE_CURSOR_PACK", "description":"", "prefix": "DOTA_LOADOUT_TYPE_CURSOR_PACK"},
 	"DOTA_LOADOUT_TYPE_DIRE_CREEPS":{"body":"DOTA_LOADOUT_TYPE_DIRE_CREEPS", "description":"", "prefix": "DOTA_LOADOUT_TYPE_DIRE_CREEPS"},
+	"DOTA_LOADOUT_TYPE_DIRE_TOWER":{"body":"DOTA_LOADOUT_TYPE_DIRE_TOWER", "description":"", "prefix": "DOTA_LOADOUT_TYPE_DIRE_TOWER"},
 	"DOTA_LOADOUT_TYPE_EMBLEM":{"body":"DOTA_LOADOUT_TYPE_EMBLEM", "description":"", "prefix": "DOTA_LOADOUT_TYPE_EMBLEM"},
 	"DOTA_LOADOUT_TYPE_GLOVES":{"body":"DOTA_LOADOUT_TYPE_GLOVES", "description":"", "prefix": "DOTA_LOADOUT_TYPE_GLOVES"},
 	"DOTA_LOADOUT_TYPE_HEAD":{"body":"DOTA_LOADOUT_TYPE_HEAD", "description":"", "prefix": "DOTA_LOADOUT_TYPE_HEAD"},
@@ -1376,6 +1383,7 @@
 	"DOTA_LOADOUT_TYPE_OFFHAND_WEAPON":{"body":"DOTA_LOADOUT_TYPE_OFFHAND_WEAPON", "description":"", "prefix": "DOTA_LOADOUT_TYPE_OFFHAND_WEAPON"},
 	"DOTA_LOADOUT_TYPE_OFFHAND_WEAPON2":{"body":"DOTA_LOADOUT_TYPE_OFFHAND_WEAPON2", "description":"", "prefix": "DOTA_LOADOUT_TYPE_OFFHAND_WEAPON2"},
 	"DOTA_LOADOUT_TYPE_RADIANT_CREEPS":{"body":"DOTA_LOADOUT_TYPE_RADIANT_CREEPS", "description":"", "prefix": "DOTA_LOADOUT_TYPE_RADIANT_CREEPS"},
+	"DOTA_LOADOUT_TYPE_RADIANT_TOWER":{"body":"DOTA_LOADOUT_TYPE_RADIANT_TOWER", "description":"", "prefix": "DOTA_LOADOUT_TYPE_RADIANT_TOWER"},
 	"DOTA_LOADOUT_TYPE_SHAPESHIFT":{"body":"DOTA_LOADOUT_TYPE_SHAPESHIFT", "description":"", "prefix": "DOTA_LOADOUT_TYPE_SHAPESHIFT"},
 	"DOTA_LOADOUT_TYPE_SHOULDER":{"body":"DOTA_LOADOUT_TYPE_SHOULDER", "description":"", "prefix": "DOTA_LOADOUT_TYPE_SHOULDER"},
 	"DOTA_LOADOUT_TYPE_SUMMON":{"body":"DOTA_LOADOUT_TYPE_SUMMON", "description":"", "prefix": "DOTA_LOADOUT_TYPE_SUMMON"},
@@ -1383,6 +1391,7 @@
 	"DOTA_LOADOUT_TYPE_TAUNT":{"body":"DOTA_LOADOUT_TYPE_TAUNT", "description":"", "prefix": "DOTA_LOADOUT_TYPE_TAUNT"},
 	"DOTA_LOADOUT_TYPE_TELEPORT_EFFECT":{"body":"DOTA_LOADOUT_TYPE_TELEPORT_EFFECT", "description":"", "prefix": "DOTA_LOADOUT_TYPE_TELEPORT_EFFECT"},
 	"DOTA_LOADOUT_TYPE_TERRAIN":{"body":"DOTA_LOADOUT_TYPE_TERRAIN", "description":"", "prefix": "DOTA_LOADOUT_TYPE_TERRAIN"},
+	"DOTA_LOADOUT_TYPE_VERSUS_SCREEN":{"body":"DOTA_LOADOUT_TYPE_VERSUS_SCREEN", "description":"", "prefix": "DOTA_LOADOUT_TYPE_VERSUS_SCREEN"},
 	"DOTA_LOADOUT_TYPE_VOICE":{"body":"DOTA_LOADOUT_TYPE_VOICE", "description":"", "prefix": "DOTA_LOADOUT_TYPE_VOICE"},
 	"DOTA_LOADOUT_TYPE_WARD":{"body":"DOTA_LOADOUT_TYPE_WARD", "description":"", "prefix": "DOTA_LOADOUT_TYPE_WARD"},
 	"DOTA_LOADOUT_TYPE_WEAPON":{"body":"DOTA_LOADOUT_TYPE_WEAPON", "description":"", "prefix": "DOTA_LOADOUT_TYPE_WEAPON"},
@@ -1458,6 +1467,7 @@
 	"DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES":{"body":"DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"},
 	"DOTA_ABILITY_BEHAVIOR_TOGGLE":{"body":"DOTA_ABILITY_BEHAVIOR_TOGGLE", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_TOGGLE"},
 	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET":{"body":"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"},
+	"DOTA_ABILITY_BEHAVIOR_UNLOCKED_BY_EFFECT_INDEX":{"body":"DOTA_ABILITY_BEHAVIOR_UNLOCKED_BY_EFFECT_INDEX", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_UNLOCKED_BY_EFFECT_INDEX"},
 	"DOTA_ABILITY_BEHAVIOR_UNRESTRICTED":{"body":"DOTA_ABILITY_BEHAVIOR_UNRESTRICTED", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_UNRESTRICTED"},
 	"DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING":{"body":"DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"},
 	"DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP":{"body":"DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP", "description":"", "prefix": "DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP"},
@@ -1723,6 +1733,9 @@
 	"ACT_DOTA_CHILLING_TOUCH":{"body":"ACT_DOTA_CHILLING_TOUCH", "description":"", "prefix": "ACT_DOTA_CHILLING_TOUCH"},
 	"ACT_DOTA_COLD_FEET":{"body":"ACT_DOTA_COLD_FEET", "description":"", "prefix": "ACT_DOTA_COLD_FEET"},
 	"ACT_DOTA_CONSTANT_LAYER":{"body":"ACT_DOTA_CONSTANT_LAYER", "description":"", "prefix": "ACT_DOTA_CONSTANT_LAYER"},
+	"ACT_DOTA_CUSTOM_TOWER_ATTACK":{"body":"ACT_DOTA_CUSTOM_TOWER_ATTACK", "description":"", "prefix": "ACT_DOTA_CUSTOM_TOWER_ATTACK"},
+	"ACT_DOTA_CUSTOM_TOWER_DIE":{"body":"ACT_DOTA_CUSTOM_TOWER_DIE", "description":"", "prefix": "ACT_DOTA_CUSTOM_TOWER_DIE"},
+	"ACT_DOTA_CUSTOM_TOWER_IDLE":{"body":"ACT_DOTA_CUSTOM_TOWER_IDLE", "description":"", "prefix": "ACT_DOTA_CUSTOM_TOWER_IDLE"},
 	"ACT_DOTA_DAGON":{"body":"ACT_DOTA_DAGON", "description":"", "prefix": "ACT_DOTA_DAGON"},
 	"ACT_DOTA_DEATH_BY_SNIPER":{"body":"ACT_DOTA_DEATH_BY_SNIPER", "description":"", "prefix": "ACT_DOTA_DEATH_BY_SNIPER"},
 	"ACT_DOTA_DEFEAT":{"body":"ACT_DOTA_DEFEAT", "description":"", "prefix": "ACT_DOTA_DEFEAT"},
@@ -2128,6 +2141,7 @@
 	"MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING":{"body":"MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING", "description":"GetModifierStatusResistanceStacking", "prefix": "MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING"},
 	"MODIFIER_PROPERTY_SUPER_ILLUSION":{"body":"MODIFIER_PROPERTY_SUPER_ILLUSION", "description":"GetModifierSuperIllusion", "prefix": "MODIFIER_PROPERTY_SUPER_ILLUSION"},
 	"MODIFIER_PROPERTY_SUPER_ILLUSION_WITH_ULTIMATE":{"body":"MODIFIER_PROPERTY_SUPER_ILLUSION_WITH_ULTIMATE", "description":"GetModifierSuperIllusionWithUltimate", "prefix": "MODIFIER_PROPERTY_SUPER_ILLUSION_WITH_ULTIMATE"},
+	"MODIFIER_PROPERTY_SUPPRESS_CLEAVE":{"body":"MODIFIER_PROPERTY_SUPPRESS_CLEAVE", "description":"GetSuppressCleave", "prefix": "MODIFIER_PROPERTY_SUPPRESS_CLEAVE"},
 	"MODIFIER_PROPERTY_SUPPRESS_TELEPORT":{"body":"MODIFIER_PROPERTY_SUPPRESS_TELEPORT", "description":"GetSuppressTeleport", "prefix": "MODIFIER_PROPERTY_SUPPRESS_TELEPORT"},
 	"MODIFIER_PROPERTY_TEMPEST_DOUBLE":{"body":"MODIFIER_PROPERTY_TEMPEST_DOUBLE", "description":"GetModifierTempestDouble", "prefix": "MODIFIER_PROPERTY_TEMPEST_DOUBLE"},
 	"MODIFIER_PROPERTY_TOOLTIP":{"body":"MODIFIER_PROPERTY_TOOLTIP", "description":"OnTooltip", "prefix": "MODIFIER_PROPERTY_TOOLTIP"},
@@ -5567,6 +5581,12 @@
 		"description":"CDOTA_BaseNPC_AddAbility:\nAdd an ability to this unit by name.\nreturn handle",
 		"prefix":"AddAbility"
 	},
+	"CDOTA_BaseNPC_AddActivityModifier":
+	{
+		"body":"AddActivityModifier(${szName})",
+		"description":"CDOTA_BaseNPC_AddActivityModifier:\nAdd an activity modifier that affects future StartGesture calls\nreturn void",
+		"prefix":"AddActivityModifier"
+	},
 	"CDOTA_BaseNPC_AddItem":
 	{
 		"body":"AddItem(${hItem})",
@@ -5668,6 +5688,12 @@
 		"body":"CastAbilityToggle(${hAbility}, ${iPlayerIndex})",
 		"description":"CDOTA_BaseNPC_CastAbilityToggle:\nToggle an ability.\nreturn void",
 		"prefix":"CastAbilityToggle"
+	},
+	"CDOTA_BaseNPC_ClearActivityModifiers":
+	{
+		"body":"ClearActivityModifiers()",
+		"description":"CDOTA_BaseNPC_ClearActivityModifiers:\nClear Activity modifiers\nreturn void",
+		"prefix":"ClearActivityModifiers"
 	},
 	"CDOTA_BaseNPC_DestroyAllSpeechBubbles":
 	{
