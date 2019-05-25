@@ -3100,8 +3100,7 @@
 	"CBodyComponent_GetSequence":
 	{
 		"body":"GetSequence()",
-		"description":"CBodyComponent_GetSequence:\nReturns the active sequence
-\nreturn <unknown>",
+		"description":"CBodyComponent_GetSequence:\nReturns the active sequence\nreturn <unknown>",
 		"prefix":"GetSequence"
 	},
 	"CBodyComponent_IsAttachedToParent":
@@ -3113,8 +3112,7 @@
 	"CBodyComponent_LookupSequence":
 	{
 		"body":"LookupSequence(${string_1})",
-		"description":"CBodyComponent_LookupSequence:\nReturns a sequence id given a name
-\nreturn <unknown>",
+		"description":"CBodyComponent_LookupSequence:\nReturns a sequence id given a name\nreturn <unknown>",
 		"prefix":"LookupSequence"
 	},
 	"CBodyComponent_SequenceDuration":
