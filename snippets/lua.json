@@ -1465,6 +1465,7 @@
 	"DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES":{"body":"DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"},
 	"DOTA_ABILITY_BEHAVIOR_RUNE_TARGET":{"body":"DOTA_ABILITY_BEHAVIOR_RUNE_TARGET", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_RUNE_TARGET"},
 	"DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES":{"body":"DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"},
+	"DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE":{"body":"DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"},
 	"DOTA_ABILITY_BEHAVIOR_TOGGLE":{"body":"DOTA_ABILITY_BEHAVIOR_TOGGLE", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_TOGGLE"},
 	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET":{"body":"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"},
 	"DOTA_ABILITY_BEHAVIOR_UNLOCKED_BY_EFFECT_INDEX":{"body":"DOTA_ABILITY_BEHAVIOR_UNLOCKED_BY_EFFECT_INDEX", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_UNLOCKED_BY_EFFECT_INDEX"},
@@ -2151,6 +2152,7 @@
 	"MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK_UNAVOIDABLE_PRE_ARMOR":{"body":"MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK_UNAVOIDABLE_PRE_ARMOR", "description":"GetModifierPhysical_ConstantBlockUnavoidablePreArmor", "prefix": "MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK_UNAVOIDABLE_PRE_ARMOR"},
 	"MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS":{"body":"MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS", "description":"GetActivityTranslationModifiers", "prefix": "MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS"},
 	"MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND":{"body":"MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND", "description":"GetAttackSound", "prefix": "MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND"},
+	"MODIFIER_PROPERTY_TRIGGER_COSMETIC_AND_END_ATTACK":{"body":"MODIFIER_PROPERTY_TRIGGER_COSMETIC_AND_END_ATTACK", "description":"GetTriggerCosmeticAndEndAttack", "prefix": "MODIFIER_PROPERTY_TRIGGER_COSMETIC_AND_END_ATTACK"},
 	"MODIFIER_PROPERTY_TURN_RATE_OVERRIDE":{"body":"MODIFIER_PROPERTY_TURN_RATE_OVERRIDE", "description":"GetModifierTurnRate_Override", "prefix": "MODIFIER_PROPERTY_TURN_RATE_OVERRIDE"},
 	"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE":{"body":"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE", "description":"GetModifierTurnRate_Percentage", "prefix": "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"},
 	"MODIFIER_PROPERTY_UNIT_DISALLOW_UPGRADING":{"body":"MODIFIER_PROPERTY_UNIT_DISALLOW_UPGRADING", "description":"GetModifierUnitDisllowUpgrading", "prefix": "MODIFIER_PROPERTY_UNIT_DISALLOW_UPGRADING"},
@@ -6213,7 +6215,7 @@
 	},
 	"CDOTA_BaseNPC_GetPhysicalArmorValue":
 	{
-		"body":"GetPhysicalArmorValue()",
+		"body":"GetPhysicalArmorValue(${bIgnoreBase})",
 		"description":"CDOTA_BaseNPC_GetPhysicalArmorValue:\nReturns current physical armor value.\nreturn float",
 		"prefix":"GetPhysicalArmorValue"
 	},
@@ -6906,6 +6908,12 @@
 		"body":"RemoveAbility(${pszAbilityName})",
 		"description":"CDOTA_BaseNPC_RemoveAbility:\nRemove an ability from this unit by name.\nreturn void",
 		"prefix":"RemoveAbility"
+	},
+	"CDOTA_BaseNPC_RemoveAbilityByHandle":
+	{
+		"body":"RemoveAbilityByHandle(${hAbility})",
+		"description":"CDOTA_BaseNPC_RemoveAbilityByHandle:\nRemove the passed ability from this unit.\nreturn void",
+		"prefix":"RemoveAbilityByHandle"
 	},
 	"CDOTA_BaseNPC_RemoveGesture":
 	{
