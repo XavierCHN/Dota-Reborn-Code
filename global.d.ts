@@ -1,6 +1,6 @@
 //made by 12548
 
-declare var $ : $;
+declare var $ : panorama;
 declare var GameEvents : CDOTA_PanoramaScript_GameEvents;
 declare var GameUI : CDOTA_PanoramaScript_GameUI;
 declare var CustomNetTables : CDOTA_PanoramaScript_CustomNetTables;
@@ -9,14 +9,15 @@ declare var Entities : CScriptBindingPR_Entities;
 declare var Abilities : CScriptBindingPR_Abilities;
 declare var Items : CScriptBindingPR_Items;
 declare var Game : CScriptBindingPR_Game;
-declare var Particles : CParticles;
+declare var Particles : CDOTA_PanoramaScript_Particles;
+declare var Buffs: CScriptBindingPR_Buffs;
 
 type js_raw_args = any;
 type unknown_variant_type = any;
 type js_value = any;
 type js_object = Object;
 
-declare interface CParticles {
+declare interface CDOTA_PanoramaScript_Particles {
     /**
      * Create a particle system
      * @param pParticleName
@@ -69,6 +70,35 @@ declare interface CParticles {
     SetParticleControlEnt( iIndex: number, iPoint: number, iEntIndex: number, iAttachType: number, pszAttachName: string, vecFallbackPositionVal: number[], bIncludeWearables: boolean ): void;
 }
 
+interface CScriptBindingPR_Buffs {
+    GetName( nEntity: number, nBuff: number ): string
+    GetClass( nEntity: number, nBuff: number ): string
+    GetTexture( nEntity: number, nBuff: number ): string
+    GetDuration( nEntity: number, nBuff: number ): number
+    GetDieTime( nEntity: number, nBuff: number ): number
+    GetRemainingTime( nEntity: number, nBuff: number ): number
+    GetElapsedTime( nEntity: number, nBuff: number ): number
+    GetCreationTime( nEntity: number, nBuff: number ): number
+    GetStackCount( nEntity: number, nBuff: number ): number
+    IsDebuff( nEntity: number, nBuff: number ): boolean
+    IsHidden( nEntity: number, nBuff: number ): boolean
+
+    /**
+     * Get the owner of the ability responsible for the modifier.
+     */
+    GetCaster( nEntity: number, nBuff: number ): number
+
+    /**
+     * Get the unit the modifier is parented to.
+     */
+    GetParent( nEntity: number, nBuff: number ): number
+
+    /**
+     * Get the ability that generated the modifier.
+     */
+    GetAbility( nEntity: number, nBuff: number ): number
+}
+
 interface CDOTA_PanoramaScript_GameEvents{
     /**
      * Subscribe to a game event
@@ -82,6 +112,17 @@ interface CDOTA_PanoramaScript_GameEvents{
      * Send a custom game event
      */
     SendCustomGameEventToServer( pEventName : string , eventArgs : Object ): void
+
+    /**
+     * Send a custom game event to the server, which will send it to all clients
+     */
+    SendCustomGameEventToAllClients( pEventName: string, jsObject: Object ): void
+
+    /**
+     * Send a custom game event to the server, which will then send it to one client
+     */
+    SendCustomGameEventToClient( pEventName: string, playerIndex: number, jsObject: Object ): void
+
     /**
      * Send a client-side event using gameeventmanager (only useful for a few specific events)
      */
@@ -101,7 +142,7 @@ interface CDOTA_PanoramaScript_GameUI{
     /**
      *   Create a minimap ping at the given location
      */
-    PingMinimapAtLocation( vec3 : Array<number> ) : void
+    PingMinimapAtLocation( vec3 : number[] ) : void
     /**
      *    Install a mouse input filter
      */
@@ -113,15 +154,15 @@ interface CDOTA_PanoramaScript_GameUI{
     /**
      *    Get the current mouse position.
      */
-    GetCursorPosition() : Array<number>
+    GetCursorPosition() : number[]
     /**
      *   Return the entity index of the entity under the given screen position.
      */
-    FindScreenEntities( screenLocVec2: Array<number> ) : Array<any>
+    FindScreenEntities( screenLocVec2: number[] ) : number[]
     /**
      *   Get the world position of the screen position, or null if the cursor is out of the world.
      */
-    GetScreenWorldPosition( screenLocVec2: Array<number> ) : Array<number>
+    GetScreenWorldPosition( screenLocVec2: number[] ) : number[]
     /**
      *    Install a mouse input filter
      */
@@ -194,7 +235,7 @@ interface CDOTA_PanoramaScript_GameUI{
      * @param vec 
      * @param lerp 
      */
-    SetCameraTargetPosition( vec: any, lerp: number): void
+    SetCameraTargetPosition( vec: number[], lerp: number): void
 
 }
 
@@ -248,7 +289,7 @@ interface CScriptBindingPR_Players{
     /**
      *   Get the entities this player has selected.
      */
-    GetSelectedEntities( iPlayerID : number ) : Array<number>
+    GetSelectedEntities( iPlayerID : number ) : number[]
     /**
      *  Get the entities this player is querying.
      */
@@ -385,43 +426,43 @@ interface CScriptBindingPR_Entities{
     /**
      *  Get the world origin of the entity.
      */
-    GetAbsOrigin( nEntityIndex : number ) : Array<number>
+    GetAbsOrigin( nEntityIndex : number ) : number[]
     /**
      *  Get the forward vector of the entity.
      */
-    GetForward( nEntityIndex : number ) : Array<number>
+    GetForward( nEntityIndex : number ) : number[]
     /**
      *  Get the right vector of the entity.
      */
-    GetRight( nEntityIndex : number ) : Array<number>
+    GetRight( nEntityIndex : number ) : number[]
     /**
      *   Get the up vector of the entity.
      */
-    GetUp( nEntityIndex : number ) : Array<number>
+    GetUp( nEntityIndex : number ) : number[]
     /**
      * Get all the building 
      */
-    GetAllBuildingEntities() : Array<number>
+    GetAllBuildingEntities() : number[]
     /**
      * Get all the hero 
      */
-    GetAllHeroEntities() : Array<number>
+    GetAllHeroEntities() : number[]
     /**
      *   Get all the entities with a given name.
      */
-    GetAllEntitiesByName( pszName : string ) : Array<number>
+    GetAllEntitiesByName( pszName : string ) : number[]
     /**
      *  Get all the entities with a given classname.
      */
-    GetAllEntitiesByClassname( pszName : string ) : Array<number>
+    GetAllEntitiesByClassname( pszName : string ) : number[]
     /**
      * Get all the creature 
      */
-    GetAllCreatureEntities() : Array<number>
+    GetAllCreatureEntities() : number[]
     /**
      * Get all the 
      */
-    GetAllEntities() : Array<number>
+    GetAllEntities() : number[]
     /**
      *  
      */
@@ -973,7 +1014,7 @@ interface CScriptBindingPR_Entities{
     /**
      *  
      */
-    GetAbilityByName( nEntityIndex : number , pszAbilityName : string ): string
+    GetAbilityByName( nEntityIndex : number , pszAbilityName : string ): number
     /**
      *   
      */
@@ -1481,38 +1522,38 @@ interface CScriptBindingPR_Items extends CScriptBindingPR_Abilities{
  * }	
  */
 declare interface ITeamDetails {
-    "team_id": number;
-    "team_name": string;
-    "team_max_players": number;
-    "team_score": number;
-    "team_num_players": number;
-}	
+    team_id: number;
+    team_name: string;
+    team_max_players: number;
+    team_score: number;
+    team_num_players: number;
+}
 
 declare interface IPlayerInfo {
-    "player_id": number;
-    "player_name": string;
-    "player_connection_state": number;
-    "player_steamid": string;
-    "player_kills": number;
-    "player_deaths": number;
-    "player_assists": number;
-    "player_selected_hero_id": number;
-    "player_selected_hero": string;
-    "player_selected_hero_entity_index": number;
-    "possible_hero_selection": "";
-    "player_level": number;
-    "player_respawn_seconds": number;
-    "player_gold": number;
-    "player_team_id": number;
-    "player_is_local": boolean;
-    "player_has_host_privileges": boolean;
-}	
+    player_id: number;
+    player_name: string;
+    player_connection_state: number;
+    player_steamid: string;
+    player_kills: number;
+    player_deaths: number;
+    player_assists: number;
+    player_selected_hero_id: number;
+    player_selected_hero: string;
+    player_selected_hero_entity_index: number;
+    possible_hero_selection: string;
+    player_level: number;
+    player_respawn_seconds: number;
+    player_gold: number;
+    player_team_id: number;
+    player_is_local: boolean;
+    player_has_host_privileges: boolean;
+}
 
 
 declare interface IMapInfo {
-    "map_name": string;
-    "map_display_name": string;
-}	
+    map_name: string;
+    map_display_name: string;
+}
 
 interface CScriptBindingPR_Game{
     IsInToolsMode(): boolean;
@@ -1591,7 +1632,7 @@ interface CScriptBindingPR_Game{
     /**
      *  
      */
-    AddCommand( pszCommandName : string , callback : js_value ,  pszDescription : string , nFlags : number ) : void
+    AddCommand( pszCommandName : string , callback : Function ,  pszDescription : string , nFlags : number ) : void
     /**
      * 
      */
@@ -1671,7 +1712,7 @@ interface CScriptBindingPR_Game{
     /**
      * Get info about the given player
      */
-    GetPlayerInfo( nPlayerID : number ) : any
+    GetPlayerInfo( nPlayerID : number ) : IPlayerInfo
     /**
      *  Get player IDs for the given team
      */
@@ -1699,7 +1740,7 @@ interface CScriptBindingPR_Game{
     /**
      *  Orders from the local player - takes a single arguments object that supports: dotaunitorder_t OrderType, ent_index TargetIndex, vector Position, ent_index AbilityIndex, OrderIssuer_t OrderIssuer, ent_index UnitIndex, OrderQueueBehavior_t QueueBehavior, bool ShowEffects.
      */
-    PrepareUnitOrders( args : js_raw_args ) : void
+    PrepareUnitOrders( args : any ) : void
     /**
      * Order a unit to drop the specified item at the current cursor location.
      */
@@ -1719,9 +1760,9 @@ interface CScriptBindingPR_Game{
 
 }
 
-interface ${
+interface panorama{
 
-    (idSelector: string) : Panel
+    <T = Panel>(idSelector: string) : T
 
     /**
     Log a message
@@ -1839,8 +1880,8 @@ interface Panel{
     FindChildrenWithClassTraverse( className : string ) : Array<Panel>
     GetParent() : Panel
     SetParent( parent : Panel ) : void
-    FindChild( id : string ) : Panel
-    FindChildTraverse( id : string ) : Panel
+    FindChild<T = Panel>( id : string ) : T;
+    FindChildTraverse<T = Panel>( id : string ) : T;
     FindChildInLayoutFile( id : string ) : Panel
     RemoveAndDeleteChildren() : void
     MoveChildBefore( panel1 : Panel , panel2 : Panel ): void
@@ -1864,25 +1905,25 @@ interface Panel{
     BHasDescendantKeyFocus(): boolean
     BLoadLayout( layoutFilePath : string , boolean_2 : boolean ,  boolean_3 : boolean ) : boolean
     BLoadLayoutSnippet(SnippetName: string) : boolean
-    BLoadLayoutFromString( js_raw_args_1 : js_raw_args ) : boolean
+    BLoadLayoutFromString( xml: string ) : boolean
     LoadLayoutFromStringAsync( string_1 : string , boolean_2 : boolean ,  boolean_3 : boolean ): void
     LoadLayoutAsync( string_1 : string , boolean_2 : boolean ,  boolean_3 : boolean ): void
     BCreateChildren( string_1 : string ) : boolean
     SetTopOfInputContext( boolean_1 : boolean ) : void
-    SetDialogVariable( string_1 : string , string_2 : string ) : void
-    SetDialogVariableInt( string_1 : string , number_2 : number ) : void
+    SetDialogVariable( key: string , value: string ) : void
+    SetDialogVariableInt( key: string , value: number ) : void
     ScrollToTop(): void
     ScrollToBottom(): void
     ScrollToLeftEdge(): void
     ScrollToRightEdge(): void
     ScrollParentToMakePanelFit( unknown_variant_type_1 : unknown_variant_type , boolean_2 : boolean ): void
     BCanSeeInParentScroll() : boolean
-    GetAttributeInt( string_1 : string , number_2 : number ): number
-    GetAttributeString( string_1 : string , string_2 : string ): string
-    GetAttributeUInt32( string_1 : string , number_2 : number ): number
-    SetAttributeInt( string_1 : string , number_2 : number ) : void
-    SetAttributeString( string_1 : string , string_2 : string ) : void
-    SetAttributeUInt32( string_1 : string , number_2 : number ) : void
+    GetAttributeInt( key: string , value: number ): number
+    GetAttributeString( key: string , value: string ): string
+    GetAttributeUInt32( key: string , value: number ): number
+    SetAttributeInt( key: string , value: number ) : void
+    SetAttributeString( key: string , value: string ) : void
+    SetAttributeUInt32( key: string , value: number ) : void
     SetInputNamespace( string_1 : string ) : void
     RegisterForReadyEvents( boolean_1 : boolean ): void
     BReadyForDisplay() : boolean
@@ -1929,7 +1970,8 @@ interface Button extends Panel{
 }
 
 interface Image extends Panel{
-    SetImage(url: string) : any
+    SetImage( string_1 : string ) : void
+    SetScaling( string_1 : string ) : void
 }
 
 interface Label extends Panel{
@@ -1945,7 +1987,7 @@ interface DOTAUserName extends Panel{
     accountid : string
 }
 
-interface DOTAHeroImage extends Panel{
+interface DOTAHeroImage extends Image{
     heroid : number
     heroname : string
     heroimagestyle : string
@@ -1955,9 +1997,7 @@ interface CustomUIElement extends Panel{
     //没有多内容
 }
 
-interface DOTAAbilityImage extends Panel{
-    SetImage( string_1 : string ) : void
-    SetScaling( string_1 : string ) : void
+interface DOTAAbilityImage extends Image{
     abilityname : string
     contextEntityIndex : number
 }
