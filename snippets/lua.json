@@ -4,20 +4,20 @@
 		"body":"GameRules",
 		"description":"",
 		"prefix":"GameRules"
-    },
-    "ParticleManager":
+	},
+	"ParticleManager":
 	{
 		"body":"ParticleManager",
 		"description":"",
 		"prefix":"ParticleManager"
-    },
-    "ProjectileManager":
+	},
+	"ProjectileManager":
 	{
 		"body":"ProjectileManager",
 		"description":"",
 		"prefix":"ProjectileManager"
-    },
-    "PlayerResource":
+	},
+	"PlayerResource":
 	{
 		"body":"PlayerResource",
 		"description":"",
