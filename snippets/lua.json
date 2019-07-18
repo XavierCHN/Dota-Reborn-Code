@@ -14,7 +14,7 @@
 	"AppendToLogFile":
 	{
 		"body":"AppendToLogFile(${string_1}, ${string_2})",
-		"description":"AppendToLogFile:\nAppends a string to a log file on the server\nreturn void",
+		"description":"AppendToLogFile:\nAppendToLogFile is deprecated. Print to the console for logging instead.\nreturn void",
 		"prefix":"AppendToLogFile"
 	},
 	"ApplyDamage":
@@ -572,7 +572,7 @@
 	"InitLogFile":
 	{
 		"body":"InitLogFile(${string_1}, ${string_2})",
-		"description":"InitLogFile:\nIf the given file doesn't exist, creates it with the given contents; does nothing if it exists\nreturn void",
+		"description":"InitLogFile:\nInitLogFile is deprecated. Print to the console for logging instead.\nreturn void",
 		"prefix":"InitLogFile"
 	},
 	"IsClient":
@@ -1245,6 +1245,7 @@
 	"DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY":{"body":"DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY", "description":"", "prefix": "DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY"},
 	"DOTA_DAMAGE_FLAG_DONT_DISPLAY_DAMAGE_IF_SOURCE_HIDDEN":{"body":"DOTA_DAMAGE_FLAG_DONT_DISPLAY_DAMAGE_IF_SOURCE_HIDDEN", "description":"", "prefix": "DOTA_DAMAGE_FLAG_DONT_DISPLAY_DAMAGE_IF_SOURCE_HIDDEN"},
 	"DOTA_DAMAGE_FLAG_HPLOSS":{"body":"DOTA_DAMAGE_FLAG_HPLOSS", "description":"", "prefix": "DOTA_DAMAGE_FLAG_HPLOSS"},
+	"DOTA_DAMAGE_FLAG_IGNORES_BASE_PHYSICAL_ARMOR":{"body":"DOTA_DAMAGE_FLAG_IGNORES_BASE_PHYSICAL_ARMOR", "description":"", "prefix": "DOTA_DAMAGE_FLAG_IGNORES_BASE_PHYSICAL_ARMOR"},
 	"DOTA_DAMAGE_FLAG_IGNORES_MAGIC_ARMOR":{"body":"DOTA_DAMAGE_FLAG_IGNORES_MAGIC_ARMOR", "description":"", "prefix": "DOTA_DAMAGE_FLAG_IGNORES_MAGIC_ARMOR"},
 	"DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR":{"body":"DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR", "description":"", "prefix": "DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR"},
 	"DOTA_DAMAGE_FLAG_NONE":{"body":"DOTA_DAMAGE_FLAG_NONE", "description":"", "prefix": "DOTA_DAMAGE_FLAG_NONE"},
@@ -1256,6 +1257,7 @@
 	"DOTA_DAMAGE_FLAG_PROPERTY_FIRE":{"body":"DOTA_DAMAGE_FLAG_PROPERTY_FIRE", "description":"", "prefix": "DOTA_DAMAGE_FLAG_PROPERTY_FIRE"},
 	"DOTA_DAMAGE_FLAG_REFLECTION":{"body":"DOTA_DAMAGE_FLAG_REFLECTION", "description":"", "prefix": "DOTA_DAMAGE_FLAG_REFLECTION"},
 	"DOTA_DAMAGE_FLAG_USE_COMBAT_PROFICIENCY":{"body":"DOTA_DAMAGE_FLAG_USE_COMBAT_PROFICIENCY", "description":"", "prefix": "DOTA_DAMAGE_FLAG_USE_COMBAT_PROFICIENCY"},
+	"DOTA_HUD_CUSTOMUI_BEHIND_HUD_ELEMENTS":{"body":"DOTA_HUD_CUSTOMUI_BEHIND_HUD_ELEMENTS", "description":"", "prefix": "DOTA_HUD_CUSTOMUI_BEHIND_HUD_ELEMENTS"},
 	"DOTA_HUD_VISIBILITY_ACTION_MINIMAP":{"body":"DOTA_HUD_VISIBILITY_ACTION_MINIMAP", "description":"", "prefix": "DOTA_HUD_VISIBILITY_ACTION_MINIMAP"},
 	"DOTA_HUD_VISIBILITY_ACTION_PANEL":{"body":"DOTA_HUD_VISIBILITY_ACTION_PANEL", "description":"", "prefix": "DOTA_HUD_VISIBILITY_ACTION_PANEL"},
 	"DOTA_HUD_VISIBILITY_COUNT":{"body":"DOTA_HUD_VISIBILITY_COUNT", "description":"", "prefix": "DOTA_HUD_VISIBILITY_COUNT"},
@@ -1306,6 +1308,7 @@
 	"DOTA_MINIMAP_EVENT_CANCEL_TELEPORTING":{"body":"DOTA_MINIMAP_EVENT_CANCEL_TELEPORTING", "description":"", "prefix": "DOTA_MINIMAP_EVENT_CANCEL_TELEPORTING"},
 	"DOTA_MINIMAP_EVENT_ENEMY_TELEPORTING":{"body":"DOTA_MINIMAP_EVENT_ENEMY_TELEPORTING", "description":"", "prefix": "DOTA_MINIMAP_EVENT_ENEMY_TELEPORTING"},
 	"DOTA_MINIMAP_EVENT_HINT_LOCATION":{"body":"DOTA_MINIMAP_EVENT_HINT_LOCATION", "description":"", "prefix": "DOTA_MINIMAP_EVENT_HINT_LOCATION"},
+	"DOTA_MINIMAP_EVENT_MOVE_TO_TARGET":{"body":"DOTA_MINIMAP_EVENT_MOVE_TO_TARGET", "description":"", "prefix": "DOTA_MINIMAP_EVENT_MOVE_TO_TARGET"},
 	"DOTA_MINIMAP_EVENT_RADAR":{"body":"DOTA_MINIMAP_EVENT_RADAR", "description":"", "prefix": "DOTA_MINIMAP_EVENT_RADAR"},
 	"DOTA_MINIMAP_EVENT_RADAR_TARGET":{"body":"DOTA_MINIMAP_EVENT_RADAR_TARGET", "description":"", "prefix": "DOTA_MINIMAP_EVENT_RADAR_TARGET"},
 	"DOTA_MINIMAP_EVENT_TEAMMATE_DIED":{"body":"DOTA_MINIMAP_EVENT_TEAMMATE_DIED", "description":"", "prefix": "DOTA_MINIMAP_EVENT_TEAMMATE_DIED"},
@@ -1346,20 +1349,34 @@
 	"DOTA_STASH_SLOT_4":{"body":"DOTA_STASH_SLOT_4", "description":"", "prefix": "DOTA_STASH_SLOT_4"},
 	"DOTA_STASH_SLOT_5":{"body":"DOTA_STASH_SLOT_5", "description":"", "prefix": "DOTA_STASH_SLOT_5"},
 	"DOTA_STASH_SLOT_6":{"body":"DOTA_STASH_SLOT_6", "description":"", "prefix": "DOTA_STASH_SLOT_6"},
+	"DOTA_LOADOUT_PERSONA_1_END":{"body":"DOTA_LOADOUT_PERSONA_1_END", "description":"", "prefix": "DOTA_LOADOUT_PERSONA_1_END"},
+	"DOTA_LOADOUT_PERSONA_1_START":{"body":"DOTA_LOADOUT_PERSONA_1_START", "description":"", "prefix": "DOTA_LOADOUT_PERSONA_1_START"},
 	"DOTA_LOADOUT_TYPE_ABILITY1":{"body":"DOTA_LOADOUT_TYPE_ABILITY1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ABILITY1"},
+	"DOTA_LOADOUT_TYPE_ABILITY1_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_ABILITY1_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ABILITY1_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_ABILITY2":{"body":"DOTA_LOADOUT_TYPE_ABILITY2", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ABILITY2"},
+	"DOTA_LOADOUT_TYPE_ABILITY2_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_ABILITY2_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ABILITY2_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_ABILITY3":{"body":"DOTA_LOADOUT_TYPE_ABILITY3", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ABILITY3"},
+	"DOTA_LOADOUT_TYPE_ABILITY3_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_ABILITY3_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ABILITY3_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_ABILITY4":{"body":"DOTA_LOADOUT_TYPE_ABILITY4", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ABILITY4"},
+	"DOTA_LOADOUT_TYPE_ABILITY4_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_ABILITY4_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ABILITY4_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_ABILITY_ATTACK":{"body":"DOTA_LOADOUT_TYPE_ABILITY_ATTACK", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ABILITY_ATTACK"},
+	"DOTA_LOADOUT_TYPE_ABILITY_ATTACK_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_ABILITY_ATTACK_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ABILITY_ATTACK_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_ABILITY_ULTIMATE":{"body":"DOTA_LOADOUT_TYPE_ABILITY_ULTIMATE", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ABILITY_ULTIMATE"},
+	"DOTA_LOADOUT_TYPE_ABILITY_ULTIMATE_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_ABILITY_ULTIMATE_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ABILITY_ULTIMATE_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_AMBIENT_EFFECTS":{"body":"DOTA_LOADOUT_TYPE_AMBIENT_EFFECTS", "description":"", "prefix": "DOTA_LOADOUT_TYPE_AMBIENT_EFFECTS"},
+	"DOTA_LOADOUT_TYPE_AMBIENT_EFFECTS_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_AMBIENT_EFFECTS_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_AMBIENT_EFFECTS_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_ANNOUNCER":{"body":"DOTA_LOADOUT_TYPE_ANNOUNCER", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ANNOUNCER"},
 	"DOTA_LOADOUT_TYPE_ARMOR":{"body":"DOTA_LOADOUT_TYPE_ARMOR", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ARMOR"},
+	"DOTA_LOADOUT_TYPE_ARMOR_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_ARMOR_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ARMOR_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_ARMS":{"body":"DOTA_LOADOUT_TYPE_ARMS", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ARMS"},
+	"DOTA_LOADOUT_TYPE_ARMS_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_ARMS_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_ARMS_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_BACK":{"body":"DOTA_LOADOUT_TYPE_BACK", "description":"", "prefix": "DOTA_LOADOUT_TYPE_BACK"},
+	"DOTA_LOADOUT_TYPE_BACK_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_BACK_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_BACK_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_BELT":{"body":"DOTA_LOADOUT_TYPE_BELT", "description":"", "prefix": "DOTA_LOADOUT_TYPE_BELT"},
+	"DOTA_LOADOUT_TYPE_BELT_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_BELT_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_BELT_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_BLINK_EFFECT":{"body":"DOTA_LOADOUT_TYPE_BLINK_EFFECT", "description":"", "prefix": "DOTA_LOADOUT_TYPE_BLINK_EFFECT"},
 	"DOTA_LOADOUT_TYPE_BODY_HEAD":{"body":"DOTA_LOADOUT_TYPE_BODY_HEAD", "description":"", "prefix": "DOTA_LOADOUT_TYPE_BODY_HEAD"},
+	"DOTA_LOADOUT_TYPE_BODY_HEAD_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_BODY_HEAD_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_BODY_HEAD_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_COUNT":{"body":"DOTA_LOADOUT_TYPE_COUNT", "description":"", "prefix": "DOTA_LOADOUT_TYPE_COUNT"},
 	"DOTA_LOADOUT_TYPE_COURIER":{"body":"DOTA_LOADOUT_TYPE_COURIER", "description":"", "prefix": "DOTA_LOADOUT_TYPE_COURIER"},
 	"DOTA_LOADOUT_TYPE_CURSOR_PACK":{"body":"DOTA_LOADOUT_TYPE_CURSOR_PACK", "description":"", "prefix": "DOTA_LOADOUT_TYPE_CURSOR_PACK"},
@@ -1367,35 +1384,52 @@
 	"DOTA_LOADOUT_TYPE_DIRE_TOWER":{"body":"DOTA_LOADOUT_TYPE_DIRE_TOWER", "description":"", "prefix": "DOTA_LOADOUT_TYPE_DIRE_TOWER"},
 	"DOTA_LOADOUT_TYPE_EMBLEM":{"body":"DOTA_LOADOUT_TYPE_EMBLEM", "description":"", "prefix": "DOTA_LOADOUT_TYPE_EMBLEM"},
 	"DOTA_LOADOUT_TYPE_GLOVES":{"body":"DOTA_LOADOUT_TYPE_GLOVES", "description":"", "prefix": "DOTA_LOADOUT_TYPE_GLOVES"},
+	"DOTA_LOADOUT_TYPE_GLOVES_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_GLOVES_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_GLOVES_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_HEAD":{"body":"DOTA_LOADOUT_TYPE_HEAD", "description":"", "prefix": "DOTA_LOADOUT_TYPE_HEAD"},
+	"DOTA_LOADOUT_TYPE_HEAD_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_HEAD_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_HEAD_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_HEROIC_STATUE":{"body":"DOTA_LOADOUT_TYPE_HEROIC_STATUE", "description":"", "prefix": "DOTA_LOADOUT_TYPE_HEROIC_STATUE"},
 	"DOTA_LOADOUT_TYPE_HUD_SKIN":{"body":"DOTA_LOADOUT_TYPE_HUD_SKIN", "description":"", "prefix": "DOTA_LOADOUT_TYPE_HUD_SKIN"},
 	"DOTA_LOADOUT_TYPE_INVALID":{"body":"DOTA_LOADOUT_TYPE_INVALID", "description":"", "prefix": "DOTA_LOADOUT_TYPE_INVALID"},
 	"DOTA_LOADOUT_TYPE_LEGS":{"body":"DOTA_LOADOUT_TYPE_LEGS", "description":"", "prefix": "DOTA_LOADOUT_TYPE_LEGS"},
+	"DOTA_LOADOUT_TYPE_LEGS_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_LEGS_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_LEGS_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_LOADING_SCREEN":{"body":"DOTA_LOADOUT_TYPE_LOADING_SCREEN", "description":"", "prefix": "DOTA_LOADOUT_TYPE_LOADING_SCREEN"},
 	"DOTA_LOADOUT_TYPE_MEGA_KILLS":{"body":"DOTA_LOADOUT_TYPE_MEGA_KILLS", "description":"", "prefix": "DOTA_LOADOUT_TYPE_MEGA_KILLS"},
 	"DOTA_LOADOUT_TYPE_MISC":{"body":"DOTA_LOADOUT_TYPE_MISC", "description":"", "prefix": "DOTA_LOADOUT_TYPE_MISC"},
+	"DOTA_LOADOUT_TYPE_MISC_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_MISC_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_MISC_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_MOUNT":{"body":"DOTA_LOADOUT_TYPE_MOUNT", "description":"", "prefix": "DOTA_LOADOUT_TYPE_MOUNT"},
+	"DOTA_LOADOUT_TYPE_MOUNT_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_MOUNT_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_MOUNT_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_MULTIKILL_BANNER":{"body":"DOTA_LOADOUT_TYPE_MULTIKILL_BANNER", "description":"", "prefix": "DOTA_LOADOUT_TYPE_MULTIKILL_BANNER"},
 	"DOTA_LOADOUT_TYPE_MUSIC":{"body":"DOTA_LOADOUT_TYPE_MUSIC", "description":"", "prefix": "DOTA_LOADOUT_TYPE_MUSIC"},
 	"DOTA_LOADOUT_TYPE_NECK":{"body":"DOTA_LOADOUT_TYPE_NECK", "description":"", "prefix": "DOTA_LOADOUT_TYPE_NECK"},
+	"DOTA_LOADOUT_TYPE_NECK_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_NECK_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_NECK_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_NONE":{"body":"DOTA_LOADOUT_TYPE_NONE", "description":"", "prefix": "DOTA_LOADOUT_TYPE_NONE"},
 	"DOTA_LOADOUT_TYPE_OFFHAND_WEAPON":{"body":"DOTA_LOADOUT_TYPE_OFFHAND_WEAPON", "description":"", "prefix": "DOTA_LOADOUT_TYPE_OFFHAND_WEAPON"},
 	"DOTA_LOADOUT_TYPE_OFFHAND_WEAPON2":{"body":"DOTA_LOADOUT_TYPE_OFFHAND_WEAPON2", "description":"", "prefix": "DOTA_LOADOUT_TYPE_OFFHAND_WEAPON2"},
+	"DOTA_LOADOUT_TYPE_OFFHAND_WEAPON2_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_OFFHAND_WEAPON2_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_OFFHAND_WEAPON2_PERSONA_1"},
+	"DOTA_LOADOUT_TYPE_OFFHAND_WEAPON_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_OFFHAND_WEAPON_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_OFFHAND_WEAPON_PERSONA_1"},
+	"DOTA_LOADOUT_TYPE_PERSONA_SELECTOR":{"body":"DOTA_LOADOUT_TYPE_PERSONA_SELECTOR", "description":"", "prefix": "DOTA_LOADOUT_TYPE_PERSONA_SELECTOR"},
 	"DOTA_LOADOUT_TYPE_RADIANT_CREEPS":{"body":"DOTA_LOADOUT_TYPE_RADIANT_CREEPS", "description":"", "prefix": "DOTA_LOADOUT_TYPE_RADIANT_CREEPS"},
 	"DOTA_LOADOUT_TYPE_RADIANT_TOWER":{"body":"DOTA_LOADOUT_TYPE_RADIANT_TOWER", "description":"", "prefix": "DOTA_LOADOUT_TYPE_RADIANT_TOWER"},
 	"DOTA_LOADOUT_TYPE_SHAPESHIFT":{"body":"DOTA_LOADOUT_TYPE_SHAPESHIFT", "description":"", "prefix": "DOTA_LOADOUT_TYPE_SHAPESHIFT"},
+	"DOTA_LOADOUT_TYPE_SHAPESHIFT_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_SHAPESHIFT_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_SHAPESHIFT_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_SHOULDER":{"body":"DOTA_LOADOUT_TYPE_SHOULDER", "description":"", "prefix": "DOTA_LOADOUT_TYPE_SHOULDER"},
+	"DOTA_LOADOUT_TYPE_SHOULDER_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_SHOULDER_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_SHOULDER_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_SUMMON":{"body":"DOTA_LOADOUT_TYPE_SUMMON", "description":"", "prefix": "DOTA_LOADOUT_TYPE_SUMMON"},
+	"DOTA_LOADOUT_TYPE_SUMMON_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_SUMMON_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_SUMMON_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_TAIL":{"body":"DOTA_LOADOUT_TYPE_TAIL", "description":"", "prefix": "DOTA_LOADOUT_TYPE_TAIL"},
+	"DOTA_LOADOUT_TYPE_TAIL_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_TAIL_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_TAIL_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_TAUNT":{"body":"DOTA_LOADOUT_TYPE_TAUNT", "description":"", "prefix": "DOTA_LOADOUT_TYPE_TAUNT"},
+	"DOTA_LOADOUT_TYPE_TAUNT_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_TAUNT_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_TAUNT_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_TELEPORT_EFFECT":{"body":"DOTA_LOADOUT_TYPE_TELEPORT_EFFECT", "description":"", "prefix": "DOTA_LOADOUT_TYPE_TELEPORT_EFFECT"},
 	"DOTA_LOADOUT_TYPE_TERRAIN":{"body":"DOTA_LOADOUT_TYPE_TERRAIN", "description":"", "prefix": "DOTA_LOADOUT_TYPE_TERRAIN"},
 	"DOTA_LOADOUT_TYPE_VERSUS_SCREEN":{"body":"DOTA_LOADOUT_TYPE_VERSUS_SCREEN", "description":"", "prefix": "DOTA_LOADOUT_TYPE_VERSUS_SCREEN"},
 	"DOTA_LOADOUT_TYPE_VOICE":{"body":"DOTA_LOADOUT_TYPE_VOICE", "description":"", "prefix": "DOTA_LOADOUT_TYPE_VOICE"},
+	"DOTA_LOADOUT_TYPE_VOICE_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_VOICE_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_VOICE_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_WARD":{"body":"DOTA_LOADOUT_TYPE_WARD", "description":"", "prefix": "DOTA_LOADOUT_TYPE_WARD"},
 	"DOTA_LOADOUT_TYPE_WEAPON":{"body":"DOTA_LOADOUT_TYPE_WEAPON", "description":"", "prefix": "DOTA_LOADOUT_TYPE_WEAPON"},
 	"DOTA_LOADOUT_TYPE_WEAPON2":{"body":"DOTA_LOADOUT_TYPE_WEAPON2", "description":"", "prefix": "DOTA_LOADOUT_TYPE_WEAPON2"},
+	"DOTA_LOADOUT_TYPE_WEAPON2_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_WEAPON2_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_WEAPON2_PERSONA_1"},
+	"DOTA_LOADOUT_TYPE_WEAPON_PERSONA_1":{"body":"DOTA_LOADOUT_TYPE_WEAPON_PERSONA_1", "description":"", "prefix": "DOTA_LOADOUT_TYPE_WEAPON_PERSONA_1"},
 	"DOTA_LOADOUT_TYPE_WEATHER":{"body":"DOTA_LOADOUT_TYPE_WEATHER", "description":"", "prefix": "DOTA_LOADOUT_TYPE_WEATHER"},
 	"DOTA_PLAYER_LOADOUT_END":{"body":"DOTA_PLAYER_LOADOUT_END", "description":"", "prefix": "DOTA_PLAYER_LOADOUT_END"},
 	"DOTA_PLAYER_LOADOUT_START":{"body":"DOTA_PLAYER_LOADOUT_START", "description":"", "prefix": "DOTA_PLAYER_LOADOUT_START"},
@@ -1605,6 +1639,7 @@
 	"DOTA_DAMAGE_CATEGORY_SPELL":{"body":"DOTA_DAMAGE_CATEGORY_SPELL", "description":"", "prefix": "DOTA_DAMAGE_CATEGORY_SPELL"},
 	"DOTA_DEFAULT_UI_ACTION_MINIMAP":{"body":"DOTA_DEFAULT_UI_ACTION_MINIMAP", "description":"", "prefix": "DOTA_DEFAULT_UI_ACTION_MINIMAP"},
 	"DOTA_DEFAULT_UI_ACTION_PANEL":{"body":"DOTA_DEFAULT_UI_ACTION_PANEL", "description":"", "prefix": "DOTA_DEFAULT_UI_ACTION_PANEL"},
+	"DOTA_DEFAULT_UI_CUSTOMUI_BEHIND_HUD_ELEMENTS":{"body":"DOTA_DEFAULT_UI_CUSTOMUI_BEHIND_HUD_ELEMENTS", "description":"", "prefix": "DOTA_DEFAULT_UI_CUSTOMUI_BEHIND_HUD_ELEMENTS"},
 	"DOTA_DEFAULT_UI_ELEMENT_COUNT":{"body":"DOTA_DEFAULT_UI_ELEMENT_COUNT", "description":"", "prefix": "DOTA_DEFAULT_UI_ELEMENT_COUNT"},
 	"DOTA_DEFAULT_UI_ENDGAME":{"body":"DOTA_DEFAULT_UI_ENDGAME", "description":"", "prefix": "DOTA_DEFAULT_UI_ENDGAME"},
 	"DOTA_DEFAULT_UI_ENDGAME_CHAT":{"body":"DOTA_DEFAULT_UI_ENDGAME_CHAT", "description":"", "prefix": "DOTA_DEFAULT_UI_ENDGAME_CHAT"},
@@ -1701,21 +1736,31 @@
 	"ACT_DOTA_CAST_ABILITY_7":{"body":"ACT_DOTA_CAST_ABILITY_7", "description":"", "prefix": "ACT_DOTA_CAST_ABILITY_7"},
 	"ACT_DOTA_CAST_ABILITY_ROT":{"body":"ACT_DOTA_CAST_ABILITY_ROT", "description":"", "prefix": "ACT_DOTA_CAST_ABILITY_ROT"},
 	"ACT_DOTA_CAST_ALACRITY":{"body":"ACT_DOTA_CAST_ALACRITY", "description":"", "prefix": "ACT_DOTA_CAST_ALACRITY"},
+	"ACT_DOTA_CAST_ALACRITY_ORB":{"body":"ACT_DOTA_CAST_ALACRITY_ORB", "description":"", "prefix": "ACT_DOTA_CAST_ALACRITY_ORB"},
 	"ACT_DOTA_CAST_BURROW_END":{"body":"ACT_DOTA_CAST_BURROW_END", "description":"", "prefix": "ACT_DOTA_CAST_BURROW_END"},
 	"ACT_DOTA_CAST_CHAOS_METEOR":{"body":"ACT_DOTA_CAST_CHAOS_METEOR", "description":"", "prefix": "ACT_DOTA_CAST_CHAOS_METEOR"},
+	"ACT_DOTA_CAST_CHAOS_METEOR_ORB":{"body":"ACT_DOTA_CAST_CHAOS_METEOR_ORB", "description":"", "prefix": "ACT_DOTA_CAST_CHAOS_METEOR_ORB"},
 	"ACT_DOTA_CAST_COLD_SNAP":{"body":"ACT_DOTA_CAST_COLD_SNAP", "description":"", "prefix": "ACT_DOTA_CAST_COLD_SNAP"},
+	"ACT_DOTA_CAST_COLD_SNAP_ORB":{"body":"ACT_DOTA_CAST_COLD_SNAP_ORB", "description":"", "prefix": "ACT_DOTA_CAST_COLD_SNAP_ORB"},
 	"ACT_DOTA_CAST_DEAFENING_BLAST":{"body":"ACT_DOTA_CAST_DEAFENING_BLAST", "description":"", "prefix": "ACT_DOTA_CAST_DEAFENING_BLAST"},
+	"ACT_DOTA_CAST_DEAFENING_BLAST_ORB":{"body":"ACT_DOTA_CAST_DEAFENING_BLAST_ORB", "description":"", "prefix": "ACT_DOTA_CAST_DEAFENING_BLAST_ORB"},
 	"ACT_DOTA_CAST_DRAGONBREATH":{"body":"ACT_DOTA_CAST_DRAGONBREATH", "description":"", "prefix": "ACT_DOTA_CAST_DRAGONBREATH"},
 	"ACT_DOTA_CAST_EMP":{"body":"ACT_DOTA_CAST_EMP", "description":"", "prefix": "ACT_DOTA_CAST_EMP"},
+	"ACT_DOTA_CAST_EMP_ORB":{"body":"ACT_DOTA_CAST_EMP_ORB", "description":"", "prefix": "ACT_DOTA_CAST_EMP_ORB"},
 	"ACT_DOTA_CAST_FORGE_SPIRIT":{"body":"ACT_DOTA_CAST_FORGE_SPIRIT", "description":"", "prefix": "ACT_DOTA_CAST_FORGE_SPIRIT"},
+	"ACT_DOTA_CAST_FORGE_SPIRIT_ORB":{"body":"ACT_DOTA_CAST_FORGE_SPIRIT_ORB", "description":"", "prefix": "ACT_DOTA_CAST_FORGE_SPIRIT_ORB"},
 	"ACT_DOTA_CAST_GHOST_SHIP":{"body":"ACT_DOTA_CAST_GHOST_SHIP", "description":"", "prefix": "ACT_DOTA_CAST_GHOST_SHIP"},
 	"ACT_DOTA_CAST_GHOST_WALK":{"body":"ACT_DOTA_CAST_GHOST_WALK", "description":"", "prefix": "ACT_DOTA_CAST_GHOST_WALK"},
+	"ACT_DOTA_CAST_GHOST_WALK_ORB":{"body":"ACT_DOTA_CAST_GHOST_WALK_ORB", "description":"", "prefix": "ACT_DOTA_CAST_GHOST_WALK_ORB"},
 	"ACT_DOTA_CAST_ICE_WALL":{"body":"ACT_DOTA_CAST_ICE_WALL", "description":"", "prefix": "ACT_DOTA_CAST_ICE_WALL"},
+	"ACT_DOTA_CAST_ICE_WALL_ORB":{"body":"ACT_DOTA_CAST_ICE_WALL_ORB", "description":"", "prefix": "ACT_DOTA_CAST_ICE_WALL_ORB"},
 	"ACT_DOTA_CAST_LIFE_BREAK_END":{"body":"ACT_DOTA_CAST_LIFE_BREAK_END", "description":"", "prefix": "ACT_DOTA_CAST_LIFE_BREAK_END"},
 	"ACT_DOTA_CAST_LIFE_BREAK_START":{"body":"ACT_DOTA_CAST_LIFE_BREAK_START", "description":"", "prefix": "ACT_DOTA_CAST_LIFE_BREAK_START"},
 	"ACT_DOTA_CAST_REFRACTION":{"body":"ACT_DOTA_CAST_REFRACTION", "description":"", "prefix": "ACT_DOTA_CAST_REFRACTION"},
 	"ACT_DOTA_CAST_SUN_STRIKE":{"body":"ACT_DOTA_CAST_SUN_STRIKE", "description":"", "prefix": "ACT_DOTA_CAST_SUN_STRIKE"},
+	"ACT_DOTA_CAST_SUN_STRIKE_ORB":{"body":"ACT_DOTA_CAST_SUN_STRIKE_ORB", "description":"", "prefix": "ACT_DOTA_CAST_SUN_STRIKE_ORB"},
 	"ACT_DOTA_CAST_TORNADO":{"body":"ACT_DOTA_CAST_TORNADO", "description":"", "prefix": "ACT_DOTA_CAST_TORNADO"},
+	"ACT_DOTA_CAST_TORNADO_ORB":{"body":"ACT_DOTA_CAST_TORNADO_ORB", "description":"", "prefix": "ACT_DOTA_CAST_TORNADO_ORB"},
 	"ACT_DOTA_CAST_WILD_AXES_END":{"body":"ACT_DOTA_CAST_WILD_AXES_END", "description":"", "prefix": "ACT_DOTA_CAST_WILD_AXES_END"},
 	"ACT_DOTA_CENTAUR_STAMPEDE":{"body":"ACT_DOTA_CENTAUR_STAMPEDE", "description":"", "prefix": "ACT_DOTA_CENTAUR_STAMPEDE"},
 	"ACT_DOTA_CHANNEL_ABILITY_1":{"body":"ACT_DOTA_CHANNEL_ABILITY_1", "description":"", "prefix": "ACT_DOTA_CHANNEL_ABILITY_1"},
@@ -1814,6 +1859,7 @@
 	"ACT_DOTA_NIAN_PIN_START":{"body":"ACT_DOTA_NIAN_PIN_START", "description":"", "prefix": "ACT_DOTA_NIAN_PIN_START"},
 	"ACT_DOTA_NIAN_PIN_TO_STUN":{"body":"ACT_DOTA_NIAN_PIN_TO_STUN", "description":"", "prefix": "ACT_DOTA_NIAN_PIN_TO_STUN"},
 	"ACT_DOTA_NIGHTSTALKER_TRANSITION":{"body":"ACT_DOTA_NIGHTSTALKER_TRANSITION", "description":"", "prefix": "ACT_DOTA_NIGHTSTALKER_TRANSITION"},
+	"ACT_DOTA_NOTICE":{"body":"ACT_DOTA_NOTICE", "description":"", "prefix": "ACT_DOTA_NOTICE"},
 	"ACT_DOTA_OVERRIDE_ABILITY_1":{"body":"ACT_DOTA_OVERRIDE_ABILITY_1", "description":"", "prefix": "ACT_DOTA_OVERRIDE_ABILITY_1"},
 	"ACT_DOTA_OVERRIDE_ABILITY_2":{"body":"ACT_DOTA_OVERRIDE_ABILITY_2", "description":"", "prefix": "ACT_DOTA_OVERRIDE_ABILITY_2"},
 	"ACT_DOTA_OVERRIDE_ABILITY_3":{"body":"ACT_DOTA_OVERRIDE_ABILITY_3", "description":"", "prefix": "ACT_DOTA_OVERRIDE_ABILITY_3"},
@@ -1904,6 +1950,7 @@
 	"PATTACH_CENTER_FOLLOW":{"body":"PATTACH_CENTER_FOLLOW", "description":"", "prefix": "PATTACH_CENTER_FOLLOW"},
 	"PATTACH_CUSTOMORIGIN":{"body":"PATTACH_CUSTOMORIGIN", "description":"", "prefix": "PATTACH_CUSTOMORIGIN"},
 	"PATTACH_CUSTOMORIGIN_FOLLOW":{"body":"PATTACH_CUSTOMORIGIN_FOLLOW", "description":"", "prefix": "PATTACH_CUSTOMORIGIN_FOLLOW"},
+	"PATTACH_CUSTOM_GAME_STATE_1":{"body":"PATTACH_CUSTOM_GAME_STATE_1", "description":"", "prefix": "PATTACH_CUSTOM_GAME_STATE_1"},
 	"PATTACH_EYES_FOLLOW":{"body":"PATTACH_EYES_FOLLOW", "description":"", "prefix": "PATTACH_EYES_FOLLOW"},
 	"PATTACH_INVALID":{"body":"PATTACH_INVALID", "description":"", "prefix": "PATTACH_INVALID"},
 	"PATTACH_MAIN_VIEW":{"body":"PATTACH_MAIN_VIEW", "description":"", "prefix": "PATTACH_MAIN_VIEW"},
@@ -5077,156 +5124,6 @@
 		"description":"CDOTAPlayer_SetSelectedHero:\nSets this player's hero selection.\nreturn void",
 		"prefix":"SetSelectedHero"
 	},
-	"CDOTATutorial_AddBot":
-	{
-		"body":"AddBot(${string_1}, ${string_2}, ${string_3}, ${bool_4})",
-		"description":"CDOTATutorial_AddBot:\nAdd a computer controlled bot.\nreturn bool",
-		"prefix":"AddBot"
-	},
-	"CDOTATutorial_AddQuest":
-	{
-		"body":"AddQuest(${string_1}, ${int_2}, ${string_3}, ${string_4})",
-		"description":"CDOTATutorial_AddQuest:\nAdd a quest to the quest log\nreturn void",
-		"prefix":"AddQuest"
-	},
-	"CDOTATutorial_AddShopWhitelistItem":
-	{
-		"body":"AddShopWhitelistItem(${string_1})",
-		"description":"CDOTATutorial_AddShopWhitelistItem:\nAdd an item to the shop whitelist.\nreturn void",
-		"prefix":"AddShopWhitelistItem"
-	},
-	"CDOTATutorial_CompleteQuest":
-	{
-		"body":"CompleteQuest(${string_1})",
-		"description":"CDOTATutorial_CompleteQuest:\nComplete a quest,\nreturn void",
-		"prefix":"CompleteQuest"
-	},
-	"CDOTATutorial_CreateLocationTask":
-	{
-		"body":"CreateLocationTask(${Vector_1})",
-		"description":"CDOTATutorial_CreateLocationTask:\nAdd a task to move to a specific location\nreturn void",
-		"prefix":"CreateLocationTask"
-	},
-	"CDOTATutorial_EnableCreepAggroViz":
-	{
-		"body":"EnableCreepAggroViz(${bool_1})",
-		"description":"CDOTATutorial_EnableCreepAggroViz:\nAlert the player when a creep becomes agro to their hero.\nreturn void",
-		"prefix":"EnableCreepAggroViz"
-	},
-	"CDOTATutorial_EnablePlayerOffscreenTip":
-	{
-		"body":"EnablePlayerOffscreenTip(${bool_1})",
-		"description":"CDOTATutorial_EnablePlayerOffscreenTip:\nEnable the tip to alert players how to find their hero.\nreturn void",
-		"prefix":"EnablePlayerOffscreenTip"
-	},
-	"CDOTATutorial_EnableTowerAggroViz":
-	{
-		"body":"EnableTowerAggroViz(${bool_1})",
-		"description":"CDOTATutorial_EnableTowerAggroViz:\nAlert the player when a tower becomes agro to their hero.\nreturn void",
-		"prefix":"EnableTowerAggroViz"
-	},
-	"CDOTATutorial_FinishTutorial":
-	{
-		"body":"FinishTutorial()",
-		"description":"CDOTATutorial_FinishTutorial:\nEnd the tutorial.\nreturn void",
-		"prefix":"FinishTutorial"
-	},
-	"CDOTATutorial_ForceGameStart":
-	{
-		"body":"ForceGameStart()",
-		"description":"CDOTATutorial_ForceGameStart:\nForce the start of the game.\nreturn void",
-		"prefix":"ForceGameStart"
-	},
-	"CDOTATutorial_GetTimeFrozen":
-	{
-		"body":"GetTimeFrozen()",
-		"description":"CDOTATutorial_GetTimeFrozen:\nIs our time frozen?\nreturn bool",
-		"prefix":"GetTimeFrozen"
-	},
-	"CDOTATutorial_IsItemInWhiteList":
-	{
-		"body":"IsItemInWhiteList(${string_1})",
-		"description":"CDOTATutorial_IsItemInWhiteList:\nIs this item currently in the white list.\nreturn bool",
-		"prefix":"IsItemInWhiteList"
-	},
-	"CDOTATutorial_RemoveShopWhitelistItem":
-	{
-		"body":"RemoveShopWhitelistItem(${string_1})",
-		"description":"CDOTATutorial_RemoveShopWhitelistItem:\nRemove an item from the shop whitelist.\nreturn void",
-		"prefix":"RemoveShopWhitelistItem"
-	},
-	"CDOTATutorial_SelectHero":
-	{
-		"body":"SelectHero(${string_1})",
-		"description":"CDOTATutorial_SelectHero:\nSelect a hero for the local player\nreturn void",
-		"prefix":"SelectHero"
-	},
-	"CDOTATutorial_SelectPlayerTeam":
-	{
-		"body":"SelectPlayerTeam(${string_1})",
-		"description":"CDOTATutorial_SelectPlayerTeam:\nSelect the team for the local player\nreturn void",
-		"prefix":"SelectPlayerTeam"
-	},
-	"CDOTATutorial_SetItemGuide":
-	{
-		"body":"SetItemGuide(${string_1})",
-		"description":"CDOTATutorial_SetItemGuide:\nSet the current item guide.\nreturn void",
-		"prefix":"SetItemGuide"
-	},
-	"CDOTATutorial_SetOrModifyPlayerGold":
-	{
-		"body":"SetOrModifyPlayerGold(${int}, ${bool_2})",
-		"description":"CDOTATutorial_SetOrModifyPlayerGold:\nSet gold amount for the tutorial player. (int) GoldAmount, (bool) true=Set, false=Modify\nreturn void",
-		"prefix":"SetOrModifyPlayerGold"
-	},
-	"CDOTATutorial_SetQuickBuy":
-	{
-		"body":"SetQuickBuy(${string_1})",
-		"description":"CDOTATutorial_SetQuickBuy:\nSet players quick buy item.\nreturn void",
-		"prefix":"SetQuickBuy"
-	},
-	"CDOTATutorial_SetShopOpen":
-	{
-		"body":"SetShopOpen(${bool_1})",
-		"description":"CDOTATutorial_SetShopOpen:\nSet the shop open or closed.\nreturn void",
-		"prefix":"SetShopOpen"
-	},
-	"CDOTATutorial_SetTimeFrozen":
-	{
-		"body":"SetTimeFrozen(${bool_1})",
-		"description":"CDOTATutorial_SetTimeFrozen:\nSet if we should freeze time or not.\nreturn void",
-		"prefix":"SetTimeFrozen"
-	},
-	"CDOTATutorial_SetTutorialConvar":
-	{
-		"body":"SetTutorialConvar(${string_1}, ${string_2})",
-		"description":"CDOTATutorial_SetTutorialConvar:\nSet a tutorial convar\nreturn void",
-		"prefix":"SetTutorialConvar"
-	},
-	"CDOTATutorial_SetTutorialUI":
-	{
-		"body":"SetTutorialUI(${int_1})",
-		"description":"CDOTATutorial_SetTutorialUI:\nSet the UI to use a reduced version to focus attention to specific elements.\nreturn void",
-		"prefix":"SetTutorialUI"
-	},
-	"CDOTATutorial_SetWhiteListEnabled":
-	{
-		"body":"SetWhiteListEnabled(${bool_1})",
-		"description":"CDOTATutorial_SetWhiteListEnabled:\nSet if we should whitelist shop items.\nreturn void",
-		"prefix":"SetWhiteListEnabled"
-	},
-	"CDOTATutorial_StartTutorialMode":
-	{
-		"body":"StartTutorialMode()",
-		"description":"CDOTATutorial_StartTutorialMode:\nInitialize Tutorial Mode\nreturn void",
-		"prefix":"StartTutorialMode"
-	},
-	"CDOTATutorial_UpgradePlayerAbility":
-	{
-		"body":"UpgradePlayerAbility(${string_1})",
-		"description":"CDOTATutorial_UpgradePlayerAbility:\nUpgrade a specific ability for the local hero\nreturn void",
-		"prefix":"UpgradePlayerAbility"
-	},
 	"CDOTAVoteSystem_StartVote":
 	{
 		"body":"StartVote(${handle_1})",
@@ -6084,6 +5981,12 @@
 		"body":"GetLastAttackTime()",
 		"description":"CDOTA_BaseNPC_GetLastAttackTime:\n\nreturn float",
 		"prefix":"GetLastAttackTime"
+	},
+	"CDOTA_BaseNPC_GetLastDamageTime":
+	{
+		"body":"GetLastDamageTime()",
+		"description":"CDOTA_BaseNPC_GetLastDamageTime:\nGet the last time this NPC took damage\nreturn float",
+		"prefix":"GetLastDamageTime"
 	},
 	"CDOTA_BaseNPC_GetLastIdleChangeTime":
 	{
@@ -8496,6 +8399,12 @@
 		"body":"ApplyDataDrivenThinker(${hCaster}, ${vLocation}, ${pszModifierName}, ${hModifierTable})",
 		"description":"CDOTA_Item_DataDriven_ApplyDataDrivenThinker:\nApplies a data driven thinker at the location\nreturn handle",
 		"prefix":"ApplyDataDrivenThinker"
+	},
+	"CDOTA_Item_Lua_CanUnitPickUp":
+	{
+		"body":"CanUnitPickUp(${hUnit})",
+		"description":"CDOTA_Item_Lua_CanUnitPickUp:\nReturns true if this item can be picked up by the target unit.\nreturn bool",
+		"prefix":"CanUnitPickUp"
 	},
 	"CDOTA_Item_Lua_CastFilterResult":
 	{
