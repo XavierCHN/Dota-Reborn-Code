@@ -64,6 +64,10 @@
                 "language": "lua",
                 "path": "./snippets/lua_complex.json"
             },
+			{
+				"language": "lua",
+				"path": "./snippets/lua_globals.json"
+			},
             {
                 "language": "moonscript",
                 "path": "./snippets/lua_complex.json"

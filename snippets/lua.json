@@ -1,28 +1,4 @@
 {
-	"GameRules":
-	{
-		"body":"GameRules",
-		"description":"",
-		"prefix":"GameRules"
-	},
-	"ParticleManager":
-	{
-		"body":"ParticleManager",
-		"description":"",
-		"prefix":"ParticleManager"
-	},
-	"ProjectileManager":
-	{
-		"body":"ProjectileManager",
-		"description":"",
-		"prefix":"ProjectileManager"
-	},
-	"PlayerResource":
-	{
-		"body":"PlayerResource",
-		"description":"",
-		"prefix":"PlayerResource"
-	},
 	"AddFOWViewer":
 	{
 		"body":"AddFOWViewer(${nTeamID}, ${vLocation}, ${flRadius}, ${flDuration}, ${bObstructedVision})",
