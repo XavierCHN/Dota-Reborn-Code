@@ -89,6 +89,12 @@
 		"description":"CreateHeroForPlayer:\nCreates a DOTA hero by its dota_npc_units.txt name and sets it as the given player's controlled hero\nreturn handle",
 		"prefix":"CreateHeroForPlayer"
 	},
+	"CreateIllusions":
+	{
+		"body":"CreateIllusions(${hOwner}, ${hHeroToCopy}, ${hModiiferKeys}, ${nNumIllusions}, ${nPadding}, ${bScramblePosition}, ${bFindClearSpace})",
+		"description":"CreateIllusions:\nCreate illusions of the passed hero that belong to passed unit using passed modifier data. ( hOwner, hHeroToCopy, hModiiferKeys, nNumIllusions, nPadding, bScramblePosition, bFindClearSpace ) Supported keys: outgoing_damage incoming_damage bounty_base bounty_growth outgoing_damage_structure outgoing_damage_roshan\nreturn table",
+		"prefix":"CreateIllusions"
+	},
 	"CreateItem":
 	{
 		"body":"CreateItem(${string_1}, ${handle_2}, ${handle_3})",
@@ -2153,6 +2159,7 @@
 	"MODIFIER_PROPERTY_OVERRIDE_ATTACK_DAMAGE":{"body":"MODIFIER_PROPERTY_OVERRIDE_ATTACK_DAMAGE", "description":"GetModifierOverrideAttackDamage", "prefix": "MODIFIER_PROPERTY_OVERRIDE_ATTACK_DAMAGE"},
 	"MODIFIER_PROPERTY_OVERRIDE_ATTACK_MAGICAL":{"body":"MODIFIER_PROPERTY_OVERRIDE_ATTACK_MAGICAL", "description":"GetOverrideAttackMagical", "prefix": "MODIFIER_PROPERTY_OVERRIDE_ATTACK_MAGICAL"},
 	"MODIFIER_PROPERTY_PERSISTENT_INVISIBILITY":{"body":"MODIFIER_PROPERTY_PERSISTENT_INVISIBILITY", "description":"GetModifierPersistentInvisibility", "prefix": "MODIFIER_PROPERTY_PERSISTENT_INVISIBILITY"},
+	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BASE_PERCENTAGE":{"body":"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BASE_PERCENTAGE", "description":"GetModifierPhysicalArmorBase_Percentage", "prefix": "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BASE_PERCENTAGE"},
 	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS":{"body":"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS", "description":"GetModifierPhysicalArmorBonus", "prefix": "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"},
 	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE":{"body":"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE", "description":"GetModifierPhysicalArmorBonusUnique", "prefix": "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE"},
 	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE_ACTIVE":{"body":"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE_ACTIVE", "description":"GetModifierPhysicalArmorBonusUniqueActive", "prefix": "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE_ACTIVE"},
@@ -3147,7 +3154,7 @@
 	"CBodyComponent_GetSequence":
 	{
 		"body":"GetSequence()",
-		"description":"CBodyComponent_GetSequence:\nReturns the active sequence\nreturn <unknown>",
+		"description":"CBodyComponent_GetSequence:\nReturns the active sequence \nreturn <unknown>",
 		"prefix":"GetSequence"
 	},
 	"CBodyComponent_IsAttachedToParent":
@@ -3159,7 +3166,7 @@
 	"CBodyComponent_LookupSequence":
 	{
 		"body":"LookupSequence(${string_1})",
-		"description":"CBodyComponent_LookupSequence:\nReturns a sequence id given a name\nreturn <unknown>",
+		"description":"CBodyComponent_LookupSequence:\nReturns a sequence id given a name \nreturn <unknown>",
 		"prefix":"LookupSequence"
 	},
 	"CBodyComponent_SequenceDuration":
@@ -3882,6 +3889,12 @@
 		"description":"CDOTABaseAbility_SetRefCountsModifiers:\n\nreturn void",
 		"prefix":"SetRefCountsModifiers"
 	},
+	"CDOTABaseAbility_SetStealable":
+	{
+		"body":"SetStealable(${bStealable})",
+		"description":"CDOTABaseAbility_SetStealable:\n\nreturn void",
+		"prefix":"SetStealable"
+	},
 	"CDOTABaseAbility_SetStolen":
 	{
 		"body":"SetStolen(${bStolen})",
@@ -4038,6 +4051,18 @@
 		"description":"CDOTABaseGameMode_GetCustomAttributeDerivedStatValue:\nGet current derived stat value constant.\nreturn float",
 		"prefix":"GetCustomAttributeDerivedStatValue"
 	},
+	"CDOTABaseGameMode_GetCustomBackpackCooldownPercent":
+	{
+		"body":"GetCustomBackpackCooldownPercent()",
+		"description":"CDOTABaseGameMode_GetCustomBackpackCooldownPercent:\nGet the current rate cooldown ticks down for items in the backpack.\nreturn float",
+		"prefix":"GetCustomBackpackCooldownPercent"
+	},
+	"CDOTABaseGameMode_GetCustomBackpackSwapCooldown":
+	{
+		"body":"GetCustomBackpackSwapCooldown()",
+		"description":"CDOTABaseGameMode_GetCustomBackpackSwapCooldown:\nGet the current custom backpack swap cooldown.\nreturn float",
+		"prefix":"GetCustomBackpackSwapCooldown"
+	},
 	"CDOTABaseGameMode_GetCustomBuybackCooldownEnabled":
 	{
 		"body":"GetCustomBuybackCooldownEnabled()",
@@ -4049,6 +4074,12 @@
 		"body":"GetCustomBuybackCostEnabled()",
 		"description":"CDOTABaseGameMode_GetCustomBuybackCostEnabled:\nTurns on capability to define custom buyback costs.\nreturn bool",
 		"prefix":"GetCustomBuybackCostEnabled"
+	},
+	"CDOTABaseGameMode_GetCustomGlyphCooldown":
+	{
+		"body":"GetCustomGlyphCooldown()",
+		"description":"CDOTABaseGameMode_GetCustomGlyphCooldown:\nGet the current custom glyph cooldown.\nreturn float",
+		"prefix":"GetCustomGlyphCooldown"
 	},
 	"CDOTABaseGameMode_GetCustomHeroMaxLevel":
 	{
@@ -4242,6 +4273,18 @@
 		"description":"CDOTABaseGameMode_SetCustomAttributeDerivedStatValue:\nModify derived stat value constants. ( AttributeDerivedStat eStatType, float flNewValue.\nreturn void",
 		"prefix":"SetCustomAttributeDerivedStatValue"
 	},
+	"CDOTABaseGameMode_SetCustomBackpackCooldownPercent":
+	{
+		"body":"SetCustomBackpackCooldownPercent(${flPercent})",
+		"description":"CDOTABaseGameMode_SetCustomBackpackCooldownPercent:\nSet the rate cooldown ticks down for items in the backpack.\nreturn void",
+		"prefix":"SetCustomBackpackCooldownPercent"
+	},
+	"CDOTABaseGameMode_SetCustomBackpackSwapCooldown":
+	{
+		"body":"SetCustomBackpackSwapCooldown(${flCooldown})",
+		"description":"CDOTABaseGameMode_SetCustomBackpackSwapCooldown:\nSet a custom cooldown for swapping items into the backpack.\nreturn void",
+		"prefix":"SetCustomBackpackSwapCooldown"
+	},
 	"CDOTABaseGameMode_SetCustomBuybackCooldownEnabled":
 	{
 		"body":"SetCustomBuybackCooldownEnabled(${bEnabled})",
@@ -4259,6 +4302,12 @@
 		"body":"SetCustomGameForceHero(${pHeroName})",
 		"description":"CDOTABaseGameMode_SetCustomGameForceHero:\nForce all players to use the specified hero and disable the normal hero selection process. Must be used before hero selection.\nreturn void",
 		"prefix":"SetCustomGameForceHero"
+	},
+	"CDOTABaseGameMode_SetCustomGlyphCooldown":
+	{
+		"body":"SetCustomGlyphCooldown(${flCooldown})",
+		"description":"CDOTABaseGameMode_SetCustomGlyphCooldown:\nSet a custom cooldown for team Glyph ability.\nreturn void",
+		"prefix":"SetCustomGlyphCooldown"
 	},
 	"CDOTABaseGameMode_SetCustomHeroMaxLevel":
 	{
@@ -4584,15 +4633,6 @@
 		"description":"CDOTAGameManager_GetHeroUnitNameByID:\nGet the hero unit name given the hero ID.\nreturn string",
 		"prefix":"GetHeroUnitNameByID"
 	},
-	"CDOTAGamerules_AddEventMetadataLeaderboardEntry":
-	{
-		"body":"AddEventMetadataLeaderboardEntry(${stringszNameSuffix}, ${intnStars}, ${intnMaxStars}, ${intnExtraData1}, ${intnExtraData2}, ${unsigned_6}, ${unsigned_7}, ${unsigned_8}, ${unsigned_9})",
-		"description":"CDOTAGamerules_AddEventMetadataLeaderboardEntry:\nEvent-only ( string szNameSuffix, int nStars, int nMaxStars, int nExtraData1, int nExtraData2 )\nreturn bool",
-		"prefix":"AddEventMetadataLeaderboardEntry"
-	},
-	"CDOTAGamerules_AddMinimapDebugPoint":
-	{
-		"body":"AddMinimapDebugPoint(${int_1}, ${Vector_2}, ${int_3}, ${int_4}, ${int_5}, ${int_6}, ${float_7})",
 		"description":"CDOTAGamerules_AddMinimapDebugPoint:\nAdd a point on the minimap.\nreturn void",
 		"prefix":"AddMinimapDebugPoint"
 	},
@@ -5106,6 +5146,10 @@
 		"description":"CDOTAPlayer_MakeRandomHeroSelection:\nRandoms this player's hero.\nreturn void",
 		"prefix":"MakeRandomHeroSelection"
 	},
+		"body":"SetAssignedHeroEntity(${hHero})",
+		"description":"CDOTAPlayer_SetAssignedHeroEntity:\nSets this player's hero .\nreturn void",
+		"prefix":"SetAssignedHeroEntity"
+	},
 	"CDOTAPlayer_SetKillCamUnit":
 	{
 		"body":"SetKillCamUnit(${hEntity})",
@@ -5322,6 +5366,12 @@
 		"description":"CDOTA_Ability_Lua_OnAbilityPhaseStart:\nCast time begins (return true for successful cast).\nreturn bool",
 		"prefix":"OnAbilityPhaseStart"
 	},
+	"CDOTA_Ability_Lua_OnAbilityPinged":
+	{
+		"body":"OnAbilityPinged(${nPlayerID}, ${bCtrlHeld})",
+		"description":"CDOTA_Ability_Lua_OnAbilityPinged:\nThe ability was pinged (nPlayerID, bCtrlHeld).\nreturn void",
+		"prefix":"OnAbilityPinged"
+	},
 	"CDOTA_Ability_Lua_OnChannelFinish":
 	{
 		"body":"OnChannelFinish(${bInterrupted})",
@@ -5447,6 +5497,12 @@
 		"body":"ProcsMagicStick()",
 		"description":"CDOTA_Ability_Lua_ProcsMagicStick:\nReturns true if this ability will generate magic stick charges for nearby enemies.\nreturn bool",
 		"prefix":"ProcsMagicStick"
+	},
+	"CDOTA_Ability_Lua_ResetToggleOnRespawn":
+	{
+		"body":"ResetToggleOnRespawn()",
+		"description":"CDOTA_Ability_Lua_ResetToggleOnRespawn:\nReturns true if this ability should return to the default toggle state when its parent respawns.\nreturn bool",
+		"prefix":"ResetToggleOnRespawn"
 	},
 	"CDOTA_Ability_Lua_SpeakTrigger":
 	{
@@ -5832,6 +5888,12 @@
 		"description":"CDOTA_BaseNPC_GetCastPoint:\n\nreturn float",
 		"prefix":"GetCastPoint"
 	},
+	"CDOTA_BaseNPC_GetCastRangeBonus":
+	{
+		"body":"GetCastRangeBonus()",
+		"description":"CDOTA_BaseNPC_GetCastRangeBonus:\n\nreturn float",
+		"prefix":"GetCastRangeBonus"
+	},
 	"CDOTA_BaseNPC_GetCloneSource":
 	{
 		"body":"GetCloneSource()",
@@ -5843,6 +5905,12 @@
 		"body":"GetCollisionPadding()",
 		"description":"CDOTA_BaseNPC_GetCollisionPadding:\nReturns the size of the collision padding around the hull.\nreturn float",
 		"prefix":"GetCollisionPadding"
+	},
+	"CDOTA_BaseNPC_GetCooldownReduction":
+	{
+		"body":"GetCooldownReduction()",
+		"description":"CDOTA_BaseNPC_GetCooldownReduction:\n\nreturn float",
+		"prefix":"GetCooldownReduction"
 	},
 	"CDOTA_BaseNPC_GetCreationTime":
 	{
@@ -5891,6 +5959,12 @@
 		"body":"GetDeathXP()",
 		"description":"CDOTA_BaseNPC_GetDeathXP:\nGet the XP bounty on this unit.\nreturn int",
 		"prefix":"GetDeathXP"
+	},
+	"CDOTA_BaseNPC_GetDisplayAttackSpeed":
+	{
+		"body":"GetDisplayAttackSpeed()",
+		"description":"CDOTA_BaseNPC_GetDisplayAttackSpeed:\nAttack speed expressed as constant value\nreturn float",
+		"prefix":"GetDisplayAttackSpeed"
 	},
 	"CDOTA_BaseNPC_GetEvasion":
 	{
@@ -6455,6 +6529,12 @@
 		"body":"IsIllusion()",
 		"description":"CDOTA_BaseNPC_IsIllusion:\n\nreturn bool",
 		"prefix":"IsIllusion"
+	},
+	"CDOTA_BaseNPC_IsInRangeOfShop":
+	{
+		"body":"IsInRangeOfShop(${nShopType}, ${bPhysical})",
+		"description":"CDOTA_BaseNPC_IsInRangeOfShop:\nAsk whether this unit is in range of the specified shop ( DOTA_SHOP_TYPE shop, bool bMustBePhysicallyNear\nreturn bool",
+		"prefix":"IsInRangeOfShop"
 	},
 	"CDOTA_BaseNPC_IsInvisible":
 	{
@@ -7055,6 +7135,12 @@
 		"body":"SetMana(${flMana})",
 		"description":"CDOTA_BaseNPC_SetMana:\nSet the mana on this unit.\nreturn void",
 		"prefix":"SetMana"
+	},
+	"CDOTA_BaseNPC_SetMaxMana":
+	{
+		"body":"SetMaxMana(${flMaxMana})",
+		"description":"CDOTA_BaseNPC_SetMaxMana:\nSet the maximum mana of this unit.\nreturn void",
+		"prefix":"SetMaxMana"
 	},
 	"CDOTA_BaseNPC_SetMaximumGoldBounty":
 	{
@@ -7998,6 +8084,12 @@
 		"description":"CDOTA_Buff_GetAuraDuration:\nReturns aura stickiness (default 0.5)\nreturn float",
 		"prefix":"GetAuraDuration"
 	},
+	"CDOTA_Buff_GetAuraOwner":
+	{
+		"body":"GetAuraOwner()",
+		"description":"CDOTA_Buff_GetAuraOwner:\n\nreturn handle",
+		"prefix":"GetAuraOwner"
+	},
 	"CDOTA_Buff_GetCaster":
 	{
 		"body":"GetCaster()",
@@ -8058,6 +8150,12 @@
 		"description":"CDOTA_Buff_GetRemainingTime:\n\nreturn float",
 		"prefix":"GetRemainingTime"
 	},
+	"CDOTA_Buff_GetSerialNumber":
+	{
+		"body":"GetSerialNumber()",
+		"description":"CDOTA_Buff_GetSerialNumber:\n\nreturn int",
+		"prefix":"GetSerialNumber"
+	},
 	"CDOTA_Buff_GetStackCount":
 	{
 		"body":"GetStackCount()",
@@ -8075,6 +8173,18 @@
 		"body":"IncrementStackCount()",
 		"description":"CDOTA_Buff_IncrementStackCount:\nIncrease this modifier's stack count by 1.\nreturn void",
 		"prefix":"IncrementStackCount"
+	},
+	"CDOTA_Buff_IsDebuff":
+	{
+		"body":"IsDebuff()",
+		"description":"CDOTA_Buff_IsDebuff:\n\nreturn bool",
+		"prefix":"IsDebuff"
+	},
+	"CDOTA_Buff_IsHexDebuff":
+	{
+		"body":"IsHexDebuff()",
+		"description":"CDOTA_Buff_IsHexDebuff:\n\nreturn bool",
+		"prefix":"IsHexDebuff"
 	},
 	"CDOTA_Buff_IsStunDebuff":
 	{
@@ -8154,6 +8264,12 @@
 		"description":"CDOTA_Item_GetInitialCharges:\nGet the initial number of charges this item has.\nreturn int",
 		"prefix":"GetInitialCharges"
 	},
+	"CDOTA_Item_GetItemSlot":
+	{
+		"body":"GetItemSlot()",
+		"description":"CDOTA_Item_GetItemSlot:\n\nreturn int",
+		"prefix":"GetItemSlot"
+	},
 	"CDOTA_Item_GetItemState":
 	{
 		"body":"GetItemState()",
@@ -8177,6 +8293,12 @@
 		"body":"GetPurchaser()",
 		"description":"CDOTA_Item_GetPurchaser:\nGet the purchaser for this item.\nreturn handle",
 		"prefix":"GetPurchaser"
+	},
+	"CDOTA_Item_GetSecondaryCharges":
+	{
+		"body":"GetSecondaryCharges()",
+		"description":"CDOTA_Item_GetSecondaryCharges:\nGet the number of secondary charges this item currently has.\nreturn int",
+		"prefix":"GetSecondaryCharges"
 	},
 	"CDOTA_Item_GetShareability":
 	{
@@ -8345,6 +8467,12 @@
 		"body":"SetPurchaser(${hPurchaser})",
 		"description":"CDOTA_Item_SetPurchaser:\nSet the purchaser of record for this item.\nreturn void",
 		"prefix":"SetPurchaser"
+	},
+	"CDOTA_Item_SetSecondaryCharges":
+	{
+		"body":"SetSecondaryCharges(${iCharges})",
+		"description":"CDOTA_Item_SetSecondaryCharges:\nSet the number of secondary charges on this item\nreturn void",
+		"prefix":"SetSecondaryCharges"
 	},
 	"CDOTA_Item_SetSellable":
 	{
@@ -10728,15 +10856,6 @@
 		"description":"CSceneEntity_Start:\nStart scene playback, takes activatorEntity as param\nreturn void",
 		"prefix":"Start"
 	},
-	"CScriptHTTPRequest_Send":
-	{
-		"body":"Send(${handle_1})",
-		"description":"CScriptHTTPRequest_Send:\nSend a HTTP request.\nreturn bool",
-		"prefix":"Send"
-	},
-	"CScriptHTTPRequest_SetHTTPRequestAbsoluteTimeoutMS":
-	{
-		"body":"SetHTTPRequestAbsoluteTimeoutMS(${unsigned_1})",
 		"description":"CScriptHTTPRequest_SetHTTPRequestAbsoluteTimeoutMS:\nSet the total timeout on the request.\nreturn bool",
 		"prefix":"SetHTTPRequestAbsoluteTimeoutMS"
 	},
