@@ -4633,6 +4633,15 @@
 		"description":"CDOTAGameManager_GetHeroUnitNameByID:\nGet the hero unit name given the hero ID.\nreturn string",
 		"prefix":"GetHeroUnitNameByID"
 	},
+		"CDOTAGamerules_AddEventMetadataLeaderboardEntry":
+	{
+		"body":"AddEventMetadataLeaderboardEntry(${stringszNameSuffix}, ${intnStars}, ${intnMaxStars}, ${intnExtraData1}, ${intnExtraData2}, ${unsigned_6}, ${unsigned_7}, ${unsigned_8}, ${unsigned_9})",
+		"description":"CDOTAGamerules_AddEventMetadataLeaderboardEntry:\nEvent-only ( string szNameSuffix, int nStars, int nMaxStars, int nExtraData1, int nExtraData2 )\nreturn bool",
+		"prefix":"AddEventMetadataLeaderboardEntry"
+	},
+	"CDOTAGamerules_AddMinimapDebugPoint":
+	{
+		"body":"AddMinimapDebugPoint(${int_1}, ${Vector_2}, ${int_3}, ${int_4}, ${int_5}, ${int_6}, ${float_7})",
 		"description":"CDOTAGamerules_AddMinimapDebugPoint:\nAdd a point on the minimap.\nreturn void",
 		"prefix":"AddMinimapDebugPoint"
 	},
@@ -10858,6 +10867,15 @@
 		"description":"CSceneEntity_Start:\nStart scene playback, takes activatorEntity as param\nreturn void",
 		"prefix":"Start"
 	},
+	"CScriptHTTPRequest_Send":
+	{
+		"body":"Send(${handle_1})",
+		"description":"CScriptHTTPRequest_Send:\nSend a HTTP request.\nreturn bool",
+		"prefix":"Send"
+	},
+	"CScriptHTTPRequest_SetHTTPRequestAbsoluteTimeoutMS":
+	{
+		"body":"SetHTTPRequestAbsoluteTimeoutMS(${unsigned_1})",
 		"description":"CScriptHTTPRequest_SetHTTPRequestAbsoluteTimeoutMS:\nSet the total timeout on the request.\nreturn bool",
 		"prefix":"SetHTTPRequestAbsoluteTimeoutMS"
 	},
