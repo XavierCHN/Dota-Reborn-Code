@@ -5146,6 +5146,8 @@
 		"description":"CDOTAPlayer_MakeRandomHeroSelection:\nRandoms this player's hero.\nreturn void",
 		"prefix":"MakeRandomHeroSelection"
 	},
+	"CDOTAPlayer_SetAssignedHeroEntity":
+	{
 		"body":"SetAssignedHeroEntity(${hHero})",
 		"description":"CDOTAPlayer_SetAssignedHeroEntity:\nSets this player's hero .\nreturn void",
 		"prefix":"SetAssignedHeroEntity"
