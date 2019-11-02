@@ -2281,6 +2281,12 @@
 		"description":"CBaseAnimating_GetAttachmentAngles:\nGet the attachment id's angles as a p,y,r vector.\nreturn Vector",
 		"prefix":"GetAttachmentAngles"
 	},
+	"CBaseAnimating_GetAttachmentForward":
+	{
+		"body":"GetAttachmentForward(${iAttachment})",
+		"description":"CBaseAnimating_GetAttachmentForward:\nGet the attachment id's forward vector.\nreturn Vector",
+		"prefix":"GetAttachmentForward"
+	},
 	"CBaseAnimating_GetAttachmentOrigin":
 	{
 		"body":"GetAttachmentOrigin(${iAttachment})",
@@ -2922,6 +2928,18 @@
 		"body":"TakeDamage(${hInfo})",
 		"description":"CBaseEntity_TakeDamage:\nApply damage to this entity. Use CreateDamageInfo() to create a damageinfo object.\nreturn int",
 		"prefix":"TakeDamage"
+	},
+	"CBaseEntity_TransformPointEntityToWorld":
+	{
+		"body":"TransformPointEntityToWorld(${vPoint})",
+		"description":"CBaseEntity_TransformPointEntityToWorld:\nReturns the input Vector transformed from entity to world space\nreturn Vector",
+		"prefix":"TransformPointEntityToWorld"
+	},
+	"CBaseEntity_TransformPointWorldToEntity":
+	{
+		"body":"TransformPointWorldToEntity(${vPoint})",
+		"description":"CBaseEntity_TransformPointWorldToEntity:\nReturns the input Vector transformed from world to entity space\nreturn Vector",
+		"prefix":"TransformPointWorldToEntity"
 	},
 	"CBaseEntity_Trigger":
 	{
