@@ -23,26 +23,26 @@
 	"Image":
 	{
 		"prefix":"Image",
-		"body": "<Image src=\"file://{images}/${custom_game/shuffle.psd}\" />",
+		"body": "<Image id=\"${panel_id}\" class=\"${PanelClass}\" src=\"file://{images}/${custom_game/shuffle.psd}\" />",
 		"description":"Image"
 	},
 	"Label":
 	{
 		"prefix":"Label",
-		"body":"<Label text=\"${Hello world!}\" />",
+		"body":"<Label id=\"${panel_id}\" class=\"${PanelClass}\" text=\"${Hello world!}\" />",
 		"description":"Text label"
 	},
 	"TextEntry":
 	{
 		"prefix":"TextEntry",
-		"body":"<TextEntry id=\"{MyEntry}\" maxchars=\"${100}\" placeholder=\"${Type here...}\" oninputsubmit=\"${OnSubmitted}()\" />",
+		"body":"<TextEntry id=\"{MyEntry}\" class=\"${PanelClass}\" maxchars=\"${100}\" placeholder=\"${Type here...}\" oninputsubmit=\"${OnSubmitted}()\" />",
 		"description":"Create a text box"
 	},
 	"DropDown":
 	{
 		"prefix":"DropDown",
 		"body":[
-			"<DropDown oninputsubmit=\"${OnDropDownChanged}()\">",
+			"<DropDown id=\"{MyEntry}\" class=\"${PanelClass}\" oninputsubmit=\"${OnDropDownChanged}()\">",
 			"\t<Label text=\"${Entry 1}\" id=\"${entry1}\"/>",
 			"\t<Label text=\"${Entry 2}\" id=\"${entry2}\"/>",
 			"\t<Label text=\"${Entry 3}\" id=\"${entry3}\"/>",
@@ -55,8 +55,8 @@
 	{
 		"prefix":"ToggleButton",
 		"body":[
-			"<ToggleButton checked=\"true\" text=\"Checkbox 1\" />",
-			"<ToggleButton text=\"Checkbox 2\" />"
+			"<ToggleButton id=\"{MyEntry}\" class=\"${PanelClass}\" checked=\"true\" text=\"Checkbox 1\" />",
+			"<ToggleButton id=\"{MyEntry}\" class=\"${PanelClass}\" text=\"Checkbox 2\" />"
 		],
 		"description":"ToggleButton"
 	},
@@ -73,31 +73,31 @@
 	"DOTAHeroImage":
 	{
 		"prefix":"DOTAHeroImage",
-		"body": "<DOTAHeroImage heroname=\"${npc_dota_hero_pudge}\" heroimagestyle=\"${portrait}\" />",
+		"body": "<DOTAHeroImage id=\"{MyEntry}\" class=\"${PanelClass}\" heroname=\"${npc_dota_hero_pudge}\" heroimagestyle=\"${portrait}\" />",
 		"description":"DOTAHeroImage"
 	},
 	"DOTAAvatarImage":
 	{
 		"prefix":"DOTAAvatarImage",
-		"body":"<DOTAAvatarImage steamid=\"${local}\" />",
+		"body":"<DOTAAvatarImage id=\"{MyEntry}\" class=\"${PanelClass}\" steamid=\"${local}\" />",
 		"description":"DOTAAvatarImage"
 	},
 	"DOTAItemImage":
 	{
 		"prefix":"DOTAItemImage",
-		"body":"<DOTAItemImage itemname=\"${xxxxitemNamexxx}\" />",
+		"body":"<DOTAItemImage id=\"{MyEntry}\" class=\"${PanelClass}\" itemname=\"${xxxxitemNamexxx}\" />",
 		"description":"DOTAItemImage"
 	},
 	"DOTAAbilityImage":
 	{
 		"prefix":"DOTAAbilityImage",
-		"body":"<DOTAAbilityImage abilityname=\"${xxxxabilityNamexxx}\" />",
+		"body":"<DOTAAbilityImage id=\"{MyEntry}\" class=\"${PanelClass}\" abilityname=\"${xxxxabilityNamexxx}\" />",
 		"description":"DOTAAbilityImage"
 	},
 	"DOTAUserName":
 	{
 		"prefix":"DOTAUserName",
-		"body":"<DOTAUserName steamid=\"${local}\" />",
+		"body":"<DOTAUserName id=\"{MyEntry}\" class=\"${PanelClass}\" steamid=\"${local}\" />",
 		"description":"DOTAUserName"
 	},
 	"snippets":
@@ -132,14 +132,34 @@
 		"body":[
 			"<root>", 
 			"\t<styles>",
-			"\t\t<include src=\"file://{resources}/styles/${file_name}.css\" />",
+			"\t\t<include src=\"file://{resources}/styles/custom_game/${file_name}.css\" />",
 			"\t</styles>",
 			"\t<scripts>",
-			"\t\t<include src=\"file://{resources}/scripts/${file_name}.js\" />", 
+			"\t\t<include src=\"file://{resources}/scripts/custom_game/${file_name}.js\" />", 
 			"\t</scripts>",
 			"\t<!--<snippets>-->",
 			"\t<!--</snippets>-->",
-			"\t<Panel class=\"${file_name}_Root\">",
+			"\t<Panel class=\"${file_name}_root\">",
+			"\t\t$1",
+			"\t</Panel>",
+			"</root>"
+		],
+		"description":"Create a dota xml file with everything you need!"
+	},
+	"rootlayout":
+	{
+		"prefix":"root",
+		"body":[
+			"<root>", 
+			"\t<styles>",
+			"\t\t<include src=\"file://{resources}/layout/custom_game/${file_name}.css\" />",
+			"\t</styles>",
+			"\t<scripts>",
+			"\t\t<include src=\"file://{resources}/layout/custom_game/${file_name}.js\" />", 
+			"\t</scripts>",
+			"\t<!--<snippets>-->",
+			"\t<!--</snippets>-->",
+			"\t<Panel class=\"${file_name}_root\">",
 			"\t\t$1",
 			"\t</Panel>",
 			"</root>"
