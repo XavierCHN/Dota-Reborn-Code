@@ -1,27 +1,1093 @@
 {
-/*
-	 // Place your snippets for 纯文本 here. Each snippet is defined under a snippet name and has a prefix, body and 
-	 // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-	 // $1, $2 for tab stops, ${id} and ${id:label} and ${1:label} for variables. Variables with the same id are connected.
-	 // Example:
-	 "Print to console": {
-		"prefix": "log",
+	"AbilityBehavior": {
+		"prefix": "AbilityBehavior",
 		"body": [
-			"console.log('$1');",
-			"$2"
-		],
-		"description": "Log output to console"
-	}
-*/
+"\"AbilityBehavior\"\t\t\"DOTA_ABILITY_BEHAVIOR_${1:UNIT_TARGET}\"",
+"\"AbilityUnitTargetTeam\"\t\t\t\"DOTA_UNIT_TARGET_TEAM_${2:ENEMY}\"",
+"\"AbilityUnitTargetType\"\t\t\t\"${3:DOTA_UNIT_TARGET_HERO|DOTA_UNIT_TARGET_BASIC}\"",
+"\"AbilityUnitDamageType\"\t\t\t\"${4:DAMAGE_TYPE_MAGICAL}\""
+		]
+	},
+	"AbilityCastRange": {
+		"prefix": "AbilityCastRange",
+		"body": [
+"\"AbilityCastRange\"\t\t\"${1:700}\"",
+"\"AbilityCastPoint\"\t\t\"${2:0.3}\"",
+"\"AbilityCastAnimation\"\t\t\t\"ACT_DOTA_${3:CAST_ABILITY_1}\""
+		]
+	},
+	"AbilityCooldown": {
+		"prefix": "AbilityCooldown",
+		"body": [
+"\"AbilityCooldown\"\t\t\"${1:8.0}\"",
+"\"AbilityManaCost\"\t\t\"${2:100}\"",
+"\"AbilityDamage\"\t\t\t\"${3:75130200}\""
+		]
+	},
+	"AbilitySpecial": {
+		"prefix": "AbilitySpecial",
+		"body": [
+"\"AbilitySpecial\"",
+"{",
+"\t\"01\"",
+"\t{",
+"\t\t\"var_type\"\t\t\t\"FIELD_INTEGER\"",
+"\t\t\"${1:value}\"\t\t\t\"${2:900}\"",
+"\t}",
+"\t\"02\"",
+"\t{",
+"\t\t\"var_type\"\t\t\t\"FIELD_FLOAT\"",
+"\t\t\"${3:duration}\"\t\t\"${4:3.04.05.0}\"",
+"\t}",
+"}"
+		]
+	},
+	"ActOnTargets": {
+		"prefix": "ActOnTargets",
+		"body": [
+"\"ActOnTargets\"",
+"{",
+"\t\"Target\"",
+"\t{",
+"\t\t\"Center\"\t\"${1:TARGET}\"",
+"\t\t\"Radius\"\t\"%${2:radius}\"",
+"\t\t\"Teams\"\t\"DOTA_UNIT_TARGET_TEAM_${3:ENEMY}\"",
+"\t\t\"Types\"\t\"${4:DOTA_UNIT_TARGET_HERO|DOTA_UNIT_TARGET_BASIC}\"",
+"\t}",
+"\t\"Action\"",
+"\t{",
+"\t\t${5:[ACTIONS]}",
+"\t}",
+"}"
+		]
+	},
+	"AddAbility": {
+		"prefix": "AddAbility",
+		"body": [
+"\"AddAbility\"",
+"{",
+"\t\"Target\"\t\t\"${1:CASTER}\"",
+"\t\"AbilityName\"\t\"%${2:ability_name}\"",
+"}"
+		]
+	},
+	"AllowIllusionDuplicate": {
+		"prefix": "AllowIllusionDuplicate",
+		"body": [
+"\"AllowIllusionDuplicate\"\t\t\"${1:1}\""
+		]
+	},
+	"ApplyModifier": {
+		"prefix": "ApplyModifier",
+		"body": [
+"\"ApplyModifier\"",
+"{",
+"\t\"ModifierName\"\t\"modifier_${1:name}\"",
+"\t\"Target\"\t\t\"${2:TARGET}\"",
+"\t\"Duration\"\t\t\"%${3:duration}\"",
+"}"
+		]
+	},
+	"ApplyModifierHero-Creep": {
+		"prefix": "ApplyModifierHero-Creep",
+		"body": [
+"\"ApplyModifier\"",
+"{",
+"\t\"ModifierName\"\t\"modifier_${1:name}\"",
+"\t\"Target\"",
+"\t{",
+"\t\t\"Center\"\t\"TARGET\"",
+"\t\t\"Teams\"\t\t\"DOTA_UNIT_TARGET_TEAM_ENEMY\"",
+"\t\t\"Types\"\t\t\"DOTA_UNIT_TARGET_HERO\"",
+"\t}",
+"\t\"Duration\"\t\t\"%${2:hero_duration}\"",
+"}",
+"",
+"\"ApplyModifier\"",
+"{",
+"\t\"ModifierName\"\t\"modifier_${1:name}\"",
+"\t\"Target\"",
+"\t{",
+"\t\t\"Center\"\t\"TARGET\"",
+"\t\t\"Teams\"\t\t\"DOTA_UNIT_TARGET_TEAM_ENEMY\"",
+"\t\t\"Types\"\t\t\"DOTA_UNIT_TARGET_BASIC\"",
+"\t}",
+"\t\"Duration\"\t\t\"%${4:creep_duration}\"",
+"}"
+		]
+	},
+	"ApplyMotionController": {
+		"prefix": "ApplyMotionController",
+		"body": [
+"\"ApplyMotionController\"",
+"{",
+"\t\"Caster\"\t\t\"${1:CASTER}\"",
+"\t\"Target\"\t\t\"${2:TARGET}\"",
+"\t\"ScriptFile\"\t\t\"${3:heroes/hero_name/ability_name.lua}\"",
+"\t\"HorizontalControlFunction\"\t\t\"${4:TestGravityFuncHorizontal}\"",
+"\t\"VerticalControlFunction\"\t\"${5:TestGravityFuncVertical}\"",
+"}"
+		]
+	},
+	"AttachEffect": {
+		"prefix": "AttachEffect",
+		"body": [
+"\"AttachEffect\"",
+"{",
+"\t\"EffectName\"\t\t\"${1:particle_name}\"",
+"\t\"EffectAttachType\"\t\t\"${2:follow_origin}\"",
+"\t\"Target\"\t\t\"${3:TARGET}\"",
+"}"
+		]
+	},
+	"Attributes": {
+		"prefix": "Attributes",
+		"body": [
+"\"Attributes\"\t\t\"MODIFIER_ATTRIBUTE_${1:MULTIPLE}\""
+		]
+	},
+	"Aura": {
+		"prefix": "Aura",
+		"body": [
+"\"Aura\"\t\"modifier_${1:name_aura_effect}\"",
+"\"Aura_Radius\"\t\"%${2:radius}\"",
+"\"Aura_Teams\"\t\"DOTA_UNIT_TARGET_TEAM_${3:FRIENDLY}\"",
+"\"Aura_Types\"\t\"${4:DOTA_UNIT_TARGET_HERO|DOTA_UNIT_TARGET_BASIC}\"",
+"\"Aura_Flags\"\t\"${5:DOTA_UNIT_TARGET_FLAG_NONE}\"",
+"\"Aura_ApplyToCaster\"\t\"${6:1}\""
+		]
+	},
+	"BaseClass": {
+		"prefix": "BaseClass",
+		"body": [
+"\"BaseClass\"\t\t\"ability_datadriven\"",
+"\"AbilityTextureName\"\t\t\"${1:ability_name}\"",
+"\"MaxLevel\"\t\t\"${2:7}\""
+		]
+	},
+	"Blink": {
+		"prefix": "Blink",
+		"body": [
+"\"Blink\"",
+"{",
+"\t\"Target\"\t\t\"${1:TARGET}\"",
+"}"
+		]
+	},
+	"CleaveAttack": {
+		"prefix": "CleaveAttack",
+		"body": [
+"\"CleaveAttack\"",
+"{",
+"\t\"CleavePercent\"\t\t\"%${1:great_cleave_damage}\"",
+"\t\"CleaveRadius\"\t\t\"%${2:great_cleave_radius}\"",
+"\t\"CleaveEffect\"\t\t\"${3:particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf}\"",
+"}"
+		]
+	},
+	"ControlPointEntities": {
+		"prefix": "ControlPointEntities",
+		"body": [
+"\"ControlPointEntities\"",
+"{",
+"\t\"${1:TARGET}\"\t\"${2:attach_origin}\"",
+"\t\"${3:CASTER}\"\t\"${4:attach_origin}\"",
+"}"
+		]
+	},
+	"ControlPoints": {
+		"prefix": "ControlPoints",
+		"body": [
+"\"ControlPoints\"",
+"{",
+"\t\"01\"\t\"%${1:radius}\"",
+"\t\"02\"\t\"0 0 0\"",
+"}"
+		]
+	},
+	"CreateBonusAttack": {
+		"prefix": "CreateBonusAttack",
+		"body": [
+"\"CreateBonusAttack\"",
+"{",
+"\t\"Target\"\t\t\"${1:TARGET}\"",
+"}"
+		]
+	},
+	"CreateThinker": {
+		"prefix": "CreateThinker",
+		"body": [
+"\"CreateThinker\"",
+"{",
+"\t\"ModifierName\"\t\"modifier_${1:name}\"",
+"\t\"Target\"\t\t\"${2:TARGET}\"",
+"}"
+		]
+	},
+	"CreateThinkerWall": {
+		"prefix": "CreateThinkerWall",
+		"body": [
+"\"CreateThinkerWall\"",
+"{",
+"\t\"ModifierName\"\t\t\"${1:modifier_name}\"",
+"\t\"Width\"\t\t\"%${2:width}\"",
+"\t\"Length\"\t\t\t\"%${3:length}\"",
+"\t\"Rotation\"\t\t\t\"${4:x} ${5:y} ${6:z}\"",
+"\t\"Target\"\t\t\t\"${7:TARGET}\"",
+"}"
+		]
+	},
+	"Damage": {
+		"prefix": "Damage",
+		"body": [
+"\"Damage\"",
+"{",
+"\t\"Target\"\t\t\"${1:TARGET}\"",
+"\t\"Type\"\t\t\t\"${2:DAMAGE_TYPE_MAGICAL}\"",
+"\t\"Damage\"\t\t\"%${3:AbilityDamage}\"",
+"}"
+		]
+	},
+	"Damage Min/Max": {
+		"prefix": "Damage Min/Max",
+		"body": [
+"\"Damage\"",
+"{",
+"\t\"Target\"\t\t\"${1:TARGET}\"",
+"\t\"Type\"\t\t\t\"${2:DAMAGE_TYPE_MAGICAL}\"",
+"\t\"MinDamage\"\t\t\"%${3:min_damage}\"",
+"\t\"MaxDamage\"\t\t\"%${4:max_damage}\"",
+"}"
+		]
+	},
+	"DelayedAction": {
+		"prefix": "DelayedAction",
+		"body": [
+"\"DelayedAction\"",
+"{",
+"\t\"Delay\"\t\t\"%${1:delay}\"",
+"\t\"Action\"",
+"\t{",
+"\t\t${2:[ACTIONS]}",
+"\t}",
+"}"
+		]
+	},
+	"DestroyTrees": {
+		"prefix": "DestroyTrees",
+		"body": [
+"\"DestroyTrees\"",
+"{",
+"\t\"Target\"\t\t\"${1:TARGET}\"",
+"\t\"Radius\"\t\t\"%${2:radius}\"",
+"}"
+		]
+	},
+	"Exclude": {
+		"prefix": "Exclude",
+		"body": [
+"\"ExcludeTypes\"\t\"${8:DOTA_UNIT_TARGET_MECHANICAL}\"",
+"\"ExcludeFlags\"\t\"${9:DOTA_UNIT_TARGET_FLAG_DEAD}\""
+		]
+	},
+	"FireEffect": {
+		"prefix": "FireEffect",
+		"body": [
+"\"FireEffect\"",
+"{",
+"\t\"EffectName\"\t\t\"${1:xx.vpcf}\"",
+"\t\"EffectAttachType\"\t\t\"${2:follow_origin}\"",
+"\t\"Target\"\t\t\"${3:TARGET}\"",
+"}"
+		]
+	},
+	"FireSound": {
+		"prefix": "FireSound",
+		"body": [
+"\"FireSound\"",
+"{",
+"\t\"EffectName\"\t\"${1:Hero_Name.AbilityString}\"",
+"\t\"Target\"\t\t\"${2:TARGET}\"",
+"}"
+		]
+	},
+	"Flags": {
+		"prefix": "Flags",
+		"body": [
+"\"Flags\"\t\t\"${1:DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES}\""
+		]
+	},
+	"Heal": {
+		"prefix": "Heal",
+		"body": [
+"\"Heal\"",
+"{",
+"\t\"Target\"\t\t\"${1:TARGET}\"",
+"\t\"HealAmount\"\t\"%${2:heal}\"",
+"}"
+		]
+	},
+	"IsCastableWhileHidden": {
+		"prefix": "IsCastableWhileHidden",
+		"body": [
+"\"IsCastableWhileHidden\"\t\t\"${1:0}\""
+		]
+	},
+	"IsCasterAlive": {
+		"prefix": "IsCasterAlive",
+		"body": [
+"\"IsCasterAlive\"",
+"{",
+"\t\"OnSuccess\"",
+"\t{",
+"\t\t${1:[ACTIONS]}",
+"\t}",
+"\t\"OnFailure\"",
+"\t\t${2:[ACTIONS]}",
+"\t}",
+"}"
+		]
+	},
+	"IsPurgable": {
+		"prefix": "IsPurgable",
+		"body": [
+"\"IsPurgable\"\t\t\"${1:1}\"",
+"\"IsBuff\"\t\t\t\"${2:1}\"",
+"\"IsDebuff\"\t\t\t\"${3:0}\"",
+"\"IsStunDebuff\"\t\t\"${4:0}\""
+		]
+	},
+	"Knockback": {
+		"prefix": "Knockback",
+		"body": [
+"\"Knockback\"",
+"{",
+"\t\"Target\"\t\"${1:TARGET}\"",
+"\t\"Center\"\t\"${2:CASTER}\"",
+"\t\"Distance\"\t\"%${3:distance}\"",
+"\t\"Duration\"\t\"%${4:air_time}\"",
+"\t\"Height\"\t\"${5:200}\"",
+"\t\"IsFixedDistance\"\t\"1\"",
+"\t\"ShouldStun\"\t\"1\"",
+"}"
+		]
+	},
+	"LevelUpAbility": {
+		"prefix": "LevelUpAbility",
+		"body": [
+"\"LevelUpAbility\"",
+"{",
+"\t\"Target\"\t\t\"${1:CASTER}\"",
+"\t\"AbilityName\"\t\t\"%${2:ability_name}\"",
+"}"
+		]
+	},
+	"Lifesteal": {
+		"prefix": "Lifesteal",
+		"body": [
+"\"Lifesteal\"",
+"{",
+"\t\"Target\"\t\t\"${1:ATTACKER}\"",
+"\t\"LifestealPercent\"\t\"%${2:lifesteal}\"",
+"}"
+		]
+	},
+	"LinearProjectile": {
+		"prefix": "LinearProjectile",
+		"body": [
+"\"LinearProjectile\"",
+"{",
+"\t\"Target\"\t\"${1:POINT}\"",
+"\t\"EffectName\"\t\"${2:particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf}\"",
+"\t\"MoveSpeed\"\t\t\"%${3:projectile_speed}\"",
+"\t\"StartRadius\"\t\"%${4:start_radius}\"",
+"\t\"StartPosition\"\t\t\"${5:attach_attack1}\"",
+"\t\"EndRadius\"\t\t\"%${6:end_radius}\"",
+"\t\"HasFrontalCone\"\t\t\"${7:0}\"",
+"\t\"FixedDistance\"\t\t\"%${8:range}\"",
+"\t\"TargetTeams\"\t\"${9:DOTA_UNIT_TARGET_TEAM_ENEMY}\"",
+"\t\"TargetTypes\"\t\"${10:DOTA_UNIT_TARGET_BASIC|DOTA_UNIT_TARGET_HERO}\"",
+"\t\"TargetFlags\"\t\"${11:DOTA_UNIT_TARGET_FLAG_NONE}\"",
+"\t\"ProvidesVision\"\t\t\"${12:1}\"",
+"\t\"VisionRadius\"\t\"%${13:vision_radius}\"",
+"}"
+		]
+	},
+	"MaxTargets": {
+		"prefix": "MaxTargets",
+		"body": [
+"\"MaxTargets\"\t\t\"%${1:max_targets}\"",
+"\"Random\"\t\t\"${2:1}\""
+		]
+	},
+	"modifier_": {
+		"prefix": "modifier_",
+		"body": [
+"\"modifier_${1:name}\"",
+"{",
+"\t\"Passive\"\t\t\t\"${2:0}\"",
+"\t\"IsHidden\"\t\t\t\"${3:0}\"",
+"\t\"IsDebuff\"\t\t\t\"${4:0}\"",
+"",
+"\t\"EffectName\"\t\t\"${6:particle_name}\"",
+"\t\"EffectAttachType\"\t\"${7:follow_origin}\"",
+"\t${8:[ACTIONS]}"
+		]
+	},
+	"Modifiers": {
+		"prefix": "Modifiers",
+		"body": [
+"\"Modifiers\"",
+"{",
+"\t\"modifier_${1:name}\"",
+"\t{",
+"\t\t\"Passive\"\t\t\t\"${2:0}\"",
+"\t\t\"IsHidden\"\t\t\t\"${3:0}\"",
+"\t\t\"IsDebuff\"\t\t\t\"${4:0}\"",
+"\t\t\"EffectName\"\t\t\"${6:particle_name}\"",
+"\t\t\"EffectAttachType\"\t\"${7:follow_origin}\"",
+"\t\t${8:[ACTIONS]}",
+"\t}",
+"}"
+		]
+	},
+	"MoveUnit": {
+		"prefix": "MoveUnit",
+		"body": [
+"\"MoveUnit\"",
+"{",
+"\t\"Target\"\t\t\"${1:TARGET}\"",
+"\t\"MoveToTarget\"\t\"${2:POINT}\"",
+"}"
+		]
+	},
+	"OnAbilityEndChannel": {
+		"prefix": "OnAbilityEndChannel",
+		"body": [
+"\"OnAbilityEndChannel\"",
+"//Unit that has this modifier ends a channel( be it OnChannelFinish,InterruptedorSucceeded)",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnAbilityExecuted": {
+		"prefix": "OnAbilityExecuted",
+		"body": [
+"\"OnAbilityExecuted\"",
+"//Any ability (including items) was used by the unit with this modifier.",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnAbilityPhaseStart": {
+		"prefix": "OnAbilityPhaseStart",
+		"body": [
+"\"OnAbilityPhaseStart\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnAbilityStart": {
+		"prefix": "OnAbilityStart",
+		"body": [
+"\"OnAbilityStart\"",
+"//OnSpellStart as a ModifierEvent, you can Apply it on a target to trigger any Actions.",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnAttack": {
+		"prefix": "OnAttack",
+		"body": [
+"\"OnAttack\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnAttackAllied": {
+		"prefix": "OnAttackAllied",
+		"body": [
+"\"OnAttackAllied\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnAttacked": {
+		"prefix": "OnAttacked",
+		"body": [
+"\"OnAttacked\"",
+"//\"%attack_damage\" is set to the damage value after mitigation",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnAttackFailed": {
+		"prefix": "OnAttackFailed",
+		"body": [
+"\"OnAttackFailed\"",
+"//\"%attack_damage\" is set to the damage value after mitigation",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnAttackLanded": {
+		"prefix": "OnAttackLanded",
+		"body": [
+"\"OnAttackLanded\"",
+"//\"%attack_damage\" is set to the damage value after mitigation",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnAttackStart": {
+		"prefix": "OnAttackStart",
+		"body": [
+"\"OnAttackStart\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnChannelFinish": {
+		"prefix": "OnChannelFinish",
+		"body": [
+"\"OnChannelFinish\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnChannelInterrupted": {
+		"prefix": "OnChannelInterrupted",
+		"body": [
+"\"OnChannelInterrupted\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnChannelSucceeded": {
+		"prefix": "OnChannelSucceeded",
+		"body": [
+"\"OnChannelSucceeded\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnCreated": {
+		"prefix": "OnCreated",
+		"body": [
+"\"OnCreated\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnDealDamage": {
+		"prefix": "OnDealDamage",
+		"body": [
+"\"OnDealDamage\"",
+"//\"%attack_damage\" is set to the damage value after mitigation",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnDeath": {
+		"prefix": "OnDeath",
+		"body": [
+"\"OnDeath\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnDestroy": {
+		"prefix": "OnDestroy",
+		"body": [
+"\"OnDestroy\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnEquip": {
+		"prefix": "OnEquip",
+		"body": [
+"\"OnEquip\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnHealReceived": {
+		"prefix": "OnHealReceived",
+		"body": [
+"\"OnHealReceived\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnHealthGained": {
+		"prefix": "OnHealthGained",
+		"body": [
+"\"OnHealthGained\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnHeroKilled": {
+		"prefix": "OnHeroKilled",
+		"body": [
+"\"OnHeroKilled\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnIntervalThink": {
+		"prefix": "OnIntervalThink",
+		"body": [
+"\"OnIntervalThink\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnKill": {
+		"prefix": "OnKill",
+		"body": [
+"\"OnKill\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnManaGained": {
+		"prefix": "OnManaGained",
+		"body": [
+"\"OnManaGained\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnOrder": {
+		"prefix": "OnOrder",
+		"body": [
+"\"OnOrder\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnOwnerDied": {
+		"prefix": "OnOwnerDied",
+		"body": [
+"\"OnOwnerDied\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnOwnerSpawned": {
+		"prefix": "OnOwnerSpawned",
+		"body": [
+"\"OnOwnerSpawned\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnProjectileDodge": {
+		"prefix": "OnProjectileDodge",
+		"body": [
+"\"OnProjectileDodge\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnProjectileFinish": {
+		"prefix": "OnProjectileFinish",
+		"body": [
+"\"OnProjectileFinish\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnProjectileHitUnit": {
+		"prefix": "OnProjectileHitUnit",
+		"body": [
+"\"OnProjectileHitUnit\"",
+"{",
+"\t\"DeleteOnHit\"\t\"${1:1}\"",
+"\t${2:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnRespawn": {
+		"prefix": "OnRespawn",
+		"body": [
+"\"OnRespawn\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnSpellStart": {
+		"prefix": "OnSpellStart",
+		"body": [
+"\"OnSpellStart\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnSpentMana": {
+		"prefix": "OnSpentMana",
+		"body": [
+"\"OnSpentMana\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnStateChanged": {
+		"prefix": "OnStateChanged",
+		"body": [
+"\"OnStateChanged\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnTakeDamage": {
+		"prefix": "OnTakeDamage",
+		"body": [
+"\"OnTakeDamage\"",
+"//\"%attack_damage\"is set to the damage value after mitigation",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnTeleported": {
+		"prefix": "OnTeleported",
+		"body": [
+"\"OnTeleported\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnTeleporting": {
+		"prefix": "OnTeleporting",
+		"body": [
+"\"OnTeleporting\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnToggleOff": {
+		"prefix": "OnToggleOff",
+		"body": [
+"\"OnToggleOff\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnToggleOn": {
+		"prefix": "OnToggleOn",
+		"body": [
+"\"OnToggleOn\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnUnequip": {
+		"prefix": "OnUnequip",
+		"body": [
+"\"OnUnequip\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnUnitMoved": {
+		"prefix": "OnUnitMoved",
+		"body": [
+"\"OnUnitMoved\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
+		]
+	},
+	"OnUpgrade": {
+		"prefix": "OnUpgrade",
+		"body": [
+"\"OnUpgrade\"",
+"{",
+"\t${1:[ACTIONS]}",
+"}"
 
-	"AbilityBehavior":{
-		"prefix":"AbilityBehavior",
+		]
+	},
+	"Orb": {
+		"prefix": "Orb",
 		"body": [
-			"\"AbilityBehavior\"				\"DOTA_ABILITY_BEHAVIOR_${1:UNIT_TARGET}\"",
-			"\"AbilityUnitTargetTeam\"			\"DOTA_UNIT_TARGET_TEAM_${2:ENEMY}\"",
-			"\"AbilityUnitTargetType\"			\"${3:DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC}\"",
-			"\"AbilityUnitDamageType\"			\"${4:DAMAGE_TYPE_MAGICAL}\""
-		],
-		"description": "AbilityBehavior"
+"\"Orb\"",
+"{",
+"\t\"Priority\"\t\t\t\"DOTA_ORB_PRIORITY_ABILITY\"",
+"\t\"ProjectileName\"\t\t\"${1:tracking_projectile_name}\"",
+"\t\"CastAttack\"\t\t\"1\"",
+"}",
+"",
+"\"OnOrbFire\"",
+"{",
+"\t${2:[ACTIONS]}",
+"}",
+"\"OnOrbImpact\"",
+"{",
+"\t${3:[ACTIONS]}",
+"}"
+		]
+	},
+	"OverrideAnimation": {
+		"prefix": "OverrideAnimation",
+		"body": [
+"\"OverrideAnimation\"\t\t\"${1:ACT_DOTA_CAST_ABILITY_1}\""
+		]
+	},
+	"particle": {
+		"prefix": "particle",
+		"body": [
+"\"particle\"\t\t\"${1:particle_name}\""
+		]
+	},
+	"precache": {
+		"prefix": "precache",
+		"body": [
+"\"precache\"",
+"{",
+"\t\"particle\"\t\t\"${1:particle_name}\"",
+"\t\"soundfile\"\t\t\"soundevents/game_sounds_heroes/game_sounds_${2:HERO}.vsndevts\"",
+"}"
+		]
+	},
+	"Properties": {
+		"prefix": "Properties",
+		"body": [
+"\"Properties\"",
+"{",
+"\t\"${1:MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT}\"\t\t\"%${2:bonus_attack_speed}\"",
+"\t\"${3:MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE}\"\t\t\"%${4:bonus_movement_speed}\"",
+"}"
+		]
+	},
+	"PseudoRandom": {
+		"prefix": "PseudoRandom",
+		"body": [
+"\"PseudoRandom\"\t\t\"${1:DOTA_PSEUDO_RANDOM_JUGG_CRIT}\""
+		]
+	},
+	"Random": {
+		"prefix": "Random",
+		"body": [
+"\"Random\"",
+"{",
+"\t\"Chance\"\t\t\t\"%${1:chance}\"",
+"\t\"OnSuccess\"",
+"\t{",
+"\t\t${2:[ACTIONS]}",
+"\t}",
+"\t\"OnFailure\"",
+"\t\t${3:[ACTIONS]}",
+"\t}",
+"}"
+		]
+	},
+	"RemoveModifier": {
+		"prefix": "RemoveModifier",
+		"body": [
+"\"RemoveModifier\"",
+"{",
+"\t\"ModifierName\"\t\"modifier_${1:name}\"",
+"\t\"Target\"\t\t\"${2:TARGET}\"",
+"}"
+		]
+	},
+	"ReplaceUnit": {
+		"prefix": "ReplaceUnit",
+		"body": [
+"\"ReplaceUnit\"",
+"{",
+"\t\"UnitName\"\t\t\"${1:npc_name}\"",
+"\t\"Target\"\t\t\"${2:TARGET}\"",
+"}"
+		]
+	},
+	"RunScript": {
+		"prefix": "RunScript",
+		"body": [
+"\"RunScript\"",
+"{",
+"\t\"ScriptFile\"\t\"${1:heroes/hero_name/ability_name.lua}\"",
+"\t\"Function\"\t\t\"${2:AbilityName}\"",
+"\t\"Target\"\t\t\"${2:TARGET|POINT|CASTER}\"",
+"}"
+		]
+	},
+	"SpawnUnit": {
+		"prefix": "SpawnUnit",
+		"body": [
+"\"SpawnUnit\"",
+"{",
+"\t\"UnitName\"\t\t\"${1:npc_name}\"",
+"\t\"Target\"\t\t\"${2:CASTER}\"",
+"\t\"Duration\"\t\t\"%${3:duration}\"",
+"\t\"UnitCount\"\t\t\"${4:1}\"",
+"\t\"UnitLimit\"\t\t\"0\"",
+"\t\"GrantsGold\"\t\"1\"",
+"\t\"GrantsXP\"\t\t\"1\"",
+"\t\"SpawnRadius\"\t\"10\"",
+"\t\"OnSpawn\"",
+"\t{",
+"\t\t\"ApplyModifier\"",
+"\t\t{",
+"\t\t\t\"ModifierName\"\t\"modifier_phased\"",
+"\t\t\t\"Target\"\t\t\"TARGET\"",
+"\t\t\t\"Duration\"\t\t\"0.03\"",
+"\t\t}",
+"\t\t${5:[ACTIONS]}",
+"\t}",
+"}"
+		]
+	},
+	"SpendCharge": {
+		"prefix": "SpendCharge",
+		"body": [
+"\"SpendCharge\"\t\t{}"
+		]
+	},
+	"SpendMana": {
+		"prefix": "SpendMana",
+		"body": [
+"\"SpendMana\"",
+"{",
+"\t\"Mana\"\t\t\"%${1:AbilityManaCost}\"",
+"}"
+		]
+	},
+	"States": {
+		"prefix": "States",
+		"body": [
+"\"States\"",
+"{",
+"\t\"${1:MODIFIER_STATE_STUNNED}\"\t\t\"${2:MODIFIER_STATE_VALUE_ENABLED}\"",
+"}"
+		]
+	},
+	"StatusEffectName": {
+		"prefix": "StatusEffectName",
+		"body": [
+"\"StatusEffectName\"\t\t\"${1:particle_name}\"",
+"\"StatusEffectPriority\"\t\t\"10\""
+		]
+	},
+	"Stun": {
+		"prefix": "Stun",
+		"body": [
+"\"Stun\"",
+"{",
+"\t\"Duration\"\t\t\"%${1:mini_stun}\"",
+"\t\"Target\"\t\"${2:TARGET}\"",
+"}"
+		]
+	},
+	"Target Center Radius": {
+		"prefix": "Target Center Radius",
+		"body": [
+"\"Target\"",
+"{",
+"\t\"Center\"\t\"${1:TARGET}\"",
+"\t\"Radius\"\t\"%${2:radius}\"",
+"\t\"Teams\"\t\"${3:DOTA_UNIT_TARGET_TEAM_ENEMY}\"",
+"\t\"Types\"\t\"${4:DOTA_UNIT_TARGET_HERO|DOTA_UNIT_TARGET_BASIC}\"",
+"}"
+		]
+	},
+	"Target Line": {
+		"prefix": "Target Line",
+		"body": [
+"\"Target\"",
+"{",
+"\t\"Center\"\t\"${1:TARGET}\"",
+"\t\"Line\"",
+"\t{",
+"\t\t\"Length\"\t\t\"${2:1000}\"",
+"\t\t\"Thickness\"\t\"${3:1000}\"",
+"\t}",
+"\t\"Teams\"\t\"${4:DOTA_UNIT_TARGET_TEAM_ENEMY}\"",
+"\t\"Types\"\t\"${5:DOTA_UNIT_TARGET_HERO|DOTA_UNIT_TARGET_BASIC}\"",
+"}"
+		]
+	},
+	"Target ScriptSelectPoints": {
+		"prefix": "Target ScriptSelectPoints",
+		"body": [
+"\"Target\"",
+"{",
+"\t\"Center\"\t\t\"${1:CASTER}\"",
+"\t\"ScriptSelectPoints\"",
+"\t{",
+"\t\t\"ScriptFile\"\t\t\"${2:heroes/hero_name/ability_name.lua}\"",
+"\t\t\"Function\"\t\t\"${3:GetPointsFunction}\"",
+"\t\t\"Target\"\t\t\"${4:CASTER}\"",
+"\t\t\"Count\"\t\t\t\"${5:2}\"",
+"\t}",
+"}"
+		]
+	},
+	"ThinkInterval": {
+		"prefix": "ThinkInterval",
+		"body": [
+"\"ThinkInterval\"\t\t\"${1:1.0}\"",
+"\"OnIntervalThink\"",
+"{",
+"\t${2:[ACTIONS]}",
+"}"
+		]
+	},
+	"TrackingProjectile": {
+		"prefix": "TrackingProjectile",
+		"body": [
+"\"TrackingProjectile\"",
+"{",
+"\t\"Target\"\t\"${1:TARGET}\"",
+"\t\"EffectName\"\t\t\"${2:particles/base_attacks/ranged_tower_bad.vpcf}\"",
+"\t\"Dodgeable\"\t\t\t\"${3:1}\"",
+"\t\"ProvidesVision\"\t\"${4:1}\"",
+"\t\"VisionRadius\"\t\t\"${5:%vision_radius}\"",
+"\t\"MoveSpeed\"\t\"${6:%projectile_speed}\"",
+"\t\"SourceAttachment\"\t\"${7:DOTA_PROJECTILE_ATTACHMENT_ATTACK_1\"}",
+"}"
+		]
 	}
 }
