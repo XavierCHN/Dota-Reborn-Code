@@ -1,4 +1,20 @@
 {
+	"AbilityTooltip": {
+		"prefix": "DOTA_Tooltip_",
+		"body": [
+"\"DOTA_Tooltip_ability_${1:abilityname}\"\t\t\"\"",
+"\"DOTA_Tooltip_ability_${1:abilityname}_Description\"\t\t\"\"",
+"\"DOTA_Tooltip_ability_${1:abilityname}_\"\t\t\"\"",
+"\"DOTA_Tooltip_ability_${1:abilityname}_\"\t\t\"\""
+		]
+	},
+	"ModifierTooltip": {
+		"prefix": "DOTA_Tooltip_modifier",
+		"body": [
+"\"DOTA_Tooltip_modifier_${1:modifiername}\"\t\t\"\"",
+"\"DOTA_Tooltip_modifier_${1:modifiername}_Description\"\t\t\"\"",
+		]
+	},
 	"AbilityBehavior": {
 		"prefix": "AbilityBehavior",
 		"body": [
