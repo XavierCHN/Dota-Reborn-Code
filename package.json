@@ -85,6 +85,10 @@
                 "path": "./snippets/javascript.json"
             },
             {
+                "language": "lua",
+                "path": "./snippets/plaintext.json"
+            },
+            {
                 "language": "plaintext",
                 "path": "./snippets/plaintext.json"
             },
