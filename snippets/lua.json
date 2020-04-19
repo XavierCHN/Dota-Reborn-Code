@@ -119,6 +119,12 @@
 		"description":"CreateModifierThinker:\nCreate a modifier not associated with an NPC. ( hCaster, hAbility, modifierName, paramTable, vOrigin, nTeamNumber, bPhantomBlocker )\nreturn handle",
 		"prefix":"CreateModifierThinker"
 	},
+	"CreateRune":
+	{
+		"body":"CreateRune(${vLocation}, ${iRuneType})",
+		"description":"CreateRune:\nCreate a rune of the specified type (vLocation, iRuneType).\nreturn handle",
+		"prefix":"CreateRune"
+	},
 	"CreateSceneEntity":
 	{
 		"body":"CreateSceneEntity(${string_1})",
@@ -287,6 +293,12 @@
 		"description":"DotProduct:\n\nreturn float",
 		"prefix":"DotProduct"
 	},
+	"DropNeutralItemAtPositionForHero":
+	{
+		"body":"DropNeutralItemAtPositionForHero(${string_1}, ${Vector_2}, ${handle_3}, ${int_4})",
+		"description":"DropNeutralItemAtPositionForHero:\nDrop a neutral item for the team of the hero at the given tier.\nreturn void",
+		"prefix":"DropNeutralItemAtPositionForHero"
+	},
 	"EmitAnnouncerSound":
 	{
 		"body":"EmitAnnouncerSound(${string_1})",
@@ -370,6 +382,12 @@
 		"body":"FindClearSpaceForUnit(${handle_1}, ${Vector_2}, ${bool_3})",
 		"description":"FindClearSpaceForUnit:\nPlace a unit somewhere not already occupied.\nreturn bool",
 		"prefix":"FindClearSpaceForUnit"
+	},
+	"FindSpawnEntityForTeam":
+	{
+		"body":"FindSpawnEntityForTeam(${int_1})",
+		"description":"FindSpawnEntityForTeam:\nFind a spawn point for the given team.\nreturn handle",
+		"prefix":"FindSpawnEntityForTeam"
 	},
 	"FindUnitsInLine":
 	{
@@ -574,6 +592,12 @@
 		"body":"GetWorldMinY()",
 		"description":"GetWorldMinY:\nGets the world's minimum Y position.\nreturn float",
 		"prefix":"GetWorldMinY"
+	},
+	"GetXPNeededToReachNextLevel":
+	{
+		"body":"GetXPNeededToReachNextLevel(${int_1})",
+		"description":"GetXPNeededToReachNextLevel:\nGet amount of XP required to reach the next level.\nreturn int",
+		"prefix":"GetXPNeededToReachNextLevel"
 	},
 	"InitLogFile":
 	{
@@ -1223,17 +1247,12 @@
 	"DOTA_ATTRIBUTE_AGILITY_ARMOR":{"body":"DOTA_ATTRIBUTE_AGILITY_ARMOR", "description":"", "prefix": "DOTA_ATTRIBUTE_AGILITY_ARMOR"},
 	"DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED":{"body":"DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED", "description":"", "prefix": "DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED"},
 	"DOTA_ATTRIBUTE_AGILITY_DAMAGE":{"body":"DOTA_ATTRIBUTE_AGILITY_DAMAGE", "description":"", "prefix": "DOTA_ATTRIBUTE_AGILITY_DAMAGE"},
-	"DOTA_ATTRIBUTE_AGILITY_MOVE_SPEED_PERCENT":{"body":"DOTA_ATTRIBUTE_AGILITY_MOVE_SPEED_PERCENT", "description":"", "prefix": "DOTA_ATTRIBUTE_AGILITY_MOVE_SPEED_PERCENT"},
 	"DOTA_ATTRIBUTE_INTELLIGENCE_DAMAGE":{"body":"DOTA_ATTRIBUTE_INTELLIGENCE_DAMAGE", "description":"", "prefix": "DOTA_ATTRIBUTE_INTELLIGENCE_DAMAGE"},
-	"DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESISTANCE_PERCENT":{"body":"DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESISTANCE_PERCENT", "description":"", "prefix": "DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESISTANCE_PERCENT"},
 	"DOTA_ATTRIBUTE_INTELLIGENCE_MANA":{"body":"DOTA_ATTRIBUTE_INTELLIGENCE_MANA", "description":"", "prefix": "DOTA_ATTRIBUTE_INTELLIGENCE_MANA"},
 	"DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN":{"body":"DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN", "description":"", "prefix": "DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN"},
-	"DOTA_ATTRIBUTE_INTELLIGENCE_SPELL_AMP_PERCENT":{"body":"DOTA_ATTRIBUTE_INTELLIGENCE_SPELL_AMP_PERCENT", "description":"", "prefix": "DOTA_ATTRIBUTE_INTELLIGENCE_SPELL_AMP_PERCENT"},
 	"DOTA_ATTRIBUTE_STRENGTH_DAMAGE":{"body":"DOTA_ATTRIBUTE_STRENGTH_DAMAGE", "description":"", "prefix": "DOTA_ATTRIBUTE_STRENGTH_DAMAGE"},
 	"DOTA_ATTRIBUTE_STRENGTH_HP":{"body":"DOTA_ATTRIBUTE_STRENGTH_HP", "description":"", "prefix": "DOTA_ATTRIBUTE_STRENGTH_HP"},
 	"DOTA_ATTRIBUTE_STRENGTH_HP_REGEN":{"body":"DOTA_ATTRIBUTE_STRENGTH_HP_REGEN", "description":"", "prefix": "DOTA_ATTRIBUTE_STRENGTH_HP_REGEN"},
-	"DOTA_ATTRIBUTE_STRENGTH_MAGIC_RESISTANCE_PERCENT":{"body":"DOTA_ATTRIBUTE_STRENGTH_MAGIC_RESISTANCE_PERCENT", "description":"", "prefix": "DOTA_ATTRIBUTE_STRENGTH_MAGIC_RESISTANCE_PERCENT"},
-	"DOTA_ATTRIBUTE_STRENGTH_STATUS_RESISTANCE_PERCENT":{"body":"DOTA_ATTRIBUTE_STRENGTH_STATUS_RESISTANCE_PERCENT", "description":"", "prefix": "DOTA_ATTRIBUTE_STRENGTH_STATUS_RESISTANCE_PERCENT"},
 	"DOTA_ATTRIBUTE_AGILITY":{"body":"DOTA_ATTRIBUTE_AGILITY", "description":"", "prefix": "DOTA_ATTRIBUTE_AGILITY"},
 	"DOTA_ATTRIBUTE_INTELLECT":{"body":"DOTA_ATTRIBUTE_INTELLECT", "description":"", "prefix": "DOTA_ATTRIBUTE_INTELLECT"},
 	"DOTA_ATTRIBUTE_INVALID":{"body":"DOTA_ATTRIBUTE_INVALID", "description":"", "prefix": "DOTA_ATTRIBUTE_INVALID"},
@@ -1283,6 +1302,7 @@
 	"DOTA_HUD_VISIBILITY_KILLCAM":{"body":"DOTA_HUD_VISIBILITY_KILLCAM", "description":"", "prefix": "DOTA_HUD_VISIBILITY_KILLCAM"},
 	"DOTA_HUD_VISIBILITY_PREGAME_STRATEGYUI":{"body":"DOTA_HUD_VISIBILITY_PREGAME_STRATEGYUI", "description":"", "prefix": "DOTA_HUD_VISIBILITY_PREGAME_STRATEGYUI"},
 	"DOTA_HUD_VISIBILITY_QUICK_STATS":{"body":"DOTA_HUD_VISIBILITY_QUICK_STATS", "description":"", "prefix": "DOTA_HUD_VISIBILITY_QUICK_STATS"},
+	"DOTA_HUD_VISIBILITY_SHOP_COMMONITEMS":{"body":"DOTA_HUD_VISIBILITY_SHOP_COMMONITEMS", "description":"", "prefix": "DOTA_HUD_VISIBILITY_SHOP_COMMONITEMS"},
 	"DOTA_HUD_VISIBILITY_SHOP_SUGGESTEDITEMS":{"body":"DOTA_HUD_VISIBILITY_SHOP_SUGGESTEDITEMS", "description":"", "prefix": "DOTA_HUD_VISIBILITY_SHOP_SUGGESTEDITEMS"},
 	"DOTA_HUD_VISIBILITY_TOP_BAR":{"body":"DOTA_HUD_VISIBILITY_TOP_BAR", "description":"", "prefix": "DOTA_HUD_VISIBILITY_TOP_BAR"},
 	"DOTA_HUD_VISIBILITY_TOP_BAR_BACKGROUND":{"body":"DOTA_HUD_VISIBILITY_TOP_BAR_BACKGROUND", "description":"", "prefix": "DOTA_HUD_VISIBILITY_TOP_BAR_BACKGROUND"},
@@ -1486,6 +1506,7 @@
 	"DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT":{"body":"DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"},
 	"DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK":{"body":"DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"},
 	"DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT":{"body":"DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"},
+	"DOTA_ABILITY_BEHAVIOR_FREE_DRAW_TARGETING":{"body":"DOTA_ABILITY_BEHAVIOR_FREE_DRAW_TARGETING", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_FREE_DRAW_TARGETING"},
 	"DOTA_ABILITY_BEHAVIOR_HIDDEN":{"body":"DOTA_ABILITY_BEHAVIOR_HIDDEN", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_HIDDEN"},
 	"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING":{"body":"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"},
 	"DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL":{"body":"DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL", "description":"", "prefix": "DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"},
@@ -1596,9 +1617,11 @@
 	"DOTA_RUNE_INVALID":{"body":"DOTA_RUNE_INVALID", "description":"", "prefix": "DOTA_RUNE_INVALID"},
 	"DOTA_RUNE_INVISIBILITY":{"body":"DOTA_RUNE_INVISIBILITY", "description":"", "prefix": "DOTA_RUNE_INVISIBILITY"},
 	"DOTA_RUNE_REGENERATION":{"body":"DOTA_RUNE_REGENERATION", "description":"", "prefix": "DOTA_RUNE_REGENERATION"},
+	"DOTA_RUNE_XP":{"body":"DOTA_RUNE_XP", "description":"", "prefix": "DOTA_RUNE_XP"},
 	"DOTA_SHOP_CUSTOM":{"body":"DOTA_SHOP_CUSTOM", "description":"", "prefix": "DOTA_SHOP_CUSTOM"},
 	"DOTA_SHOP_GROUND":{"body":"DOTA_SHOP_GROUND", "description":"", "prefix": "DOTA_SHOP_GROUND"},
 	"DOTA_SHOP_HOME":{"body":"DOTA_SHOP_HOME", "description":"", "prefix": "DOTA_SHOP_HOME"},
+	"DOTA_SHOP_NEUTRALS":{"body":"DOTA_SHOP_NEUTRALS", "description":"", "prefix": "DOTA_SHOP_NEUTRALS"},
 	"DOTA_SHOP_NONE":{"body":"DOTA_SHOP_NONE", "description":"", "prefix": "DOTA_SHOP_NONE"},
 	"DOTA_SHOP_SECRET":{"body":"DOTA_SHOP_SECRET", "description":"", "prefix": "DOTA_SHOP_SECRET"},
 	"DOTA_SHOP_SECRET2":{"body":"DOTA_SHOP_SECRET2", "description":"", "prefix": "DOTA_SHOP_SECRET2"},
@@ -1664,6 +1687,7 @@
 	"DOTA_DEFAULT_UI_KILLCAM":{"body":"DOTA_DEFAULT_UI_KILLCAM", "description":"", "prefix": "DOTA_DEFAULT_UI_KILLCAM"},
 	"DOTA_DEFAULT_UI_PREGAME_STRATEGYUI":{"body":"DOTA_DEFAULT_UI_PREGAME_STRATEGYUI", "description":"", "prefix": "DOTA_DEFAULT_UI_PREGAME_STRATEGYUI"},
 	"DOTA_DEFAULT_UI_QUICK_STATS":{"body":"DOTA_DEFAULT_UI_QUICK_STATS", "description":"", "prefix": "DOTA_DEFAULT_UI_QUICK_STATS"},
+	"DOTA_DEFAULT_UI_SHOP_COMMONITEMS":{"body":"DOTA_DEFAULT_UI_SHOP_COMMONITEMS", "description":"", "prefix": "DOTA_DEFAULT_UI_SHOP_COMMONITEMS"},
 	"DOTA_DEFAULT_UI_SHOP_SUGGESTEDITEMS":{"body":"DOTA_DEFAULT_UI_SHOP_SUGGESTEDITEMS", "description":"", "prefix": "DOTA_DEFAULT_UI_SHOP_SUGGESTEDITEMS"},
 	"DOTA_DEFAULT_UI_TOP_BAR":{"body":"DOTA_DEFAULT_UI_TOP_BAR", "description":"", "prefix": "DOTA_DEFAULT_UI_TOP_BAR"},
 	"DOTA_DEFAULT_UI_TOP_BAR_BACKGROUND":{"body":"DOTA_DEFAULT_UI_TOP_BAR_BACKGROUND", "description":"", "prefix": "DOTA_DEFAULT_UI_TOP_BAR_BACKGROUND"},
@@ -1675,6 +1699,8 @@
 	"DOTA_DEFAULT_UI_TOP_TIMEOFDAY":{"body":"DOTA_DEFAULT_UI_TOP_TIMEOFDAY", "description":"", "prefix": "DOTA_DEFAULT_UI_TOP_TIMEOFDAY"},
 	"DOTA_ModifyGold_AbandonedRedistribute":{"body":"DOTA_ModifyGold_AbandonedRedistribute", "description":"", "prefix": "DOTA_ModifyGold_AbandonedRedistribute"},
 	"DOTA_ModifyGold_AbilityCost":{"body":"DOTA_ModifyGold_AbilityCost", "description":"", "prefix": "DOTA_ModifyGold_AbilityCost"},
+	"DOTA_ModifyGold_AbilityGold":{"body":"DOTA_ModifyGold_AbilityGold", "description":"", "prefix": "DOTA_ModifyGold_AbilityGold"},
+	"DOTA_ModifyGold_BountyRune":{"body":"DOTA_ModifyGold_BountyRune", "description":"", "prefix": "DOTA_ModifyGold_BountyRune"},
 	"DOTA_ModifyGold_Building":{"body":"DOTA_ModifyGold_Building", "description":"", "prefix": "DOTA_ModifyGold_Building"},
 	"DOTA_ModifyGold_Buyback":{"body":"DOTA_ModifyGold_Buyback", "description":"", "prefix": "DOTA_ModifyGold_Buyback"},
 	"DOTA_ModifyGold_CheatCommand":{"body":"DOTA_ModifyGold_CheatCommand", "description":"", "prefix": "DOTA_ModifyGold_CheatCommand"},
@@ -1683,6 +1709,7 @@
 	"DOTA_ModifyGold_Death":{"body":"DOTA_ModifyGold_Death", "description":"", "prefix": "DOTA_ModifyGold_Death"},
 	"DOTA_ModifyGold_GameTick":{"body":"DOTA_ModifyGold_GameTick", "description":"", "prefix": "DOTA_ModifyGold_GameTick"},
 	"DOTA_ModifyGold_HeroKill":{"body":"DOTA_ModifyGold_HeroKill", "description":"", "prefix": "DOTA_ModifyGold_HeroKill"},
+	"DOTA_ModifyGold_NeutralKill":{"body":"DOTA_ModifyGold_NeutralKill", "description":"", "prefix": "DOTA_ModifyGold_NeutralKill"},
 	"DOTA_ModifyGold_PurchaseConsumable":{"body":"DOTA_ModifyGold_PurchaseConsumable", "description":"", "prefix": "DOTA_ModifyGold_PurchaseConsumable"},
 	"DOTA_ModifyGold_PurchaseItem":{"body":"DOTA_ModifyGold_PurchaseItem", "description":"", "prefix": "DOTA_ModifyGold_PurchaseItem"},
 	"DOTA_ModifyGold_RoshanKill":{"body":"DOTA_ModifyGold_RoshanKill", "description":"", "prefix": "DOTA_ModifyGold_RoshanKill"},
@@ -1690,6 +1717,7 @@
 	"DOTA_ModifyGold_SellItem":{"body":"DOTA_ModifyGold_SellItem", "description":"", "prefix": "DOTA_ModifyGold_SellItem"},
 	"DOTA_ModifyGold_SharedGold":{"body":"DOTA_ModifyGold_SharedGold", "description":"", "prefix": "DOTA_ModifyGold_SharedGold"},
 	"DOTA_ModifyGold_Unspecified":{"body":"DOTA_ModifyGold_Unspecified", "description":"", "prefix": "DOTA_ModifyGold_Unspecified"},
+	"DOTA_ModifyGold_WardKill":{"body":"DOTA_ModifyGold_WardKill", "description":"", "prefix": "DOTA_ModifyGold_WardKill"},
 	"DOTA_ModifyXP_CreepKill":{"body":"DOTA_ModifyXP_CreepKill", "description":"", "prefix": "DOTA_ModifyXP_CreepKill"},
 	"DOTA_ModifyXP_HeroKill":{"body":"DOTA_ModifyXP_HeroKill", "description":"", "prefix": "DOTA_ModifyXP_HeroKill"},
 	"DOTA_ModifyXP_RoshanKill":{"body":"DOTA_ModifyXP_RoshanKill", "description":"", "prefix": "DOTA_ModifyXP_RoshanKill"},
@@ -1729,6 +1757,7 @@
 	"ACT_DOTA_CAST_ABILITY_1":{"body":"ACT_DOTA_CAST_ABILITY_1", "description":"", "prefix": "ACT_DOTA_CAST_ABILITY_1"},
 	"ACT_DOTA_CAST_ABILITY_1_END":{"body":"ACT_DOTA_CAST_ABILITY_1_END", "description":"", "prefix": "ACT_DOTA_CAST_ABILITY_1_END"},
 	"ACT_DOTA_CAST_ABILITY_2":{"body":"ACT_DOTA_CAST_ABILITY_2", "description":"", "prefix": "ACT_DOTA_CAST_ABILITY_2"},
+	"ACT_DOTA_CAST_ABILITY_2_ALLY":{"body":"ACT_DOTA_CAST_ABILITY_2_ALLY", "description":"", "prefix": "ACT_DOTA_CAST_ABILITY_2_ALLY"},
 	"ACT_DOTA_CAST_ABILITY_2_END":{"body":"ACT_DOTA_CAST_ABILITY_2_END", "description":"", "prefix": "ACT_DOTA_CAST_ABILITY_2_END"},
 	"ACT_DOTA_CAST_ABILITY_2_ES_ROLL":{"body":"ACT_DOTA_CAST_ABILITY_2_ES_ROLL", "description":"", "prefix": "ACT_DOTA_CAST_ABILITY_2_ES_ROLL"},
 	"ACT_DOTA_CAST_ABILITY_2_ES_ROLL_END":{"body":"ACT_DOTA_CAST_ABILITY_2_ES_ROLL_END", "description":"", "prefix": "ACT_DOTA_CAST_ABILITY_2_ES_ROLL_END"},
@@ -1899,6 +1928,8 @@
 	"ACT_DOTA_SHARPEN_WEAPON_OUT":{"body":"ACT_DOTA_SHARPEN_WEAPON_OUT", "description":"", "prefix": "ACT_DOTA_SHARPEN_WEAPON_OUT"},
 	"ACT_DOTA_SHOPKEEPER_PET_INTERACT":{"body":"ACT_DOTA_SHOPKEEPER_PET_INTERACT", "description":"", "prefix": "ACT_DOTA_SHOPKEEPER_PET_INTERACT"},
 	"ACT_DOTA_SHRUG":{"body":"ACT_DOTA_SHRUG", "description":"", "prefix": "ACT_DOTA_SHRUG"},
+	"ACT_DOTA_SHUFFLE_L":{"body":"ACT_DOTA_SHUFFLE_L", "description":"", "prefix": "ACT_DOTA_SHUFFLE_L"},
+	"ACT_DOTA_SHUFFLE_R":{"body":"ACT_DOTA_SHUFFLE_R", "description":"", "prefix": "ACT_DOTA_SHUFFLE_R"},
 	"ACT_DOTA_SLARK_POUNCE":{"body":"ACT_DOTA_SLARK_POUNCE", "description":"", "prefix": "ACT_DOTA_SLARK_POUNCE"},
 	"ACT_DOTA_SLEEPING_END":{"body":"ACT_DOTA_SLEEPING_END", "description":"", "prefix": "ACT_DOTA_SLEEPING_END"},
 	"ACT_DOTA_SLIDE":{"body":"ACT_DOTA_SLIDE", "description":"", "prefix": "ACT_DOTA_SLIDE"},
@@ -2022,6 +2053,7 @@
 	"MODIFIER_EVENT_ON_BUILDING_KILLED":{"body":"MODIFIER_EVENT_ON_BUILDING_KILLED", "description":"OnBuildingKilled", "prefix": "MODIFIER_EVENT_ON_BUILDING_KILLED"},
 	"MODIFIER_EVENT_ON_DAMAGE_CALCULATED":{"body":"MODIFIER_EVENT_ON_DAMAGE_CALCULATED", "description":"OnDamageCalculated", "prefix": "MODIFIER_EVENT_ON_DAMAGE_CALCULATED"},
 	"MODIFIER_EVENT_ON_DEATH":{"body":"MODIFIER_EVENT_ON_DEATH", "description":"OnDeath", "prefix": "MODIFIER_EVENT_ON_DEATH"},
+	"MODIFIER_EVENT_ON_DEATH_PREVENTED":{"body":"MODIFIER_EVENT_ON_DEATH_PREVENTED", "description":"OnDamagePrevented", "prefix": "MODIFIER_EVENT_ON_DEATH_PREVENTED"},
 	"MODIFIER_EVENT_ON_DOMINATED":{"body":"MODIFIER_EVENT_ON_DOMINATED", "description":"OnDominated", "prefix": "MODIFIER_EVENT_ON_DOMINATED"},
 	"MODIFIER_EVENT_ON_HEALTH_GAINED":{"body":"MODIFIER_EVENT_ON_HEALTH_GAINED", "description":"OnHealthGained", "prefix": "MODIFIER_EVENT_ON_HEALTH_GAINED"},
 	"MODIFIER_EVENT_ON_HEAL_RECEIVED":{"body":"MODIFIER_EVENT_ON_HEAL_RECEIVED", "description":"OnHealReceived", "prefix": "MODIFIER_EVENT_ON_HEAL_RECEIVED"},
@@ -2054,6 +2086,7 @@
 	"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE":{"body":"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE", "description":"GetAbsoluteNoDamagePure", "prefix": "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"},
 	"MODIFIER_PROPERTY_ABSORB_SPELL":{"body":"MODIFIER_PROPERTY_ABSORB_SPELL", "description":"GetAbsorbSpell", "prefix": "MODIFIER_PROPERTY_ABSORB_SPELL"},
 	"MODIFIER_PROPERTY_ALWAYS_ALLOW_ATTACK":{"body":"MODIFIER_PROPERTY_ALWAYS_ALLOW_ATTACK", "description":"GetAlwaysAllowAttack", "prefix": "MODIFIER_PROPERTY_ALWAYS_ALLOW_ATTACK"},
+	"MODIFIER_PROPERTY_ALWAYS_ETHEREAL_ATTACK":{"body":"MODIFIER_PROPERTY_ALWAYS_ETHEREAL_ATTACK", "description":"GetAllowEtherealAttack", "prefix": "MODIFIER_PROPERTY_ALWAYS_ETHEREAL_ATTACK"},
 	"MODIFIER_PROPERTY_ATTACKSPEED_BASE_OVERRIDE":{"body":"MODIFIER_PROPERTY_ATTACKSPEED_BASE_OVERRIDE", "description":"GetModifierAttackSpeedBaseOverride", "prefix": "MODIFIER_PROPERTY_ATTACKSPEED_BASE_OVERRIDE"},
 	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT":{"body":"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT", "description":"GetModifierAttackSpeedBonus_Constant", "prefix": "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"},
 	"MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT":{"body":"MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT", "description":"GetModifierAttackPointConstant", "prefix": "MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT"},
@@ -2067,11 +2100,13 @@
 	"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE":{"body":"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE", "description":"GetModifierBaseDamageOutgoing_Percentage", "prefix": "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"},
 	"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE_UNIQUE":{"body":"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE_UNIQUE", "description":"GetModifierBaseDamageOutgoing_PercentageUnique", "prefix": "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE_UNIQUE"},
 	"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT":{"body":"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT", "description":"GetModifierBaseAttackTimeConstant", "prefix": "MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"},
+	"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT_ADJUST":{"body":"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT_ADJUST", "description":"GetModifierBaseAttackTimeConstant_Adjust", "prefix": "MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT_ADJUST"},
 	"MODIFIER_PROPERTY_BASE_MANA_REGEN":{"body":"MODIFIER_PROPERTY_BASE_MANA_REGEN", "description":"GetModifierBaseRegen", "prefix": "MODIFIER_PROPERTY_BASE_MANA_REGEN"},
 	"MODIFIER_PROPERTY_BONUS_DAY_VISION":{"body":"MODIFIER_PROPERTY_BONUS_DAY_VISION", "description":"GetBonusDayVision", "prefix": "MODIFIER_PROPERTY_BONUS_DAY_VISION"},
 	"MODIFIER_PROPERTY_BONUS_NIGHT_VISION":{"body":"MODIFIER_PROPERTY_BONUS_NIGHT_VISION", "description":"GetBonusNightVision", "prefix": "MODIFIER_PROPERTY_BONUS_NIGHT_VISION"},
 	"MODIFIER_PROPERTY_BONUS_NIGHT_VISION_UNIQUE":{"body":"MODIFIER_PROPERTY_BONUS_NIGHT_VISION_UNIQUE", "description":"GetBonusNightVisionUnique", "prefix": "MODIFIER_PROPERTY_BONUS_NIGHT_VISION_UNIQUE"},
 	"MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE":{"body":"MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE", "description":"GetBonusVisionPercentage", "prefix": "MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE"},
+	"MODIFIER_PROPERTY_BOT_ATTACK_SCORE_BONUS":{"body":"MODIFIER_PROPERTY_BOT_ATTACK_SCORE_BONUS", "description":"BotAttackScoreBonus", "prefix": "MODIFIER_PROPERTY_BOT_ATTACK_SCORE_BONUS"},
 	"MODIFIER_PROPERTY_BOUNTY_CREEP_MULTIPLIER":{"body":"MODIFIER_PROPERTY_BOUNTY_CREEP_MULTIPLIER", "description":"Unused", "prefix": "MODIFIER_PROPERTY_BOUNTY_CREEP_MULTIPLIER"},
 	"MODIFIER_PROPERTY_BOUNTY_OTHER_MULTIPLIER":{"body":"MODIFIER_PROPERTY_BOUNTY_OTHER_MULTIPLIER", "description":"Unused", "prefix": "MODIFIER_PROPERTY_BOUNTY_OTHER_MULTIPLIER"},
 	"MODIFIER_PROPERTY_CAN_ATTACK_TREES":{"body":"MODIFIER_PROPERTY_CAN_ATTACK_TREES", "description":"GetModifierCanAttackTrees", "prefix": "MODIFIER_PROPERTY_CAN_ATTACK_TREES"},
@@ -2081,10 +2116,11 @@
 	"MODIFIER_PROPERTY_CAST_RANGE_BONUS_TARGET":{"body":"MODIFIER_PROPERTY_CAST_RANGE_BONUS_TARGET", "description":"GetModifierCastRangeBonusTarget", "prefix": "MODIFIER_PROPERTY_CAST_RANGE_BONUS_TARGET"},
 	"MODIFIER_PROPERTY_CHANGE_ABILITY_VALUE":{"body":"MODIFIER_PROPERTY_CHANGE_ABILITY_VALUE", "description":"GetModifierChangeAbilityValue", "prefix": "MODIFIER_PROPERTY_CHANGE_ABILITY_VALUE"},
 	"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE":{"body":"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE", "description":"GetModifierPercentageCooldown", "prefix": "MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"},
-	"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_STACKING":{"body":"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_STACKING", "description":"GetModifierPercentageCooldownStacking", "prefix": "MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_STACKING"},
+	"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_ONGOING":{"body":"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_ONGOING", "description":"GetModifierPercentageCooldownOngoing", "prefix": "MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_ONGOING"},
 	"MODIFIER_PROPERTY_COOLDOWN_REDUCTION_CONSTANT":{"body":"MODIFIER_PROPERTY_COOLDOWN_REDUCTION_CONSTANT", "description":"GetModifierCooldownReduction_Constant", "prefix": "MODIFIER_PROPERTY_COOLDOWN_REDUCTION_CONSTANT"},
 	"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE":{"body":"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE", "description":"GetModifierDamageOutgoing_Percentage", "prefix": "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"},
 	"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE_ILLUSION":{"body":"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE_ILLUSION", "description":"GetModifierDamageOutgoing_Percentage_Illusion", "prefix": "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE_ILLUSION"},
+	"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE_ILLUSION_AMPLIFY":{"body":"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE_ILLUSION_AMPLIFY", "description":"GetModifierDamageOutgoing_Percentage_Illusion_Amplify", "prefix": "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE_ILLUSION_AMPLIFY"},
 	"MODIFIER_PROPERTY_DEATHGOLDCOST":{"body":"MODIFIER_PROPERTY_DEATHGOLDCOST", "description":"GetModifierConstantDeathGoldCost", "prefix": "MODIFIER_PROPERTY_DEATHGOLDCOST"},
 	"MODIFIER_PROPERTY_DISABLE_AUTOATTACK":{"body":"MODIFIER_PROPERTY_DISABLE_AUTOATTACK", "description":"GetDisableAutoAttack", "prefix": "MODIFIER_PROPERTY_DISABLE_AUTOATTACK"},
 	"MODIFIER_PROPERTY_DISABLE_HEALING":{"body":"MODIFIER_PROPERTY_DISABLE_HEALING", "description":"GetDisableHealing", "prefix": "MODIFIER_PROPERTY_DISABLE_HEALING"},
@@ -2096,6 +2132,7 @@
 	"MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS":{"body":"MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS", "description":"GetModifierExtraHealthBonus", "prefix": "MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS"},
 	"MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE":{"body":"MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE", "description":"GetModifierExtraHealthPercentage", "prefix": "MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE"},
 	"MODIFIER_PROPERTY_EXTRA_MANA_BONUS":{"body":"MODIFIER_PROPERTY_EXTRA_MANA_BONUS", "description":"GetModifierExtraManaBonus", "prefix": "MODIFIER_PROPERTY_EXTRA_MANA_BONUS"},
+	"MODIFIER_PROPERTY_EXTRA_MANA_PERCENTAGE":{"body":"MODIFIER_PROPERTY_EXTRA_MANA_PERCENTAGE", "description":"GetModifierExtraManaPercentage", "prefix": "MODIFIER_PROPERTY_EXTRA_MANA_PERCENTAGE"},
 	"MODIFIER_PROPERTY_EXTRA_STRENGTH_BONUS":{"body":"MODIFIER_PROPERTY_EXTRA_STRENGTH_BONUS", "description":"GetModifierExtraStrengthBonus", "prefix": "MODIFIER_PROPERTY_EXTRA_STRENGTH_BONUS"},
 	"MODIFIER_PROPERTY_FIXED_ATTACK_RATE":{"body":"MODIFIER_PROPERTY_FIXED_ATTACK_RATE", "description":"GetModifierFixedAttackRate", "prefix": "MODIFIER_PROPERTY_FIXED_ATTACK_RATE"},
 	"MODIFIER_PROPERTY_FIXED_DAY_VISION":{"body":"MODIFIER_PROPERTY_FIXED_DAY_VISION", "description":"GetFixedDayVision", "prefix": "MODIFIER_PROPERTY_FIXED_DAY_VISION"},
@@ -2105,8 +2142,9 @@
 	"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT":{"body":"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT", "description":"GetModifierConstantHealthRegen", "prefix": "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"},
 	"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE":{"body":"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE", "description":"GetModifierHealthRegenPercentage", "prefix": "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"},
 	"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE":{"body":"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE", "description":"GetModifierHealthRegenPercentageUnique", "prefix": "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE"},
+	"MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE":{"body":"MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE", "description":"GetModifierHealAmplify_PercentageSource", "prefix": "MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE"},
+	"MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET":{"body":"MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET", "description":"GetModifierHealAmplify_PercentageTarget", "prefix": "MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET"},
 	"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE":{"body":"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE", "description":"GetModifierHPRegenAmplify_Percentage", "prefix": "MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE"},
-	"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE_SOURCE":{"body":"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE_SOURCE", "description":"GetModifierHPRegenAmplify_PercentageSource", "prefix": "MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE_SOURCE"},
 	"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE":{"body":"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE", "description":"GetModifierIgnoreCastAngle", "prefix": "MODIFIER_PROPERTY_IGNORE_CAST_ANGLE"},
 	"MODIFIER_PROPERTY_IGNORE_COOLDOWN":{"body":"MODIFIER_PROPERTY_IGNORE_COOLDOWN", "description":"GetModifierIgnoreCooldown", "prefix": "MODIFIER_PROPERTY_IGNORE_COOLDOWN"},
 	"MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT":{"body":"MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT", "description":"GetModifierIgnoreMovespeedLimit", "prefix": "MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT"},
@@ -2121,9 +2159,12 @@
 	"MODIFIER_PROPERTY_INVISIBILITY_LEVEL":{"body":"MODIFIER_PROPERTY_INVISIBILITY_LEVEL", "description":"GetModifierInvisibilityLevel", "prefix": "MODIFIER_PROPERTY_INVISIBILITY_LEVEL"},
 	"MODIFIER_PROPERTY_IS_ILLUSION":{"body":"MODIFIER_PROPERTY_IS_ILLUSION", "description":"GetIsIllusion", "prefix": "MODIFIER_PROPERTY_IS_ILLUSION"},
 	"MODIFIER_PROPERTY_IS_SCEPTER":{"body":"MODIFIER_PROPERTY_IS_SCEPTER", "description":"GetModifierScepter", "prefix": "MODIFIER_PROPERTY_IS_SCEPTER"},
+	"MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE":{"body":"MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE", "description":"GetModifierLifestealRegenAmplify_Percentage", "prefix": "MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE"},
 	"MODIFIER_PROPERTY_LIFETIME_FRACTION":{"body":"MODIFIER_PROPERTY_LIFETIME_FRACTION", "description":"GetUnitLifetimeFraction", "prefix": "MODIFIER_PROPERTY_LIFETIME_FRACTION"},
 	"MODIFIER_PROPERTY_MAGICAL_CONSTANT_BLOCK":{"body":"MODIFIER_PROPERTY_MAGICAL_CONSTANT_BLOCK", "description":"GetModifierMagical_ConstantBlock", "prefix": "MODIFIER_PROPERTY_MAGICAL_CONSTANT_BLOCK"},
+	"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BASE_REDUCTION":{"body":"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BASE_REDUCTION", "description":"GetModifierMagicalResistanceBaseReduction", "prefix": "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BASE_REDUCTION"},
 	"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS":{"body":"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS", "description":"GetModifierMagicalResistanceBonus", "prefix": "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"},
+	"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS_ILLUSIONS":{"body":"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS_ILLUSIONS", "description":"GetModifierMagicalResistanceBonusIllusions", "prefix": "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS_ILLUSIONS"},
 	"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE":{"body":"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE", "description":"GetModifierMagicalResistanceDecrepifyUnique", "prefix": "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE"},
 	"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DIRECT_MODIFICATION":{"body":"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DIRECT_MODIFICATION", "description":"GetModifierMagicalResistanceDirectModification", "prefix": "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DIRECT_MODIFICATION"},
 	"MODIFIER_PROPERTY_MANACOST_PERCENTAGE":{"body":"MODIFIER_PROPERTY_MANACOST_PERCENTAGE", "description":"GetModifierPercentageManacost", "prefix": "MODIFIER_PROPERTY_MANACOST_PERCENTAGE"},
@@ -2163,6 +2204,7 @@
 	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS":{"body":"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS", "description":"GetModifierPhysicalArmorBonus", "prefix": "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"},
 	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE":{"body":"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE", "description":"GetModifierPhysicalArmorBonusUnique", "prefix": "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE"},
 	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE_ACTIVE":{"body":"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE_ACTIVE", "description":"GetModifierPhysicalArmorBonusUniqueActive", "prefix": "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE_ACTIVE"},
+	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_TOTAL_PERCENTAGE":{"body":"MODIFIER_PROPERTY_PHYSICAL_ARMOR_TOTAL_PERCENTAGE", "description":"GetModifierPhysicalArmorTotal_Percentage", "prefix": "MODIFIER_PROPERTY_PHYSICAL_ARMOR_TOTAL_PERCENTAGE"},
 	"MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK":{"body":"MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK", "description":"GetModifierPhysical_ConstantBlock", "prefix": "MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK"},
 	"MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK_SPECIAL":{"body":"MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK_SPECIAL", "description":"GetModifierPhysical_ConstantBlockSpecial", "prefix": "MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK_SPECIAL"},
 	"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE":{"body":"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE", "description":"GetModifierPreAttack_BonusDamage", "prefix": "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"},
@@ -2179,7 +2221,9 @@
 	"MODIFIER_PROPERTY_PROCATTACK_FEEDBACK":{"body":"MODIFIER_PROPERTY_PROCATTACK_FEEDBACK", "description":"GetModifierProcAttack_Feedback", "prefix": "MODIFIER_PROPERTY_PROCATTACK_FEEDBACK"},
 	"MODIFIER_PROPERTY_PROJECTILE_NAME":{"body":"MODIFIER_PROPERTY_PROJECTILE_NAME", "description":"GetModifierProjectileName", "prefix": "MODIFIER_PROPERTY_PROJECTILE_NAME"},
 	"MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS":{"body":"MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS", "description":"GetModifierProjectileSpeedBonus", "prefix": "MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS"},
+	"MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS_PERCENTAGE":{"body":"MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS_PERCENTAGE", "description":"GetModifierProjectileSpeedBonusPercentage", "prefix": "MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS_PERCENTAGE"},
 	"MODIFIER_PROPERTY_PROVIDES_FOW_POSITION":{"body":"MODIFIER_PROPERTY_PROVIDES_FOW_POSITION", "description":"GetModifierProvidesFOWVision", "prefix": "MODIFIER_PROPERTY_PROVIDES_FOW_POSITION"},
+	"MODIFIER_PROPERTY_RADAR_COOLDOWN_REDUCTION":{"body":"MODIFIER_PROPERTY_RADAR_COOLDOWN_REDUCTION", "description":"GetModifierRadarCooldownReduction", "prefix": "MODIFIER_PROPERTY_RADAR_COOLDOWN_REDUCTION"},
 	"MODIFIER_PROPERTY_REFLECT_SPELL":{"body":"MODIFIER_PROPERTY_REFLECT_SPELL", "description":"GetReflectSpell", "prefix": "MODIFIER_PROPERTY_REFLECT_SPELL"},
 	"MODIFIER_PROPERTY_REINCARNATION":{"body":"MODIFIER_PROPERTY_REINCARNATION", "description":"ReincarnateTime", "prefix": "MODIFIER_PROPERTY_REINCARNATION"},
 	"MODIFIER_PROPERTY_RESPAWNTIME":{"body":"MODIFIER_PROPERTY_RESPAWNTIME", "description":"GetModifierConstantRespawnTime", "prefix": "MODIFIER_PROPERTY_RESPAWNTIME"},
@@ -2189,11 +2233,15 @@
 	"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE":{"body":"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE", "description":"GetModifierSpellAmplify_Percentage", "prefix": "MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"},
 	"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE_UNIQUE":{"body":"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE_UNIQUE", "description":"GetModifierSpellAmplify_PercentageUnique", "prefix": "MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE_UNIQUE"},
 	"MODIFIER_PROPERTY_STATS_AGILITY_BONUS":{"body":"MODIFIER_PROPERTY_STATS_AGILITY_BONUS", "description":"GetModifierBonusStats_Agility", "prefix": "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"},
+	"MODIFIER_PROPERTY_STATS_AGILITY_BONUS_PERCENTAGE":{"body":"MODIFIER_PROPERTY_STATS_AGILITY_BONUS_PERCENTAGE", "description":"GetModifierBonusStats_Agility_Percentage", "prefix": "MODIFIER_PROPERTY_STATS_AGILITY_BONUS_PERCENTAGE"},
 	"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS":{"body":"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS", "description":"GetModifierBonusStats_Intellect", "prefix": "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"},
+	"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS_PERCENTAGE":{"body":"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS_PERCENTAGE", "description":"GetModifierBonusStats_Intellect_Percentage", "prefix": "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS_PERCENTAGE"},
 	"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS":{"body":"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS", "description":"GetModifierBonusStats_Strength", "prefix": "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"},
+	"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS_PERCENTAGE":{"body":"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS_PERCENTAGE", "description":"GetModifierBonusStats_Strength_Percentage", "prefix": "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS_PERCENTAGE"},
 	"MODIFIER_PROPERTY_STATUS_RESISTANCE":{"body":"MODIFIER_PROPERTY_STATUS_RESISTANCE", "description":"GetModifierStatusResistance", "prefix": "MODIFIER_PROPERTY_STATUS_RESISTANCE"},
 	"MODIFIER_PROPERTY_STATUS_RESISTANCE_CASTER":{"body":"MODIFIER_PROPERTY_STATUS_RESISTANCE_CASTER", "description":"GetModifierStatusResistanceCaster", "prefix": "MODIFIER_PROPERTY_STATUS_RESISTANCE_CASTER"},
 	"MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING":{"body":"MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING", "description":"GetModifierStatusResistanceStacking", "prefix": "MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING"},
+	"MODIFIER_PROPERTY_STRONG_ILLUSION":{"body":"MODIFIER_PROPERTY_STRONG_ILLUSION", "description":"GetModifierStrongIllusion", "prefix": "MODIFIER_PROPERTY_STRONG_ILLUSION"},
 	"MODIFIER_PROPERTY_SUPER_ILLUSION":{"body":"MODIFIER_PROPERTY_SUPER_ILLUSION", "description":"GetModifierSuperIllusion", "prefix": "MODIFIER_PROPERTY_SUPER_ILLUSION"},
 	"MODIFIER_PROPERTY_SUPER_ILLUSION_WITH_ULTIMATE":{"body":"MODIFIER_PROPERTY_SUPER_ILLUSION_WITH_ULTIMATE", "description":"GetModifierSuperIllusionWithUltimate", "prefix": "MODIFIER_PROPERTY_SUPER_ILLUSION_WITH_ULTIMATE"},
 	"MODIFIER_PROPERTY_SUPPRESS_CLEAVE":{"body":"MODIFIER_PROPERTY_SUPPRESS_CLEAVE", "description":"GetSuppressCleave", "prefix": "MODIFIER_PROPERTY_SUPPRESS_CLEAVE"},
@@ -2231,11 +2279,13 @@
 	"MODIFIER_STATE_DOMINATED":{"body":"MODIFIER_STATE_DOMINATED", "description":"", "prefix": "MODIFIER_STATE_DOMINATED"},
 	"MODIFIER_STATE_EVADE_DISABLED":{"body":"MODIFIER_STATE_EVADE_DISABLED", "description":"", "prefix": "MODIFIER_STATE_EVADE_DISABLED"},
 	"MODIFIER_STATE_FAKE_ALLY":{"body":"MODIFIER_STATE_FAKE_ALLY", "description":"", "prefix": "MODIFIER_STATE_FAKE_ALLY"},
+	"MODIFIER_STATE_FEARED":{"body":"MODIFIER_STATE_FEARED", "description":"", "prefix": "MODIFIER_STATE_FEARED"},
 	"MODIFIER_STATE_FLYING":{"body":"MODIFIER_STATE_FLYING", "description":"", "prefix": "MODIFIER_STATE_FLYING"},
 	"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY":{"body":"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY", "description":"", "prefix": "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"},
 	"MODIFIER_STATE_FROZEN":{"body":"MODIFIER_STATE_FROZEN", "description":"", "prefix": "MODIFIER_STATE_FROZEN"},
 	"MODIFIER_STATE_HEXED":{"body":"MODIFIER_STATE_HEXED", "description":"", "prefix": "MODIFIER_STATE_HEXED"},
 	"MODIFIER_STATE_IGNORING_MOVE_AND_ATTACK_ORDERS":{"body":"MODIFIER_STATE_IGNORING_MOVE_AND_ATTACK_ORDERS", "description":"", "prefix": "MODIFIER_STATE_IGNORING_MOVE_AND_ATTACK_ORDERS"},
+	"MODIFIER_STATE_IGNORING_STOP_ORDERS":{"body":"MODIFIER_STATE_IGNORING_STOP_ORDERS", "description":"", "prefix": "MODIFIER_STATE_IGNORING_STOP_ORDERS"},
 	"MODIFIER_STATE_INVISIBLE":{"body":"MODIFIER_STATE_INVISIBLE", "description":"", "prefix": "MODIFIER_STATE_INVISIBLE"},
 	"MODIFIER_STATE_INVULNERABLE":{"body":"MODIFIER_STATE_INVULNERABLE", "description":"", "prefix": "MODIFIER_STATE_INVULNERABLE"},
 	"MODIFIER_STATE_LAST":{"body":"MODIFIER_STATE_LAST", "description":"", "prefix": "MODIFIER_STATE_LAST"},
@@ -2256,6 +2306,7 @@
 	"MODIFIER_STATE_SILENCED":{"body":"MODIFIER_STATE_SILENCED", "description":"", "prefix": "MODIFIER_STATE_SILENCED"},
 	"MODIFIER_STATE_SPECIALLY_DENIABLE":{"body":"MODIFIER_STATE_SPECIALLY_DENIABLE", "description":"", "prefix": "MODIFIER_STATE_SPECIALLY_DENIABLE"},
 	"MODIFIER_STATE_STUNNED":{"body":"MODIFIER_STATE_STUNNED", "description":"", "prefix": "MODIFIER_STATE_STUNNED"},
+	"MODIFIER_STATE_TAUNTED":{"body":"MODIFIER_STATE_TAUNTED", "description":"", "prefix": "MODIFIER_STATE_TAUNTED"},
 	"MODIFIER_STATE_TETHERED":{"body":"MODIFIER_STATE_TETHERED", "description":"", "prefix": "MODIFIER_STATE_TETHERED"},
 	"MODIFIER_STATE_TRUESIGHT_IMMUNE":{"body":"MODIFIER_STATE_TRUESIGHT_IMMUNE", "description":"", "prefix": "MODIFIER_STATE_TRUESIGHT_IMMUNE"},
 	"MODIFIER_STATE_UNSELECTABLE":{"body":"MODIFIER_STATE_UNSELECTABLE", "description":"", "prefix": "MODIFIER_STATE_UNSELECTABLE"},
@@ -2427,7 +2478,7 @@
 	},
 	"CBaseCombatCharacter_ShootPosition":
 	{
-		"body":"ShootPosition(${nHand})",
+		"body":"ShootPosition(${nHand}, ${nMuzzle})",
 		"description":"CBaseCombatCharacter_ShootPosition:\nReturns the shoot position eyes (or hand in VR).\nreturn Vector",
 		"prefix":"ShootPosition"
 	},
@@ -3583,6 +3634,12 @@
 		"description":"CDOTABaseAbility_GetToggleState:\n\nreturn bool",
 		"prefix":"GetToggleState"
 	},
+	"CDOTABaseAbility_GetUpgradeRecommended":
+	{
+		"body":"GetUpgradeRecommended()",
+		"description":"CDOTABaseAbility_GetUpgradeRecommended:\n\nreturn bool",
+		"prefix":"GetUpgradeRecommended"
+	},
 	"CDOTABaseAbility_HeroXPChange":
 	{
 		"body":"HeroXPChange(${flXP})",
@@ -3636,6 +3693,12 @@
 		"body":"IsHidden()",
 		"description":"CDOTABaseAbility_IsHidden:\n\nreturn bool",
 		"prefix":"IsHidden"
+	},
+	"CDOTABaseAbility_IsHiddenAsSecondaryAbility":
+	{
+		"body":"IsHiddenAsSecondaryAbility()",
+		"description":"CDOTABaseAbility_IsHiddenAsSecondaryAbility:\n\nreturn bool",
+		"prefix":"IsHiddenAsSecondaryAbility"
 	},
 	"CDOTABaseAbility_IsHiddenWhenStolen":
 	{
@@ -3919,6 +3982,12 @@
 		"description":"CDOTABaseAbility_SetStolen:\n\nreturn void",
 		"prefix":"SetStolen"
 	},
+	"CDOTABaseAbility_SetUpgradeRecommended":
+	{
+		"body":"SetUpgradeRecommended(${bUpgradeRecommended})",
+		"description":"CDOTABaseAbility_SetUpgradeRecommended:\n\nreturn void",
+		"prefix":"SetUpgradeRecommended"
+	},
 	"CDOTABaseAbility_ShouldUseResources":
 	{
 		"body":"ShouldUseResources()",
@@ -3966,6 +4035,12 @@
 		"body":"UseResources(${bMana}, ${bGold}, ${bCooldown})",
 		"description":"CDOTABaseAbility_UseResources:\n\nreturn void",
 		"prefix":"UseResources"
+	},
+	"CDOTABaseGameMode_AddRealTimeCombatAnalyzerQuery":
+	{
+		"body":"AddRealTimeCombatAnalyzerQuery(${hQueryTable}, ${hPlayer}, ${pszQueryName})",
+		"description":"CDOTABaseGameMode_AddRealTimeCombatAnalyzerQuery:\nBegin tracking a sequence of events using the real time combat analyzer.\nreturn int",
+		"prefix":"AddRealTimeCombatAnalyzerQuery"
 	},
 	"CDOTABaseGameMode_AreWeatherEffectsDisabled":
 	{
@@ -4207,6 +4282,30 @@
 		"description":"CDOTABaseGameMode_IsDaynightCycleDisabled:\nIs the day/night cycle disabled?\nreturn bool",
 		"prefix":"IsDaynightCycleDisabled"
 	},
+	"CDOTABaseGameMode_ListenForQueryFailed":
+	{
+		"body":"ListenForQueryFailed(${hFunction}, ${hContext})",
+		"description":"CDOTABaseGameMode_ListenForQueryFailed:\nSet function and context for real time combat analyzer query failed.\nreturn void",
+		"prefix":"ListenForQueryFailed"
+	},
+	"CDOTABaseGameMode_ListenForQueryProgressChanged":
+	{
+		"body":"ListenForQueryProgressChanged(${hFunction}, ${hContext})",
+		"description":"CDOTABaseGameMode_ListenForQueryProgressChanged:\nSet function and context for real time combat analyzer query progress changed.\nreturn void",
+		"prefix":"ListenForQueryProgressChanged"
+	},
+	"CDOTABaseGameMode_ListenForQuerySucceeded":
+	{
+		"body":"ListenForQuerySucceeded(${hFunction}, ${hContext})",
+		"description":"CDOTABaseGameMode_ListenForQuerySucceeded:\nSet function and context for real time combat analyzer query succeeded.\nreturn void",
+		"prefix":"ListenForQuerySucceeded"
+	},
+	"CDOTABaseGameMode_RemoveRealTimeCombatAnalyzerQuery":
+	{
+		"body":"RemoveRealTimeCombatAnalyzerQuery(${nQueryID})",
+		"description":"CDOTABaseGameMode_RemoveRealTimeCombatAnalyzerQuery:\nStop tracking a combat analyzer query.\nreturn void",
+		"prefix":"RemoveRealTimeCombatAnalyzerQuery"
+	},
 	"CDOTABaseGameMode_SetAbilityTuningValueFilter":
 	{
 		"body":"SetAbilityTuningValueFilter(${hFunction}, ${hContext})",
@@ -4416,6 +4515,12 @@
 		"body":"SetFountainPercentageManaRegen(${flPercentageManaRegen})",
 		"description":"CDOTABaseGameMode_SetFountainPercentageManaRegen:\nSet the percentage rate that the fountain will regen mana. (-1 for default)\nreturn void",
 		"prefix":"SetFountainPercentageManaRegen"
+	},
+	"CDOTABaseGameMode_SetFreeCourierModeEnabled":
+	{
+		"body":"SetFreeCourierModeEnabled(${bEnabled})",
+		"description":"CDOTABaseGameMode_SetFreeCourierModeEnabled:\nIf set to true, enable 7.23 free courier mode.\nreturn void",
+		"prefix":"SetFreeCourierModeEnabled"
 	},
 	"CDOTABaseGameMode_SetFriendlyBuildingMoveToEnabled":
 	{
@@ -4651,11 +4756,23 @@
 		"description":"CDOTAGameManager_GetHeroUnitNameByID:\nGet the hero unit name given the hero ID.\nreturn string",
 		"prefix":"GetHeroUnitNameByID"
 	},
-		"CDOTAGamerules_AddEventMetadataLeaderboardEntry":
+	"CDOTAGamerules_AddBotPlayerWithEntityScript":
+	{
+		"body":"AddBotPlayerWithEntityScript(${string_1}, ${string_2}, ${int_3}, ${string_4}, ${bool_5})",
+		"description":"CDOTAGamerules_AddBotPlayerWithEntityScript:\nSpawn a bot player of the passed hero name, player name, and team.\nreturn handle",
+		"prefix":"AddBotPlayerWithEntityScript"
+	},
+	"CDOTAGamerules_AddEventMetadataLeaderboardEntry":
 	{
 		"body":"AddEventMetadataLeaderboardEntry(${stringszNameSuffix}, ${intnStars}, ${intnMaxStars}, ${intnExtraData1}, ${intnExtraData2}, ${unsigned_6}, ${unsigned_7}, ${unsigned_8}, ${unsigned_9})",
 		"description":"CDOTAGamerules_AddEventMetadataLeaderboardEntry:\nEvent-only ( string szNameSuffix, int nStars, int nMaxStars, int nExtraData1, int nExtraData2 )\nreturn bool",
 		"prefix":"AddEventMetadataLeaderboardEntry"
+	},
+	"CDOTAGamerules_AddItemToWhiteList":
+	{
+		"body":"AddItemToWhiteList(${string_1})",
+		"description":"CDOTAGamerules_AddItemToWhiteList:\nAdd an item to the whitelist\nreturn void",
+		"prefix":"AddItemToWhiteList"
 	},
 	"CDOTAGamerules_AddMinimapDebugPoint":
 	{
@@ -4710,6 +4827,24 @@
 		"body":"FinishCustomGameSetup()",
 		"description":"CDOTAGamerules_FinishCustomGameSetup:\nIndicate that the custom game setup phase is complete, and advance to the game.\nreturn void",
 		"prefix":"FinishCustomGameSetup"
+	},
+	"CDOTAGamerules_ForceCreepSpawn":
+	{
+		"body":"ForceCreepSpawn()",
+		"description":"CDOTAGamerules_ForceCreepSpawn:\nSpawn the next wave of creeps.\nreturn void",
+		"prefix":"ForceCreepSpawn"
+	},
+	"CDOTAGamerules_ForceGameStart":
+	{
+		"body":"ForceGameStart()",
+		"description":"CDOTAGamerules_ForceGameStart:\nTransition game state to DOTA_GAMERULES_STATE_GAME_IN_PROGRESS\nreturn void",
+		"prefix":"ForceGameStart"
+	},
+	"CDOTAGamerules_GetAnnouncer":
+	{
+		"body":"GetAnnouncer(${int_1})",
+		"description":"CDOTAGamerules_GetAnnouncer:\nGet the announcer for a team\nreturn handle",
+		"prefix":"GetAnnouncer"
 	},
 	"CDOTAGamerules_GetCustomGameDifficulty":
 	{
@@ -4837,6 +4972,12 @@
 		"description":"CDOTAGamerules_IsInBanPhase:\nAre we in the ban phase of hero pick?\nreturn bool",
 		"prefix":"IsInBanPhase"
 	},
+	"CDOTAGamerules_IsItemInWhiteList":
+	{
+		"body":"IsItemInWhiteList(${string_1})",
+		"description":"CDOTAGamerules_IsItemInWhiteList:\nQuery an item in the whitelist\nreturn bool",
+		"prefix":"IsItemInWhiteList"
+	},
 	"CDOTAGamerules_IsNightstalkerNight":
 	{
 		"body":"IsNightstalkerNight()",
@@ -4879,11 +5020,41 @@
 		"description":"CDOTAGamerules_Playtesting_UpdateAddOnKeyValues:\nUpdates custom hero, unit and ability KeyValues in memory with the latest values from disk\nreturn void",
 		"prefix":"Playtesting_UpdateAddOnKeyValues"
 	},
+	"CDOTAGamerules_PrepareSpawners":
+	{
+		"body":"PrepareSpawners(${float_1})",
+		"description":"CDOTAGamerules_PrepareSpawners:\nPrepare Dota lane style spawners with a given interval\nreturn void",
+		"prefix":"PrepareSpawners"
+	},
+	"CDOTAGamerules_RemoveFakeClient":
+	{
+		"body":"RemoveFakeClient(${int_1})",
+		"description":"CDOTAGamerules_RemoveFakeClient:\nRemoves a fake client\nreturn void",
+		"prefix":"RemoveFakeClient"
+	},
+	"CDOTAGamerules_RemoveItemFromWhiteList":
+	{
+		"body":"RemoveItemFromWhiteList(${string_1})",
+		"description":"CDOTAGamerules_RemoveItemFromWhiteList:\nRemove an item from the whitelist\nreturn void",
+		"prefix":"RemoveItemFromWhiteList"
+	},
 	"CDOTAGamerules_ResetDefeated":
 	{
 		"body":"ResetDefeated()",
 		"description":"CDOTAGamerules_ResetDefeated:\nRestart after killing the ancient, etc.\nreturn void",
 		"prefix":"ResetDefeated"
+	},
+	"CDOTAGamerules_ResetGameTime":
+	{
+		"body":"ResetGameTime()",
+		"description":"CDOTAGamerules_ResetGameTime:\nRestart gametime from 0\nreturn void",
+		"prefix":"ResetGameTime"
+	},
+	"CDOTAGamerules_ResetToCustomGameSetup":
+	{
+		"body":"ResetToCustomGameSetup()",
+		"description":"CDOTAGamerules_ResetToCustomGameSetup:\nRestart at custom game setup.\nreturn void",
+		"prefix":"ResetToCustomGameSetup"
 	},
 	"CDOTAGamerules_ResetToHeroSelection":
 	{
@@ -5004,6 +5175,12 @@
 		"body":"SetFirstBloodActive(${bool_1})",
 		"description":"CDOTAGamerules_SetFirstBloodActive:\nSets whether First Blood has been triggered.\nreturn void",
 		"prefix":"SetFirstBloodActive"
+	},
+	"CDOTAGamerules_SetGameTimeFrozen":
+	{
+		"body":"SetGameTimeFrozen(${bool_1})",
+		"description":"CDOTAGamerules_SetGameTimeFrozen:\nFreeze the game time.\nreturn void",
+		"prefix":"SetGameTimeFrozen"
 	},
 	"CDOTAGamerules_SetGameWinner":
 	{
@@ -5149,11 +5326,35 @@
 		"description":"CDOTAGamerules_SetWeatherWindDirection:\nSet Weather Wind Direction Vector\nreturn void",
 		"prefix":"SetWeatherWindDirection"
 	},
+	"CDOTAGamerules_SetWhiteListEnabled":
+	{
+		"body":"SetWhiteListEnabled(${bool_1})",
+		"description":"CDOTAGamerules_SetWhiteListEnabled:\nItem whitelist functionality enable/disable\nreturn void",
+		"prefix":"SetWhiteListEnabled"
+	},
+	"CDOTAGamerules_SpawnAndReleaseCreeps":
+	{
+		"body":"SpawnAndReleaseCreeps()",
+		"description":"CDOTAGamerules_SpawnAndReleaseCreeps:\nSpawn and release the next creep wave from Dota lane style spawners.\nreturn void",
+		"prefix":"SpawnAndReleaseCreeps"
+	},
+	"CDOTAGamerules_SpawnNeutralCreeps":
+	{
+		"body":"SpawnNeutralCreeps()",
+		"description":"CDOTAGamerules_SpawnNeutralCreeps:\nSpawn and release the next set of neutral camps.\nreturn void",
+		"prefix":"SpawnNeutralCreeps"
+	},
 	"CDOTAGamerules_State_Get":
 	{
 		"body":"State_Get()",
 		"description":"CDOTAGamerules_State_Get:\nGet the current Gamerules state\nreturn int",
 		"prefix":"State_Get"
+	},
+	"CDOTAPlayer_CheckForCourierSpawning":
+	{
+		"body":"CheckForCourierSpawning(${hHero})",
+		"description":"CDOTAPlayer_CheckForCourierSpawning:\nAttempt to spawn the appropriate couriers for this mode.\nreturn void",
+		"prefix":"CheckForCourierSpawning"
 	},
 	"CDOTAPlayer_GetAssignedHero":
 	{
@@ -5196,6 +5397,162 @@
 		"body":"SetSelectedHero(${pszHeroName})",
 		"description":"CDOTAPlayer_SetSelectedHero:\nSets this player's hero selection.\nreturn void",
 		"prefix":"SetSelectedHero"
+	},
+	"CDOTAPlayer_SpawnCourierAtPosition":
+	{
+		"body":"SpawnCourierAtPosition(${vLocation})",
+		"description":"CDOTAPlayer_SpawnCourierAtPosition:\nSpawn a courier for this player at the given position.\nreturn handle",
+		"prefix":"SpawnCourierAtPosition"
+	},
+	"CDOTATutorial_AddBot":
+	{
+		"body":"AddBot(${string_1}, ${string_2}, ${string_3}, ${bool_4})",
+		"description":"CDOTATutorial_AddBot:\nAdd a computer controlled bot.\nreturn bool",
+		"prefix":"AddBot"
+	},
+	"CDOTATutorial_AddQuest":
+	{
+		"body":"AddQuest(${string_1}, ${int_2}, ${string_3}, ${string_4})",
+		"description":"CDOTATutorial_AddQuest:\nAdd a quest to the quest log\nreturn void",
+		"prefix":"AddQuest"
+	},
+	"CDOTATutorial_AddShopWhitelistItem":
+	{
+		"body":"AddShopWhitelistItem(${string_1})",
+		"description":"CDOTATutorial_AddShopWhitelistItem:\nAdd an item to the shop whitelist.\nreturn void",
+		"prefix":"AddShopWhitelistItem"
+	},
+	"CDOTATutorial_CompleteQuest":
+	{
+		"body":"CompleteQuest(${string_1})",
+		"description":"CDOTATutorial_CompleteQuest:\nComplete a quest,\nreturn void",
+		"prefix":"CompleteQuest"
+	},
+	"CDOTATutorial_CreateLocationTask":
+	{
+		"body":"CreateLocationTask(${Vector_1})",
+		"description":"CDOTATutorial_CreateLocationTask:\nAdd a task to move to a specific location\nreturn void",
+		"prefix":"CreateLocationTask"
+	},
+	"CDOTATutorial_EnableCreepAggroViz":
+	{
+		"body":"EnableCreepAggroViz(${bool_1})",
+		"description":"CDOTATutorial_EnableCreepAggroViz:\nAlert the player when a creep becomes agro to their hero.\nreturn void",
+		"prefix":"EnableCreepAggroViz"
+	},
+	"CDOTATutorial_EnablePlayerOffscreenTip":
+	{
+		"body":"EnablePlayerOffscreenTip(${bool_1})",
+		"description":"CDOTATutorial_EnablePlayerOffscreenTip:\nEnable the tip to alert players how to find their hero.\nreturn void",
+		"prefix":"EnablePlayerOffscreenTip"
+	},
+	"CDOTATutorial_EnableTowerAggroViz":
+	{
+		"body":"EnableTowerAggroViz(${bool_1})",
+		"description":"CDOTATutorial_EnableTowerAggroViz:\nAlert the player when a tower becomes agro to their hero.\nreturn void",
+		"prefix":"EnableTowerAggroViz"
+	},
+	"CDOTATutorial_FinishTutorial":
+	{
+		"body":"FinishTutorial()",
+		"description":"CDOTATutorial_FinishTutorial:\nEnd the tutorial.\nreturn void",
+		"prefix":"FinishTutorial"
+	},
+	"CDOTATutorial_ForceGameStart":
+	{
+		"body":"ForceGameStart()",
+		"description":"CDOTATutorial_ForceGameStart:\nForce the start of the game.\nreturn void",
+		"prefix":"ForceGameStart"
+	},
+	"CDOTATutorial_GetTimeFrozen":
+	{
+		"body":"GetTimeFrozen()",
+		"description":"CDOTATutorial_GetTimeFrozen:\nIs our time frozen?\nreturn bool",
+		"prefix":"GetTimeFrozen"
+	},
+	"CDOTATutorial_IsItemInWhiteList":
+	{
+		"body":"IsItemInWhiteList(${string_1})",
+		"description":"CDOTATutorial_IsItemInWhiteList:\nIs this item currently in the white list.\nreturn bool",
+		"prefix":"IsItemInWhiteList"
+	},
+	"CDOTATutorial_RemoveShopWhitelistItem":
+	{
+		"body":"RemoveShopWhitelistItem(${string_1})",
+		"description":"CDOTATutorial_RemoveShopWhitelistItem:\nRemove an item from the shop whitelist.\nreturn void",
+		"prefix":"RemoveShopWhitelistItem"
+	},
+	"CDOTATutorial_SelectHero":
+	{
+		"body":"SelectHero(${string_1})",
+		"description":"CDOTATutorial_SelectHero:\nSelect a hero for the local player\nreturn void",
+		"prefix":"SelectHero"
+	},
+	"CDOTATutorial_SelectPlayerTeam":
+	{
+		"body":"SelectPlayerTeam(${string_1})",
+		"description":"CDOTATutorial_SelectPlayerTeam:\nSelect the team for the local player\nreturn void",
+		"prefix":"SelectPlayerTeam"
+	},
+	"CDOTATutorial_SetItemGuide":
+	{
+		"body":"SetItemGuide(${string_1})",
+		"description":"CDOTATutorial_SetItemGuide:\nSet the current item guide.\nreturn void",
+		"prefix":"SetItemGuide"
+	},
+	"CDOTATutorial_SetOrModifyPlayerGold":
+	{
+		"body":"SetOrModifyPlayerGold(${int}, ${bool_2})",
+		"description":"CDOTATutorial_SetOrModifyPlayerGold:\nSet gold amount for the tutorial player. (int) GoldAmount, (bool) true=Set, false=Modify\nreturn void",
+		"prefix":"SetOrModifyPlayerGold"
+	},
+	"CDOTATutorial_SetQuickBuy":
+	{
+		"body":"SetQuickBuy(${string_1})",
+		"description":"CDOTATutorial_SetQuickBuy:\nSet players quick buy item.\nreturn void",
+		"prefix":"SetQuickBuy"
+	},
+	"CDOTATutorial_SetShopOpen":
+	{
+		"body":"SetShopOpen(${bool_1})",
+		"description":"CDOTATutorial_SetShopOpen:\nSet the shop open or closed.\nreturn void",
+		"prefix":"SetShopOpen"
+	},
+	"CDOTATutorial_SetTimeFrozen":
+	{
+		"body":"SetTimeFrozen(${bool_1})",
+		"description":"CDOTATutorial_SetTimeFrozen:\nSet if we should freeze time or not.\nreturn void",
+		"prefix":"SetTimeFrozen"
+	},
+	"CDOTATutorial_SetTutorialConvar":
+	{
+		"body":"SetTutorialConvar(${string_1}, ${string_2})",
+		"description":"CDOTATutorial_SetTutorialConvar:\nSet a tutorial convar\nreturn void",
+		"prefix":"SetTutorialConvar"
+	},
+	"CDOTATutorial_SetTutorialUI":
+	{
+		"body":"SetTutorialUI(${int_1})",
+		"description":"CDOTATutorial_SetTutorialUI:\nSet the UI to use a reduced version to focus attention to specific elements.\nreturn void",
+		"prefix":"SetTutorialUI"
+	},
+	"CDOTATutorial_SetWhiteListEnabled":
+	{
+		"body":"SetWhiteListEnabled(${bool_1})",
+		"description":"CDOTATutorial_SetWhiteListEnabled:\nSet if we should whitelist shop items.\nreturn void",
+		"prefix":"SetWhiteListEnabled"
+	},
+	"CDOTATutorial_StartTutorialMode":
+	{
+		"body":"StartTutorialMode()",
+		"description":"CDOTATutorial_StartTutorialMode:\nInitialize Tutorial Mode\nreturn void",
+		"prefix":"StartTutorialMode"
+	},
+	"CDOTATutorial_UpgradePlayerAbility":
+	{
+		"body":"UpgradePlayerAbility(${string_1})",
+		"description":"CDOTATutorial_UpgradePlayerAbility:\nUpgrade a specific ability for the local hero\nreturn void",
+		"prefix":"UpgradePlayerAbility"
 	},
 	"CDOTAVoteSystem_StartVote":
 	{
@@ -6187,6 +6544,12 @@
 		"description":"CDOTA_BaseNPC_GetMustReachEachGoalEntity:\nSet whether this NPC is required to reach each goal entity, rather than being allowed to unkink their path.\nreturn bool",
 		"prefix":"GetMustReachEachGoalEntity"
 	},
+	"CDOTA_BaseNPC_GetNeutralSpawnerName":
+	{
+		"body":"GetNeutralSpawnerName()",
+		"description":"CDOTA_BaseNPC_GetNeutralSpawnerName:\nGet the name of this camp's neutral spawner.\nreturn string",
+		"prefix":"GetNeutralSpawnerName"
+	},
 	"CDOTA_BaseNPC_GetNeverMoveToClearSpace":
 	{
 		"body":"GetNeverMoveToClearSpace()",
@@ -6498,12 +6861,6 @@
 		"body":"IsCreep()",
 		"description":"CDOTA_BaseNPC_IsCreep:\nIs this unit a creep?\nreturn bool",
 		"prefix":"IsCreep"
-	},
-	"CDOTA_BaseNPC_IsDeniable":
-	{
-		"body":"IsDeniable()",
-		"description":"CDOTA_BaseNPC_IsDeniable:\n\nreturn bool",
-		"prefix":"IsDeniable"
 	},
 	"CDOTA_BaseNPC_IsDisarmed":
 	{
@@ -6979,6 +7336,12 @@
 		"description":"CDOTA_BaseNPC_Script_GetAttackRange:\nGets this unit's attack range after all modifiers.\nreturn float",
 		"prefix":"Script_GetAttackRange"
 	},
+	"CDOTA_BaseNPC_Script_IsDeniable":
+	{
+		"body":"Script_IsDeniable()",
+		"description":"CDOTA_BaseNPC_Script_IsDeniable:\n\nreturn bool",
+		"prefix":"Script_IsDeniable"
+	},
 	"CDOTA_BaseNPC_SellItem":
 	{
 		"body":"SellItem(${hItem})",
@@ -7272,6 +7635,12 @@
 		"body":"ShouldIdleAcquire()",
 		"description":"CDOTA_BaseNPC_ShouldIdleAcquire:\n\nreturn bool",
 		"prefix":"ShouldIdleAcquire"
+	},
+	"CDOTA_BaseNPC_SpeakConcept":
+	{
+		"body":"SpeakConcept(${hCriteriaTable})",
+		"description":"CDOTA_BaseNPC_SpeakConcept:\nSpeak a response system concept with the TLK_DOTA_CUSTOM concept.\nreturn void",
+		"prefix":"SpeakConcept"
 	},
 	"CDOTA_BaseNPC_SpendMana":
 	{
@@ -8034,12 +8403,6 @@
 		"body":"SpendGold(${iCost}, ${iReason})",
 		"description":"CDOTA_BaseNPC_Hero_SpendGold:\nArgs: int nGold, int nReason\nreturn void",
 		"prefix":"SpendGold"
-	},
-	"CDOTA_BaseNPC_Hero_UnitCanRespawn":
-	{
-		"body":"UnitCanRespawn()",
-		"description":"CDOTA_BaseNPC_Hero_UnitCanRespawn:\n\nreturn bool",
-		"prefix":"UnitCanRespawn"
 	},
 	"CDOTA_BaseNPC_Hero_UpgradeAbility":
 	{
@@ -9807,7 +10170,7 @@
 	},
 	"CDOTA_PlayerResource_IsHeroSelected":
 	{
-		"body":"IsHeroSelected(${pHeroname})",
+		"body":"IsHeroSelected(${pHeroname}, ${bIgnoreUnrevealedPick})",
 		"description":"CDOTA_PlayerResource_IsHeroSelected:\n\nreturn bool",
 		"prefix":"IsHeroSelected"
 	},
@@ -9975,7 +10338,7 @@
 	},
 	"CDOTA_PlayerResource_WhoSelectedHero":
 	{
-		"body":"WhoSelectedHero(${pHeroFilename})",
+		"body":"WhoSelectedHero(${pHeroFilename}, ${bIgnoreUnrevealedPick})",
 		"description":"CDOTA_PlayerResource_WhoSelectedHero:\n\nreturn int",
 		"prefix":"WhoSelectedHero"
 	},
@@ -10002,12 +10365,6 @@
 		"body":"SetEnabled(${bEnabled}, ${bForce})",
 		"description":"CDOTA_SimpleObstruction_SetEnabled:\nEnable or disable the obstruction\nreturn void",
 		"prefix":"SetEnabled"
-	},
-	"CDOTA_Unit_Courier_UpgradeToFlyingCourier":
-	{
-		"body":"UpgradeToFlyingCourier()",
-		"description":"CDOTA_Unit_Courier_UpgradeToFlyingCourier:\nUpgrade to a flying courier\nreturn bool",
-		"prefix":"UpgradeToFlyingCourier"
 	},
 	"CDOTA_Unit_Nian_GetHorn":
 	{
