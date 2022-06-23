@@ -3,6 +3,8 @@
 ## DEPRECATED!!
 this project is deprecated and no longer update, since I have moved to typescript+react dota2 custom game development
 
+please check it out in [x-template](https://github.com/XavierCHN/x-template)
+
 ## Changelog
     v0.1.9 Add support of lua modifiers, update lua snippets to latest version.
     v0.1.8 Update lua snippets to latest version.
